@@ -1,15 +1,15 @@
 ----
-|------(M)------|	Temperature					
-|				|	 |	Luminosite				
-|				|	 |	|	Niveau				
-|				|	 |	|	|					
-|				|	 |	|	|					
-|				|---|-----------|---Bluetooth	
-|				|	|	PIC		|				
-|				|	|-----------|---Led			
-|				|		|						
-				_		|						
-				-		|--Humidite				
+|------(M)------|    Temperature
+|               |    |  Luminosite
+|               |    |  |    Niveau                
+|               |    |  |    |                    
+|               |    |  |    |                    
+|               |----|-----------|---Bluetooth    
+|               |    |    PIC    |                
+|               |    |-----------|---Led            
+|               |        |                        
+                _        |                        
+                -        |--Humidite                
 ----
 
 
