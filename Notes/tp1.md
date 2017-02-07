@@ -21,3 +21,4 @@ Show only Designator and Comment;
 Comment : Valeur (Ohm, R, P, I);
 
 Il vaut mieux jouer avec, une version d'essais du logiciel est dispo pour windows. :)
+lalala~
