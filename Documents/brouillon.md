@@ -42,6 +42,7 @@
 ===
 
 ###Quelques infos en vrac :
+
 	* vous devez utiliser un microcontrôleur de la gamme PIC32 de chez Microchip, pas d'exception
 	* les seuls fournisseurs que l'école peut payer sont Farnell et Olimex, pour tous les autres c'est à vos frais
 	* l'école, dans la mesure du raisonnable, prend en charge vos PCB et vos composants (POC et prototype) mais pas les "à côtés" (Raspberry Pi, carte SD, ...) ni les consommables (batteries / piles notamment)
