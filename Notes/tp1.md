@@ -40,5 +40,7 @@ Le logiciel : [Altium Designer](http://www.altium.com/)
   * comment : Valeur (Ohm, R, P, I);
   * decocher l'affichage VALUE'
 
+* OUTIL ANNOTATION
+  * annotation quietly.
 Il vaut mieux jouer avec, une version d'essais du logiciel est dispo pour windows. :)
 lalala~
