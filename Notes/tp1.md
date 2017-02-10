@@ -39,6 +39,9 @@ Le logiciel : [Altium Designer](http://www.altium.com/)
 * Show only Designator and Comment;
   * comment : Valeur (Ohm, R, P, I);
   * decocher l'affichage VALUE'
+  
+* ScH INQUISITOR
+  * Permet de tout modifier d'un coup
 
 * OUTIL ANNOTATION
   * annotation quietly.
