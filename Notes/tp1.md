@@ -24,7 +24,7 @@ Le logiciel : [Altium Designer](http://www.altium.com/)
       * navigation à gauche.
   * add New library;
     * create components
-      * place (sortie, forme, etc..)
+      * place (sortie, forme, etc..) il y a tout dedans net label.. etc...
       * [solid, transparent.]
 
 > il est possible de "placer" le composant fraichement crée en cliquant sur 'place'.
