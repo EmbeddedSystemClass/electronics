@@ -9,6 +9,7 @@ Le logiciel : [Altium Designer](http://www.altium.com/)
 * y -> flip vertically
 * space -> flip 90degres
 * CTRL-SHIFT -> move component with wire;
+* CTRL-C/V -> copier/coller
 
 ####Procedure de base:
 ====
@@ -21,6 +22,12 @@ Le logiciel : [Altium Designer](http://www.altium.com/)
       * navigation à gauche.
   * add New library;
     * create components
+      * place (sortie, forme, etc..)
+      * [solid, transparent.]
+    > il est possible de "placer" le composant fraichement crée en cliquant sur 'place'.
+    
+* faire des powerports
+  * changer de style.. (GnD, input, etc...)
 
 * Faire des liaisons (net)
   * place -> wire -> click & click.
