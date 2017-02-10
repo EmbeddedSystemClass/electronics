@@ -38,7 +38,9 @@
 * des schémas d'exemple de "tripaille" pour les mécanismes que vous ne savez pas déjà faire (circuits typiques, cf mon cours), je pense notamment à tous ceux qui ont de l'analogique (audio/touch panel/...), le conditionnement du signal.
 
 	> Le but est de dissiper les incertitudes, vous devez me montrer que, avec les choix techniques que vous avez fait, vous pourrez réaliser ce que vous avez prévu de faire, que vous savez comment vous allez le faire. Tout doit être clair dans votre esprit.
+	
 ===
+
 ###Quelques infos en vrac :
 	* vous devez utiliser un microcontrôleur de la gamme PIC32 de chez Microchip, pas d'exception
 	* les seuls fournisseurs que l'école peut payer sont Farnell et Olimex, pour tous les autres c'est à vos frais
