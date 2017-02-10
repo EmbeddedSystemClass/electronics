@@ -8,12 +8,13 @@
 |	------		|	----	|	---------	|	----	|	---		|
 |	C	|	Temperature		|	**DS18b20**		|	[Farnell](http://fr.farnell.com/maxim-integrated-products/ds18b20-par/sensor-temperature-nv-alarm-3to92/dp/2085184)| [Datasheet](http://www.farnell.com/datasheets/1537425.pdf?_ga=1.110999426.645639590.1485889958)	|
 |	Lum	|	Luminosite		|	**VT900(90n2)**	|	[Farnell](http://fr.farnell.com/excelitas-tech/vt90n2/photo-resistance-serie-vt900/dp/1652637)	|	[Datasheet](http://www.farnell.com/datasheets/612931.pdf?_ga=1.113808128.645639590.1485889958) |
-|	Hum	|	Humidite		|	|	|	|
+|	Hum	|	Humidite		|	|ext	|	|
 |	Nv	|	Niveau d'eau	| (flotteur)	|	|	|	|
 |	|	Ecran	|	|	|	|	|
 |	|	Led		|	|	|	|	|
 |	|	Panneau Solaire		|	|	|	|	|
 |	|	Bluetooth	|	|	|	|	|
+| | Pompe | | | ext | |
 
 Rechercher *Soil moisture Sensor*
 
