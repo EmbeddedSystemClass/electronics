@@ -48,4 +48,4 @@
 * les seuls fournisseurs que l'école peut payer sont Farnell et Olimex, pour tous les autres c'est à vos frais
 	
 * l'école, dans la mesure du raisonnable, prend en charge vos PCB et vos composants (POC et prototype) mais pas les "à côtés" (Raspberry Pi, carte SD, ...) ni les consommables (batteries / piles notamment)
-	*pour approfondir les notions d'électricité et de semiconducteurs de base, vous pouvez lire un post que j'ai fait l'année dernière, il y a pas mal de liens bien faits, lisez le, ça vous sera utile: (lien)[https://forum.intra.42.fr/topics/4568/messages/last]
+	*pour approfondir les notions d'électricité et de semiconducteurs de base, vous pouvez lire un post que j'ai fait l'année dernière, il y a pas mal de liens bien faits, lisez le, ça vous sera utile: [https://forum.intra.42.fr/topics/4568/messages/last]
