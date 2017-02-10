@@ -11,6 +11,8 @@ Le logiciel : [Altium Designer](http://www.altium.com/)
 * CTRL-SHIFT -> move component with wire;
 * CTRL-C/V -> copier/coller
 
+[all shortcuts](http://www.altium.com/files/altiumdesigner/s08/learningguides/gu0104%20shortcut%20keys.pdf)
+
 ####Procedure de base:
 ====
 
@@ -24,6 +26,7 @@ Le logiciel : [Altium Designer](http://www.altium.com/)
     * create components
       * place (sortie, forme, etc..)
       * [solid, transparent.]
+
 > il est possible de "placer" le composant fraichement crée en cliquant sur 'place'.
     
 * faire des powerports
