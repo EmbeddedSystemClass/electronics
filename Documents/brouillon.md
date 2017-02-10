@@ -20,7 +20,9 @@
 
 * les calculs expliquant vos choix techniques de composants, exemples non exhaustifs :
 	> un évenement contient la date (8 octets) + l'id du user (2 octets) + un texte de 32 caractères max (32 octets) donc, pour en stocker 1000 j'ai besoin de 42ko (336kbits) de flash, nous avons donc choisi un flash 512kbits (ref fabricant, ref farnell)
+	
 	> mon système va consommer 200mA @ 3.3V, pour avoir 4h d'autonomie j'aurai donc besoin d'une batterie de 800mAh minimum, j'ai donc choisi cette batterie 3.6V, 1Ah (ref fabricant, ref farnell) et j'utiliserai un régulateur de tension (ref fabricant, ref farnell) pour faire 3.6V -> 3.3V
+	
 	> pour rafraichir mon display j'ai besoin d'envoyer 100 octets de data, à 30Hz il faut donc que ma liaison fasse au moins 3ko/s soit 24kbit/s, l'interface prévue (xxxxx) est donc correctement dimensionnée
 
 * une description des protocoles que vous aller utiliser, comment vous allez les utiliser, et en quoi vous êtes sûrs que ca couvre votre besoin :
