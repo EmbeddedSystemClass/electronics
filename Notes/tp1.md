@@ -24,7 +24,7 @@ Le logiciel : [Altium Designer](http://www.altium.com/)
     * create components
       * place (sortie, forme, etc..)
       * [solid, transparent.]
-    > il est possible de "placer" le composant fraichement crée en cliquant sur 'place'.
+> il est possible de "placer" le composant fraichement crée en cliquant sur 'place'.
     
 * faire des powerports
   * changer de style.. (GnD, input, etc...)
