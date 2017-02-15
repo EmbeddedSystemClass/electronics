@@ -1,0 +1,6 @@
+Change Component Parameter Description in R1 Old=Square Trimming Potentiometer New=Potentiometer
+Change Value of Parameter ref.fournisseur in Part R1 Old=Farnell New=
+Change Component Parameter Footprint in R1 Old=POT4MM-2 New=PDB181-K415K-102A2
+Change Value of Parameter ref.fournisseur in Part R1 Old= New=1823540
+Change Value of Parameter Fournisseur in Part R1 Old=Fabricant New=Fournisseur
+Change Value of Parameter RefFournisseur in Part R1 Old=ref.fournisseur New=RefFournisseur

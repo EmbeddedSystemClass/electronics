@@ -1,0 +1,9 @@
+Change Value of Parameter ref.fournisseur in Part R2 Old=Farnell New=
+Change Component Parameter Footprint in D1 Old=LED-0 New=LED 0805
+Change Value of Parameter ref.fournisseur in Part R2 Old= New=2099239
+Change Value of Parameter ref.fournisseur in Part R2 Old=Farnell New=
+Change Component Parameter Footprint in R2 Old=AXIAL-0.3 New=RESC1608N
+Change Value of Parameter Fournisseur in Part R2 Old=Fabricant New=Fournisseur
+Change Value of Parameter RefFournisseur in Part R2 Old=ref.fournisseur New=RefFournisseur
+Change Value of Parameter Fournisseur in Part R2 Old=Fabricant New=Fournisseur
+Change Value of Parameter RefFournisseur in Part R2 Old=ref.fournisseur New=RefFournisseur
