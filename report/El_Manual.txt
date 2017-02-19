@@ -13,90 +13,89 @@ Manuel d'utilisation du pot pour plante 'intelligent':
 
 PRECAUTIONS DE SECURITE
 
-	*En cas de chute ou de renversement du pot (cause: enfant, chat et autres creatures malefiques),
-	l'eau du reservoire peut se deverser et endommager vos apareils electriques proches.
-	Placer le pot eloigne de toute alimentation electrique et sur une base stable.
+	*En cas de chute ou de renversement du pot (cause: enfant, chat et autres créatures maléfiques),
+	l'eau du réservoir peut se déverser et endommager vos appareils électriques proches.
+	Placer le pot loin de toute alimentation électrique et sur une base stable.
 
-	*Verifier la bonne etancheite du reservoir , notament apres un choc.
+	*Vérifier la bonne étancheité du réservoir , notamment après un choc.
 
-	*L'arrosage automatique se fait via un tuyeau allant de la pompe a la base de la plante.
-	Si ce dernier se retrouve obstrue ou coude, il existe un risque de
+	*L'arrosage automatique se fait via un tuyau allant de la pompe à la base de la plante.
+	Si ce dernier se retrouve obstrué ou coudé, il existe un risque de
 	surchauffe et d'endommagement de la pompe.
-	Verifier le bon ecoullement a l'interrieur du tuyeau apres sa mise en place.
+	Vérifier le bon écoulement à l'intérieur du tuyau après sa mise en place.
 
 DESCRIPTION DE L'APPAREIL
 
 	/*SCHEMA*/
 
-	1 - Indiquateur de niveau
-	2 - Afficheur LCD
-	3 - Selecteur des fonctions
-	4 - Alimentation du reservoir d'eau
+	1 - Indicateur de niveau
+	2 - Affichage LCD
+	3 - Sélecteur des fonctions
+	4 - Alimentation du réservoir d'eau
 
 	-INDICATEUR DE NIVEAU (BARGRAPH DE 10 LEDS)
-	Il reflette en temps reel, a une precision de (10 | 20, en fonction du nombre d'electrodes) pourcents,
-	le niveau d'eau restant dans le reservoir.
+	Il reflète en temps réel, avec une précision de (10 | 20, en fonction du nombre d'électrodes) pour cent,
+	le niveau d'eau restant dans le réservoir.
 
 	-ECRAN LCD
-	Cet ecran affiche en permanence les valeurs numeriques des capteurs de
-	temperature, de luminosite et d'humidite du sol.
-	Il permet la selection du type de plante a l
-	aide des bouttons de commande.
-	Il affiche une description des alertes eventuelles.
+	Cet ecran affiche en permanence les valeurs numériques des capteurs de
+	température, de luminosité et d'humidité du sol.
+	Il permet la sélection du type de plante à l'aide des boutons de commande.
+	Il affiche une description des alertes éventuelles.
 
-PREMIERE UTILISTION
+PREMIERE UTILISATION
 
-	-REMPOTAGE:
-	*Remplir le pot de terre jusqu'a 1 a 2 centimetres de sa hauteur
-	et planter la plante ou semer la graines choisie.
-	Cette etape doit se faire avec l'appareil hors tension.
-	Prendre soin de ne pas endommager les electrode de mesure d'humidite depassant a l'interieur du pot.
+	-REMPOTAGE :
+	*Remplir le pot de terre jusqu'à 1 ou 2 centimètres du bord supérieur
+	et installer la plante ou semer la graine choisie.
+	Cette étape doit se faire avec l'appareil hors tension.
+	Prendre soin de ne pas endommager les électrodes de mesure d'humidité dépassant à l'intérieur du pot.
 
-	-MISE SOUS TENSION:
-	L'appareil necessite (8 piles AA(LR6) de 1.5V | 10 piles rechargeables AA 1.2V). (si la pompe demande 12V?).
-	1. Retirer le capot situe (ou?) et inserer les piles en verifiant la polarite.
-	2. Mettre le boutton (si boutton?) d'alimentation situe (ou?) sur "marche",
-		l'ecran et l'indicateur de niveau doivent s'allumer.
+	-MISE SOUS TENSION :
+	L'appareil nécessite (8 piles AA(LR6) de 1.5V | 10 piles rechargeables AA 1.2V). (si la pompe demande 12V?).
+	1. Retirer le capot situé (où?) et insérer les piles en vérifiant la polarité.
+	2. Mettre le bouton (si bouton?) d'alimentation situé (où?) sur "marche",
+		l'écran et l'indicateur de niveau doivent s'allumer.
 
-	-SELECTION DU TYPE DE PLANTE
-	1. (Definire les bouttons et les menus)
+	-SELECTION DU TYPE DE PLANTE :
+	1. (Définir les boutons et les menus)
 
 
-UTILISATION COURRANTE
+UTILISATION COURANTE
 
-	-REMPLISSAGE DU RESERVOIR D'EAU.
-	Toujours utiliser un recipient pour replir le pot, ne pas deplacer celui-ci.
+	-REMPLISSAGE DU RESERVOIR D'EAU :
+	Toujours utiliser un récipient pour remplir le pot, ne pas déplacer ce dernier.
 	Utiliser toujours de l'eau du robinet.
-	1. Ouvrir la trappe situee (ou?).
-	2. Verser l'eau jusqu'a ce que l'indicateur de niveau soit au maximum.
-	3. Refermer la trappe en s'assurant que celle-ci soit bien clipsee.
+	1. Ouvrir la trappe située (où?).
+	2. Verser l'eau jusqu'à ce que l'indicateur de niveau soit au maximum.
+	3. Refermer la trappe en s'assurant qu'elle soit bien clipsée.
 
-	-ALERTES
-	Lorsque l'appareil necessite une intervention de votre part,
-	(l'ecran &| les leds) clignottent et le defaut correspondant est precise ~textuellement sur l'ecran LCD.
-	Si plusieurs problemes sont presents simultanement, seul le plus grave est signale.
-	Il faut alors remedier a chaque erreur indiquee jusqu'a extinction de toutes les alertes lumineuses.
+	-ALERTES :
+	Lorsque la plante nécessite une intervention de votre part, les voyants
+	(l'ecran &| les leds) clignotent et le défaut correspondant est précisé textuellement sur l'écran LCD.
+	Si plusieurs problèmes surviennent simultanément, seul le plus urgent est signalé.
+	Il faut alors remédier à chaque erreur indiquée jusqu'à extinction de toutes les alertes lumineuses.
 
-	Gravite		Description							Couleur
-	1			Alimentation electrique faible		(VIOLET)
-	2			Reservoir d'eau faible.				(VERT)
-	3			Risque de gel.						(BLEU)
-	4			Temperature excessive.				(ROUGE)
-	5			Surexposition lumineuse				(JAUNE).
-	6			Sousexposition lumineuse.			(JAUNE)
+	Priorité	Description				Couleur
+	1		Alimentation électrique faible		(VIOLET)
+	2		Réserve d'eau insuffisante		(VERT)
+	3		Risque de gel				(BLEU)
+	4		Température excessive			(ROUGE)
+	5		Surexposition lumineuse			(JAUNE).
+	6		Sous-exposition lumineuse		(JAUNE)
 
 ENTRETIEN
 	-RESERVOIR
-	1. Couper l'alimentation electrique.
-	2. Separer le pot contenant la terre du reservoir.
-	3. Retirer les depots de calcaire et d'impurtees des paroies a l'aide d'une eponge non abrasive.
-	3. En cas de depots ou de traces de corrosion sur les electrodes metalliques,
-	les decaper au papier emeri fin (>P300), les rincer en frotant a la main.
+	1. Couper l'alimentation électrique.
+	2. Séparer le pot contenant la terre du réservoir.
+	3. Retirer les dépôts de calcaire et d'impuretés des paroies à l'aide d'une éponge non abrasive.
+	3. En cas de dépôts ou de traces de corrosion sur les électrodes métalliques,
+	les décaper au papier émeri fin (>P300) puis les rincer en frottant à la main.
 
 	-INUTILISATION PROLONGEE
-	En cas de non usage prolongee de la partie electroniques seulement,
-	1. retirer les piles.
-	En cas de non usage prolonge de l'ensemble du pot.
-	1. Depoter le plant et retirer la terre en prenant soin de ne pas endommager les electrodes.
+	En cas de non utilisation prolongée de la partie électronique seulement,
+	 retirer les piles.
+	En cas de non utilisation prolongée de l'ensemble du pot,
+	1. Dépoter le plant et retirer la terre en prenant soin de ne pas endommager les électrodes.
 	2. Retirer les piles.
-	3. Vider le reservoir entierement et le secher parfaitement.
+	3. Vider le réservoir entièrement et le sécher parfaitement.
