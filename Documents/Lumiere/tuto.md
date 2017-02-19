@@ -3,7 +3,7 @@
 #####A base d'arduino
 [luxmeter with calc](https://www.allaboutcircuits.com/projects/design-a-luxmeter-using-a-light-dependent-resistor/)
 
-Tutoriel fait et ca marche mais la precision laisse a desirer et est dependante de la ldr. <hr/> L'avantage c'est qu'elle n'utilise qu'un pin analogique.
+Tutoriel fait et ca marche mais la precision laisse a desirer et est dependante de la ldr. <br/> L'avantage c'est qu'elle n'utilise qu'un pin analogique.
 
 [Simple reader analogique](https://www.carnetdumaker.net/articles/mesurer-la-luminosite-ambiante-avec-une-photoresistance-et-une-carte-arduino-genuino/)
 
