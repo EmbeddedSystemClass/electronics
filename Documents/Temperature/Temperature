@@ -1,0 +1,52 @@
+		TEMPERATURE
+
+* Block diagramme
+
+	cf: DS18B20_Bloc_Diagram.png
+
+* Specificite du produit
+	-Capteur de temperature :
+		limites et precision: de -55°c a 100°c +-2°c
+			 de -10°c a 85°c +- 0.5°c
+	-Fonction "Parasite Power"
+	-Fonction alarme reglable
+	-Sortie Digitale
+
+* Les calculs expliquant le choix des composants
+	-Memoire:
+		1 meusure de precision 0.5 = 9 bits
+		lissage sur 3 meusures(espace de 5 minutes) donc 9bits*3 sur la peeprom du capteur tmp;
+		Suivit sur PIC = moyenne(3 meusures) sur 24h toutes les 1/2h
+		24*2 suivit sur PIC (sur 1 int) = 48 valeurs *3octets*8bits = 1152 bits sur 24h
+
+	-Consomation:
+		Voltage = 0 (se sert de la tension sur le wire)
+		Ampere: a l'Ecriture : 5uA
+			a la Lecture : 1.5mA
+
+	-On a choisit ce composant (DS18B20-PAR) pour sa precision (0.5°c) et son champ d'action.
+
+* Listing
+	-Ref.Fabricant : DS18B20-PAR
+	- Fabricant : MAXIM INTEGRATED PRODUCTS
+	- Ref.Farnell : 2085184
+	- Datasheet : https://www.farnell.com/datasheets/1537425.pdf
+	- footprint : TO-92
+	- Prix : 3.50eu
+
+* compatibilite
+	Tension sur DQ : 3v min 5.5Vmax 4mA max
+	Tension du GND : -0.5/6v
+
+* Exemple de shema d'implementation
+	Implementation simple
+	cf: Temperature_Block_Diagrame.pdf
+
+	implementation complete
+	cf: Hardwareconfig_Temp.png
+
+* Conditionement du signale
+	
+	Communication avec le PIC = bit par bit
+	Sortie digitale en binaire ou hexadecimal
+	sur 9 bit temp de convertion = 94ms
