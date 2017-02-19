@@ -1,0 +1,102 @@
+/*
+**	Entre parentheses sont les specifications techniques a preciser.
+**	Revoir la codificaton des alertes.
+**	Revoir le dessin du reservoir pour entretien.
+**	A voir avec le Boss:
+**		-alimentation piles (rechargeables) | secteur
+**		-utilisation du 74HC595 (registre a decalage) et du MPC23017 (extension de pins)
+**		-
+*/
+
+Manuel d'utilisation du pot pour plante 'intelligent':
+	l'Immortal Over 9000 Electro-plant of Eternity, The Defeated Death.
+
+PRECAUTIONS DE SECURITE
+
+	*En cas de chute ou de renversement du pot (cause: enfant, chat et autres creatures malefiques),
+	l'eau du reservoire peut se deverser et endommager vos apareils electriques proches.
+	Placer le pot eloigne de toute alimentation electrique et sur une base stable.
+
+	*Verifier la bonne etancheite du reservoir , notament apres un choc.
+
+	*L'arrosage automatique se fait via un tuyeau allant de la pompe a la base de la plante.
+	Si ce dernier se retrouve obstrue ou coude, il existe un risque de
+	surchauffe et d'endommagement de la pompe.
+	Verifier le bon ecoullement a l'interrieur du tuyeau apres sa mise en place.
+
+DESCRIPTION DE L'APPAREIL
+
+	/*SCHEMA*/
+
+	1 - Indiquateur de niveau
+	2 - Afficheur LCD
+	3 - Selecteur des fonctions
+	4 - Alimentation du reservoir d'eau
+
+	-INDICATEUR DE NIVEAU (BARGRAPH DE 10 LEDS)
+	Il reflette en temps reel, a une precision de (10 | 20, en fonction du nombre d'electrodes) pourcents,
+	le niveau d'eau restant dans le reservoir.
+
+	-ECRAN LCD
+	Cet ecran affiche en permanence les valeurs numeriques des capteurs de
+	temperature, de luminosite et d'humidite du sol.
+	Il permet la selection du type de plante a l
+	aide des bouttons de commande.
+	Il affiche une description des alertes eventuelles.
+
+PREMIERE UTILISTION
+
+	-REMPOTAGE:
+	*Remplir le pot de terre jusqu'a 1 a 2 centimetres de sa hauteur
+	et planter la plante ou semer la graines choisie.
+	Cette etape doit se faire avec l'appareil hors tension.
+	Prendre soin de ne pas endommager les electrode de mesure d'humidite depassant a l'interieur du pot.
+
+	-MISE SOUS TENSION:
+	L'appareil necessite (8 piles AA(LR6) de 1.5V | 10 piles rechargeables AA 1.2V). (si la pompe demande 12V?).
+	1. Retirer le capot situe (ou?) et inserer les piles en verifiant la polarite.
+	2. Mettre le boutton (si boutton?) d'alimentation situe (ou?) sur "marche",
+		l'ecran et l'indicateur de niveau doivent s'allumer.
+
+	-SELECTION DU TYPE DE PLANTE
+	1. (Definire les bouttons et les menus)
+
+
+UTILISATION COURRANTE
+
+	-REMPLISSAGE DU RESERVOIR D'EAU.
+	Toujours utiliser un recipient pour replir le pot, ne pas deplacer celui-ci.
+	Utiliser toujours de l'eau du robinet.
+	1. Ouvrir la trappe situee (ou?).
+	2. Verser l'eau jusqu'a ce que l'indicateur de niveau soit au maximum.
+	3. Refermer la trappe en s'assurant que celle-ci soit bien clipsee.
+
+	-ALERTES
+	Lorsque l'appareil necessite une intervention de votre part,
+	(l'ecran &| les leds) clignottent et le defaut correspondant est precise ~textuellement sur l'ecran LCD.
+	Si plusieurs problemes sont presents simultanement, seul le plus grave est signale.
+	Il faut alors remedier a chaque erreur indiquee jusqu'a extinction de toutes les alertes lumineuses.
+
+	Gravite		Description							Couleur
+	1			Alimentation electrique faible		(VIOLET)
+	2			Reservoir d'eau faible.				(VERT)
+	3			Risque de gel.						(BLEU)
+	4			Temperature excessive.				(ROUGE)
+	5			Surexposition lumineuse				(JAUNE).
+	6			Sousexposition lumineuse.			(JAUNE)
+
+ENTRETIEN
+	-RESERVOIR
+	1. Couper l'alimentation electrique.
+	2. Separer le pot contenant la terre du reservoir.
+	3. Retirer les depots de calcaire et d'impurtees des paroies a l'aide d'une eponge non abrasive.
+	3. En cas de depots ou de traces de corrosion sur les electrodes metalliques,
+	les decaper au papier emeri fin (>P300), les rincer en frotant a la main.
+
+	-INUTILISATION PROLONGEE
+	En cas de non usage prolongee de la partie electroniques seulement,
+	1. retirer les piles.
+	En cas de non usage prolonge de l'ensemble du pot.
+	1. Depoter le plant et retirer la terre en prenant soin de ne pas endommager les electrodes.
+	2. Retirer les piles.
+	3. Vider le reservoir entierement et le secher parfaitement.
