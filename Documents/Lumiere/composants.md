@@ -46,3 +46,5 @@ Pseudocode:
   <br/>B = 0;
   <br/>if F == 7 ( limite 7 jours )
   <br/>return (F > E);
+  
+  >Ajouter un MOSFET 
