@@ -38,6 +38,11 @@ Une ldr qu'il faudrat etaloner a l'aide d'un potard en fonction de la precision 
 
 Pseudocode:
   Toutes les 1/2 heures
-  Si (A > D) B++;
-  fin de journee
-  ...
+  <br/>if (A > D) B++;
+  <br/>G++
+  <br/>if G == 48 ( limite 24h )
+  <br/>if (B > D) C++;
+  <br/>F++;
+  <br/>B = 0;
+  <br/>if F == 7 ( limite 7 jours )
+  <br/>return (F > E);
