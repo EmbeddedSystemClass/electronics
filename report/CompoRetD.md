@@ -24,6 +24,8 @@ http://www.vegetronix.com/Products/VH400/
 
 https://imko.de/en/products/soilmoisture/soil-moisture-sensors/trimepico32
 
+http://zerocharactersleft.blogspot.fr/2011/11/pcb-as-capacitive-soil-moisture-sensor.html?m=1
+
 Super cher !!!
 
 Petits sites sur comment tout faire tout seul
@@ -31,3 +33,5 @@ Petits sites sur comment tout faire tout seul
 http://gardenbot.org/howTo/
 
 https://luckyresistor.me/2017/02/08/how-to-design-a-cheap-plant-watering-sensor-part-1/
+
+https://www.dfrobot.com/wiki/index.php/Capacitive_Soil_Moisture_Sensor_SKU:SEN0193#Connection_Diagram
