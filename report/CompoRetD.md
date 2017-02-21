@@ -14,6 +14,7 @@
 |	|	Led		|	|	|	|	|
 |	|	Bargraph		| **DC-10EGWA**	|	[Farnell](http://fr.farnell.com/kingbright/dc-10egwa/bargraphe-reseau-10-segts-rouge/dp/2290326?exaMfpn=true&categoryId=&searchRef=SearchLookAhead&searchView=table&iscrfnonsku=false) |	[Datasheet](http://www.farnell.com/datasheets/1683492.pdf)|	|
 |	|	Bluetooth	|	|	|	|	|
+|	|	PIC32MX (28/soic)	|	|	|	|	|
 | | Pompe | [Yosoo](https://www.amazon.fr/Yosoo-p%C3%A9ristaltique-dosage-Aquarium-Analytique/dp/B00HLCOXFI/ref=sr_1_1?ie=UTF8&qid=1487687364&sr=8-1&keywords=pompe+p%C3%A9ristaltique)| ext | ext |
 
 
@@ -46,6 +47,14 @@ PROTOCOLE
 
 POMPE
 .Calcule du nombre de tour necessaire pour arroser et donc calcule de la consommation d'electricite
+
+INFO EN PLUS
+
+moisture sensor = pin CTMU et timer du PIC
+
+Regulateur a chercher => intergrate switcher
+
+boitier 5? piles 6V AA (il existe des piles rechargeable 1,5V donc dans ce cas 4 piles ?)
 
 
 Rechercher *Soil moisture Sensor*
