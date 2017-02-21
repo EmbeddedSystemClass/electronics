@@ -35,3 +35,7 @@ http://gardenbot.org/howTo/
 https://luckyresistor.me/2017/02/08/how-to-design-a-cheap-plant-watering-sensor-part-1/
 
 https://www.dfrobot.com/wiki/index.php/Capacitive_Soil_Moisture_Sensor_SKU:SEN0193#Connection_Diagram
+
+Le site de microship pour choisir son PIC32
+
+http://www.microchip.com/maps/microcontroller.aspx
