@@ -7,12 +7,12 @@
 |	Mesure		|	Name	|	Composant	|	Link	|	DOC		|
 |	------		|	----	|	---------	|	----	|	---		|
 |	C	|	Temperature		|	**DS18b20**		|	[Farnell](http://fr.farnell.com/maxim-integrated-products/ds18b20-par/sensor-temperature-nv-alarm-3to92/dp/2085184)| [Datasheet](http://www.farnell.com/datasheets/1537425.pdf?_ga=1.110999426.645639590.1485889958)	|
-|	Lum	|	Luminosite		|	**VT900(90n2)**	|	[Farnell](http://fr.farnell.com/excelitas-tech/vt90n2/photo-resistance-serie-vt900/dp/1652637)	|	[Datasheet](http://www.farnell.com/datasheets/612931.pdf?_ga=1.113808128.645639590.1485889958) |
-|	Hum	|	Humidite		|	|ext	|	ext|
-|	Nv	|	Niveau d'eau	| (flotteur)	|	|	|	|
-|	|	Ecran	|	|	|	|	|
+|	Lum	|	Luminosite		|	**NSL4962**	|	[Farnell](http://fr.farnell.com/advanced-photonix/nsl-4962/photo-resistance/dp/3168359)	|	[Datasheet](http://www.farnell.com/datasheets/1699948.pdf) |
+|	Hum	|	Humidite		| electrodes( capacitance) |ext	|	ext|
+|	Nv	|	Niveau d'eau	| electrodes ?	|	|	|	|
+|	|	Ecran	|	**FECC1602B-RNNYBW-16LE** |	[Farnell](http://fr.farnell.com/fordata/fecc1602b-rnnybw-16le/16x2-stn-lcd-3v-reflective/dp/1847936) |	[Datasheet](http://www.farnell.com/datasheets/653657.pdf)|	|
 |	|	Led		|	|	|	|	|
-|	|	Panneau Solaire		|	|	|	|	|
+|	|	Bargraph		| **DC-10EGWA**	|	[Farnell](http://fr.farnell.com/kingbright/dc-10egwa/bargraphe-reseau-10-segts-rouge/dp/2290326?exaMfpn=true&categoryId=&searchRef=SearchLookAhead&searchView=table&iscrfnonsku=false) |	[Datasheet](http://www.farnell.com/datasheets/1683492.pdf)|	|
 |	|	Bluetooth	|	|	|	|	|
 | | Pompe | | ext | ext |
 
