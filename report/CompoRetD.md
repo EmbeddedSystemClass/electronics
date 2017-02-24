@@ -16,6 +16,7 @@
 |	|	Bluetooth	| **RN42-I/RM**	| [Farnell](http://fr.farnell.com/microchip/rn42-i-rm/module-bluetooth-class-2-w-ant/dp/2143310) | [Datasheet](http://www.farnell.com/datasheets/1728644.pdf?_ga=1.123256712.2075605386.1487325858)	|
 |	|	PIC32MX|	**xxxF256B(170/230/270)**| [Farnell](http://fr.farnell.com/microchip/pic32mx170f256b-50i-sp/ic-32bit-mcu/dp/2449079)	| [Datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/60001168J.pdf)|	|
 | | Pompe | [Yosoo](https://www.amazon.fr/Yosoo-p%C3%A9ristaltique-dosage-Aquarium-Analytique/dp/B00HLCOXFI/ref=sr_1_1?ie=UTF8&qid=1487687364&sr=8-1&keywords=pompe+p%C3%A9ristaltique)| ext | ext |
+| | Regulateur | | | |
 
 
 Petits sites sur comment tout faire tout seul
