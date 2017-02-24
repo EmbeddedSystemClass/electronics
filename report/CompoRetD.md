@@ -13,7 +13,7 @@
 |	|	Ecran	|	**FECC1602B-RNNYBW-16LE** |	[Farnell](http://fr.farnell.com/fordata/fecc1602b-rnnybw-16le/16x2-stn-lcd-3v-reflective/dp/1847936) |	[Datasheet](http://www.farnell.com/datasheets/653657.pdf)|	|
 |	|	Led		|	|	|	|	|
 |	|	Bargraph		| **DC-10EGWA**	|	[Farnell](http://fr.farnell.com/kingbright/dc-10egwa/bargraphe-reseau-10-segts-rouge/dp/2290326?exaMfpn=true&categoryId=&searchRef=SearchLookAhead&searchView=table&iscrfnonsku=false) |	[Datasheet](http://www.farnell.com/datasheets/1683492.pdf)|	|
-|	|	Bluetooth	|	|	|	|	|
+|	|	Bluetooth	|	| [Farnell](http://fr.farnell.com/microchip/rn42-i-rm/module-bluetooth-class-2-w-ant/dp/2143310) |	|
 |	|	PIC32MX (28/soic)	|	|	|	|	|
 | | Pompe | [Yosoo](https://www.amazon.fr/Yosoo-p%C3%A9ristaltique-dosage-Aquarium-Analytique/dp/B00HLCOXFI/ref=sr_1_1?ie=UTF8&qid=1487687364&sr=8-1&keywords=pompe+p%C3%A9ristaltique)| ext | ext |
 
