@@ -10,7 +10,7 @@
 |	Lum	|	Luminosite		|	**NSL4962**	|	[Farnell](http://fr.farnell.com/advanced-photonix/nsl-4962/photo-resistance/dp/3168359)	|	[Datasheet](http://www.farnell.com/datasheets/1699948.pdf) |
 |	Hum	|	Humidite		| electrodes PCB(capacitance) |ext	|	ext|
 |	Nv	|	Niveau d'eau	| electrodes ?	|	|	|	|
-|	|	Ecran	|	**FECC1602B-RNNYBW-16LE** |	[Farnell](http://fr.farnell.com/fordata/fecc1602b-rnnybw-16le/16x2-stn-lcd-3v-reflective/dp/1847936) |	[Datasheet](http://www.farnell.com/datasheets/653657.pdf)|	|
+|	|	Ecran	|	**FC1602B04-FHYYBW-91LE** |	[Farnell](http://fr.farnell.com/fordata/fc1602b04-fhyybw-91le/afficheur-alphanumerique-16x2/dp/2674137?exaMfpn=true&categoryId=&searchRef=SearchLookAhead&searchView=table&iscrfnonsku=false) |	[Datasheet](http://fr.farnell.com/fordata/fc1602b04-fhyybw-91le/afficheur-alphanumerique-16x2/dp/2674137?exaMfpn=true&categoryId=&searchRef=SearchLookAhead&searchView=table&iscrfnonsku=false)|	|
 |	|	Led		|	|	|	|	|
 |	|	Bargraph		| **DC-10EGWA**	|	[Farnell](http://fr.farnell.com/kingbright/dc-10egwa/bargraphe-reseau-10-segts-rouge/dp/2290326?exaMfpn=true&categoryId=&searchRef=SearchLookAhead&searchView=table&iscrfnonsku=false) |	[Datasheet](http://www.farnell.com/datasheets/1683492.pdf)|	|
 |	|	Bluetooth	| **RN42-I/RM**	| [Farnell](http://fr.farnell.com/microchip/rn42-i-rm/module-bluetooth-class-2-w-ant/dp/2143310) | [Datasheet](http://www.farnell.com/datasheets/1728644.pdf?_ga=1.123256712.2075605386.1487325858)	|
