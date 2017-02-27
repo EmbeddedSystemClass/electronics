@@ -8,8 +8,8 @@
 |	----	|	---------	| ------- |	----	|	--- | --------  | --- | --------- | ---- |
 |	Temperature		|	**DS18b20**		| TO-92 |	[Farnell](http://fr.farnell.com/maxim-integrated-products/ds18b20-par/sensor-temperature-nv-alarm-3to92/dp/2085184)| [Datasheet](http://www.farnell.com/datasheets/1537425.pdf?_ga=1.110999426.645639590.1485889958)	| One-wire | 1 num | 1.5mA | NON STOCKE! |
 |	Luminosite		|	**NSL4962**	||	[Farnell](http://fr.farnell.com/advanced-photonix/nsl-4962/photo-resistance/dp/3168359)	|	[Datasheet](http://www.farnell.com/datasheets/1699948.pdf) | analogique | 1 analogique || 1.54 |
-|	Humidite		| electrodes PCB(capacitance) || ext |	ext | analogique | 1 CTMU (analogique)|
-|	Niveau d'eau	| electrodes maison	||	|	| parallele |	6 num -> I/O Expander| 0A |
+|	Humidite		| electrodes PCB(capacitance) |N/A| ext |	ext | analogique | 1 CTMU (analogique)|||
+|	Niveau d'eau	| electrodes maison	|N/A||| parallele |	6 num -> I/O Expander| 0A ||
 |	Ecran	|	**FC1602B04-FHYYBW-91LE** ||	[Farnell](http://fr.farnell.com/fordata/fc1602b04-fhyybw-91le/afficheur-alphanumerique-16x2/dp/2674137?exaMfpn=true&categoryId=&searchRef=SearchLookAhead&searchView=table&iscrfnonsku=false) |	[Datasheet](http://fr.farnell.com/fordata/fc1602b04-fhyybw-91le/afficheur-alphanumerique-16x2/dp/2674137?exaMfpn=true&categoryId=&searchRef=SearchLookAhead&searchView=table&iscrfnonsku=false)| parallele | 7 num -> I/O expander | 6.5mA |
 |	Led | **L-154A4SURKQBDZGW** || [Farnell](http://fr.farnell.com/kingbright/l-154a4surkqbdzgw/led-multi-couleur-rgb-5mm/dp/2290374)| [Datasheet](http://www.farnell.com/datasheets/2046599.pdf) | parallele | 3 PWM | 30mA |
 |	Bargraph		| **DC-10EGWA**	||	[Farnell](http://fr.farnell.com/kingbright/dc-10egwa/bargraphe-reseau-10-segts-rouge/dp/2290326?exaMfpn=true&categoryId=&searchRef=SearchLookAhead&searchView=table&iscrfnonsku=false) |	[Datasheet](http://www.farnell.com/datasheets/1683492.pdf) | parallele | 3 num	| 85mA |
