@@ -33,6 +33,9 @@ Le site de microship pour choisir son PIC32MX
 
 http://www.microchip.com/maps/microcontroller.aspx
 
+Theorie regulateurs de tension:
+https://www.sonelec-musique.com/electronique_theorie_reg_tension.html
+
 Ce qui nous manque
 
 SPECIFICATION DU PRODUIT
