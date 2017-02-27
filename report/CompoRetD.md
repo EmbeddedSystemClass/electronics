@@ -14,7 +14,7 @@
 |	|	Led | **L-154A4SURKQBDZGW** | [Farnell](http://fr.farnell.com/kingbright/l-154a4surkqbdzgw/led-multi-couleur-rgb-5mm/dp/2290374)| [Datasheet](http://www.farnell.com/datasheets/2046599.pdf) | parallele | 3 PWM | 30mA |
 |	|	Bargraph		| **DC-10EGWA**	|	[Farnell](http://fr.farnell.com/kingbright/dc-10egwa/bargraphe-reseau-10-segts-rouge/dp/2290326?exaMfpn=true&categoryId=&searchRef=SearchLookAhead&searchView=table&iscrfnonsku=false) |	[Datasheet](http://www.farnell.com/datasheets/1683492.pdf) | parallele | 3 num	| 85mA |
 |	|	Bluetooth	| **RN42-I/RM**	| [Farnell](http://fr.farnell.com/microchip/rn42-i-rm/module-bluetooth-class-2-w-ant/dp/2143310) | [Datasheet](http://www.farnell.com/datasheets/1728644.pdf?_ga=1.123256712.2075605386.1487325858)| UART	| 2 num |
-|  | GPIO Expander | MPC23017 |  || ICC  | 2 num | 1mA |
+|  | GPIO Expander | MPC23017 |  || IIC  | 2 num | 1mA |
 |	|	PIC32MX|	**xxxF256B(170/230/270)**| [Farnell](http://fr.farnell.com/microchip/pic32mx170f256b-50i-sp/ic-32bit-mcu/dp/2449079)	| [Datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/60001168J.pdf) [Errata](http://ww1.microchip.com/downloads/en/DeviceDoc/80000531H.pdf)|| 21 (E/S) |
 | | Pompe | [Yosoo](https://www.amazon.fr/Yosoo-p%C3%A9ristaltique-dosage-Aquarium-Analytique/dp/B00HLCOXFI/ref=sr_1_1?ie=UTF8&qid=1487687364&sr=8-1&keywords=pompe+p%C3%A9ristaltique)| ext | ext || 1 numerique | 30mA |
 | | Regulateur | | | |
