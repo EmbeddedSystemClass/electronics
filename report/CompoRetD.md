@@ -6,7 +6,7 @@
 
 |	Name	|	Composant	| Package |	Link	|	DOC | Protocol  | PIN | Conso max | Prix(E) |
 |	----	|	---------	| ------- |	----	|	--- | --------  | --- | --------- | ---- |
-|	Temperature		|	**DS18b20**		| TO-92 |	[Farnell](http://fr.farnell.com/maxim-integrated-products/ds18b20-par/sensor-temperature-nv-alarm-3to92/dp/2085184)| [Datasheet](http://www.farnell.com/datasheets/1537425.pdf?_ga=1.110999426.645639590.1485889958)	| One-wire | 1 num | 1.5mA | NON STOCKE! |
+|	Temperature		|	**DS18b20**		| TO-92 |	[Farnell](http://fr.farnell.com/maxim-integrated-products/ds18b20-par/sensor-temperature-nv-alarm-3to92/dp/2085184)| [Datasheet](http://www.farnell.com/datasheets/1537425.pdf?_ga=1.110999426.645639590.1485889958)	| One-wire | 1 num | 1.5mA | !NON STOCKE! |
 |	Luminosite		|	**NSL4962**	||	[Farnell](http://fr.farnell.com/advanced-photonix/nsl-4962/photo-resistance/dp/3168359)	|	[Datasheet](http://www.farnell.com/datasheets/1699948.pdf) | analogique | 1 analogique || 1.54 |
 |	Humidite		| electrodes PCB(capacitance) |N/A| ext |	ext | analogique | 1 CTMU (analogique)|||
 |	Niveau d'eau	| electrodes maison	|N/A||| parallele |	6 num -> I/O Expander| 0A ||
@@ -16,7 +16,7 @@
 |	Bluetooth	| **RN42-I/RM**	|PCB module (CMS)| [Farnell](http://fr.farnell.com/microchip/rn42-i-rm/module-bluetooth-class-2-w-ant/dp/2143310) | [Datasheet](http://www.farnell.com/datasheets/1728644.pdf?_ga=1.123256712.2075605386.1487325858)| UART	| 2 num | 50mA |12.35 !non dispo!|
 | GPIO Expander | **MPC23017** | 28-pin SSOP| [Farnell](http://fr.farnell.com/microchip/mcp23017-e-ss/ic-io-expander-16bit-smd/dp/1467674) | [Datasheet](http://www.farnell.com/datasheets/12179.pdf) | IIC  | 2 num | 1mA |1.17|
 |	PIC32MX|	**xxxF256B(170/230/270)**|| [Farnell](http://fr.farnell.com/microchip/pic32mx170f256b-50i-sp/ic-32bit-mcu/dp/2449079)	| [Datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/60001168J.pdf) [Errata](http://ww1.microchip.com/downloads/en/DeviceDoc/80000531H.pdf)|| 21 (E/S) |
-| Pompe |Yosoo|| [Amazone](https://www.amazon.fr/Yosoo-p%C3%A9ristaltique-dosage-Aquarium-Analytique/dp/B00HLCOXFI/ref=sr_1_1?ie=UTF8&qid=1487687364&sr=8-1&keywords=pompe+p%C3%A9ristaltique)|| ext | ext || 1 numerique | 30mA | 14.59 |
+| Pompe |Yosoo|N/A| [Amazone](https://www.amazon.fr/Yosoo-p%C3%A9ristaltique-dosage-Aquarium-Analytique/dp/B00HLCOXFI/ref=sr_1_1?ie=UTF8&qid=1487687364&sr=8-1&keywords=pompe+p%C3%A9ristaltique)|ext | Parallele | 1 numerique | 30mA | 14.59 |
 | Regulateur | **MIC5219-3.3YM5-TR** | SOT-23-5 | [Farnell](http://fr.farnell.com/microchip/mic5219-3-3ym5-tr/ldo-0-5vdo-0-5a-3-3v-1-5sot23/dp/2510252) | [Datasheet](http://www.farnell.com/datasheets/683599.pdf) | N/A | 0 | see dropout |  |
 | PushButton Switche | | | |
 |||||||**TOTAL**| 152.5mA |
