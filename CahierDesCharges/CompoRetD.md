@@ -17,8 +17,10 @@
 |registre a decalage|SN74HC595DR |SOIC|[Farnell](http://fr.farnell.com/texas-instruments/sn74hc595dr/ic-sm-logic-74hc-register/dp/1607849)|[Datasheet](http://www.ti.com/lit/ds/symlink/sn74hc595.pdf)|parallele|3 num|80μA|3X0.47|
 | GPIO Expander | **MCP23017** | 28-pins SSOP| [Farnell](http://fr.farnell.com/microchip/mcp23017-e-ss/ic-io-expander-16bit-smd/dp/1467674) | [Datasheet](http://www.farnell.com/datasheets/12179.pdf) | IIC  | 2 num | 1mA |1.17|
 |	PIC32MX|	**PIC32MX170F256B-I/SO**|28-pins SOIC| [Farnell](http://fr.farnell.com/microchip/pic32mx170f256b-i-so/ic-32bit-mcu/dp/2449077)	| [Datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/60001168J.pdf) [Errata](http://ww1.microchip.com/downloads/en/DeviceDoc/80000531H.pdf)|| 21 (E/S) |30mA|4.71|
-| Pompe |Yosoo|N/A| [Amazone](https://www.amazon.fr/Yosoo-p%C3%A9ristaltique-dosage-Aquarium-Analytique/dp/B00HLCOXFI/ref=sr_1_1?ie=UTF8&qid=1487687364&sr=8-1&keywords=pompe+p%C3%A9ristaltique)|ext | Parallele | 1 numerique | 30mA | 14.59 |
+| Pompe |**Yosoo**|N/A| [Amazone](https://www.amazon.fr/Yosoo-p%C3%A9ristaltique-dosage-Aquarium-Analytique/dp/B00HLCOXFI/ref=sr_1_1?ie=UTF8&qid=1487687364&sr=8-1&keywords=pompe+p%C3%A9ristaltique)|ext | Parallele | 1 numerique | 30mA | 14.59 |
 | Regulateur | **MIC5219-3.3YM5-TR** | SOT-23-5 | [Farnell](http://fr.farnell.com/microchip/mic5219-3-3ym5-tr/ldo-0-5vdo-0-5a-3-3v-1-5sot23/dp/2510252) | [Datasheet](http://www.farnell.com/datasheets/683599.pdf) | N/A | 0 | see dropout |0.82|
+|Support Piles|**KEYSTONE  2478**|N/A|[Farnell](http://fr.farnell.com/keystone/2478/battery-holder-leaded-4-x-aa/dp/1650685)|[Datasheet](http://www.farnell.com/datasheets/1703957.pdf)|N/A|N/A|0A|2.58|
+|Piles rechargeables|**lithium Energizer 639155 Ultimate**|LR6(AA)|[Conrad](http://www.conrad.fr/ce/fr/product/650727/Pile-LR06-AA-lithium-Energizer-639155-Ultimate-LR06-3000-mAh-15-V-4-pcs?ref=list)|nop|N/A|N/A|N/A|9.99|
 | PushButton Switche | | | |
 |||||||**TOTAL**| 152.5mA |
 
