@@ -1,0 +1,11 @@
+Name: Afficheur LCD
+Ref.: FC1602B04-FHYYBW-91LE
+Description:
+	Ligles: 2
+	Characteres par lignes: 16
+	Resolution d'un charactere: 5x8
+	Retro_eclarage: oui
+Fonction: Afficher les constantes environnementales du plant,	les messages d'erreure.
+Protocole: Parallele(6 pins)
+
+Schema
