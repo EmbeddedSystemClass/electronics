@@ -20,7 +20,7 @@
 | Pompe |**Yosoo**|N/A| [Amazone](https://www.amazon.fr/Yosoo-p%C3%A9ristaltique-dosage-Aquarium-Analytique/dp/B00HLCOXFI/ref=sr_1_1?ie=UTF8&qid=1487687364&sr=8-1&keywords=pompe+p%C3%A9ristaltique)|ext | Parallele | 1 numerique | 30mA | 14.59 |
 | Regulateur | **MIC5219-3.3YM5-TR** | SOT-23-5 | [Farnell](http://fr.farnell.com/microchip/mic5219-3-3ym5-tr/ldo-0-5vdo-0-5a-3-3v-1-5sot23/dp/2510252) | [Datasheet](http://www.farnell.com/datasheets/683599.pdf) | N/A | 0 | see dropout |0.82|
 |Support Piles|**KEYSTONE  2478**|N/A|[Farnell](http://fr.farnell.com/keystone/2478/battery-holder-leaded-4-x-aa/dp/1650685)|[Datasheet](http://www.farnell.com/datasheets/1703957.pdf)|N/A|N/A|0A|2.58|
-|Piles rechargeables|**lithium Energizer 639155 Ultimate**|LR6(AA)|[Conrad](http://www.conrad.fr/ce/fr/product/650727/Pile-LR06-AA-lithium-Energizer-639155-Ultimate-LR06-3000-mAh-15-V-4-pcs?ref=list)|nop|N/A|N/A|N/A|9.99|
+|Accumulateurs|**lithium Energizer 639155 Ultimate**|LR6(AA)|[Conrad](http://www.conrad.fr/ce/fr/product/650727/Pile-LR06-AA-lithium-Energizer-639155-Ultimate-LR06-3000-mAh-15-V-4-pcs?ref=list)|nop|N/A|N/A|N/A|9.99|
 | PushButton Switche | | | |
 |||||||**TOTAL**| 152.5mA |
 
