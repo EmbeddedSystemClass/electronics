@@ -6,6 +6,52 @@ Description:
 	Resolution d'un charactere: 5x8
 	Retro_eclarage: oui
 Fonction: Afficher les constantes environnementales du plant,	les messages d'erreure.
-Protocole: Parallele(6 pins)
+Protocole: Parallele(6 a 10 pins)
 
-Schema
+~~Schema LCD_display~~
+
+I- Principe de communication
+	A-Interface
+~~Bloc diagramme~~
+
+RS		Register Select,
+			Etat bas: mode commande, agit sur les modes d'affichage et sur le curseur.
+			Etat haut: mode donnees, ecrit un charactere.
+
+E		Operation enable: doit etre passe en etat haut pour que le controller recoive les donnes envoyees
+
+DB0-7  	Bus de donnees
+			Utilisable avec une largeur de 4 ou 8 fils.
+			Sert a envoyer les donnees au controller.
+
+B-Fonctions
+
+Un certain nombre de fonctions sont preprogrammees dans le controller du LCD.
+Pour agir sur l'ecran, il obligatoire de passer par elles.
+
+~~Tableau de fonctions~~
+
+C-Caracteres
+
+Les caracteres affichables sont preenregistres dans la memoire du controller.
+Pour afficher un caractere, il faut envoyer via le bus de donnees la valeur correspondante.
+
+~~char tab~~
+
+II exemple de communication
+	On considere toutes les pins en etat bas.
+	A-Clear screen
+		Register Select -> LOW
+		Databus -> 00000001 (tous les pins en LOW sauf DB0)
+		Enable -> HIGH
+		Attendre au moins 300ns
+		Enable -> LOW
+
+	B-Afficher le caractere 'A'
+		Register Select -> HIGH
+		Databus -> 01011010 (valeur donnee par le tableau des characteres)
+		Enable -> HIGH
+		Attendre au moins 300ns
+		Enable -> LOW
+
+
