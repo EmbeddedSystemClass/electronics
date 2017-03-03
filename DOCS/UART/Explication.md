@@ -1,5 +1,5 @@
 ###UART Protocole
-	**U**niversal **A**synchronous **R**eceiver/**T**ransmitter
+**U**niversal **A**synchronous **R**eceiver/**T**ransmitter
 
 A l'origine, les uarts ressemblaient a ceci:
 
@@ -38,4 +38,9 @@ soit un packet :
 TX -> Transmitter
 RX -> Receiver
 
+####LINK:
+===
+
 [Basic Uart](http://www.circuitbasics.com/basics-uart-communication/)
+
+[Wiki](https://fr.wikipedia.org/wiki/UART)
