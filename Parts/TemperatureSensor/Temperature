@@ -29,12 +29,12 @@
 			tconv = 93,75ms ; tr/w = 10ms  a 1,5mA
 			temps de 'bus low' par le capteur pour l'envois d'un bit 0 (60us) / negligable pour un bit 1
 		Detail calcul VDD :
-			1.5 * (tconv/1000 + tr/w/1000) * frequence en s-1
+			1.5 * ((tconv/1000 + tr/w/1000) / 2 pour equilibrer l'envois des bits 1 et 0) * frequence en s-1
 			frequence = 2/h = 2/3600s
-				1,5 * (93,75.10-3 +  10.10-3) * (2/3600) ~= 8.10-5 mA
+				1,5 * ((93,75.10-3 +  10.10-3)/2) * (2/3600) ~= 8.10-5 mA
 		Detail calcul VDQ :
 			mA * (temps de l'envois d'un bit * nombres de bits) * frequence de lecture
-				4 * 60.10-6 * 9 * (2/3600) ~= 1.2.10-7mA
+				4 * (60.10-6 / 2) * 9 * (2/3600) ~= 6.10-8mA
 			
 	-On a choisit ce composant (DS18B20+) pour sa precision (0.5°c) et son champ d'action.
 
