@@ -44,6 +44,8 @@ Soit la lecture d'un registre 0101110
 		*Reponse :10001110        |- stop [1]
 	*stop precedure
 
-	
+
+De la lecture pour le pic32
+[Explication schema](http://hades.mech.northwestern.edu/index.php/PIC32MX:_I2C_Communication_between_PIC32s)
 
 
