@@ -24,6 +24,11 @@
 | PushButton Switche | | | |
 |||||||**TOTAL**| 152.5mA |
 
+CTMU info
+
+http://people.ece.cornell.edu/land/courses/ece4760/PIC32/index_CTMU.html
+
+http://ww1.microchip.com/downloads/en/AppNotes/CTMU%2001375a.pdf
 
 Petits sites sur comment tout faire tout seul
 
