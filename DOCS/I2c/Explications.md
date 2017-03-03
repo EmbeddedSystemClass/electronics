@@ -9,7 +9,7 @@ Le master donne la cadence sur la ligne **SCL**.
 
 Les niveaux utilisés entre les lignes de bus sont proportionnels à VDD :
 | ETAT | NIVEAU|
-| ---  | ---   |
+| ----  | -----|
 |Dominant ou « 0 » ou « LOW » | de -0,5V à 0,3xVDD |
 |Récessif ou « 1 » ou « HIGH » | de 0,7xVDD à VDD |
 
