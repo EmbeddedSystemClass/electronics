@@ -1,0 +1,17 @@
+Pompe peristaltique:
+
+
+    Tension : DC 6 V
+    Condition de fonctionnement : 0-40 & # x2103 ;
+    Courant : 30mA
+    Débit : 20-60 ml/min - Vitesse de rotation : 0-60 min
+    Humidité relative & # xff1 C ; 80% ; Poids : 150 g
+
+Calcul de la consommation en eau:
+	Une plante de 50cm de haut, de type standard consomme environ 500ml par semaine, soit 72ml par jour.
+
+Calcul de la consommation de courrant:
+	Temps de fonctionnement: 72(ml) / 60(ml/min) = 1.2min,
+	soit 72 secondes par jour.
+
+	Consommation: 30mA * (72 / (3600 * 24)) = 0.0008mA
