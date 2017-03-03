@@ -1,0 +1,79 @@
+PROTOCOLE 1-WIRE
+
+Introduction:
+
+Le protocole 1-WIRE est un mode de communication entre un maitre(ucontrolleur) plusieurs devices(capteurs de temperature...) via un seul fil.
+Chaque partie , maitre et esclave(s) peut ecrire et recevoir des donnees bits par bits grace 
+a des changement d'etat sur la ligne (etat haut = 5V etat bas = 0V).
+
+L'etat au repos de la ligne est l'etat haut mis en place a par une resistance 4,7K.
+le maitre et l'esclave dispose de systemes (souvent MOSFET ou resistances plus fortes)
+pour forcer la tension surla ligne a 0 V.
+
+COMMUNICATION:
+
+la communication se fait par cycle de 3 etapes.
+un rest, suivit d'1 octet de commande, et le plus souvent d'un octet de fonction.
+les types de signaux defini par ce protocole:
+		-impulsion de reset
+		-impulsion de presence
+		-ecrire un 1 logique
+		-ecrire un 0 logique
+		-lecture d'un 1 logique/0 logique
+
+1. Initialisation
+
+	Consiste en un "reset pulse" effectuer par le maitre (pic32) suivit d'un signal de presence par l'esclave en reponse si ce dernier est operationel.
+	En pratique:
+	On passe le maitre en mode transmition (output) et on tire la ligne a 0V (etat bas) pendant 480us
+	le maitre doit ensuite liberer la ligne (retour a l'etat haut) et passer en mode reception (input)
+	quand l'esclave detecte le front montant, il transmet une impulsion de presence apres 15-60us et repond par un signale de presence caracteriser par une chute de tension (l'esclave force la ligne a 0) durant 60-240us
+
+
+2. ROM commande (suivit des donnees si besoin) (sur 1 octet)
+
+	Apres detection du signal de presence, le maitre envois une ROM commande operant sur le code ROM 64-bit de chaque esclave et permet d'en selectioner un ou afficher ceux ayant subit une alerte de temperature seuil.
+	voir datasheet Figure 10
+	-SEARCH ROM
+	-READ ROM
+	-MATCH ROM
+	-SKIP ROM
+	-ALARM SEARCH
+
+
+3. DS18B20-PAR Fonction commande (sur 1 octet)
+
+	Mode d'ecriture et de lecture via des crenaux temporel (lecture/ecriture) et echange bit par bit. en premier les bits de poids faible vers ceux de poid fort. Si un reset e effectuer pendant la lecture, elle s'arete. Si un reset est effectuer pendant l'ecriture, il y a risque de donnee corrompue.
+	/!\ Le mode parasite necessite un apport de courant suplementaire pendant l'ecriture.
+	Cree un creneau d'ecriture/lecture: ce creneau dure 60us avec une recuperation de 1us entre chaque bits.
+
+	-Ecrire un 1 logique
+		Le maitre tire la ligne a 0V pendant 1us, en effet, la ligne doit revenir a un etat haut dans les 15us suivant la creation du creneau pour une duree totale de 60us	
+			
+	-Ecrire un 0 logique
+		Le maitre tire la ligne "1-wire" a 0V pendant 60us
+	L'ecriture se fait sur les octets 2 a 4 respectivement Temperature max alarme, Temperature min alarm, configuration.
+	Registe pour une resolution de 9 bits: 0 0 0 1 1 1 1 1
+
+	-Lecture (1/0)
+		Tout le registre est lu (octet 0 a 8) possible interuption par un reset.
+		Le maitre tire la ligne a 0 pendant 1us, passe en mode reception et lit dans les 15us apres le premier frond descendant (debut de la lecture), 
+		Si le bit vaut 0, la ligne sera basse puis l'esclave relachera la ligne a la fin des 60us du creneau de lecture.
+		Si le bit vaut 1, la ligne sera haute.
+
+
+
+Dans notre ca, il y a un maitre(PIC32mx) et un esclave(DS18B20)
+etat haut : 3 / 5.5 V
+etat bas  : -0.3 / 0.8 V
+
+
+
+Sink et source current definition ??
+https://startingelectronics.org/articles/current-sourcing-sinking/
+
+Protocole 1-wire
+http://jl.and.free.fr/iut_licence//iut_licence/bus_1_wire_signaux.htm
+
+Tuto utilisation avec un pic
+https://www.maximintegrated.com/en/app-notes/index.mvp/id/2420
