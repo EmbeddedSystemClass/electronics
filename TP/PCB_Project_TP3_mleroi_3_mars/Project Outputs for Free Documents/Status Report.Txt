@@ -1,0 +1,12 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of PCB Document [TP3_PCB.PcbDoc]
+   Generated File[TP3_PCB.RUL]
+   Generated File[TP3_PCB.EXTREP]
+   Generated File[TP3_PCB.REP]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 7:04:54 PM On 3/3/2017

@@ -1,0 +1,46 @@
+Change Component Footprint: Designator=D1_LED0 Old Footprint=LED0805/CAPC2012N New Footprint=LED 0805
+Change Component Footprint: Designator=D1_LED1 Old Footprint=LED0805/CAPC2012N New Footprint=LED 0805
+Change Component Footprint: Designator=D1_LED2 Old Footprint=LED0805/CAPC2012N New Footprint=LED 0805
+Change Component Footprint: Designator=D1_LED3 Old Footprint=LED0805/CAPC2012N New Footprint=LED 0805
+Added Component: Designator=C9(CAPC2012N)
+Added Component: Designator=C11(CAPC2012N)
+Added Component: Designator=C12(CAPC2012N)
+Added Component: Designator=C13(CAPC2012N)
+Added Component: Designator=D4(LED 0805)
+Added Pin To Net: NetName=GND Pin=C9-1
+Added Pin To Net: NetName=NetC9_2 Pin=C9-2
+Added Pin To Net: NetName=GND Pin=C11-1
+Added Pin To Net: NetName=V5 Pin=C11-2
+Added Pin To Net: NetName=V5 Pin=C12-1
+Added Pin To Net: NetName=GND Pin=C12-2
+Added Pin To Net: NetName=V3P3 Pin=C13-1
+Added Pin To Net: NetName=GND Pin=C13-2
+Added Pin To Net: NetName=NetD4_1 Pin=D4-1
+Added Pin To Net: NetName=GND Pin=D4-2
+Added Member To Class: ClassName=PIC Member=Component C1 100nF
+Added Member To Class: ClassName=PIC Member=Component C2 100nF
+Added Member To Class: ClassName=PIC Member=Component C3 100nF
+Added Member To Class: ClassName=PIC Member=Component C4 100nF
+Added Member To Class: ClassName=PIC Member=Component C5 100nF
+Added Member To Class: ClassName=PIC Member=Component C6 100nF
+Added Member To Class: ClassName=PIC Member=Component C7 20pF
+Added Member To Class: ClassName=PIC Member=Component C8 20pF
+Added Member To Class: ClassName=PIC Member=Component C9 10uF 6.3V
+Added Member To Class: ClassName=PIC Member=Component C10 1uF 6.3V
+Added Member To Class: ClassName=POWER Member=Component C11 10uF 6.3V
+Added Member To Class: ClassName=POWER Member=Component C12 10uF 6.3V
+Added Member To Class: ClassName=POWER Member=Component C13 10uF 6.3V
+Added Member To Class: ClassName=POWER Member=Component C14 1uF 6.3V
+Added Member To Class: ClassName=POWER Member=Component C15 100nF
+Added Member To Class: ClassName=LED0 Member=Component D1_LED0 (D1) Green LED
+Added Member To Class: ClassName=LED1 Member=Component D1_LED1 (D1) Green LED
+Added Member To Class: ClassName=LED2 Member=Component D1_LED2 (D1) Green LED
+Added Member To Class: ClassName=LED3 Member=Component D1_LED3 (D1) Green LED
+Added Member To Class: ClassName=POWER Member=Component D4 Green LED
+Added Member To Class: ClassName=PIC Member=Component J1 Program / Debug
+Added Member To Class: ClassName=POWER Member=Component P1 12V Main
+Added Member To Class: ClassName=POWER Member=Component P2 12V Battery
+Added Member To Class: ClassName=TP2 Member=Component R1 1K
+Added Room: Name=PIC
+Added Room: Name=POWER
+Added Room: Name=TP2
