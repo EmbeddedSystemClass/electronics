@@ -4,21 +4,19 @@
 A l'origine, les uarts ressemblaient a ceci:
 
 			  __
-			-|  |-  1 -----<---------------1
-			-|  |-	2 ------<--------------0
-			-|  |-	3 -------<-------------1
-			-|  |-	4 --------<------------1
-			-|  |-	5 ---------<-----------1
-			-|  |-	6 ----------<----------0
-			-|  |-	7 -----------<---------1
-			-|  |-	8 ------------<--------0
+			-|  |-  1 -----<------------- 1
+			-|  |-	2 ------<------------ 0
+			-|  |-	3 -------<----------- 1
+			-|  |-	4 --------<---------- 1
+			-|  |-	5 ---------<--------- 1
+			-|  |-	6 ----------<-------- 0
+			-|  |-	7 -----------<------- 1
+			-|  |-	8 ------------<------ 0
 			  --
 
-Les bits etaient envoyes en parallele, une pattes par bits.
+Ils ressemblent toutjours a ceci en fait, mais on ne le voit plus :o 
 
-Maintenant, L'UART est plus souvent un circuit physique dans le microcontroleur,
-
->C'est a dire qu'il est inclut dans le PIC32 !
+Maintenant, L'UART est integre un dans le microcontroleur,
 
 <br/>Il sert a transmettre et a recevoir des datas en serie.
 	Les datas sont organisees en "packets"
