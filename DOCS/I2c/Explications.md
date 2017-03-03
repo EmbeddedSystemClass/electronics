@@ -31,17 +31,17 @@ C'est ainsi que les deux parties vont communiquer.
 Soit la lecture d'un registre 0101110
 
 	*Start:
-		*Master -> Slave                        |->   confirmation Slave  <-|
+		*Master -> Slave .                      |-> confirmation Slave  <-|
 		     (S) .           1 2 3 4 5 6 7   8  9 _ 1  2  3  4  5  6  7  8  9 		
 		  *[procedure start][0.1.0.1.1.1.0.][0][0]-[1][0][0][0][1][1][1][0][0]
 		*Bonjour 0101110, je souhaite avoir l'info sur cette adress 10001110.
 	*restart:
-		*Slave -> Master			  |-> confirmation Master
+		*Slave -> Master .                      |-> confirmation Master
 		     (RS) .            1 2 3 4 5 6 7 8  9
 		  *[procedure restart][0.1.0.1.1.1.0.][1][0]
 		*0101110 ?                             |->Ecriture [1]
-	*reponse: 1  2  3  4  5  6  7  8  9 		
-		*[1][0][0][0][1][1][1][0][1]
+	*reponse:       1  2  3  4  5  6  7  8  9 		
+		*      [1][0][0][0][1][1][1][0][1]
 		*Reponse :10001110        |- stop [1]
 	*stop precedure
 
