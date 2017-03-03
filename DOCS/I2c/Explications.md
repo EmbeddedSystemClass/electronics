@@ -31,7 +31,7 @@ Soit la lecture d'un registre 0101110
 	*restart:
 		  (LOW SDA)	       1 2 3 4 5 6 7   8  9
 		  *[procedure restart][0.1.0.1.1.1.0.][1][0]
-		*0101110 ? 			       |->Ecriture [1]
+		*0101110 ?                             |->Ecriture [1]
 	*reponse: 1  2  3  4  5  6  7  8  9 		
 		*[1][0][0][0][1][1][1][0][1]
 		*Reponse :10001110        |- stop [1]
