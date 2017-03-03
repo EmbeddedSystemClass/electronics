@@ -6,47 +6,55 @@
 
 * Specificite du produit
 	-Capteur de temperature :
-		limites et precision: de -55°c a 100°c +-2°c
-			 de -10°c a 85°c +- 0.5°c
-	-Fonction "Parasite Power"
+		limites et precision: de -55Â°c a 100Â°c +-2Â°c
+			 de -10Â°c a 85Â°c +- 0.5Â°c
 	-Fonction alarme reglable
 	-Sortie Digitale
 
 * Les calculs expliquant le choix des composants
 	-Memoire:
-		1 meusure de precision 0.5 = 9 bits
-		lissage sur 3 meusures(espace de 5 minutes) donc 9bits*3 sur la peeprom du capteur tmp;
+		1 meusure de precision 0.5 = 9 bits (sur 2 octets)
+		lissage sur 3 meusures(espace de 5 minutes) donc 9bits*3
+		+ 5 ROM commande de 8 bits + code d'identification de 64 bits.
 		Suivit sur PIC = moyenne(3 meusures) sur 24h toutes les 1/2h
-		24*2 suivit sur PIC (sur 1 int) = 48 valeurs *3octets*8bits = 1152 bits sur 24h
+		24*2 suivit sur PIC (sur 1 int) = 48 valeurs *3octets*8bits = 1152 bits sur 24h + lissage (lissage+commandes = 67 bits) = 1219 bits
 
 	-Consomation:
-		Voltage = 0 (se sert de la tension sur le wire)
-		Ampere: a l'Ecriture : 5uA
-			a la Lecture : 1.5mA
-
-	-On a choisit ce composant (DS18B20-PAR) pour sa precision (0.5°c) et son champ d'action.
+		
+		Sur Vdd (alim capteur): au repos : 5uA
+			activitees gourmandes (conversion du relevé de temperature, écriture du Scratchpad a l'EEPROM) : 1.5mA
+		Sur DQ pin (in/out donnée) : sink current (correspond au bus tire vers le bas par le capteur) : 4mA
+			
+		Estimation de consommation pour une resolution 9bits:
+			tconv = 93,75ms ; tr/w = 10ms  a 1,5mA
+			temps de 'bus low' par le capteur pour l'envois d'un bit 0 (60us) / negligable pour un bit 1
+		Detail calcul VDD :
+			1.5 * (tconv/1000 + tr/w/1000) * frequence en s-1
+			frequence = 2/h = 2/3600s
+				1,5 * (93,75.10-3 +  10.10-3) * (2/3600) ~= 8.10-5 mA
+		Detail calcul VDQ :
+			mA * (temps de l'envois d'un bit * nombres de bits) * frequence de lecture
+				4 * 60.10-6 * 9 * (2/3600) ~= 1.2.10-7mA
+			
+	-On a choisit ce composant (DS18B20+) pour sa precision (0.5°c) et son champ d'action.
 
 * Listing
-	-Ref.Fabricant : DS18B20-PAR
+	-Ref.Fabricant : DS18B20+
 	- Fabricant : MAXIM INTEGRATED PRODUCTS
-	- Ref.Farnell : 2085184
-	- Datasheet : https://www.farnell.com/datasheets/1537425.pdf
+	- Ref.Farnell : 2515553 
+	- Datasheet : http://www.farnell.com/datasheets/1917635.pdf?_ga=1.117397574.1734350136.1487955004
 	- footprint : TO-92
-	- Prix : 3.50eu
+	- Prix : 3.90eu
 
 * compatibilite
-	Tension sur DQ : 3v min 5.5Vmax 4mA max
+	Tension sur DQ et VDD : 3v min 5.5Vmax
 	Tension du GND : -0.5/6v
 
 * Exemple de shema d'implementation
-	Implementation simple
-	cf: Temperature_Block_Diagrame.pdf
-
-	implementation complete
-	cf: Hardwareconfig_Temp.png
+	voir annexe 1
 
 * Conditionement du signale
 	
-	Communication avec le PIC = bit par bit
-	Sortie digitale en binaire ou hexadecimal
+	Communication avec le PIC = bit par bit via le protocole 1-wire
+	Sortie digitale en binaire
 	sur 9 bit temp de convertion = 94ms
