@@ -6,7 +6,7 @@
 
 |	Name	|	Composant	| Package |	Link	|	DOC | Protocol  | PIN | Conso max | Prix(E) |
 |	----	|	---------	| ------- |	----	|	--- | --------  | --- | --------- | ---- |
-|	Temperature		|	**DS18b20+**		| TO-92 |	[Farnell](http://fr.farnell.com/maxim-integrated-products/ds18b20/temperature-sensor/dp/2515553)| [Datasheet](http://www.farnell.com/datasheets/1917635.pdf?_ga=1.89603419.1734350136.1487955004)	| One-wire | 1 num | 1mA | 390 |
+|	Temperature		|	**DS18b20+**		| TO-92 |	[Farnell](http://fr.farnell.com/maxim-integrated-products/ds18b20/temperature-sensor/dp/2515553)| [Datasheet](http://www.farnell.com/datasheets/1917635.pdf?_ga=1.89603419.1734350136.1487955004)	| One-wire | 1 num | 1mA | 3.90 |
 |	Luminosite		|	**NSL4962**	|TO-8|	[Farnell](http://fr.farnell.com/advanced-photonix/nsl-4962/photo-resistance/dp/3168359)	|	[Datasheet](http://www.farnell.com/datasheets/1699948.pdf) | analogique | 1 analogique || 1.54 |
 |	Humidite		| electrodes PCB(capacitance) |N/A| ext |	ext | analogique | 1 CTMU (analogique)|||
 |	Niveau d'eau	| Best ever indestructible stainless steel fork electrode of metal of doom from the deep |N/A|[IKEA](http://www.ikea.com/fr/fr/catalog/products/30090382/)|[Video](https://www.youtube.com/watch?v=hEb68oHnuEc)| parallele |	6 num -> I/O Expander| 0A |0|
