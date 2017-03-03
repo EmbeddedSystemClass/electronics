@@ -49,4 +49,6 @@ Soit la lecture d'un registre 0101110
 De la lecture pour le pic32
 [Explication schema](http://hades.mech.northwestern.edu/index.php/PIC32MX:_I2C_Communication_between_PIC32s)
 
+![Circuit I2C](https://github.com/alngo/electronics/blob/master/DOCS/I2c/I2C_circuit.PNG "circuit")
+
 
