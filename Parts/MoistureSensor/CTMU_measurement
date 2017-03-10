@@ -1,0 +1,8 @@
+Measurement of a capacitive (relative) value with CTMU
+How it work
+
+the current source charge an external capacitor (PCB electrodes in our case) to a Voltage in time.
+When the current and time are contant, the voltage increase or decrease inversely with the capacitor value.
+When water is in contact of the electrodes, the capacitance increase and the voltage decrease.
+The exacte amont of capacitance depends on how much water there is in the soil (and minerals too)
+The Voltage is mesured at frequent intervals by the microcontroller's **A/D converter**.
