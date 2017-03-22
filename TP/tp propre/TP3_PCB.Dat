@@ -1,0 +1,18 @@
+Field=Quantity~Integer~Quantity~100|Field=Designator~String~Designator~100|Field=Comment~String~Comment~100|Field=Footprint~String~Footprint~100|Field=Description~String~Description~100|Field=LibRef~String~LibRef~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~PCB_Project_TP3_mleroi.PrjPcb|ReportField=ProjectFullPath~D:\electro\tp propre\PCB_Project_TP3_mleroi.PrjPcb|ReportField=Title~Bill of Materials For PCB Document [TP3_PCB.PcbDoc]|ReportField=TotalQuantity~36|ReportField=ReportTime~4:34:38 PM|ReportField=ReportDate~3/20/2017|ReportField=ReportDateTime~3/20/2017 4:34:38 PM|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=DataSourceFileName~TP3_PCB.PcbDoc|ReportField=DataSourceFullPath~D:\electro\tp propre\TP3_PCB.PcbDoc
+5|D1_LED0, D1_LED1, D1_LED2, D1_LED3, D4|Green LED|LED 0805|Typical INFRARED GaAs LED|LED0
+1|R3|4.7k|RESC1608N|Resistor|Res1
+1|R4|470r|RESC1608N|Resistor|Res1
+4|1, R2_LED0, R2_LED1, R2_LED3|330r|RESC1608N|Resistor|Res1
+1|R1|1K|PDB181-K415K-102A2|Potentiometer|RPot SM
+1|U1|PIC32MX764F128H-I/PT|QFP50P1200X1200X120-64|PIC32MX764F128H|PIC32MX764F128H-I/PT
+1|FB1|600r|INDC1608AN|Inductor|Inductor
+1|J1|Program / Debug|RJ12_90|Header, 6-Pin|Header 6
+1|P1|12V Main|PHOENIX_1985195|Header, 2-Pin|Header 2
+1|P2|12V Battery|PHOENIX_1985195|Header, 2-Pin|Header 2
+2|D2, D3|GF1A|SMA/DO-214AC_21|Default Diode|Diode
+1|Y1|8MHz|HC49/4H SMX CRYSTAL|Crystal Oscillator|XTAL
+2|C10, C14|1uF 6.3V|CAPC1608N|Capacitor|Cap
+2|C7, C8|20pF|CAPC1608N|Capacitor|Cap
+4|C9, C11, C12, C13|10uF 6.3V|CAPC2012N|Capacitor|Cap
+7|C1, C2, C3, C4, C5, C6, C15|100nF|CAPC1608N|Capacitor|Cap
+1|U2|AP1117|TD03B_N|1A LDO, 18V input, DPAK|AP1117
