@@ -71,6 +71,23 @@ GenerateClassCluster=0
 DocumentUniqueId=DVRYYVCH
 
 [Document3]
+DocumentPath=Electroplant.SchLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=GJACBBWF
+
+[Document4]
 DocumentPath=74HC595.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -87,7 +104,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=LHFDFAOM
 
-[Document4]
+[Document5]
 DocumentPath=Job1.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -104,7 +121,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document5]
+[Document6]
 DocumentPath=BargraphRG.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -121,7 +138,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=TBBVXTER
 
-[Document6]
+[Document7]
 DocumentPath=LCD.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -138,7 +155,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=RCHLJOUC
 
-[Document7]
+[Document8]
 DocumentPath=FC1602B04-FHYYBW-91LE.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -155,7 +172,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=UEYBVBIV
 
-[Document8]
+[Document9]
 DocumentPath=LumSensor.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -172,7 +189,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VWTNDNGY
 
-[Document9]
+[Document10]
 DocumentPath=MPC23017.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -189,7 +206,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=POLUTPOC
 
-[Document10]
+[Document11]
 DocumentPath=MPC23017.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -206,7 +223,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=AKNWLRVJ
 
-[Document11]
+[Document12]
 DocumentPath=Temperature.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -223,7 +240,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=DQUPXCBO
 
-[Document12]
+[Document13]
 DocumentPath=SoilMoisture.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -240,7 +257,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KQWIEVYL
 
-[Document13]
+[Document14]
 DocumentPath=PIC.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -257,7 +274,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VGAMMIUM
 
-[Document14]
+[Document15]
 DocumentPath=LedAlert.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -274,7 +291,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=SIYURTMC
 
-[Document15]
+[Document16]
 DocumentPath=LED_RGB.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -291,7 +308,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=BYCQTQJT
 
-[Document16]
+[Document17]
 DocumentPath=BlueTooth.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
