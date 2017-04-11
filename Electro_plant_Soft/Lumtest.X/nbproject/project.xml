@@ -2,8 +2,8 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>LumSensor</name>
-            <creation-uuid>8c0b5461-4b88-4a73-89b5-5d7d60e0de34</creation-uuid>
+            <name>Lumtest</name>
+            <creation-uuid>55b153c4-8160-41c0-8032-b130f97e018c</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
             <cpp-extensions/>
