@@ -21,10 +21,11 @@ void	init()
     PORTBbits.RB3 = 0;		// SET THE LINE TO 0 ?
 
     //	ADC
-     AD1PCFGbits.PCFG5 = 0;	// /!\ SET TO ANALOG RB3
+    AD1PCFGbits.PCFG5 = 0;	// /!\ SET TO ANALOG RB3
     AD1CON1bits.ASAM = 0;	// AUTOMATIC SAMPLING
     AD1CON1bits.FORM = 0x0;	// SET DATA OUTPUT FORMAT TO INTEGER
     AD1CHSbits.CH0SB3 = 1;	// SELECT CHANEL B3
+	AD1CON2bits.VCFG = 0b001;	// or 0b011 test both set to external
     AD1CON1bits.SSRC = 0b000;	// SELECT SAMPLE CLOCK SOURCE TO INTERNAL (AUTO)
     AD1CON2 = 0;		// ALL AD1CON2 to 0 OPTIONS AREN'T USED
     AD1CSSL = 0;		// Skip Scanner disable
@@ -56,9 +57,9 @@ void	__ISR(_TIMER_1_VECTOR, IPL1AUTO)	T1_Interrupt(void)
 {
 	AD1CON1SET = 0x0002;	// CLEAR SAMP AND START THE CONVERSION PROCESS
 	while (TMR1 != 100); // WHILE PROCESS IS RUNNING
-        AD1CON1CLR = 0x0002;
-        while (!(AD1CON1 & 0x0001));
-        ldr_value = ADC1BUF0;	// ASSIGN VALUE
+    AD1CON1CLR = 0x0002;
+    while (!(AD1CON1 & 0x0001));
+    ldr_value = ADC1BUF0;	// ASSIGN VALUE
 	IFS0bits.T1IF = 0;	// RESET INTERRUPTION FLAG
 }
 
