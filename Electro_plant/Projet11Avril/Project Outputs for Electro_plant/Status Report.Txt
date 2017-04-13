@@ -1,0 +1,11 @@
+Output: Simple BOM
+Type  : SimpleBOM
+From  : Variant [[No Variations]] of Project [Electro_plant.PrjPcb]
+   Generated File[Level Sensor.BOM]
+   Generated File[Level Sensor.CSV]
+
+
+Files Generated   : 2
+Documents Printed : 0
+
+Finished Output Generation At 8:56:19 PM On 2/20/2017
