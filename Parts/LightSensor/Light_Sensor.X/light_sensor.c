@@ -36,6 +36,7 @@ void        init()
 void	init_interrupt()
 {
     __asm ("di");               //Disable Interruption
+//  init_rtcc_interrupt();
 //  ENABLE MULTI-VECTOR
     INTCONbits.MVEC = 1;        //Multi-Vector
 //  ENABLE INTERRUPTIONS
@@ -52,10 +53,11 @@ static void    delay_us(u16 t)
 
 static int     read_ldr()
 {
-    AD1CON1bits.SAMP = 1;           //START SAMPLING
-    delay_us(100);                  //WAIT FOR SAMPLING
-    AD1CON1bits.SAMP = 0;           //STOP SAMPLING/START CONVERSION
-    while (!(AD1CON1bits.DONE));    //WAIT FOR CONVERSION DONE
+    AD1CHSbits.CH0SA = 0;       //Select channel 0
+    AD1CON1bits.SAMP = 1;       //START SAMPLING
+    delay_us(100);              //WAIT FOR SAMPLING
+    AD1CON1bits.SAMP = 0;       //STOP SAMPLING/START CONVERSION
+    while (!(AD1CON1bits.DONE));//WAIT FOR CONVERSION DONE
     return (ADC1BUF0);
 }
 

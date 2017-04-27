@@ -9,4 +9,7 @@ typedef char            s8;
 typedef short           s16;
 typedef int             s32;
 
+void            init_rtcc();
+void            init_rtcc_interrupt();
+
 #endif /* LIGHT_SENSOR_H */
