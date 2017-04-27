@@ -70,8 +70,10 @@ int	main()
     init_interrupt();
     while(1)
     {
-        tmp = ldr_value;                //Stock ldr_value;
-        ldr_value = read_ldr();         //Read and set ldr_value
+        tmp = ldr_value;            //Stock ldr_value;
+        ldr_value = read_ldr();     //Read and set ldr_value
+        //if (ldr_value - tmp > 100)   //Diff is bigger than 100 ?
+        //Screen process
         WDTCONbits.WDTCLR = 0x1;
     }
     return (1);
