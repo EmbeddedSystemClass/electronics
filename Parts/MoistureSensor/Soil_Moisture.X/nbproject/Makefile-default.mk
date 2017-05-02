@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=SoilSensor.c config.c Moisture_cal.c Moisture.c
+SOURCEFILES_QUOTED_IF_SPACED=SoilSensor.c config.c Moisture.c Moisture_cal_v.c Moisture_cal_c.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/SoilSensor.o ${OBJECTDIR}/config.o ${OBJECTDIR}/Moisture_cal.o ${OBJECTDIR}/Moisture.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/SoilSensor.o.d ${OBJECTDIR}/config.o.d ${OBJECTDIR}/Moisture_cal.o.d ${OBJECTDIR}/Moisture.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/SoilSensor.o ${OBJECTDIR}/config.o ${OBJECTDIR}/Moisture.o ${OBJECTDIR}/Moisture_cal_v.o ${OBJECTDIR}/Moisture_cal_c.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/SoilSensor.o.d ${OBJECTDIR}/config.o.d ${OBJECTDIR}/Moisture.o.d ${OBJECTDIR}/Moisture_cal_v.o.d ${OBJECTDIR}/Moisture_cal_c.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/SoilSensor.o ${OBJECTDIR}/config.o ${OBJECTDIR}/Moisture_cal.o ${OBJECTDIR}/Moisture.o
+OBJECTFILES=${OBJECTDIR}/SoilSensor.o ${OBJECTDIR}/config.o ${OBJECTDIR}/Moisture.o ${OBJECTDIR}/Moisture_cal_v.o ${OBJECTDIR}/Moisture_cal_c.o
 
 # Source Files
-SOURCEFILES=SoilSensor.c config.c Moisture_cal.c Moisture.c
+SOURCEFILES=SoilSensor.c config.c Moisture.c Moisture_cal_v.c Moisture_cal_c.c
 
 
 CFLAGS=
@@ -118,17 +118,23 @@ ${OBJECTDIR}/config.o: config.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/config.o 
 	@${FIXDEPS} "${OBJECTDIR}/config.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/config.o.d" -o ${OBJECTDIR}/config.o config.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
 	
-${OBJECTDIR}/Moisture_cal.o: Moisture_cal.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Moisture_cal.o.d 
-	@${RM} ${OBJECTDIR}/Moisture_cal.o 
-	@${FIXDEPS} "${OBJECTDIR}/Moisture_cal.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Moisture_cal.o.d" -o ${OBJECTDIR}/Moisture_cal.o Moisture_cal.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
-	
 ${OBJECTDIR}/Moisture.o: Moisture.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Moisture.o.d 
 	@${RM} ${OBJECTDIR}/Moisture.o 
 	@${FIXDEPS} "${OBJECTDIR}/Moisture.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Moisture.o.d" -o ${OBJECTDIR}/Moisture.o Moisture.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/Moisture_cal_v.o: Moisture_cal_v.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Moisture_cal_v.o.d 
+	@${RM} ${OBJECTDIR}/Moisture_cal_v.o 
+	@${FIXDEPS} "${OBJECTDIR}/Moisture_cal_v.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Moisture_cal_v.o.d" -o ${OBJECTDIR}/Moisture_cal_v.o Moisture_cal_v.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/Moisture_cal_c.o: Moisture_cal_c.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Moisture_cal_c.o.d 
+	@${RM} ${OBJECTDIR}/Moisture_cal_c.o 
+	@${FIXDEPS} "${OBJECTDIR}/Moisture_cal_c.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Moisture_cal_c.o.d" -o ${OBJECTDIR}/Moisture_cal_c.o Moisture_cal_c.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
 	
 else
 ${OBJECTDIR}/SoilSensor.o: SoilSensor.c  nbproject/Makefile-${CND_CONF}.mk
@@ -143,17 +149,23 @@ ${OBJECTDIR}/config.o: config.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/config.o 
 	@${FIXDEPS} "${OBJECTDIR}/config.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/config.o.d" -o ${OBJECTDIR}/config.o config.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
 	
-${OBJECTDIR}/Moisture_cal.o: Moisture_cal.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Moisture_cal.o.d 
-	@${RM} ${OBJECTDIR}/Moisture_cal.o 
-	@${FIXDEPS} "${OBJECTDIR}/Moisture_cal.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Moisture_cal.o.d" -o ${OBJECTDIR}/Moisture_cal.o Moisture_cal.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
-	
 ${OBJECTDIR}/Moisture.o: Moisture.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Moisture.o.d 
 	@${RM} ${OBJECTDIR}/Moisture.o 
 	@${FIXDEPS} "${OBJECTDIR}/Moisture.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Moisture.o.d" -o ${OBJECTDIR}/Moisture.o Moisture.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/Moisture_cal_v.o: Moisture_cal_v.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Moisture_cal_v.o.d 
+	@${RM} ${OBJECTDIR}/Moisture_cal_v.o 
+	@${FIXDEPS} "${OBJECTDIR}/Moisture_cal_v.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Moisture_cal_v.o.d" -o ${OBJECTDIR}/Moisture_cal_v.o Moisture_cal_v.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/Moisture_cal_c.o: Moisture_cal_c.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Moisture_cal_c.o.d 
+	@${RM} ${OBJECTDIR}/Moisture_cal_c.o 
+	@${FIXDEPS} "${OBJECTDIR}/Moisture_cal_c.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Moisture_cal_c.o.d" -o ${OBJECTDIR}/Moisture_cal_c.o Moisture_cal_c.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
 	
 endif
 

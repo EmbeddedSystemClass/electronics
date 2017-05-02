@@ -10,8 +10,9 @@
 
 void    init()
 {
-//SOIL SENSOR GPIO 26 RB15 CDTED6 AN 9
-    TRISBbits.TRISB15 = 1;          //SET PIN at INPUT
+//OLD SOIL SENSOR GPIO 26 RB15 CDTED6 AN 9
+//SOIL SENSOR GPIO 23 RB12 AN 12
+    TRISBbits.TRISB12 = 1;          //SET PIN at INPUT
     
 //CTMU 1
     CTMUCON = 0;                    // RESET all
@@ -21,16 +22,16 @@ void    init()
     AD1CON2 = 0;                    // [VCFG|OFFCAL|CSCNA|BUFS|SMPI|BUFM|ALTS]
     AD1CON3 = 1;                    // ADCS = 4 . TPB  [ADRC|SAMC|ADCS]
     AD1CSSL = 0;                    // No Chanel scan
-    AD1CHSbits.CH0SA = 9;           // Select chanel AN9
+    AD1CHSbits.CH0SA = 12;          // Select chanel AN12
     ANSELA = 0x0000;                // No ADC pin
-    ANSELB = 1<<15;                 // RB15 connected to sensor
+    ANSELB = 1<<12;                 // RB12 connected to sensor
     AD1CON1bits.ON = 1;             // Turn On ADC
     
 //TIMER
     T1CONbits.ON = 1;               // Enable Timer
     TMR1 = 0;                       // Set Start to 0
     T1CONbits.TCKPS = 0;            // Set Prescale to 1
-    PR1 = 1000;                     // 1mSec
+    PR1 = 1000;                    // 1mSec
     
 
 //INTERRUPT
@@ -38,8 +39,8 @@ void    init()
     IEC0bits.AD1IE = 0;             // Disable ADC interrupt
     
     //Enable Multi-Vector and interruptions
-    INTCONbits.MVEC = 1;
-    __asm("ei");
+    //INTCONbits.MVEC = 1;
+    //__asm("ei");
 }
 
 int main()
@@ -48,6 +49,7 @@ int main()
     u16 cap;
     
     vctmu = 0;
+
     init();
     while (vctmu == 0)
     {
@@ -58,7 +60,7 @@ int main()
         while (TMR1 < PR1);         // wait 1ms
         CTMUCONbits.IDISSEN = 0;    // Stop manual sampling
         CTMUCONbits.EDG1STAT = 1;   // Begin charging circuit
-        while (TMR1 < 1);          // wait 25us
+        while (TMR1 < 1);          // wait 0.1us
         AD1CON1bits.SAMP = 0;       // End Sampling begin conversion
         CTMUCONbits.EDG1STAT = 0;   // Stop charging circuit
         while(!AD1CON1bits.DONE);   // wait ADC is done
