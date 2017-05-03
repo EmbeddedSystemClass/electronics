@@ -16,5 +16,8 @@ typedef char s8;
 typedef short s16;
 typedef int  s32;
 
+#define max_ctmu 950
+#define min_ctmu 0
+
 #endif	/* SOIL_SENSOR_H */
 

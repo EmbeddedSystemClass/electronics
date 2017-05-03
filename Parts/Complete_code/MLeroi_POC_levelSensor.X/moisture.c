@@ -88,7 +88,7 @@ void    init_moisture()
     display_write_str("H", 0, 10);
 }
 
-int check_moisture()
+u16 get_moisture()
 {
     u16 vctmu;
     u16 cap;
@@ -112,7 +112,15 @@ int check_moisture()
         vctmu = ADC1BUF0;           // get value from ADC
     }
     CTMUCONbits.ON = 0;             // CTMU off
+    return (vctmu);
+}
+
+void check_moisture()
+{
+    u16 ctmu_ret = get_moisture();
+    u16 humidity;
     
+    humidity = 100 - ((ctmu_ret - min_ctmu) * 100 / max_ctmu) - min_ctmu;
     display_write_str("    ", 0, 11);
-    display_write_dec(vctmu, 0, 11);
+    display_write_dec(humidity, 0, 11);
 }
