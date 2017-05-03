@@ -242,6 +242,9 @@ void	main(void)
 	init_lcd();
 	init_display();
 	init_light();
+    init_moisture();
+    init_temp();
+	led_alert(GRE_BIT | BLU_BIT);
 		
 	while(1)				//Main loop
 	{
@@ -249,6 +252,8 @@ void	main(void)
 		{
 			check_level();
 			check_light();
+            check_moisture();
+            check_temp();
 			display_update();
 			I_can_check_sensors = 0;
 		}

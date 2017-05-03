@@ -4,18 +4,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/alngo/MPLABXProjects/MLeroi_POC_levelSensor.X/main.c</file>
-            <file>file:/Users/alngo/MPLABXProjects/MLeroi_POC_levelSensor.X/display.c</file>
-            <file>file:/Users/alngo/MPLABXProjects/MLeroi_POC_levelSensor.X/delay_micro.c</file>
-            <file>file:/Users/alngo/MPLABXProjects/MLeroi_POC_levelSensor.X/lcd.c</file>
-            <file>file:/Users/alngo/MPLABXProjects/MLeroi_POC_levelSensor.X/led.c</file>
-            <file>file:/Users/alngo/MPLABXProjects/MLeroi_POC_levelSensor.X/moisture.c</file>
-            <file>file:/Users/alngo/MPLABXProjects/MLeroi_POC_levelSensor.X/temperature.c</file>
-            <file>file:/Users/alngo/MPLABXProjects/MLeroi_POC_levelSensor.X/level.c</file>
-            <file>file:/Users/alngo/MPLABXProjects/MLeroi_POC_levelSensor.X/light.c</file>
-            <file>file:/Users/alngo/MPLABXProjects/MLeroi_POC_levelSensor.X/gpio_exp.c</file>
-            <file>file:/Users/alngo/MPLABXProjects/MLeroi_POC_levelSensor.X/SPI.c</file>
-            <file>file:/Users/alngo/MPLABXProjects/MLeroi_POC_levelSensor.X/I2C.c</file>
+            <file>file:/home/unicorn/electroplant/Parts/Complete_code/MLeroi_POC_levelSensor.X/display.c</file>
+            <file>file:/home/unicorn/electroplant/Parts/Complete_code/MLeroi_POC_levelSensor.X/light.c</file>
+            <file>file:/home/unicorn/electroplant/Parts/Complete_code/MLeroi_POC_levelSensor.X/header.h</file>
+            <file>file:/home/unicorn/electroplant/Parts/Complete_code/MLeroi_POC_levelSensor.X/delay_micro.c</file>
+            <file>file:/home/unicorn/electroplant/Parts/Complete_code/MLeroi_POC_levelSensor.X/led.c</file>
+            <file>file:/home/unicorn/electroplant/Parts/Complete_code/MLeroi_POC_levelSensor.X/lcd_char_codes.h</file>
+            <file>file:/home/unicorn/electroplant/Parts/Complete_code/MLeroi_POC_levelSensor.X/gpio_exp.c</file>
+            <file>file:/home/unicorn/electroplant/Parts/Complete_code/MLeroi_POC_levelSensor.X/bargraph.c</file>
+            <file>file:/home/unicorn/electroplant/Parts/Complete_code/MLeroi_POC_levelSensor.X/main.c</file>
         </group>
     </open-files>
 </project-private>

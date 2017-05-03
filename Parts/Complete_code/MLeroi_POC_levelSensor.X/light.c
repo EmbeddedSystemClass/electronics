@@ -11,18 +11,19 @@ void		init_light(void)
     AD1CON2 = 0;                //[VCFG|OFFCAL|CSCNA|BUFS|SMPI|BUFM|ALTS]
     AD1CON3 = 1;                //[ADRC|SAMC|ADCS = 0b10]
     AD1CSSL = 0;                //SKIP ANx input scan
-    AD1CHSbits.CH0SA = 0;       //Select channel 0
+  //  AD1CHSbits.CH0SA = 0;       //Select channel 0
     AD1CON1bits.ON = 1;         //Enable ADC
 
-	display_write_str("Light=", 0, 6);
+	display_write_str("L", 0, 5);
 }
 
 //check light level and fill display_buffer with the measured value.
 void	check_light()
 {
 	uint32_t	light_level = get_light();
-
-	display_write_dec(light_level, 0, 12);
+    
+    display_write_str("    ", 0, 6);
+	display_write_dec(light_level, 0, 6);
 }
 
 uint32_t	get_light(void)

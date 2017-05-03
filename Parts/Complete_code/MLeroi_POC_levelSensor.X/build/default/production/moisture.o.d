@@ -1,2 +1,3 @@
 build/default/production/moisture.o:  \
-moisture.c 
+moisture.c  \
+Soil_sensor.h 

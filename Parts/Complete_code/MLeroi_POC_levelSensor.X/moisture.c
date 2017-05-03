@@ -42,6 +42,7 @@
 //
 //FOR PONNYLAND!!!
 
+
 /*
  * Capacitive Soil Sensor
  * using CTMU
@@ -51,7 +52,7 @@
 #include "Soil_sensor.h"
 #include <xc.h>
 
-void    init()
+void    init_moisture()
 {
 //OLD SOIL SENSOR GPIO 26 RB15 CDTED6 AN 9
 //SOIL SENSOR GPIO 23 RB12 AN 12
@@ -65,7 +66,7 @@ void    init()
     AD1CON2 = 0;                    // [VCFG|OFFCAL|CSCNA|BUFS|SMPI|BUFM|ALTS]
     AD1CON3 = 1;                    // ADCS = 4 . TPB  [ADRC|SAMC|ADCS]
     AD1CSSL = 0;                    // No Chanel scan
-    AD1CHSbits.CH0SA = 12;          // Select chanel AN12
+   // AD1CHSbits.CH0SA = 12;        // Select chanel AN12
     ANSELA = 0x0000;                // No ADC pin
     ANSELB = 1<<12;                 // RB12 connected to sensor
     AD1CON1bits.ON = 1;             // Turn On ADC
@@ -74,7 +75,7 @@ void    init()
     T1CONbits.ON = 1;               // Enable Timer
     TMR1 = 0;                       // Set Start to 0
     T1CONbits.TCKPS = 0;            // Set Prescale to 1
-    PR1 = 1000;                    // 1mSec
+    PR1 = 10000;                    // 1mSec
     
 
 //INTERRUPT
@@ -84,16 +85,16 @@ void    init()
     //Enable Multi-Vector and interruptions
     //INTCONbits.MVEC = 1;
     //__asm("ei");
+    display_write_str("H", 0, 10);
 }
 
-int main()
+int check_moisture()
 {
     u16 vctmu;
     u16 cap;
     
     vctmu = 0;
-
-    init();
+    AD1CHSbits.CH0SA = 12;          // Select chanel AN12
     while (vctmu == 0)
     {
         CTMUCONbits.ON = 1;         // Turn On CTMU
@@ -103,7 +104,7 @@ int main()
         while (TMR1 < PR1);         // wait 1ms
         CTMUCONbits.IDISSEN = 0;    // Stop manual sampling
         CTMUCONbits.EDG1STAT = 1;   // Begin charging circuit
-        while (TMR1 < 1);          // wait 0.1us
+        while (TMR1 < 10);          // wait 1us (66% max charge)
         AD1CON1bits.SAMP = 0;       // End Sampling begin conversion
         CTMUCONbits.EDG1STAT = 0;   // Stop charging circuit
         while(!AD1CON1bits.DONE);   // wait ADC is done
@@ -111,4 +112,7 @@ int main()
         vctmu = ADC1BUF0;           // get value from ADC
     }
     CTMUCONbits.ON = 0;             // CTMU off
+    
+    display_write_str("    ", 0, 11);
+    display_write_dec(vctmu, 0, 11);
 }

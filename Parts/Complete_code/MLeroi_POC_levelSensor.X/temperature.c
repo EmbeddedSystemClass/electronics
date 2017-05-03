@@ -46,3 +46,225 @@
 //          .;d0XX0kdlc:;,,,',,,;;:clodkO0KK0Okdl:,'..
 //              .,coxO0KXXXXXXXKK0OOxdoc:,..
 //                        ...
+
+#include <xc.h>
+
+#define uint8_t unsigned char
+
+uint8_t Presence = 0;
+uint8_t LSB = 0x00;
+uint8_t MSB = 0x00;
+float   Temperature;
+int test;
+    
+//#define BusLOW LATBbits.LATB0 = 1 //drain open
+//#define BusHIGH LATBbits.LATB0 = 0 //drain close
+
+#define OW_bus(state) LATBbits.LATB10 = state
+
+void	init_temp()
+{
+ // set timer 1
+    T1CONbits.TCKPS = 0; // set prescale to 1
+    T1CONbits.ON = 1; // enable timer 1
+//set port
+    TRISBbits.TRISB10 = 0; // output
+    OW_bus(1); //define OW high
+    ODCBbits.ODCB10 = 1; //enable open drain on RB0
+}
+
+int	reset()
+{
+    Presence = 0;
+    //drive bus low for 480us
+    OW_bus(0); //OW low (open drain)
+   // LATBbits.LATB0 = 0; // drive bus low
+    TMR1 = 0; // reset timer 1
+    while (TMR1 < 4800) // 480us (reset pulse)
+    {}
+	//LATBbits.LATB0 = 1; // release bus
+	OW_bus(1); // release OW
+    while (TMR1 < 6000); //attendre 70us recommandé
+//sample bus
+    if (PORTBbits.RB10 == 0) //480 + 60us (presence pulse)
+    {
+        Presence = 1;
+    }
+    else
+    {
+        Presence = 0;
+    }
+    while (TMR1 < 9600); //attendre 410us recommandé
+    return (Presence);
+}
+
+void    WriteBit(uint8_t bit)
+{
+    TRISBbits.TRISB10 = 0; //pin output
+    if (bit == 1)
+    {
+        //write 1
+        TMR1 = 0;
+        OW_bus(0); //drive OW low
+        while (TMR1 < 10)
+        {}
+        OW_bus(1); //release OW
+        while (TMR1 < 600)
+        {}
+    }
+    else
+    {
+        //write 0
+        TMR1 = 0;
+        OW_bus(0); //drive OW low
+        while (TMR1 < 600)
+        {}   
+        OW_bus(1); //release OW
+    }
+}
+
+void    WriteData(uint8_t data)
+{
+    int i = 0;
+    uint8_t  bitmask = 0x01;
+    
+    while (i < 8)
+    {
+        if ((bitmask & data) > 0)
+        {
+            WriteBit(1);
+        }
+        else
+        {
+            WriteBit(0);
+        }
+        bitmask = bitmask << 1;
+        i++;
+    }
+    
+}
+
+uint8_t    Readbit()
+{
+    uint8_t i;
+    
+    TMR1 = 0;
+    OW_bus(0); //drive OW low
+    while (TMR1 < 10);
+    OW_bus(1);
+    TRISBbits.TRISB10 = 1; //set input
+    while (TMR1 < 100)
+    {}
+    if (PORTBbits.RB10 == 0)
+    {
+        i = 0;
+    }
+    else
+    {
+        i = 1;
+    }
+    while (TMR1 < 600)
+    {}
+    //OW_bus(1);
+    TRISBbits.TRISB10 = 0; // pin output
+    return i;
+}
+
+uint8_t ReadData()
+{
+    uint8_t i = 0;
+    uint8_t data = 0x00;
+    uint8_t bitmask = 0x01;
+    
+    while (i < 8)
+    {
+        if (Readbit() == 1)
+        {
+            data = data | bitmask;
+        }
+        bitmask = bitmask << 1;
+        i++;
+    }
+    return (data);
+}
+
+void    skipROM()
+{
+    WriteData(0xCC); //skip ROM
+}
+
+uint8_t    convertTmp()
+{
+    if (reset() == 0)
+    {
+        return(0);
+    }
+    skipROM();
+    WriteData(0x44); //convert temperature (96ms))
+    while (Readbit() == 0); // CF datasheet en mode normale, le capteur retourne 0 sur le OW si operation en cou, et 1 une foisla convertion fini
+}
+    
+void    SampleTmp()
+{
+    while(reset() == 0);
+    skipROM();
+    WriteData(0xBE); //read scratchpad command
+    LSB = ReadData();
+    MSB = ReadData();
+}
+
+void    readrom()
+{
+    while (reset() == 0);
+    WriteData(0x33);
+    LSB = ReadData();
+    MSB = ReadData();
+}
+
+void    read_power_supply()
+{
+    while (reset() == 0);
+    skipROM();
+    WriteData(0xB4);
+}
+
+void    copy_to_eeprom()
+{
+    while (reset() == 0);
+    skipROM();
+    WriteData(48);
+}
+
+void    write_scratchpad()
+{
+    while (reset() == 0);
+    skipROM();
+    WriteData(0x4E); //set config
+    // Envois des 3 octets
+    WriteData(0xFF); //Th
+    WriteData(0x00); //Tl
+    WriteData(0b00011111); //Resolution 9bits
+    // Copy Scratchpad to EEPROM
+    copy_to_eeprom();
+}
+
+void    check_temp()
+{
+    uint8_t is_neg = 0b11111000;
+    
+    write_scratchpad(); //Define resolution
+    convertTmp(); //save Temperature value
+    SampleTmp(); // get Temperature value
+    Temperature = (((MSB & 0b00000111) << 8) | LSB & 0b11111000) * 0.0625; //converstion en °c
+    if ((MSB & is_neg) == is_neg) //check negative value
+    {
+        Temperature = Temperature * -1;
+    }
+    while (1)
+    {
+        convertTmp();
+    }
+    //putnbr((int)Temperature);
+    //putstr(".");
+    //putnbr((Temperature - (int)Temperature) * 10);
+}

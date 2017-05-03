@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>header.h</itemPath>
       <itemPath>lcd_char_codes.h</itemPath>
+      <itemPath>Soil_sensor.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
