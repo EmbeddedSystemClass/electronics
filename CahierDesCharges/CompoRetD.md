@@ -25,6 +25,15 @@
 | PushButton Switche | | | |
 |||||||**TOTAL**| 152.5mA |
 
+
+ARROSAGE 
+
+Il faut declancher la pompe en fonction de l'humidite de la terre et de la temperature  ambiante cf site :
+
+https://www.rustica.fr/articles-jardin/arroser-basilic,5737.html
+https://www.rustica.fr/articles-jardin/comment-arroser-plantes-interieur,2429.html
+
+
 CTMU info
 
 http://people.ece.cornell.edu/land/courses/ece4760/PIC32/index_CTMU.html
