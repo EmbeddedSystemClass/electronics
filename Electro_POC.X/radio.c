@@ -30,11 +30,11 @@ void	init_radio(uint8_t reg_addr)
 	radio_write_reg(RX_ADDR_P5_REG, 0xc6);
 	radio_write_reg(TX_ADDR_REG, 0x3232323232);
 	radio_write_reg(RX_PW_P0_REG, 0x20);
-	radio_write_reg(RX_PW_P0_REG, 0x20);
-	radio_write_reg(RX_PW_P0_REG, 0x00);
-	radio_write_reg(RX_PW_P0_REG, 0x00);
-	radio_write_reg(RX_PW_P0_REG, 0x00);
-	radio_write_reg(RX_PW_P0_REG, 0x00);
+	radio_write_reg(RX_PW_P1_REG, 0x20);
+	radio_write_reg(RX_PW_P2_REG, 0x00);
+	radio_write_reg(RX_PW_P3_REG, 0x00);
+	radio_write_reg(RX_PW_P4_REG, 0x00);
+	radio_write_reg(RX_PW_P5_REG, 0x00);
 	radio_write_reg(FIFO_STATUS_REG, 0x11);
 
 	radio_write_reg(FEATURE_REG, 0x00);		//disable all features
@@ -274,7 +274,7 @@ void	radio_send(int32_t payload)
 	
 	//payload in TX FIFO
 	radio_write_reg(TX_ADDR_REG, 0x0000003232323232);	//tx addr = ""
-	radio_command(R_RX_PAYLOAD, payload, 8);
+	radio_command(W_TX_PAYLOAD, payload, 8);
 	
 	//CE_PIN HIGH (10us pulse)
 	LATBSET = CE_PIN;
