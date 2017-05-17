@@ -238,22 +238,22 @@ void	main(void)
 	init_bargraph();
 	init_I2C();
 	init_gpio_exp();
-	init_level();
 	init_lcd();
 	init_display();
 	init_light();
-    init_moisture();
-   // init_temp();
+	init_temp();
+	init_level();
+	init_moisture();
 	led_alert(GRE_BIT | BLU_BIT);
 		
 	while(1)				//Main loop
 	{
 		if (I_can_check_sensors)		
 		{
-			check_level();
-			check_light();
-            check_moisture();
-   //         check_temp();
+//			check_level();
+//			check_light();
+//			check_moisture();
+			check_temp();
 			display_update();
 			I_can_check_sensors = 0;
 		}

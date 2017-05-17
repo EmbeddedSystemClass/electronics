@@ -1,2 +1,3 @@
 build/default/production/temperature.o:  \
-temperature.c 
+temperature.c  \
+header.h 

@@ -1,2 +1,3 @@
 build/default/debug/temperature.o:  \
-temperature.c 
+temperature.c  \
+header.h 

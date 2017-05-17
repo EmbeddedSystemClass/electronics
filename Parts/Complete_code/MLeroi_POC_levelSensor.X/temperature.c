@@ -48,7 +48,10 @@
 //                        ...
 
 #include <xc.h>
+#include "header.h"
 
+
+#define TEMP_PIN 0x0a
 #define uint8_t unsigned char
 
 uint8_t Presence = 0;
@@ -57,68 +60,73 @@ uint8_t MSB = 0x00;
 float   Temperature;
 int test;
     
-//#define BusLOW LATBbits.LATB0 = 1 //drain open
-//#define BusHIGH LATBbits.LATB0 = 0 //drain close
-
 #define OW_bus(state) LATBbits.LATB10 = state
 
 void	init_temp()
 {
- // set timer 1
-    T1CONbits.TCKPS = 0; // set prescale to 1
-    T1CONbits.ON = 1; // enable timer 1
-//set port
-    TRISBbits.TRISB10 = 0; // output
-    OW_bus(1); //define OW high
-    ODCBbits.ODCB10 = 1; //enable open drain on RB0
+	// set timer 1
+	T1CONbits.TCKPS = 0; // set prescale to 1
+	T1CONbits.ON = 1; // enable timer 1
+	//set port
+	TRISBbits.TRISB10 = 0; // output
+	OW_bus(1); //define OW high
+	ODCBbits.ODCB10 = 1; //enable open drain on RB0
 }
 
 int	reset()
 {
-    Presence = 0;
-    //drive bus low for 480us
-    OW_bus(0); //OW low (open drain)
-   // LATBbits.LATB0 = 0; // drive bus low
-    TMR1 = 0; // reset timer 1
-    while (TMR1 < 4800) // 480us (reset pulse)
-    {}
+	Presence = 0;
+	//drive bus low for 480us
+	OW_bus(0); //OW low (open drain)
+
+//	TMR1 = 0; // reset timer 1
+//	while (TMR1 < 4800); // 480us (reset pulse)
+	delay_micro(480);
+    
 	//LATBbits.LATB0 = 1; // release bus
 	OW_bus(1); // release OW
-    while (TMR1 < 6000); //attendre 70us recommandé
-//sample bus
-    if (PORTBbits.RB10 == 0) //480 + 60us (presence pulse)
-    {
-        Presence = 1;
-    }
-    else
-    {
-        Presence = 0;
-    }
-    while (TMR1 < 9600); //attendre 410us recommandé
-    return (Presence);
+
+	//    while (TMR1 < 6000); //attendre 70us recommandé
+	delay_micro(120);
+
+	//sample bus
+	if (PORTBbits.RB10 == 0) //480 + 60us (presence pulse)
+	{
+		Presence = 1;
+	}
+	else
+	{
+		Presence = 0;
+	}
+	
+	//while (TMR1 < 9600); //attendre 410us recommandé
+	delay_micro(360);
+
+	return (Presence);
 }
 
 void    WriteBit(uint8_t bit)
 {
     TRISBbits.TRISB10 = 0; //pin output
-    if (bit == 1)
+    if(bit == 1)
     {
         //write 1
-        TMR1 = 0;
+//	TMR1 = 0;
         OW_bus(0); //drive OW low
-        while (TMR1 < 10)
-        {}
+//	while (TMR1 < 10);		//1us
+	delay_micro(1);
+
         OW_bus(1); //release OW
-        while (TMR1 < 600)
-        {}
+//        while (TMR1 < 600);		//59us
+    delay_micro(59);
     }
     else
     {
         //write 0
-        TMR1 = 0;
+//        TMR1 = 0;
         OW_bus(0); //drive OW low
-        while (TMR1 < 600)
-        {}   
+//        while (TMR1 < 600);		//60us
+    delay_micro(60);
         OW_bus(1); //release OW
     }
 }
@@ -146,28 +154,29 @@ void    WriteData(uint8_t data)
 
 uint8_t    Readbit()
 {
-    uint8_t i;
-    
-    TMR1 = 0;
-    OW_bus(0); //drive OW low
-    while (TMR1 < 10);
-    OW_bus(1);
-    TRISBbits.TRISB10 = 1; //set input
-    while (TMR1 < 100)
-    {}
-    if (PORTBbits.RB10 == 0)
-    {
-        i = 0;
-    }
-    else
-    {
-        i = 1;
-    }
-    while (TMR1 < 600)
-    {}
-    //OW_bus(1);
-    TRISBbits.TRISB10 = 0; // pin output
-    return i;
+	uint8_t i;
+
+	//TMR1 = 0;
+	OW_bus(0); //drive OW low
+	//while (TMR1 < 10);			//1us
+	delay_micro(1);
+	OW_bus(1);
+	TRISBbits.TRISB10 = 1; //set input
+//	while (TMR1 < 100);			//10us
+	delay_micro(9);
+	if (PORTBbits.RB10 == 0)
+	{
+		i = 0;
+	}
+	else
+	{
+		i = 1;
+	}
+//	while (TMR1 < 600);		//50us
+	delay_micro(50);
+	//OW_bus(1);
+	TRISBbits.TRISB10 = 0; // pin output
+	return i;
 }
 
 uint8_t ReadData()
