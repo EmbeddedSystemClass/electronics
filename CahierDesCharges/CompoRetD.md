@@ -22,6 +22,7 @@
 |Support Batteries|**KEYSTONE  1047**|N/A|[Farnell](http://fr.farnell.com/keystone/1047/battery-holder-18650-li-ion-2cell/dp/2501206)|[Datasheet](http://www.farnell.com/datasheets/1926460.pdf)|N/A|N/A|||
 |Batteries|****|18650 (x2) | []()|nop|N/A|N/A|N/A|2x|
 | PushButton Switche | | | |
+| Button Reset | **ALCOSWITCH 1437566-3** | CMS | [Farnell](http://fr.farnell.com/alcoswitch-te-connectivity/1437566-3/bouton-poussoir-spst-0-05a-24v/dp/2468741)| [Datasheet](http://www.farnell.com/cad/1885096.pdf) |
 |||||||**TOTAL**| 152.5mA |
 
 
