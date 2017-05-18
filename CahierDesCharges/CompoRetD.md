@@ -19,7 +19,7 @@
 |	PIC32MX|	**PIC32MX170F256B-I/SO**|28-pins SOIC| [Farnell](http://fr.farnell.com/microchip/pic32mx170f256b-i-so/ic-32bit-mcu/dp/2449077)	| [Datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/60001168J.pdf) [Errata](http://ww1.microchip.com/downloads/en/DeviceDoc/80000531H.pdf)|| 21 (E/S) |30mA|4.71|
 | Pompe |**Yosoo**|N/A| [Amazone](https://www.amazon.fr/Yosoo-p%C3%A9ristaltique-dosage-Aquarium-Analytique/dp/B00HLCOXFI/ref=sr_1_1?ie=UTF8&qid=1487687364&sr=8-1&keywords=pompe+p%C3%A9ristaltique)|ext | Parallele | 1 numerique | 30mA | 14.59 |
 | Regulateur 3.3V | **LM1117T-3.3/NOPB** | TO-220-3 | [Farnell](http://fr.farnell.com/texas-instruments/lm1117t-3-3-nopb/regulateur-lineaire-3-3v/dp/1469056) | [Datasheet](http://www.ti.com/lit/ds/symlink/lm1117.pdf) | N/A | 0 | see dropout |0.82|
-|Support Batteries|****|N/A|[Farnell]()|[Datasheet]()|N/A|N/A|||
+|Support Batteries|**KEYSTONE  1047**|N/A|[Farnell](http://fr.farnell.com/keystone/1047/battery-holder-18650-li-ion-2cell/dp/2501206)|[Datasheet](http://www.farnell.com/datasheets/1926460.pdf)|N/A|N/A|||
 |Batteries|****|18650 (x2) | []()|nop|N/A|N/A|N/A|2x|
 | PushButton Switche | | | |
 |||||||**TOTAL**| 152.5mA |
