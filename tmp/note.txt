@@ -13,3 +13,12 @@ tools->item manager->select all items->ok
 puis avant de sortir la BOM :
 Project->Bill of Material->add parameter from vault->selectionner les collonnes a afficher et voila :)
 
+A verifier :
+Les reference
+	diodes
+	xtal
+	res 2Mohm
+	res 10Mohm
+	res 140ohm
+	res 600ohm
+	capa 100nF (trouve a 0.1uF)
