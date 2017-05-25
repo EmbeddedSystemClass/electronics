@@ -1,0 +1,8 @@
+"Bill of Material for "
+"On 2/20/2017 at 8:56:19 PM"
+
+"Comment","Pattern","Quantity","Components"
+
+"100kO","AXIAL-0.4","4","R?, R?, R?, R?","Resistor"
+"MOSFET-N","E3","1","Q?","N-Channel MOSFET"
+"Water resistance","6-0805_N","4","WR?, WR?, WR?, WR?","Varistor (Voltage-Sensitive Resistor)"

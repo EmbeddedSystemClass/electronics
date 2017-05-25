@@ -1,0 +1,256 @@
+Added Component: Designator=C1(RAD-0.3)
+Added Component: Designator=C2(RAD-0.3)
+Added Component: Designator=C3(RAD-0.3)
+Added Component: Designator=C4(RAD-0.3)
+Added Component: Designator=C5(RAD-0.3)
+Added Component: Designator=R1(AXIAL-0.4)
+Added Component: Designator=R2(AXIAL-0.4)
+Added Component: Designator=R3(AXIAL-0.4)
+Added Component: Designator=R4(AXIAL-0.4)
+Added Component: Designator=R5(AXIAL-0.4)
+Added Component: Designator=R6(AXIAL-0.4)
+Added Component: Designator=R7(AXIAL-0.4)
+Added Component: Designator=R8(AXIAL-0.4)
+Added Component: Designator=R9(AXIAL-0.4)
+Added Component: Designator=R10(AXIAL-0.4)
+Added Component: Designator=R11(AXIAL-0.4)
+Added Component: Designator=R12(AXIAL-0.4)
+Added Component: Designator=R13(AXIAL-0.4)
+Added Component: Designator=R14(AXIAL-0.4)
+Added Component: Designator=R15(AXIAL-0.4)
+Added Component: Designator=R16(AXIAL-0.4)
+Added Component: Designator=R17(AXIAL-0.4)
+Added Component: Designator=R18(AXIAL-0.4)
+Added Component: Designator=R19(AXIAL-0.4)
+Added Component: Designator=R20(AXIAL-0.4)
+Added Component: Designator=R21(AXIAL-0.4)
+Added Component: Designator=R22(AXIAL-0.4)
+Added Component: Designator=R23(AXIAL-0.4)
+Added Component: Designator=R24(AXIAL-0.4)
+Added Component: Designator=R25(AXIAL-0.4)
+Added Component: Designator=R26(AXIAL-0.4)
+Added Component: Designator=R27(AXIAL-0.4)
+Added Component: Designator=R28(AXIAL-0.4)
+Added Component: Designator=R29(AXIAL-0.4)
+Added Component: Designator=R30(AXIAL-0.4)
+Added Component: Designator=R31(AXIAL-0.4)
+Added Component: Designator=R32(AXIAL-0.4)
+Added Component: Designator=R33(AXIAL-0.4)
+Added Component: Designator=R34(AXIAL-0.4)
+Added Component: Designator=R35(AXIAL-0.4)
+Added Component: Designator=R36(AXIAL-0.4)
+Added Component: Designator=R37(AXIAL-0.3)
+Added Component: Designator=R38(AXIAL-0.3)
+Added Component: Designator=R39(AXIAL-0.3)
+Added Component: Designator=R40(AXIAL-0.3)
+Added Component: Designator=WR1(6-0805_N)
+Added Component: Designator=WR2(6-0805_N)
+Added Component: Designator=WR3(6-0805_N)
+Added Component: Designator=WR4(6-0805_N)
+Added Component: Designator=WR5(6-0805_N)
+Added Pin To Net: NetName=3.3V Pin=C1-1
+Added Pin To Net: NetName=3.3V Pin=C2-1
+Added Pin To Net: NetName=3.3V Pin=C2-2
+Added Pin To Net: NetName=3.3V Pin=C3-1
+Added Pin To Net: NetName=3.3V Pin=C3-2
+Added Pin To Net: NetName=3.3V Pin=C4-1
+Added Pin To Net: NetName=3.3V Pin=C5-2
+Added Pin To Net: NetName=3.3V Pin=R4-1
+Added Pin To Net: NetName=3.3V Pin=R5-1
+Added Pin To Net: NetName=3.3V Pin=R28-1
+Added Pin To Net: NetName=3.3V Pin=R30-1
+Added Pin To Net: NetName=3.3V Pin=R32-1
+Added Pin To Net: NetName=3.3V Pin=R34-1
+Added Pin To Net: NetName=3.3V Pin=R36-1
+Added Pin To Net: NetName=3.3V Pin=R37-2
+Added Pin To Net: NetName=3.3V Pin=R38-2
+Added Pin To Net: NetName=3.3V Pin=R39-2
+Added Pin To Net: NetName=3.3V Pin=WR1-2
+Added Pin To Net: NetName=3.3V Pin=WR2-2
+Added Pin To Net: NetName=3.3V Pin=WR3-2
+Added Pin To Net: NetName=3.3V Pin=WR4-2
+Added Pin To Net: NetName=3.3V Pin=WR5-2
+Added Net: Name=3.3V
+Added Pin To Net: NetName=ELECTRODE0 Pin=R27-1
+Added Net: Name=ELECTRODE0
+Added Pin To Net: NetName=ELECTRODE1 Pin=R29-1
+Added Net: Name=ELECTRODE1
+Added Pin To Net: NetName=ELECTRODE2 Pin=R31-1
+Added Net: Name=ELECTRODE2
+Added Pin To Net: NetName=ELECTRODE3 Pin=R33-1
+Added Net: Name=ELECTRODE3
+Added Pin To Net: NetName=ELECTRODE4 Pin=R35-1
+Added Net: Name=ELECTRODE4
+Added Pin To Net: NetName=I2C0 Pin=R4-2
+Added Net: Name=I2C0
+Added Pin To Net: NetName=I2C1 Pin=R5-2
+Added Net: Name=I2C1
+Added Net: Name=INTA
+Added Net: Name=LCD0
+Added Net: Name=LCD1
+Added Net: Name=LCD2
+Added Net: Name=LCD3
+Added Net: Name=LCD4
+Added Net: Name=LCD5
+Added Net: Name=LCD6
+Added Net: Name=LCD7
+Added Net: Name=LCD8
+Added Net: Name=LCD9
+Added Pin To Net: NetName=LCD10 Pin=R1-1
+Added Net: Name=LCD10
+Added Pin To Net: NetName=LED0 Pin=R24-1
+Added Net: Name=LED0
+Added Pin To Net: NetName=LED1 Pin=R25-1
+Added Net: Name=LED1
+Added Pin To Net: NetName=LED2 Pin=R26-1
+Added Net: Name=LED2
+Added Pin To Net: NetName=LUM Pin=R38-1
+Added Net: Name=LUM
+Added Pin To Net: NetName=MCLR Pin=R40-2
+Added Net: Name=MCLR
+Added Pin To Net: NetName=MOISTSENSOR Pin=C1-2
+Added Net: Name=MOISTSENSOR
+Added Pin To Net: NetName=Net*_1 Pin=R2-1
+Added Net: Name=Net*_1
+Added Pin To Net: NetName=Net*_2 Pin=R3-1
+Added Net: Name=Net*_2
+Added Pin To Net: NetName=Net*_3 Pin=R6-1
+Added Net: Name=Net*_3
+Added Pin To Net: NetName=Net*_4 Pin=R7-1
+Added Net: Name=Net*_4
+Added Pin To Net: NetName=Net*_5 Pin=R8-1
+Added Net: Name=Net*_5
+Added Pin To Net: NetName=Net*_6 Pin=R9-1
+Added Net: Name=Net*_6
+Added Pin To Net: NetName=Net*_7 Pin=R10-1
+Added Net: Name=Net*_7
+Added Pin To Net: NetName=Net*_8 Pin=R11-1
+Added Net: Name=Net*_8
+Added Pin To Net: NetName=Net*_9 Pin=R12-1
+Added Net: Name=Net*_9
+Added Pin To Net: NetName=Net*_10 Pin=R13-1
+Added Net: Name=Net*_10
+Added Pin To Net: NetName=Net*_11 Pin=R14-1
+Added Net: Name=Net*_11
+Added Pin To Net: NetName=Net*_12 Pin=R15-1
+Added Net: Name=Net*_12
+Added Pin To Net: NetName=Net*_13 Pin=R16-1
+Added Net: Name=Net*_13
+Added Pin To Net: NetName=Net*_14 Pin=R17-1
+Added Net: Name=Net*_14
+Added Pin To Net: NetName=Net*_15 Pin=R18-1
+Added Net: Name=Net*_15
+Added Pin To Net: NetName=Net*_16 Pin=R19-1
+Added Net: Name=Net*_16
+Added Pin To Net: NetName=Net*_17 Pin=R20-1
+Added Net: Name=Net*_17
+Added Pin To Net: NetName=Net*_18 Pin=R21-1
+Added Net: Name=Net*_18
+Added Pin To Net: NetName=Net*_19 Pin=R22-1
+Added Net: Name=Net*_19
+Added Pin To Net: NetName=Net*_20 Pin=R23-1
+Added Net: Name=Net*_20
+Added Pin To Net: NetName=NetC4_2 Pin=C4-2
+Added Pin To Net: NetName=NetC4_2 Pin=R39-1
+Added Pin To Net: NetName=NetC4_2 Pin=R40-1
+Added Net: Name=NetC4_2
+Added Pin To Net: NetName=NetC5_1 Pin=C5-1
+Added Net: Name=NetC5_1
+Added Pin To Net: NetName=NetLCD1_16 Pin=R1-2
+Added Net: Name=NetLCD1_16
+Added Pin To Net: NetName=NetLED1_1 Pin=R24-2
+Added Net: Name=NetLED1_1
+Added Pin To Net: NetName=NetLED1_3 Pin=R25-2
+Added Net: Name=NetLED1_3
+Added Pin To Net: NetName=NetLED1_4 Pin=R26-2
+Added Net: Name=NetLED1_4
+Added Pin To Net: NetName=NetR2_2 Pin=R2-2
+Added Net: Name=NetR2_2
+Added Pin To Net: NetName=NetR3_2 Pin=R3-2
+Added Net: Name=NetR3_2
+Added Pin To Net: NetName=NetR6_2 Pin=R6-2
+Added Net: Name=NetR6_2
+Added Pin To Net: NetName=NetR7_2 Pin=R7-2
+Added Net: Name=NetR7_2
+Added Pin To Net: NetName=NetR8_2 Pin=R8-2
+Added Net: Name=NetR8_2
+Added Pin To Net: NetName=NetR9_2 Pin=R9-2
+Added Net: Name=NetR9_2
+Added Pin To Net: NetName=NetR10_2 Pin=R10-2
+Added Net: Name=NetR10_2
+Added Pin To Net: NetName=NetR11_2 Pin=R11-2
+Added Net: Name=NetR11_2
+Added Pin To Net: NetName=NetR12_2 Pin=R12-2
+Added Net: Name=NetR12_2
+Added Pin To Net: NetName=NetR13_2 Pin=R13-2
+Added Net: Name=NetR13_2
+Added Pin To Net: NetName=NetR14_2 Pin=R14-2
+Added Net: Name=NetR14_2
+Added Pin To Net: NetName=NetR15_2 Pin=R15-2
+Added Net: Name=NetR15_2
+Added Pin To Net: NetName=NetR16_2 Pin=R16-2
+Added Net: Name=NetR16_2
+Added Pin To Net: NetName=NetR17_2 Pin=R17-2
+Added Net: Name=NetR17_2
+Added Pin To Net: NetName=NetR18_2 Pin=R18-2
+Added Net: Name=NetR18_2
+Added Pin To Net: NetName=NetR19_2 Pin=R19-2
+Added Net: Name=NetR19_2
+Added Pin To Net: NetName=NetR20_2 Pin=R20-2
+Added Net: Name=NetR20_2
+Added Pin To Net: NetName=NetR21_2 Pin=R21-2
+Added Net: Name=NetR21_2
+Added Pin To Net: NetName=NetR22_2 Pin=R22-2
+Added Net: Name=NetR22_2
+Added Pin To Net: NetName=NetR23_2 Pin=R23-2
+Added Net: Name=NetR23_2
+Added Pin To Net: NetName=NetR27_2 Pin=R27-2
+Added Pin To Net: NetName=NetR27_2 Pin=R28-2
+Added Pin To Net: NetName=NetR27_2 Pin=WR1-1
+Added Net: Name=NetR27_2
+Added Pin To Net: NetName=NetR29_2 Pin=R29-2
+Added Pin To Net: NetName=NetR29_2 Pin=R30-2
+Added Pin To Net: NetName=NetR29_2 Pin=WR2-1
+Added Net: Name=NetR29_2
+Added Pin To Net: NetName=NetR31_2 Pin=R31-2
+Added Pin To Net: NetName=NetR31_2 Pin=R32-2
+Added Pin To Net: NetName=NetR31_2 Pin=WR3-1
+Added Net: Name=NetR31_2
+Added Pin To Net: NetName=NetR33_2 Pin=R33-2
+Added Pin To Net: NetName=NetR33_2 Pin=R34-2
+Added Pin To Net: NetName=NetR33_2 Pin=WR4-1
+Added Net: Name=NetR33_2
+Added Pin To Net: NetName=NetR35_2 Pin=R35-2
+Added Pin To Net: NetName=NetR35_2 Pin=R36-2
+Added Pin To Net: NetName=NetR35_2 Pin=WR5-1
+Added Net: Name=NetR35_2
+Added Net: Name=NetSwitchRegister0_9
+Added Net: Name=NetSwitchRegister1_9
+Added Net: Name=RD0
+Added Net: Name=RD1
+Added Net: Name=RD2
+Added Pin To Net: NetName=TEMP Pin=R37-1
+Added Net: Name=TEMP
+Added Class: Name=BarGraph
+Added Class: Name=Ecran LCD
+Added Class: Name=LedAlert
+Added Class: Name=Level Sensor
+Added Class: Name=LumSensor
+Added Class: Name=MPC23017
+Added Class: Name=PIC32MX170F256B
+Added Class: Name=SoilMoisture
+Added Class: Name=TempSensor
+Added Class: Name=ELECTRODE[0..4]
+Added Class: Name=I2C[0..1]
+Added Class: Name=LCD[0..10]
+Added Class: Name=LED[0..2]
+Added Class: Name=RD[0..2]
+Added Room: Name=BarGraph
+Added Room: Name=Ecran LCD
+Added Room: Name=LedAlert
+Added Room: Name=Level Sensor
+Added Room: Name=LumSensor
+Added Room: Name=MPC23017
+Added Room: Name=PIC32MX170F256B
+Added Room: Name=SoilMoisture
+Added Room: Name=TempSensor

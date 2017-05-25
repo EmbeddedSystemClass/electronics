@@ -1,0 +1,13 @@
+Change Component Parameter Description in U6 Old= New=GPIOExpander
+Added Parameter Manufacturer=	MICROCHIP to Part U6
+Added Parameter Manufacturer= to Part R35
+Added Parameter Manufacturer= to Part R36
+Added Parameter Ref.Farnell=	1332087 to Part U6
+Added Parameter Ref.Farnell= to Part R35
+Added Parameter Ref.Farnell= to Part R36
+Added Parameter Ref.Manufacturer=MCP23017-E/SO to Part U6
+Added Parameter Ref.Manufacturer= to Part R35
+Added Parameter Ref.Manufacturer= to Part R36
+Added Parameter Supplier=Farnell to Part R35
+Added Parameter Supplier=Farnell to Part R36
+Added Parameter Supplier=Farnell to Part U6

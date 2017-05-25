@@ -1,0 +1,22 @@
+Change Component Parameter Description in D1 Old=Default Diode New=Diode
+Change Component Parameter Description in PUMP Old= New=Pump
+Added Parameter Manufacturer=	BUCHANAN - TE CONNECTIVITY to Part P1
+Added Parameter Manufacturer=/ to Part PUMP
+Added Parameter Manufacturer= to Part D1
+Added Parameter Manufacturer= to Part Q1
+Added Parameter Manufacturer= to Part R43
+Added Parameter Ref.Farnell=2112482 to Part P1
+Added Parameter Ref.Farnell=/ to Part PUMP
+Added Parameter Ref.Farnell= to Part D1
+Added Parameter Ref.Farnell= to Part Q1
+Added Parameter Ref.Farnell= to Part R43
+Added Parameter Ref.Manufacturer=	282834-2 to Part P1
+Added Parameter Ref.Manufacturer=/ to Part PUMP
+Added Parameter Ref.Manufacturer= to Part D1
+Added Parameter Ref.Manufacturer= to Part Q1
+Added Parameter Ref.Manufacturer= to Part R43
+Added Parameter Supplier=/ to Part PUMP
+Added Parameter Supplier=Farnell to Part D1
+Added Parameter Supplier=Farnell to Part P1
+Added Parameter Supplier=Farnell to Part Q1
+Added Parameter Supplier=Farnell to Part R43
