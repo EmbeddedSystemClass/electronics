@@ -24,6 +24,7 @@
 | PushButton Switche | | | |
 | Button Reset | **ALCOSWITCH 1437566-3** | CMS | [Farnell](http://fr.farnell.com/alcoswitch-te-connectivity/1437566-3/bouton-poussoir-spst-0-05a-24v/dp/2468741)| [Datasheet](http://www.farnell.com/cad/1885096.pdf) |
 |||||||**TOTAL**| 152.5mA |
+|	Quartz		|	**ABRACON  AB38T-32.768KHZ**		| AB38T |	[Farnell](http://fr.farnell.com/abracon/ab38t-32-768khz/crystal-32-768k-12-5pf-cl-watch/dp/1611828)| [Datasheet](http://www.farnell.com/datasheets/1883667.pdf?_ga=2.40960107.890087731.1495798896-304989867.1493929463)	| -- | 2 | -- | 0.18 |
 
 
 ARROSAGE 
