@@ -8,7 +8,7 @@ Edition de la bill of Materials :
 	- Ref.Farnell
 
 Chemin pour l'edition de la BOM :
-tools->item manager->select all items->ok
+tools->parameter manager->select all items->ok
 
 puis avant de sortir la BOM :
 Project->Bill of Material->add parameter from vault->selectionner les collonnes a afficher et voila :)
