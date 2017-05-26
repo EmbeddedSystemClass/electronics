@@ -1,10 +1,10 @@
-Output: Report Single Pin Nets
-Type  : SinglePinNetReporter
-From  : Variant [[No Variations]] of Project [Electro_plant.PrjPcb]
-   Generated File[Electro_plant.REP]
+Output: Generates pick and place files
+Type  : Pick Place
+From  : Variant [[No Variations]] of PCB Document [PCB1.PcbDoc]
+   Generated File[Pick Place for PCB1.txt]
 
 
 Files Generated   : 1
 Documents Printed : 0
 
-Finished Output Generation At 12:01:51 PM On 5/25/2017
+Finished Output Generation At 3:10:39 PM On 5/26/2017

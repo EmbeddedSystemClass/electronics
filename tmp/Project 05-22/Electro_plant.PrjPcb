@@ -28,7 +28,7 @@ PowerPortNamesTakePriority=0
 PushECOToAnnotationFile=1
 DItemRevisionGUID=
 ReportSuppressedErrorsInMessages=0
-OutputPath=
+OutputPath=Project Outputs for Electro_plant
 LogFolderPath=
 ManagedProjectGUID=
 
@@ -343,7 +343,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [GeneratedDocument1]
-DocumentPath=
+DocumentPath=Project Outputs for Electro_plant\BOM\Bill of Materials-Electro_plant.xlsx
 DItemRevisionGUID=
 
 [GeneratedDocument2]
@@ -351,79 +351,103 @@ DocumentPath=Project Outputs for Electro_plant\Design Rule Check - PCB1.html
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.1
+DocumentPath=Project Outputs for Electro_plant\SinglePinNetReporter\Electro_plant.REP
 DItemRevisionGUID=
 
 [GeneratedDocument4]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.EXTREP
+DocumentPath=Project Outputs for Electro_plant\NC Drill\PCB1-BoardEdgeRout.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GBL
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.1
 DItemRevisionGUID=
 
 [GeneratedDocument6]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GBO
+DocumentPath=Project Outputs for Electro_plant\NC Drill\PCB1.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument7]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GBP
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument8]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GBS
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument9]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GD1
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument10]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GG1
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument11]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GKO
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument12]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GM1
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GD1
 DItemRevisionGUID=
 
 [GeneratedDocument13]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GM15
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GG1
 DItemRevisionGUID=
 
 [GeneratedDocument14]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GM32
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GKO
 DItemRevisionGUID=
 
 [GeneratedDocument15]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GML
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GM1
 DItemRevisionGUID=
 
 [GeneratedDocument16]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GTL
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GM15
 DItemRevisionGUID=
 
 [GeneratedDocument17]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GTO
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GM32
 DItemRevisionGUID=
 
 [GeneratedDocument18]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GTP
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GML
 DItemRevisionGUID=
 
 [GeneratedDocument19]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GTS
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument20]
-DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.REP
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument21]
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument22]
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument23]
+DocumentPath=Project Outputs for Electro_plant\NC Drill\PCB1.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument24]
+DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.REP
+DItemRevisionGUID=
+
+[GeneratedDocument25]
 DocumentPath=Project Outputs for Electro_plant\Gerber\PCB1.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument26]
+DocumentPath=Project Outputs for Electro_plant\NC Drill\PCB1.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument27]
+DocumentPath=Project Outputs for Electro_plant\Pick Place\Pick Place for PCB1.txt
 DItemRevisionGUID=
 
 [Configuration1]
@@ -473,7 +497,7 @@ SCH_HasExpandLogicalToPhysicalSheets=-1
 SaveSettingsToOutJob=-1
 
 [Generic_EDE]
-OutputDir=
+OutputDir=Project Outputs for Electro_plant
 
 [OutputGroup1]
 Name=Netlist Outputs

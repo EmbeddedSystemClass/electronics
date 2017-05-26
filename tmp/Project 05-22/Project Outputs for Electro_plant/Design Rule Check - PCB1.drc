@@ -1,63 +1,59 @@
 Protel Design System Design Rule Check
-PCB File : C:\Users\Public\Documents\Altium\Project 05-22\PCB1.PcbDoc
-Date     : 5/24/2017
-Time     : 6:02:45 PM
+PCB File : C:\Users\Public\Documents\Altium\Projects\Project 05-22\PCB1.PcbDoc
+Date     : 5/26/2017
+Time     : 2:48:53 PM
 
-Processing Rule : Rule
-Rule Violations :0
-
-Processing Rule : Net Antennae (Tolerance=0mm) (All)
-   Violation between Net Antennae: Track (11mm,77.25mm)(80mm,77.25mm)  Top Layer
-   Violation between Net Antennae: Track (10.5mm,98mm)(80mm,98mm)  Top Layer
-   Violation between Net Antennae: Track (11mm,77.25mm)(80mm,77.25mm)  Bottom Layer
-   Violation between Net Antennae: Track (10.5mm,98mm)(80mm,98mm)  Bottom Layer
-Rule Violations :4
-
-Processing Rule : Silk primitive without silk layer
-   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (165.5mm,37.225mm)(165.5mm,54.25mm)  Top Overlay
-Rule Violations :1
-
-Processing Rule : Silk to Silk (Clearance=0.1mm) (All),(All)
-Rule Violations :0
-
-Processing Rule : Silk To Solder Mask (Clearance=0.1mm) (IsPad),(All)
-   Violation between Text "R34" (135.5mm,30.5mm)  Top Overlay and 
-                     Pad R34-1(135mm,33.9mm)  Top Layer
-Rule Violations :1
-
-Processing Rule : Minimum Solder Mask Sliver (Gap=0.1mm) (All),(All)
-   Violation between Pad Q1-2(118.75mm,62.5mm)  Multi-Layer and 
-                     Pad Q1-1(118.75mm,63.77mm)  Multi-Layer
-   Violation between Pad Q1-3(118.75mm,61.23mm)  Multi-Layer and 
-                     Pad Q1-2(118.75mm,62.5mm)  Multi-Layer
-   Violation between Via (95.046mm,39mm) Top Layer to Bottom Layer and 
-                     Via (95mm,38mm) Top Layer to Bottom Layer
-Rule Violations :3
-
-Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
-Rule Violations :0
-
-Processing Rule : Hole Size Constraint (Min=0.3mm) (Max=3mm) (All)
-Rule Violations :0
-
-Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
-Rule Violations :0
-
-Processing Rule : Width Constraint (Min=0.2mm) (Max=25mm) (Preferred=0.254mm) (All)
-Rule Violations :0
-
-Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
-Rule Violations :0
-
-Processing Rule : Clearance Constraint (Gap=0.2mm) (All),(All)
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
 Rule Violations :0
 
 Processing Rule : Un-Routed Net Constraint ( (All) )
 Rule Violations :0
 
-Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Processing Rule : Clearance Constraint (Gap=0.2mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.2mm) (Max=25mm) (Preferred=0.254mm) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.3mm) (Max=3mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.1mm) (All),(All)
+   Violation between Pad Q1-2(118.75mm,62.5mm)  Multi-Layer and 
+                     Pad Q1-3(118.75mm,61.23mm)  Multi-Layer
+   Violation between Pad Q1-1(118.75mm,63.77mm)  Multi-Layer and 
+                     Pad Q1-2(118.75mm,62.5mm)  Multi-Layer
+Rule Violations :2
+
+Processing Rule : Silk To Solder Mask (Clearance=0.1mm) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=0.1mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk primitive without silk layer
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (165.5mm,37.225mm)(165.5mm,54.25mm)  Top Overlay
+Rule Violations :1
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+   Violation between Net Antennae: Track (10.5mm,98mm)(80mm,98mm)  Top Layer
+   Violation between Net Antennae: Track (11mm,77.25mm)(80mm,77.25mm)  Top Layer
+   Violation between Net Antennae: Track (10.5mm,98mm)(80mm,98mm)  Bottom Layer
+   Violation between Net Antennae: Track (11mm,77.25mm)(80mm,77.25mm)  Bottom Layer
+Rule Violations :4
+
+Processing Rule : Rule
 Rule Violations :0
 
 
-Violations Detected : 9
-Time Elapsed        : 00:00:00
+Violations Detected : 7
+Time Elapsed        : 00:00:01
