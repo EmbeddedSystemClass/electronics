@@ -1,10 +1,9 @@
-Output: Generates pick and place files
-Type  : Pick Place
-From  : Variant [[No Variations]] of PCB Document [PCB1.PcbDoc]
-   Generated File[Pick Place for PCB1.txt]
+Output: Bill of Materials
+Type  : BOM
+From  : Variant [[No Variations]] of Project [Electro_plant.PrjPcb]
 
 
-Files Generated   : 1
+Files Generated   : 0
 Documents Printed : 0
 
-Finished Output Generation At 3:10:39 PM On 5/26/2017
+Finished Output Generation At 10:28:58 AM On 5/27/2017

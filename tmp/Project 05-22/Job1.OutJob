@@ -40,7 +40,7 @@ OutputDocumentPath1=
 OutputVariantName1=
 OutputEnabled1=1
 OutputEnabled1_OutputMedium1=0
-OutputEnabled1_OutputMedium2=4
+OutputEnabled1_OutputMedium2=5
 OutputEnabled1_OutputMedium3=0
 OutputEnabled1_OutputMedium4=0
 OutputDefault1=0
@@ -54,7 +54,7 @@ OutputDocumentPath2=PCB1.PcbDoc
 OutputVariantName2=
 OutputEnabled2=1
 OutputEnabled2_OutputMedium1=0
-OutputEnabled2_OutputMedium2=3
+OutputEnabled2_OutputMedium2=4
 OutputEnabled2_OutputMedium3=0
 OutputEnabled2_OutputMedium4=0
 OutputDefault2=0
@@ -92,7 +92,7 @@ OutputDocumentPath3=PCB1.PcbDoc
 OutputVariantName3=
 OutputEnabled3=1
 OutputEnabled3_OutputMedium1=0
-OutputEnabled3_OutputMedium2=1
+OutputEnabled3_OutputMedium2=3
 OutputEnabled3_OutputMedium3=0
 OutputEnabled3_OutputMedium4=0
 OutputDefault3=0
@@ -159,13 +159,23 @@ OutputDocumentPath6=
 OutputVariantName6=
 OutputEnabled6=1
 OutputEnabled6_OutputMedium1=0
-OutputEnabled6_OutputMedium2=5
+OutputEnabled6_OutputMedium2=1
 OutputEnabled6_OutputMedium3=1
 OutputEnabled6_OutputMedium4=0
 OutputDefault6=0
 PageOptions6=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
-Configuration6_Name1=OutputConfigurationParameter1
-Configuration6_Item1=iew|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
+Configuration6_Name1=Filter
+Configuration6_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration6_Name2=General
+Configuration6_Item2=OpenExported=False|AddToProject=False|ForceFit=False|NotFitted=False|Database=False|IncludePCBData=False|IncludeVaultData=False|ShowExportOptions=True|TemplateFilename=BOM Default Template 95.xlt|BatchMode=5|FormWidth=1360|FormHeight=1214|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration6_Name3=GroupOrder
+Configuration6_Item3=Comment=True|Footprint=True
+Configuration6_Name4=OutputConfigurationParameter1
+Configuration6_Item4=iew|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
+Configuration6_Name5=SortOrder
+Configuration6_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration6_Name6=VisibleOrder
+Configuration6_Item6=Comment=100|Description=100|Designator=100|Footprint=100|LibRef=100|Quantity=100
 OutputType7=SinglePinNetReporter
 OutputName7=Report Single Pin Nets
 OutputCategory7=Report
@@ -207,7 +217,7 @@ Configuration9_Name1=OutputConfigurationParameter1
 Configuration9_Item1=Record=PickPlaceView|Units=Metric|GenerateCSVFormat=False|GenerateTextFormat=True
 
 [PublishSettings]
-OutputFilePath2=Project Outputs for Free Documents\.PDF
+OutputFilePath2=C:\Users\bocal\Desktop\Project 05-22\Project Outputs for Electro_plant\Job1.PDF
 ReleaseManaged2=1
 OutputBasePath2=Project Outputs for Electro_plant
 OutputPathMedia2=
@@ -284,7 +294,7 @@ WmvVideoCodecName4=Windows Media Video V7
 WmvQuality4=80
 
 [GeneratedFilesSettings]
-RelativeOutputPath2=Project Outputs for Free Documents\.PDF
+RelativeOutputPath2=C:\Users\bocal\Desktop\Project 05-22\Project Outputs for Electro_plant\Job1.PDF
 OpenOutputs2=1
 RelativeOutputPath3=C:\Users\Public\Documents\Altium\Projects\Project 05-22\Project Outputs for Electro_plant\
 OpenOutputs3=1
