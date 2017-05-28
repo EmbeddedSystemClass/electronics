@@ -40,7 +40,7 @@ OutputDocumentPath1=
 OutputVariantName1=
 OutputEnabled1=1
 OutputEnabled1_OutputMedium1=0
-OutputEnabled1_OutputMedium2=5
+OutputEnabled1_OutputMedium2=1
 OutputEnabled1_OutputMedium3=0
 OutputEnabled1_OutputMedium4=0
 OutputDefault1=0
@@ -54,7 +54,7 @@ OutputDocumentPath2=PCB1.PcbDoc
 OutputVariantName2=
 OutputEnabled2=1
 OutputEnabled2_OutputMedium1=0
-OutputEnabled2_OutputMedium2=4
+OutputEnabled2_OutputMedium2=2
 OutputEnabled2_OutputMedium3=0
 OutputEnabled2_OutputMedium4=0
 OutputDefault2=0
@@ -98,7 +98,7 @@ OutputEnabled3_OutputMedium4=0
 OutputDefault3=0
 PageOptions3=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
 Configuration3_Name1=OutputConfigurationParameter1
-Configuration3_Item1=DesignatorDisplayMode=Physical|PrintArea=DesignExtent|PrintAreaLowerLeftCornerX=0|PrintAreaLowerLeftCornerY=0|PrintAreaUpperRightCornerX=0|PrintAreaUpperRightCornerY=0|Record=PcbPrintView
+Configuration3_Item1=DesignatorDisplayMode=Logical|PrintArea=SpecificArea|PrintAreaLowerLeftCornerX=10000000|PrintAreaLowerLeftCornerY=10000000|PrintAreaUpperRightCornerX=108228346|PrintAreaUpperRightCornerY=53700787|Record=PcbPrintView
 Configuration3_Name2=OutputConfigurationParameter2
 Configuration3_Item2=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|IncludeViewports=True|Index=0|Mirror=False|Name=Drill Drawing For (Bottom Layer,Top Layer)|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=True
 Configuration3_Name3=OutputConfigurationParameter3
@@ -122,13 +122,13 @@ OutputDocumentPath4=PCB1.PcbDoc
 OutputVariantName4=
 OutputEnabled4=1
 OutputEnabled4_OutputMedium1=0
-OutputEnabled4_OutputMedium2=2
+OutputEnabled4_OutputMedium2=4
 OutputEnabled4_OutputMedium3=0
 OutputEnabled4_OutputMedium4=0
 OutputDefault4=0
 PageOptions4=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
 Configuration4_Name1=OutputConfigurationParameter1
-Configuration4_Item1=DesignatorDisplayMode=Physical|PrintArea=DesignExtent|PrintAreaLowerLeftCornerX=0|PrintAreaLowerLeftCornerY=0|PrintAreaUpperRightCornerX=0|PrintAreaUpperRightCornerY=0|Record=PcbPrintView
+Configuration4_Item1=DesignatorDisplayMode=Physical|PrintArea=SpecificArea|PrintAreaLowerLeftCornerX=10000000|PrintAreaLowerLeftCornerY=10000000|PrintAreaUpperRightCornerX=108228346|PrintAreaUpperRightCornerY=53110236|Record=PcbPrintView
 Configuration4_Name2=OutputConfigurationParameter2
 Configuration4_Item2=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|IncludeViewports=True|Index=0|Mirror=False|Name=Combination Drill Guide For (Bottom Layer,Top Layer)|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=False|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=True
 Configuration4_Name3=OutputConfigurationParameter3
@@ -159,7 +159,7 @@ OutputDocumentPath6=
 OutputVariantName6=
 OutputEnabled6=1
 OutputEnabled6_OutputMedium1=0
-OutputEnabled6_OutputMedium2=1
+OutputEnabled6_OutputMedium2=5
 OutputEnabled6_OutputMedium3=1
 OutputEnabled6_OutputMedium4=0
 OutputDefault6=0
@@ -167,7 +167,7 @@ PageOptions6=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintS
 Configuration6_Name1=Filter
 Configuration6_Item1=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
 Configuration6_Name2=General
-Configuration6_Item2=OpenExported=False|AddToProject=False|ForceFit=False|NotFitted=False|Database=False|IncludePCBData=False|IncludeVaultData=False|ShowExportOptions=True|TemplateFilename=BOM Default Template 95.xlt|BatchMode=5|FormWidth=1360|FormHeight=1214|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
+Configuration6_Item2=OpenExported=False|AddToProject=False|ForceFit=False|NotFitted=False|Database=False|IncludePCBData=False|IncludeVaultData=True|ShowExportOptions=True|TemplateFilename=Template\BOM Review1.xlt|BatchMode=5|FormWidth=1360|FormHeight=1079|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>
 Configuration6_Name3=GroupOrder
 Configuration6_Item3=Comment=True|Footprint=True
 Configuration6_Name4=OutputConfigurationParameter1
@@ -175,7 +175,7 @@ Configuration6_Item4=iew|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBla
 Configuration6_Name5=SortOrder
 Configuration6_Item5=Designator=Up|Comment=Up|Footprint=Up
 Configuration6_Name6=VisibleOrder
-Configuration6_Item6=Comment=100|Description=100|Designator=100|Footprint=100|LibRef=100|Quantity=100
+Configuration6_Item6=Comment=100|Description=100|Designator=100|Footprint=100|LibRef=100|Quantity=100|Manufacturer=100|Ref.Farnell=100|Ref.Manufacturer=100|Supplier=100
 OutputType7=SinglePinNetReporter
 OutputName7=Report Single Pin Nets
 OutputCategory7=Report
@@ -184,7 +184,7 @@ OutputVariantName7=
 OutputEnabled7=0
 OutputEnabled7_OutputMedium1=0
 OutputEnabled7_OutputMedium2=0
-OutputEnabled7_OutputMedium3=2
+OutputEnabled7_OutputMedium3=5
 OutputEnabled7_OutputMedium4=0
 OutputDefault7=0
 Configuration7_Name1=OutputConfigurationParameter1
@@ -197,7 +197,7 @@ OutputVariantName8=
 OutputEnabled8=0
 OutputEnabled8_OutputMedium1=0
 OutputEnabled8_OutputMedium2=0
-OutputEnabled8_OutputMedium3=4
+OutputEnabled8_OutputMedium3=2
 OutputEnabled8_OutputMedium4=0
 OutputDefault8=0
 Configuration8_Name1=OutputConfigurationParameter1
@@ -210,7 +210,7 @@ OutputVariantName9=
 OutputEnabled9=0
 OutputEnabled9_OutputMedium1=0
 OutputEnabled9_OutputMedium2=0
-OutputEnabled9_OutputMedium3=5
+OutputEnabled9_OutputMedium3=4
 OutputEnabled9_OutputMedium4=0
 OutputDefault9=0
 Configuration9_Name1=OutputConfigurationParameter1

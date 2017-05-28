@@ -1,83 +1,83 @@
 Designator Footprint               Mid X         Mid Y         Ref X         Ref Y         Pad X         Pad Y TB      Rotation Comment        
 
-B1         BargraphRG            17.35mm       25.94mm        18.6mm        14.5mm        21.1mm        14.5mm  T         90.00 BargraphRG     
-C2         C0603                  75.6mm       58.85mm        75.6mm          58mm        75.6mm          58mm  T         90.00 0.1uF          
-C3         C0603                  58.6mm          45mm       57.75mm          45mm       57.75mm          45mm  T        360.00 0.1uF          
-C4         C0603                 22.35mm          54mm        21.5mm          54mm        21.5mm          54mm  T          0.00 0.1uF          
-C5         C0603                  75.4mm       48.85mm        75.4mm        49.7mm        75.4mm        49.7mm  T        270.00 10uF           
-C6         C0603                 111.5mm        52.1mm       111.5mm       51.25mm       111.5mm       51.25mm  T         90.00 10uF           
-C7         C0603                107.75mm       55.35mm      107.75mm        54.5mm      107.75mm        54.5mm  T         90.00 100nF          
-C8         C0603                 55.25mm        45.8mm       55.25mm       44.95mm       55.25mm       44.95mm  T         90.00 15pF           
-C9         C0603                 55.25mm        49.6mm       55.25mm       50.45mm       55.25mm       50.45mm  T        270.00 15pF           
-D1         SMC                   111.5mm       59.75mm       111.5mm       59.75mm       111.5mm      63.225mm  T        270.00 Diode          
-D2         LED1                   23.4mm        4.85mm        23.4mm         4.9mm        23.4mm         6.8mm  T         90.00 LED_RGB        
-D3         SMC                     128mm          50mm         128mm          50mm     131.475mm          50mm  T        180.00 Diode          
-J1         HDR1X6                20.75mm        65.9mm        27.1mm        65.9mm        27.1mm        65.9mm  T        180.00 Program/Debug  
-P1         BORNIER                 135mm       63.87mm         135mm        62.6mm         135mm        62.6mm  T         90.00 Header Pompe   
-P2         BORNIER               139.3mm        9.37mm       139.3mm         8.1mm       139.3mm         8.1mm  T         90.00 Header 2       
-P3         BORNIER               139.3mm       15.47mm       139.3mm        14.2mm       139.3mm        14.2mm  T         90.00 Header 2       
-P4         BORNIER               139.3mm       21.57mm       139.3mm        20.3mm       139.3mm        20.3mm  T         90.00 Header 2       
-P5         BORNIER               139.3mm       27.67mm       139.3mm        26.4mm       139.3mm        26.4mm  T         90.00 Header 2       
-P6         BORNIER               139.3mm       33.77mm       139.3mm        32.5mm       139.3mm        32.5mm  T         90.00 Header 2       
-P7         BORNIER              128.13mm        60.4mm       129.4mm        60.4mm       129.4mm        60.4mm  T        180.00 Header Sensor  
-P8         BORNIER               135.1mm       57.77mm       135.1mm        56.5mm       135.1mm        56.5mm  T         90.00 Header BAT     
-P9         BORNIER               92.75mm       87.77mm       92.75mm        86.5mm       92.75mm        86.5mm  T         90.00 Header Sensor  
-P10        BORNIER              121.97mm         5.7mm       120.7mm         5.7mm       120.7mm         5.7mm  T          0.00 Header 2       
-Q1         E3                   118.75mm        62.5mm      118.75mm        62.5mm      118.75mm       63.77mm  T          0.00 IRFZ24N        
-R1         R0603                  24.7mm        14.5mm       23.85mm        14.5mm       23.85mm        14.5mm  T          0.00 220O           
-R2         R0603                  24.7mm          17mm       23.85mm          17mm       23.85mm          17mm  T          0.00 220O           
-R3         R0603                  24.7mm        19.5mm       23.85mm        19.5mm       23.85mm        19.5mm  T          0.00 220O           
-R4         R0603                  24.7mm       22.25mm       23.85mm       22.25mm       23.85mm       22.25mm  T          0.00 220O           
-R5         R0603                  24.7mm       24.75mm       23.85mm       24.75mm       23.85mm       24.75mm  T          0.00 220O           
-R6         R0603                  24.7mm       27.25mm       23.85mm       27.25mm       23.85mm       27.25mm  T          0.00 220O           
-R7         R0603                  24.7mm       29.75mm       23.85mm       29.75mm       23.85mm       29.75mm  T          0.00 220O           
-R8         R0603                  24.7mm       32.25mm       23.85mm       32.25mm       23.85mm       32.25mm  T          0.00 220O           
-R9         R0603                  24.7mm       34.75mm       23.85mm       34.75mm       23.85mm       34.75mm  T          0.00 220O           
-R10        R0603                  24.7mm        37.5mm       23.85mm        37.5mm       23.85mm        37.5mm  T        360.00 220O           
-R11        R0603                    10mm        37.5mm       10.85mm        37.5mm       10.85mm        37.5mm  T        180.00 160O           
-R12        R0603                    10mm          35mm       10.85mm          35mm       10.85mm          35mm  T        180.00 160O           
-R13        R0603                    10mm       32.25mm       10.85mm       32.25mm       10.85mm       32.25mm  T        180.00 160O           
-R14        R0603                    10mm       29.75mm       10.85mm       29.75mm       10.85mm       29.75mm  T        180.00 160O           
-R15        R0603                    10mm       27.25mm       10.85mm       27.25mm       10.85mm       27.25mm  T        180.00 160O           
-R16        R0603                    10mm       24.75mm       10.85mm       24.75mm       10.85mm       24.75mm  T        180.00 160O           
-R17        R0603                    10mm          22mm       10.85mm          22mm       10.85mm          22mm  T        180.00 160O           
-R18        R0603                    10mm        19.5mm       10.85mm        19.5mm       10.85mm        19.5mm  T        180.00 160O           
-R19        R0603                    10mm          17mm       10.85mm          17mm       10.85mm          17mm  T        180.00 160O           
-R20        R0603                    10mm        14.5mm       10.85mm        14.5mm       10.85mm        14.5mm  T        180.00 160O           
-R21        R0603                127.85mm          39mm         127mm          39mm         127mm          39mm  T        360.00 600O           
-R22        R0603                 28.35mm         6.9mm        27.5mm         6.9mm        27.5mm         6.9mm  T        360.00 140O           
-R23        R0603                 28.45mm         4.2mm        27.6mm         4.2mm        27.6mm         4.2mm  T        360.00 20O            
-R24        R0603                 28.45mm         2.7mm        27.6mm         2.7mm        27.6mm         2.7mm  T        360.00 30O            
-R25        R0603                 133.2mm       10.35mm       133.2mm        11.2mm       133.2mm        11.2mm  T        270.00 1KO            
-R26        R0603                   135mm       10.35mm         135mm         9.5mm         135mm         9.5mm  T         90.00 10MO           
-R27        R0603                 133.2mm       16.55mm       133.2mm        17.4mm       133.2mm        17.4mm  T        270.00 1KO            
-R28        R0603                   135mm       16.55mm         135mm        15.7mm         135mm        15.7mm  T         90.00 10MO           
-R29        R0603                 133.2mm       22.55mm       133.2mm        23.4mm       133.2mm        23.4mm  T        270.00 1KO            
-R30        R0603                   135mm       22.55mm         135mm        21.7mm         135mm        21.7mm  T         90.00 10MO           
-R31        R0603                 133.2mm       28.65mm       133.2mm        29.5mm       133.2mm        29.5mm  T        270.00 1KO            
-R32        R0603                   135mm       28.65mm         135mm        27.8mm         135mm        27.8mm  T         90.00 10MO           
-R33        R0603                 133.2mm       34.75mm       133.2mm        35.6mm       133.2mm        35.6mm  T        270.00 1KO            
-R34        R0603                   135mm       34.75mm         135mm        33.9mm         135mm        33.9mm  T         90.00 10MO           
-R35        R0603                120.95mm          15mm       120.1mm          15mm       120.1mm          15mm  T        360.00 4.7KO          
-R36        R0603                120.95mm        16.6mm       120.1mm        16.6mm       120.1mm        16.6mm  T        360.00 4.7KO          
-R37        R0603                128.95mm          10mm       128.1mm          10mm       128.1mm          10mm  T        360.00 4.7K           
-R38        R0603                122.35mm        11.4mm       123.2mm        11.4mm       123.2mm        11.4mm  T        180.00 Res1           
-R39        R0603                  25.6mm       56.65mm        25.6mm        55.8mm        25.6mm        55.8mm  T         90.00 10K            
-R40        R0603                  29.5mm        56.6mm        29.5mm       55.75mm        29.5mm       55.75mm  T         90.00 1K             
-R41        R0603                 98.35mm       63.75mm        97.5mm       63.75mm        97.5mm       63.75mm  T        360.00 2M             
-R42        R0603                  98.4mm       65.75mm       99.25mm       65.75mm       99.25mm       65.75mm  T        180.00 1M             
-R43        R0603                 118.5mm       52.95mm       118.5mm        53.8mm       118.5mm        53.8mm  T        270.00 10K            
-Reset      Reset                  17.5mm        58.7mm        22.1mm        58.7mm        22.1mm        58.7mm  T        180.00 SW-PB          
-S1         Switch_on/off         111.5mm        43.5mm       111.5mm        43.5mm       111.5mm        43.5mm  T        360.00 SW-On/Off      
-U1         SN74HC595D              7.1mm       48.45mm         7.1mm        48.5mm       2.655mm        45.7mm  T        360.00 74HC595-0      
-U2         SN74HC595D             19.2mm       48.45mm        19.2mm        48.5mm      14.755mm        45.7mm  T        360.00 74HC595-1      
-U3         SN74HC595D             31.3mm       48.45mm        31.3mm        48.5mm      26.855mm        45.7mm  T        360.00 74HC595-2      
-U5         FC1602B04-FHYYBW-91LE       75.71mm       20.65mm          38mm        20.4mm          38mm       12.78mm  T        270.00 FC1602B04-FHYYBW-91LE
-U7         DS18B20+              128.3mm         5.8mm       128.3mm         5.8mm      126.97mm         5.8mm  T          0.00 DS18B20+       
-U8         PIC32MX170F256B        68.6mm      51.415mm        68.6mm        53.4mm        63.9mm       59.67mm  T        270.00 PIC32MX170F256B
-U9         VoltReg3.3V           97.35mm        56.2mm       105.6mm        56.2mm       105.6mm       53.66mm  T         90.00 LM1117D-33     
-Y1         XTAL                   52.4mm      47.725mm        52.4mm       47.75mm        52.4mm       47.19mm  T         90.00 32.768kHz      
-U4         NRF24L01             139.27mm       47.44mm         138mm       51.25mm         138mm       51.25mm  T        270.00 Nrf24L01       
-R44        POTARD                   89mm      41.725mm          89mm          43mm       86.46mm      42.995mm  T        180.00 RPot           
 U6         MCP23017                125mm      27.315mm         125mm        29.3mm       120.3mm       35.57mm  T        270.00 MCP23017       
+R44        POTARD                   89mm      41.725mm          89mm          43mm       86.46mm      42.995mm  T        180.00 RPot           
+U4         NRF24L01             139.27mm       47.44mm         138mm       51.25mm         138mm       51.25mm  T        270.00 Nrf24L01       
+Y1         XTAL                   52.4mm      47.725mm        52.4mm       47.75mm        52.4mm       47.19mm  T         90.00 32.768kHz      
+U9         VoltReg3.3V           97.35mm        56.2mm       105.6mm        56.2mm       105.6mm       53.66mm  T         90.00 LM1117D-33     
+U8         PIC32MX170F256B        68.6mm      51.415mm        68.6mm        53.4mm        63.9mm       59.67mm  T        270.00 PIC32MX170F256B
+U7         DS18B20+              128.3mm         5.8mm       128.3mm         5.8mm      126.97mm         5.8mm  T          0.00 DS18B20+       
+U5         FC1602B04-FHYYBW-91LE       75.71mm       20.65mm          38mm        20.4mm          38mm       12.78mm  T        270.00 FC1602B04-FHYYBW-91LE
+U3         SN74HC595D             31.3mm       48.45mm        31.3mm        48.5mm      26.855mm        45.7mm  T        360.00 74HC595-2      
+U2         SN74HC595D             19.2mm       48.45mm        19.2mm        48.5mm      14.755mm        45.7mm  T        360.00 74HC595-1      
+U1         SN74HC595D              7.1mm       48.45mm         7.1mm        48.5mm       2.655mm        45.7mm  T        360.00 74HC595-0      
+S1         Switch_on/off         111.5mm        43.5mm       111.5mm        43.5mm       111.5mm        43.5mm  T        360.00 SW-On/Off      
+Reset      Reset                  17.5mm        58.7mm        22.1mm        58.7mm        22.1mm        58.7mm  T        180.00 SW-PB          
+R43        R0603                 118.5mm       52.95mm       118.5mm        53.8mm       118.5mm        53.8mm  T        270.00 10K            
+R42        R0603                  98.4mm       65.75mm       99.25mm       65.75mm       99.25mm       65.75mm  T        180.00 1M             
+R41        R0603                 98.35mm       63.75mm        97.5mm       63.75mm        97.5mm       63.75mm  T        360.00 2M             
+R40        R0603                  29.5mm        56.6mm        29.5mm       55.75mm        29.5mm       55.75mm  T         90.00 1K             
+R39        R0603                  25.6mm       56.65mm        25.6mm        55.8mm        25.6mm        55.8mm  T         90.00 10K            
+R38        R0603                122.35mm        11.4mm       123.2mm        11.4mm       123.2mm        11.4mm  T        180.00 Res1           
+R37        R0603                128.95mm          10mm       128.1mm          10mm       128.1mm          10mm  T        360.00 4.7K           
+R36        R0603                120.95mm        16.6mm       120.1mm        16.6mm       120.1mm        16.6mm  T        360.00 4.7KO          
+R35        R0603                120.95mm          15mm       120.1mm          15mm       120.1mm          15mm  T        360.00 4.7KO          
+R34        R0603                   135mm       34.75mm         135mm        33.9mm         135mm        33.9mm  T         90.00 10MO           
+R33        R0603                 133.2mm       34.75mm       133.2mm        35.6mm       133.2mm        35.6mm  T        270.00 1KO            
+R32        R0603                   135mm       28.65mm         135mm        27.8mm         135mm        27.8mm  T         90.00 10MO           
+R31        R0603                 133.2mm       28.65mm       133.2mm        29.5mm       133.2mm        29.5mm  T        270.00 1KO            
+R30        R0603                   135mm       22.55mm         135mm        21.7mm         135mm        21.7mm  T         90.00 10MO           
+R29        R0603                 133.2mm       22.55mm       133.2mm        23.4mm       133.2mm        23.4mm  T        270.00 1KO            
+R28        R0603                   135mm       16.55mm         135mm        15.7mm         135mm        15.7mm  T         90.00 10MO           
+R27        R0603                 133.2mm       16.55mm       133.2mm        17.4mm       133.2mm        17.4mm  T        270.00 1KO            
+R26        R0603                   135mm       10.35mm         135mm         9.5mm         135mm         9.5mm  T         90.00 10MO           
+R25        R0603                 133.2mm       10.35mm       133.2mm        11.2mm       133.2mm        11.2mm  T        270.00 1KO            
+R24        R0603                 28.45mm         2.7mm        27.6mm         2.7mm        27.6mm         2.7mm  T        360.00 30O            
+R23        R0603                 28.45mm         4.2mm        27.6mm         4.2mm        27.6mm         4.2mm  T        360.00 20O            
+R22        R0603                 28.35mm         6.9mm        27.5mm         6.9mm        27.5mm         6.9mm  T        360.00 140O           
+R21        R0603                127.85mm          39mm         127mm          39mm         127mm          39mm  T        360.00 600O           
+R20        R0603                    10mm        14.5mm       10.85mm        14.5mm       10.85mm        14.5mm  T        180.00 160O           
+R19        R0603                    10mm          17mm       10.85mm          17mm       10.85mm          17mm  T        180.00 160O           
+R18        R0603                    10mm        19.5mm       10.85mm        19.5mm       10.85mm        19.5mm  T        180.00 160O           
+R17        R0603                    10mm          22mm       10.85mm          22mm       10.85mm          22mm  T        180.00 160O           
+R16        R0603                    10mm       24.75mm       10.85mm       24.75mm       10.85mm       24.75mm  T        180.00 160O           
+R15        R0603                    10mm       27.25mm       10.85mm       27.25mm       10.85mm       27.25mm  T        180.00 160O           
+R14        R0603                    10mm       29.75mm       10.85mm       29.75mm       10.85mm       29.75mm  T        180.00 160O           
+R13        R0603                    10mm       32.25mm       10.85mm       32.25mm       10.85mm       32.25mm  T        180.00 160O           
+R12        R0603                    10mm          35mm       10.85mm          35mm       10.85mm          35mm  T        180.00 160O           
+R11        R0603                    10mm        37.5mm       10.85mm        37.5mm       10.85mm        37.5mm  T        180.00 160O           
+R10        R0603                  24.7mm        37.5mm       23.85mm        37.5mm       23.85mm        37.5mm  T        360.00 220O           
+R9         R0603                  24.7mm       34.75mm       23.85mm       34.75mm       23.85mm       34.75mm  T          0.00 220O           
+R8         R0603                  24.7mm       32.25mm       23.85mm       32.25mm       23.85mm       32.25mm  T          0.00 220O           
+R7         R0603                  24.7mm       29.75mm       23.85mm       29.75mm       23.85mm       29.75mm  T          0.00 220O           
+R6         R0603                  24.7mm       27.25mm       23.85mm       27.25mm       23.85mm       27.25mm  T          0.00 220O           
+R5         R0603                  24.7mm       24.75mm       23.85mm       24.75mm       23.85mm       24.75mm  T          0.00 220O           
+R4         R0603                  24.7mm       22.25mm       23.85mm       22.25mm       23.85mm       22.25mm  T          0.00 220O           
+R3         R0603                  24.7mm        19.5mm       23.85mm        19.5mm       23.85mm        19.5mm  T          0.00 220O           
+R2         R0603                  24.7mm          17mm       23.85mm          17mm       23.85mm          17mm  T          0.00 220O           
+R1         R0603                  24.7mm        14.5mm       23.85mm        14.5mm       23.85mm        14.5mm  T          0.00 220O           
+Q1         E3                   118.75mm        62.5mm      118.75mm        62.5mm      118.75mm       63.77mm  T          0.00 IRFZ24N        
+P10        BORNIER              121.97mm         5.7mm       120.7mm         5.7mm       120.7mm         5.7mm  T          0.00 Header 2       
+P9         BORNIER               92.75mm       87.77mm       92.75mm        86.5mm       92.75mm        86.5mm  T         90.00 Header Sensor  
+P8         BORNIER               135.1mm       57.77mm       135.1mm        56.5mm       135.1mm        56.5mm  T         90.00 Header BAT     
+P7         BORNIER              128.13mm        60.4mm       129.4mm        60.4mm       129.4mm        60.4mm  T        180.00 Header Sensor  
+P6         BORNIER               139.3mm       33.77mm       139.3mm        32.5mm       139.3mm        32.5mm  T         90.00 Header 2       
+P5         BORNIER               139.3mm       27.67mm       139.3mm        26.4mm       139.3mm        26.4mm  T         90.00 Header 2       
+P4         BORNIER               139.3mm       21.57mm       139.3mm        20.3mm       139.3mm        20.3mm  T         90.00 Header 2       
+P3         BORNIER               139.3mm       15.47mm       139.3mm        14.2mm       139.3mm        14.2mm  T         90.00 Header 2       
+P2         BORNIER               139.3mm        9.37mm       139.3mm         8.1mm       139.3mm         8.1mm  T         90.00 Header 2       
+P1         BORNIER                 135mm       63.87mm         135mm        62.6mm         135mm        62.6mm  T         90.00 Header Pompe   
+J1         HDR1X6                20.75mm        65.9mm        27.1mm        65.9mm        27.1mm        65.9mm  T        180.00 Program/Debug  
+D3         SMC                     128mm          50mm         128mm          50mm     131.475mm          50mm  T        180.00 Diode          
+D2         LED1                   23.4mm        4.85mm        23.4mm         4.9mm        23.4mm         6.8mm  T         90.00 LED_RGB        
+D1         SMC                   111.5mm       59.75mm       111.5mm       59.75mm       111.5mm      63.225mm  T        270.00 Diode          
+C9         C0603                 55.25mm        49.6mm       55.25mm       50.45mm       55.25mm       50.45mm  T        270.00 15pF           
+C8         C0603                 55.25mm        45.8mm       55.25mm       44.95mm       55.25mm       44.95mm  T         90.00 15pF           
+C7         C0603                107.75mm       55.35mm      107.75mm        54.5mm      107.75mm        54.5mm  T         90.00 100nF          
+C6         C0603                 111.5mm        52.1mm       111.5mm       51.25mm       111.5mm       51.25mm  T         90.00 10uF           
+C5         C0603                  75.4mm       48.85mm        75.4mm        49.7mm        75.4mm        49.7mm  T        270.00 10uF           
+C4         C0603                 22.35mm          54mm        21.5mm          54mm        21.5mm          54mm  T          0.00 0.1uF          
+C3         C0603                  58.6mm          45mm       57.75mm          45mm       57.75mm          45mm  T        360.00 0.1uF          
+C2         C0603                  75.6mm       58.85mm        75.6mm          58mm        75.6mm          58mm  T         90.00 0.1uF          
+B1         BargraphRG            17.35mm       25.94mm        18.6mm        14.5mm        21.1mm        14.5mm  T         90.00 BargraphRG     
 
