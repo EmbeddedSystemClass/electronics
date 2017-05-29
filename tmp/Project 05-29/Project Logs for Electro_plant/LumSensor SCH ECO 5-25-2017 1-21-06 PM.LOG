@@ -1,0 +1,13 @@
+Change Component Parameter Description in R45 Old= New=Ldr
+Added Parameter Manufacturer=	ADVANCED PHOTONIX to Part R45
+Added Parameter Manufacturer=	BUCHANAN - TE CONNECTIVITY to Part P10
+Added Parameter Manufacturer= to Part R38
+Added Parameter Ref.Farnell=2112482 to Part P10
+Added Parameter Ref.Farnell=	3168359 to Part R45
+Added Parameter Ref.Farnell= to Part R38
+Added Parameter Ref.Manufacturer=	282834-2 to Part P10
+Added Parameter Ref.Manufacturer=NSL 4962. to Part R45
+Added Parameter Ref.Manufacturer= to Part R38
+Added Parameter Supplier=Farnell to Part P10
+Added Parameter Supplier=Farnell to Part R38
+Added Parameter Supplier=Farnell to Part R45

@@ -1,0 +1,14 @@
+Change Component Parameter Description in R44 Old= New=Varistor
+Change Component Parameter Description in U5 Old= New=LCD
+Added Parameter Manufacturer=	FORDATA to Part U5
+Added Parameter Manufacturer=	VISHAY to Part R44
+Added Parameter Manufacturer= to Part R21
+Added Parameter Ref.Farnell=2550676 to Part R44
+Added Parameter Ref.Farnell=	2674137 to Part U5
+Added Parameter Ref.Farnell= to Part R21
+Added Parameter Ref.Manufacturer=	FC1602B04-FHYYBW-91LE to Part U5
+Added Parameter Ref.Manufacturer=	T73YE103KT20 to Part R44
+Added Parameter Ref.Manufacturer= to Part R21
+Added Parameter Supplier=Farnell to Part R21
+Added Parameter Supplier=Farnell to Part R44
+Added Parameter Supplier=Farnell to Part U5

@@ -1,0 +1,41 @@
+Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|Field=Manufacturer~String~Manufacturer~100|Field=Ref.Farnell~String~Ref.Farnell~100|Field=Ref.Manufacturer~String~Ref.Manufacturer~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~Electro_plant.PrjPcb|ReportField=ProjectFullPath~C:\Users\bocal\Desktop\Project 05-22\Electro_plant.PrjPcb|ReportField=Title~Bill of Materials For Project [Electro_plant.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~82|ReportField=ReportTime~10:34:14 AM|ReportField=ReportDate~5/27/2017|ReportField=ReportDateTime~5/27/2017 10:34:14 AM|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~5/27/2017|ReportField=CurrentTime~10:19:31 AM|ReportField=Date~|ReportField=DocumentFullPathAndName~C:\Users\bocal\Desktop\Project 05-22\ElectroPlantoE.SchDoc|ReportField=DocumentName~ElectroPlantoE.SchDoc|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~5/27/2017|ReportField=Organization~|ReportField=ProjectName~Electro_plant.PrjPcb|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~|ReportField=Title~|ReportField=DataSourceFileName~Electro_plant.PrjPcb|ReportField=DataSourceFullPath~C:\Users\bocal\Desktop\Project 05-22\Electro_plant.PrjPcb
+BargraphRG|Bargraph|B1|BargraphRG|1|KINGBRIGHT|2290326|DC-10EGWA
+0.1uF|Capacitor|C2, C3, C4|Cap|3|||
+10uF|Capacitor|C5, C6|Cap|2|||
+100nF|Capacitor|C7|Cap|1|||
+15pF|Capacitor|C8, C9|Cap|2|||
+Diode|Diode|D1, D3|Diode|2|||
+LED_RGB|LedRGB|D2|LED_RGB|1|KINGBRIGHT|2290374|L-154A4SURKQBDZGW
+Program/Debug|Header, 6-Pin|J1|Header 6|1|||
+Header Pompe|Header, 2-Pin|P1|Header 2|1|BUCHANAN - TE CONNECTIVITY|2112482|282834-2
+Header 2|Header, 2-Pin|P2, P3, P4, P5, P6, P10|Header 2|6|BUCHANAN - TE CONNECTIVITY|2112482|282834-2
+Header Sensor|Header, 2-Pin|P7, P9|Header 2|2|BUCHANAN - TE CONNECTIVITY|2112482|282834-2
+Header BAT|Header, 2-Pin|P8|Header 2|1|BUCHANAN - TE CONNECTIVITY|2112482|282834-2
+Pump|Pump|PUMP|Pump|1|/|/|/
+IRFZ24N|N-Channel MOSFET|Q1|MOSFET-N|1|||
+220O|Resistor|R1, R2, R3, R4, R5, R6, R7, R8, R9, R10|Res1|10|||
+160O|Resistor|R11, R12, R13, R14, R15, R16, R17, R18, R19, R20|Res1|10|||
+600O|Resistor|R21|Res1|1|||
+140O|Resistor|R22|Res1|1|||
+20O|Resistor|R23|Res1|1|||
+30O|Resistor|R24|Res1|1|||
+1KO|Resistor|R25, R27, R29, R31, R33, R40|Res1|6|||
+10MO|Resistor|R26, R28, R30, R32, R34|Res1|5|||
+4.7KO|Resistor|R35, R36, R37|Res1|3|||
+10KO|Resistor|R38, R39, R43|Res1|3|||
+2MO|Resistor|R41|Res1|1|||
+1MO|Resistor|R42|Res1|1|||
+RPot|Varistor|R44|Potard|1|VISHAY|2550676|T73YE103KT20
+NSL-4962|Ldr|R45|NSL-4962|1|ADVANCED PHOTONIX|3168359|NSL 4962.
+SW-PB|Switch|Reset|SW-PB|1|ALCOSWITCH - TE CONNECTIVITY|2468741|1437566-3
+SW-On/Off|SPDT Subminiature Toggle Switch, Right Angle Mounting, Vertical Actuation|S1|SW-SPDT|1|EOZ|1608080|09.03201.02
+74HC595-0|ShiftRegister|U1|74HC595|1|TEXAS INSTRUMENTS|1607849|SN74HC595DR
+74HC595-1|ShiftRegister|U2|74HC595|1|TEXAS INSTRUMENTS|1607849|SN74HC595DR
+74HC595-2|ShiftRegister|U3|74HC595|1|TEXAS INSTRUMENTS|1607849|SN74HC595DR
+Nrf24L01|Header, 4-Pin, Dual row|U4|Header 4X2|1|/|/|/
+FC1602B04-FHYYBW-91LE|LCD|U5|FC1602B04-FHYYBW-91LE|1|FORDATA|2674137|FC1602B04-FHYYBW-91LE
+MCP23017|GPIOExpander|U6|MPC23017|1|MICROCHIP|1332087|MCP23017-E/SO
+DS18B20+|Temp|U7|DS18B20+|1|MAXIM INTEGRATED PRODUCTS|2515553|DS18B20+
+PIC32MX170F256B|Pic|U8|PIC32MX170F256B|1|MICROCHIP|2449077|PIC32MX170F256B-I/SO
+LM1117D-33|Battery|U9|LM1117D-33|1|TEXAS INSTRUMENTS|1469056|LM1117T-3.3/NOPB
+32.768kHz|Crystal Oscillator|Y1|XTAL|1||1611828 |AB38T-32.768KHZ 

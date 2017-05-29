@@ -1,0 +1,95 @@
+Change Component Footprint: Designator=Nrf24L01 Old Footprint=NRF24L01 New Footprint=HDR2X4
+Added Component: Designator=Regulator(VoltReg3.3V)
+Added Pin To Net: NetName=GND Pin=Regulator-1
+Added Pin To Net: NetName=3.3V Pin=Regulator-2
+Added Pin To Net: NetName=NetC6_2 Pin=Regulator-3
+Added Pin To Net: NetName=3.3V Pin=Regulator-4
+Added Member To Class: ClassName=BarGraph Member=Component BARGRAPH BargraphRG
+Added Member To Class: ClassName=PIC32MX170F256B Member=Component C2 0.1uF
+Added Member To Class: ClassName=PIC32MX170F256B Member=Component C3 0.1uF
+Added Member To Class: ClassName=PIC32MX170F256B Member=Component C4 0.1uF
+Added Member To Class: ClassName=PIC32MX170F256B Member=Component C5 10uF
+Added Member To Class: ClassName=Power Member=Component C6 10uF
+Added Member To Class: ClassName=Power Member=Component C7 100nF
+Added Member To Class: ClassName=PIC32MX170F256B Member=Component C8 15pF
+Added Member To Class: ClassName=PIC32MX170F256B Member=Component C9 15pF
+Added Member To Class: ClassName=Pump Member=Component D1 Diode
+Added Member To Class: ClassName=TempSensor Member=Component DS18B20+
+Added Member To Class: ClassName=PIC32MX170F256B Member=Component ICSP Program/Debug
+Added Member To Class: ClassName=Ecran LCD Member=Component LCD1 FC1602B04-FHYYBW-91LE
+Added Member To Class: ClassName=LumSensor Member=Component LDR NSL-4962
+Added Member To Class: ClassName=LedAlert Member=Component LED1 LED_RGB
+Added Member To Class: ClassName=MCP23017 Member=Component MPC1 MPC23017
+Added Member To Class: ClassName=ModRadio Member=Component Nrf24L01
+Added Member To Class: ClassName=Pump Member=Component P1 Header Pompe
+Added Member To Class: ClassName=Level Sensor Member=Component P2 Header 2
+Added Member To Class: ClassName=Level Sensor Member=Component P3 Header 2
+Added Member To Class: ClassName=Level Sensor Member=Component P4 Header 2
+Added Member To Class: ClassName=Level Sensor Member=Component P5 Header 2
+Added Member To Class: ClassName=Level Sensor Member=Component P6 Header 2
+Added Member To Class: ClassName=SoilMoisture Member=Component P7 Header Sensor
+Added Member To Class: ClassName=Power Member=Component P8 Header BAT
+Added Member To Class: ClassName=PIC32MX170F256B Member=Component PIC32MX170F256B
+Added Member To Class: ClassName=Pump Member=Component Q1 IRFZ24N
+Added Member To Class: ClassName=BarGraph Member=Component R1 220O
+Added Member To Class: ClassName=BarGraph Member=Component R2 220O
+Added Member To Class: ClassName=BarGraph Member=Component R3 220O
+Added Member To Class: ClassName=BarGraph Member=Component R4 220O
+Added Member To Class: ClassName=BarGraph Member=Component R5 220O
+Added Member To Class: ClassName=BarGraph Member=Component R6 220O
+Added Member To Class: ClassName=BarGraph Member=Component R7 220O
+Added Member To Class: ClassName=BarGraph Member=Component R8 220O
+Added Member To Class: ClassName=BarGraph Member=Component R9 220O
+Added Member To Class: ClassName=BarGraph Member=Component R10 220O
+Added Member To Class: ClassName=BarGraph Member=Component R11 160O
+Added Member To Class: ClassName=BarGraph Member=Component R12 160O
+Added Member To Class: ClassName=BarGraph Member=Component R13 160O
+Added Member To Class: ClassName=BarGraph Member=Component R14 160O
+Added Member To Class: ClassName=BarGraph Member=Component R15 160O
+Added Member To Class: ClassName=BarGraph Member=Component R16 160O
+Added Member To Class: ClassName=BarGraph Member=Component R17 160O
+Added Member To Class: ClassName=BarGraph Member=Component R18 160O
+Added Member To Class: ClassName=BarGraph Member=Component R19 160O
+Added Member To Class: ClassName=BarGraph Member=Component R20 160O
+Added Member To Class: ClassName=Ecran LCD Member=Component R21 600O
+Added Member To Class: ClassName=LedAlert Member=Component R22 140O
+Added Member To Class: ClassName=LedAlert Member=Component R23 20O
+Added Member To Class: ClassName=LedAlert Member=Component R24 30O
+Added Member To Class: ClassName=Level Sensor Member=Component R25 1KO
+Added Member To Class: ClassName=Level Sensor Member=Component R26 10MO
+Added Member To Class: ClassName=Level Sensor Member=Component R27 1KO
+Added Member To Class: ClassName=Level Sensor Member=Component R28 10MO
+Added Member To Class: ClassName=Level Sensor Member=Component R29 1KO
+Added Member To Class: ClassName=Level Sensor Member=Component R30 10MO
+Added Member To Class: ClassName=Level Sensor Member=Component R31 1KO
+Added Member To Class: ClassName=Level Sensor Member=Component R32 10MO
+Added Member To Class: ClassName=Level Sensor Member=Component R33 1KO
+Added Member To Class: ClassName=Level Sensor Member=Component R34 10MO
+Added Member To Class: ClassName=MCP23017 Member=Component R35 4.7KO
+Added Member To Class: ClassName=MCP23017 Member=Component R36 4.7KO
+Added Member To Class: ClassName=TempSensor Member=Component R37 4.7K
+Added Member To Class: ClassName=LumSensor Member=Component R38 Res1
+Added Member To Class: ClassName=PIC32MX170F256B Member=Component R39 10K
+Added Member To Class: ClassName=PIC32MX170F256B Member=Component R40 1K
+Added Member To Class: ClassName=Power Member=Component R41 2M
+Added Member To Class: ClassName=Power Member=Component R42 1M
+Added Member To Class: ClassName=Pump Member=Component R43 10K
+Added Member To Class: ClassName=Power Member=Component Regulator LM1117D-33
+Added Member To Class: ClassName=PIC32MX170F256B Member=Component Reset SW-PB
+Added Member To Class: ClassName=Power Member=Component S1 SW-On/Off
+Added Member To Class: ClassName=BarGraph Member=Component ShiftRegister0 74HC595
+Added Member To Class: ClassName=BarGraph Member=Component ShiftRegister1 74HC595
+Added Member To Class: ClassName=BarGraph Member=Component SR2 74HC595
+Added Member To Class: ClassName=PIC32MX170F256B Member=Component Y1 32.768kHz
+Added Room: Name=BarGraph
+Added Room: Name=Ecran LCD
+Added Room: Name=LedAlert
+Added Room: Name=Level Sensor
+Added Room: Name=LumSensor
+Added Room: Name=MCP23017
+Added Room: Name=ModRadio
+Added Room: Name=PIC32MX170F256B
+Added Room: Name=Power
+Added Room: Name=Pump
+Added Room: Name=SoilMoisture
+Added Room: Name=TempSensor

@@ -1,0 +1,34 @@
+Change Component Parameter Description in D3 Old=Default Diode New=Diode
+Change Component Parameter Description in U9 Old= New=Battery
+Added Parameter Manufacturer=	BUCHANAN - TE CONNECTIVITY to Part P8
+Added Parameter Manufacturer=	EOZ to Part S1
+Added Parameter Manufacturer=	TEXAS INSTRUMENTS to Part U9
+Added Parameter Manufacturer= to Part C6
+Added Parameter Manufacturer= to Part C7
+Added Parameter Manufacturer= to Part D3
+Added Parameter Manufacturer= to Part R41
+Added Parameter Manufacturer= to Part R42
+Added Parameter Ref.Farnell=	1469056 to Part U9
+Added Parameter Ref.Farnell=	1608080 to Part S1
+Added Parameter Ref.Farnell=	2112482 to Part P8
+Added Parameter Ref.Farnell= to Part C6
+Added Parameter Ref.Farnell= to Part C7
+Added Parameter Ref.Farnell= to Part D3
+Added Parameter Ref.Farnell= to Part R41
+Added Parameter Ref.Farnell= to Part R42
+Added Parameter Ref.Manufacturer=	09.03201.02 to Part S1
+Added Parameter Ref.Manufacturer=	282834-2 to Part P8
+Added Parameter Ref.Manufacturer=	LM1117T-3.3/NOPB to Part U9
+Added Parameter Ref.Manufacturer= to Part C6
+Added Parameter Ref.Manufacturer= to Part C7
+Added Parameter Ref.Manufacturer= to Part D3
+Added Parameter Ref.Manufacturer= to Part R41
+Added Parameter Ref.Manufacturer= to Part R42
+Added Parameter Supplier=Farnell to Part C6
+Added Parameter Supplier=Farnell to Part C7
+Added Parameter Supplier=Farnell to Part D3
+Added Parameter Supplier=Farnell to Part P8
+Added Parameter Supplier=Farnell to Part R41
+Added Parameter Supplier=Farnell to Part R42
+Added Parameter Supplier=Farnell to Part S1
+Added Parameter Supplier=Farnell to Part U9
