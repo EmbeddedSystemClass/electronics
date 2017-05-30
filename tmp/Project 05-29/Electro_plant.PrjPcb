@@ -455,6 +455,10 @@ DocumentPath=Project Outputs for Electro_plant\NC Drill\PCB1.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument29]
+DocumentPath=Project Outputs for Electro_plant\Pick Place\Pick Place for PCB1.csv
+DItemRevisionGUID=
+
+[GeneratedDocument30]
 DocumentPath=Project Outputs for Electro_plant\Pick Place\Pick Place for PCB1.txt
 DItemRevisionGUID=
 

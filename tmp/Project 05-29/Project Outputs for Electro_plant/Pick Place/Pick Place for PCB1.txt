@@ -11,15 +11,15 @@ U5         FC1602B04-FHYYBW-91LE       75.71mm       20.65mm          38mm      
 U3         SN74HC595D             31.3mm       48.45mm        31.3mm        48.5mm      26.855mm        45.7mm  T        360.00 74HC595-2      
 U2         SN74HC595D             19.2mm       48.45mm        19.2mm        48.5mm      14.755mm        45.7mm  T        360.00 74HC595-1      
 U1         SN74HC595D              7.1mm       48.45mm         7.1mm        48.5mm       2.655mm        45.7mm  T        360.00 74HC595-0      
-S1         Switch_on/off           110mm          45mm         110mm          45mm         110mm          45mm  T        360.00 SW-On/Off      
+S1         SWITCH_ON/OFF           110mm          45mm         110mm          45mm         110mm          45mm  T        360.00 SW-On/Off      
 Reset      Reset                  17.5mm        58.7mm        22.1mm        58.7mm        22.1mm        58.7mm  T        180.00 SW-PB          
-R43        R0603                 118.5mm       52.95mm       118.5mm        53.8mm       118.5mm        53.8mm  T        270.00 10K            
-R42        R0603                  98.4mm       65.75mm       99.25mm       65.75mm       99.25mm       65.75mm  T        180.00 1M             
-R41        R0603                 98.35mm       63.75mm        97.5mm       63.75mm        97.5mm       63.75mm  T        360.00 2M             
-R40        R0603                  29.5mm        56.6mm        29.5mm       55.75mm        29.5mm       55.75mm  T         90.00 1K             
-R39        R0603                  25.6mm       56.65mm        25.6mm        55.8mm        25.6mm        55.8mm  T         90.00 10K            
-R38        R0603                122.35mm        11.4mm       123.2mm        11.4mm       123.2mm        11.4mm  T        180.00 Res1           
-R37        R0603                128.95mm          10mm       128.1mm          10mm       128.1mm          10mm  T        360.00 4.7K           
+R43        R0603                114.75mm       54.15mm      114.75mm          55mm      114.75mm          55mm  T        270.00 10KO           
+R42        R0603                  98.4mm       65.75mm       99.25mm       65.75mm       99.25mm       65.75mm  T        180.00 500MO          
+R41        R0603                 98.35mm       63.75mm        97.5mm       63.75mm        97.5mm       63.75mm  T        360.00 1MO            
+R40        R0603                  29.5mm        56.6mm        29.5mm       55.75mm        29.5mm       55.75mm  T         90.00 1KO            
+R39        R0603                  25.6mm       56.65mm        25.6mm        55.8mm        25.6mm        55.8mm  T         90.00 10KO           
+R38        R0603                122.35mm        11.4mm       123.2mm        11.4mm       123.2mm        11.4mm  T        180.00 10KO           
+R37        R0603                128.95mm          10mm       128.1mm          10mm       128.1mm          10mm  T        360.00 4.7KO          
 R36        R0603                120.95mm        16.6mm       120.1mm        16.6mm       120.1mm        16.6mm  T        360.00 4.7KO          
 R35        R0603                120.95mm          15mm       120.1mm          15mm       120.1mm          15mm  T        360.00 4.7KO          
 R34        R0603                   135mm       34.75mm         135mm        33.9mm         135mm        33.9mm  T         90.00 10MO           
@@ -56,7 +56,7 @@ R4         R0603                  24.7mm       22.25mm       23.85mm       22.25
 R3         R0603                  24.7mm        19.5mm       23.85mm        19.5mm       23.85mm        19.5mm  T          0.00 220O           
 R2         R0603                  24.7mm          17mm       23.85mm          17mm       23.85mm          17mm  T          0.00 220O           
 R1         R0603                  24.7mm        14.5mm       23.85mm        14.5mm       23.85mm        14.5mm  T          0.00 220O           
-Q1         E3                   118.75mm        62.5mm      118.75mm        62.5mm      118.75mm       63.77mm  T          0.00 IRFZ24N        
+Q1         TO-220AB             117.75mm       60.75mm      117.75mm       60.75mm      117.75mm       63.29mm  T        270.00 IRFZ24N        
 P10        BORNIER              121.97mm         5.7mm       120.7mm         5.7mm       120.7mm         5.7mm  T          0.00 Header 2       
 P9         BORNIER               92.75mm       87.77mm       92.75mm        86.5mm       92.75mm        86.5mm  T         90.00 Header Sensor  
 P8         BORNIER               135.1mm       57.77mm       135.1mm        56.5mm       135.1mm        56.5mm  T         90.00 Header BAT     
@@ -68,12 +68,12 @@ P3         BORNIER               139.3mm       15.47mm       139.3mm        14.2
 P2         BORNIER               139.3mm        9.37mm       139.3mm         8.1mm       139.3mm         8.1mm  T         90.00 Header 2       
 P1         BORNIER                 135mm       63.87mm         135mm        62.6mm         135mm        62.6mm  T         90.00 Header Pompe   
 J1         HDR1X6                20.75mm        65.9mm        27.1mm        65.9mm        27.1mm        65.9mm  T        180.00 Program/Debug  
-D3         SMC                     128mm          50mm         128mm          50mm     131.475mm          50mm  T        180.00 Diode          
+D3         DO-219AB              129.8mm       49.75mm      131.25mm       49.75mm      131.25mm       49.75mm  T        180.00 Diode          
 D2         LED1                   23.4mm        4.85mm        23.4mm         4.9mm        23.4mm         6.8mm  T         90.00 LED_RGB        
-D1         SMC                   111.5mm       59.75mm       111.5mm       59.75mm       111.5mm      63.225mm  T        270.00 Diode          
+D1         DO-219AB                123mm        61.8mm         123mm       63.25mm         123mm       63.25mm  T        270.00 Diode          
 C9         C0603                 55.25mm        49.6mm       55.25mm       50.45mm       55.25mm       50.45mm  T        270.00 15pF           
 C8         C0603                 55.25mm        45.8mm       55.25mm       44.95mm       55.25mm       44.95mm  T         90.00 15pF           
-C7         C0603                107.75mm       55.35mm      107.75mm        54.5mm      107.75mm        54.5mm  T         90.00 100nF          
+C7         C0603                107.75mm       55.35mm      107.75mm        54.5mm      107.75mm        54.5mm  T         90.00 0.1uF          
 C6         C0603                 111.5mm        52.1mm       111.5mm       51.25mm       111.5mm       51.25mm  T         90.00 10uF           
 C5         C0603                  75.4mm       48.85mm        75.4mm        49.7mm        75.4mm        49.7mm  T        270.00 10uF           
 C4         C0603                 22.35mm          54mm        21.5mm          54mm        21.5mm          54mm  T          0.00 0.1uF          

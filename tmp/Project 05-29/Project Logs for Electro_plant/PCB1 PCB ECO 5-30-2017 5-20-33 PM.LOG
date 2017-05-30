@@ -1,0 +1,30 @@
+Removed Pin From Net: NetName=GND Pin=S1-3
+Change Component DesignItemId : Designator=R44 Old DesignItemId=RPot New DesignItemId=Potard
+Change Component Comment : Designator=R40 Old Comment=1K New Comment=1KO
+Change Component Comment : Designator=R42 Old Comment=1M New Comment=500MO
+Change Component Comment : Designator=R41 Old Comment=2M New Comment=1MO
+Change Component Comment : Designator=R37 Old Comment=4.7K New Comment=4.7KO
+Change Component Comment : Designator=R39 Old Comment=10K New Comment=10KO
+Change Component Comment : Designator=R43 Old Comment=10K New Comment=10KO
+Change Component Comment : Designator=C7 Old Comment=100nF New Comment=0.1uF
+Change Component Comment : Designator=R38 Old Comment=Res1 New Comment=10KO
+Change Component Description : Designator=B1 Old Description= New Description=Bargraph
+Change Component Description : Designator=U9 Old Description= New Description=Battery
+Change Component Description : Designator=U6 Old Description= New Description=GPIOExpander
+Change Component Description : Designator=U5 Old Description= New Description=LCD
+Change Component Description : Designator=D2 Old Description= New Description=LedRGB
+Change Component Description : Designator=U8 Old Description= New Description=Pic
+Change Component Description : Designator=U1 Old Description= New Description=ShiftRegister
+Change Component Description : Designator=U2 Old Description= New Description=ShiftRegister
+Change Component Description : Designator=U3 Old Description= New Description=ShiftRegister
+Change Component Description : Designator=U7 Old Description= New Description=Temp
+Change Component Description : Designator=D1 Old Description=Default Diode New Description=Diode
+Change Component Description : Designator=D3 Old Description=Default Diode New Description=Diode
+Change Component Description : Designator=R44 Old Description=Potentiometer New Description=Varistor
+Change Component Library : Designator=R44 Old Library=Miscellaneous Devices.IntLib New Library=Electroplant.SchLib
+Added Component: Designator=R45(NSL-4962)
+Change Net Name : Old Net Name=NetR44_3 New Net Name=NetR44_2
+Added Member To Class: ClassName=Ecran LCD Member=Component R44 RPot
+Added Member To Class: ClassName=LumSensor Member=Component R45 NSL-4962
+Added Member To Class: ClassName=ModRadio Member=Component U4 Nrf24L01
+Added Member To Class: ClassName=MCP23017 Member=Component U6 MCP23017
