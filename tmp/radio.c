@@ -181,7 +181,7 @@ void	radio_send(int32_t payload, int8_t len)
 	//payload in TX FIFO
 	radio_command(W_TX_PAYLOAD, payload, len);      //Write in TX_PAYLOAD
 	radio_ce_pulse();                               //Trigger CE for sending
-	radio_write_reg(STATUS_REG, 0x70);              //I have no Idea
+	radio_write_reg(STATUS_REG, 0x70);              //Clear Status
 }
 
 void radio_ce_pulse(void)
@@ -202,7 +202,7 @@ int32_t	radio_receive(void)
 		radio_nop();
     LATBCLR = CE_PIN;                               //CE LOW - Disable reception
 	ret = radio_command(R_RX_PAYLOAD, 0x00ll, 8);   //Get Data from RX_PAYLOAD
-	radio_write_reg(STATUS_REG, 0x40);              //I also have no idea why o.o"
+	radio_write_reg(STATUS_REG, 0x40);              //Clear Status
 	return(ret);
 }
 
