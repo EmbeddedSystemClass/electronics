@@ -130,6 +130,9 @@
 #include "header.h"
 
 /*Global settings*/
+
+uint16_t humidity = 0;
+
 void init_rtcc(void)
 {
 /*SOSC*/
@@ -267,10 +270,10 @@ void	main(void)
 	{
 		if (I_can_check_sensors)		
 		{
-			check_light();
+//			check_light();
 //			check_temp();
 //			check_level();
-//			check_moisture();
+			check_moisture();
 //
 //			ping_raspberry();
 

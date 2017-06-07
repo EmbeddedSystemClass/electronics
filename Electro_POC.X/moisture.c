@@ -50,9 +50,10 @@
 
 #include <sys/attribs.h>
 #include "Soil_sensor.h"
+#include "header.h"
 #include <xc.h>
 
-u16 humidity;
+extern uint16_t humidity;
 
 void    init_moisture()
 {

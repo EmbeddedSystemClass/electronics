@@ -1,6 +1,9 @@
 
 #include "config.h"
+#include "header.h"
 #include <xc.h>
+
+extern short humidity;
 
 void    init_pump()
 {
