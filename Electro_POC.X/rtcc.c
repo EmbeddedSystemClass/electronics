@@ -16,6 +16,7 @@
 
 void            init_rtcc(void)
 {
+    __asm("di");
     // /!\ Critical system
     SYSKEY = 0xaa996655;            // First key system
     SYSKEY = 0x556699aa;            // Second key system
@@ -41,6 +42,9 @@ void            init_rtcc(void)
     ALRMDATE = 0x00002705;          //Random time + ~2 sec
     RTCALRMbits.ALRMEN = 1;         //Enable Alarm
     RTCCONbits.ON = 1;              //Enable RTCC to run !
+    
+    INTCON = 0x00001000;		//Set multi_vectors
+	__asm("ei");			//Enable CPU interrupts	
 }
 
 void            init_rtcc_interrupt()
