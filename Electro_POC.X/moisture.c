@@ -52,6 +52,8 @@
 #include "Soil_sensor.h"
 #include <xc.h>
 
+u16 humidity;
+
 void    init_moisture()
 {
 //OLD SOIL SENSOR GPIO 26 RB15 CDTED6 AN 9
@@ -118,7 +120,6 @@ u16 get_moisture()
 void check_moisture()
 {
     u16 ctmu_ret = get_moisture();
-    u16 humidity;
     
     humidity = 100 - ((ctmu_ret - min_ctmu) * 100 / max_ctmu) - min_ctmu;
     display_write_str("    ", 0, 11);

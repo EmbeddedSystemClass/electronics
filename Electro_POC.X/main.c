@@ -51,28 +51,28 @@
  * PURPOSE:  General proofs of concepts.
  *
  * HARDWARE:
- *              RA0:	AN0		Lumistance
- *              RA1:	GPIO		SER		(yellow)
+ *              RA0:	AN0         Lumistance
+ *              RA1:	GPIO		SER         (yellow)
  *              RA2:	GPIO		RCLK		(orange)
  *              RA3:	GPIO		SRCLK		(brown)
  *              RA4:	SOSCO		RTCC		(quartz 32.768kHz)
  *
- *              RB0:			ICD3
- *              RB1:	GPIO(CN)	IRQ		(red)
+ *              RB0:                ICD3
+ *              RB1:	GPIO(CN)	IRQ         (red)
  *              RB2:	GPIO(ODC)	LED_R		(red)
  *              RB3:	GPIO(ODC)	LED_G		(green)
  *              RB4:	SOSCI		RTCC		(quartz 32.768kHz)
  *              RB5:	GPIO(ODC)	LED_B		(blue)
- *              RB6:	GPIO		CE		(brown)
+ *              RB6:	GPIO		CE      	(brown)
  *              RB7:    INT0		INTA		(purple)
- *              RB8:    SCL1		I2C		(green)
- *              RB9:    SDA1		I2C		(blue)
+ *              RB8:    SCL1		I2C         (green)
+ *              RB9:    SDA1		I2C     	(blue)
  *              RB10:	GPIO		One-Wire	(white)
- *              RB11:	SDI1		SPI		(blue)
+ *              RB11:	SDI1		SPI     	(blue)
  *              RB12:	AN12		CTMU		(red)
- *              RB13:	SDO1		SPI		(green)
- *              RB14:	SCK1		SPI		(orange)
- *              RB15:	SS1		SPI		(yellow)
+ *              RB13:	SDO1		SPI     	(green)
+ *              RB14:	SCK1		SPI     	(orange)
+ *              RB15:	SS1     	SPI         (yellow)
  *
  * SOFTWARE:
  *              TIMER1:		CTMU
@@ -140,9 +140,9 @@ void init_gpio(void)
 {
 	/*GPIO*/
 	//Set all GPIOs to DIGITAL OUTPUT LOW by default. (Safer for unused pins)
-	LATA  = 0;
-	TRISA = 0;
-	ANSELA = 0;
+	LATA  = 0;             //low
+	TRISA = 0;             //output
+	ANSELA = 0;            //digital 
 	LATB  = 0;
 	TRISB = 0;
 	ANSELB = 0;	
@@ -275,6 +275,7 @@ void	main(void)
 //			ping_raspberry();
 
 //			spi_test();
+            pump_on_off();
 			ping_raspberry();
 			
 			display_update();
