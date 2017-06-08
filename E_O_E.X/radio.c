@@ -1,6 +1,4 @@
-#include <xc.h>
 #include "header.h"
-#include "radio.h"
 
 uint8_t	status = 0;     //hold last status register (updated each time sending command)
 int8_t rx_buffer[32];	//Buffer holding data to be send or get with a command
