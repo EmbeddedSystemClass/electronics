@@ -1,7 +1,4 @@
-#include <xc.h>
 #include "header.h"
-#include "lcd_char_codes.h"
-#include "light.h"
 #include <sys/attribs.h>
 
 uint16_t        lum_p = 0;     //Global variable to get lum at time -P-
