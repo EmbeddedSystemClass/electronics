@@ -4,8 +4,6 @@
 #include "light.h"
 #include <sys/attribs.h>
 
-#define THRESHOLD 100
-
 uint16_t        lum_p = 0;     //Global variable to get lum at time -P-
 
 void		init_light(void)
