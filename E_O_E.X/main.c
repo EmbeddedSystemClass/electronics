@@ -271,7 +271,7 @@ void	main(void)
 		if (I_can_check_sensors)		
 		{
 			check_light();
-			//check_temp();
+			check_temp();
 			check_level();
 			check_moisture();
 

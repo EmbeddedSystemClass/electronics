@@ -1,6 +1,5 @@
 
 #include "header.h"
-
 /*
  * 
  * VERIFY MASTER ACK!!!
