@@ -133,12 +133,6 @@
 
 uint16_t humidity = 0;
 
-void init_rtcc(void)
-{
-/*SOSC*/
-	OSCCONbits.SOSCEN = 1;
-}
-
 void init_gpio(void)
 {
 	/*GPIO*/
