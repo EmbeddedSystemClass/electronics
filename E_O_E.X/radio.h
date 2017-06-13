@@ -52,7 +52,7 @@ typedef enum	e_radio_reg
 	NONE3,              //
 	DYNPD_REG,          //1
 	FEATURE_REG         //1
-}t_radio_reg;
+}               t_radio_reg;
 
 
 void	init_radio(uint8_t reg_addr);

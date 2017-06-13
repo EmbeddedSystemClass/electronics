@@ -173,6 +173,14 @@ void    radio_rx_mode()
     radio_write_reg(CONFIG_REG, 0x0b);  //PWR_UP = 1,   PRIM_RX = 1
 }
 
+void radio_ce_pulse(void)
+{
+	//CE_PIN HIGH (10us pulse)
+	LATBSET = CE_PIN;
+	delay_micro(10);
+	LATBCLR = CE_PIN;	
+}
+
 void	radio_send(int32_t payload, int8_t len)
 {
     	radio_tx_mode();
@@ -180,14 +188,6 @@ void	radio_send(int32_t payload, int8_t len)
 	radio_command(W_TX_PAYLOAD, payload, len);      //Write in TX_PAYLOAD
 	radio_ce_pulse();                               //Trigger CE for sending
 	radio_write_reg(STATUS_REG, 0x70);              //Clear Status
-}
-
-void radio_ce_pulse(void)
-{
-	//CE_PIN HIGH (10us pulse)
-	LATBSET = CE_PIN;
-	delay_micro(10);
-	LATBCLR = CE_PIN;	
 }
 
 int32_t	radio_receive(void)

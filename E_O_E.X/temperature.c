@@ -47,30 +47,42 @@
 //              .,coxO0KXXXXXXXKK0OOxdoc:,..
 //                        ...
 
-#include <xc.h>
+#include "header.h"
 
-#define uint8_t unsigned char
-
+uint8_t T2 = 0x00;
+uint8_t T3 = 0x00;
+uint8_t T4 = 0x00;
+uint8_t T5 = 0x00;
+uint8_t T6 = 0x00;
+uint8_t T7 = 0x00;
+uint8_t CRC = 0x00;
 uint8_t Presence = 0;
 uint8_t LSB = 0x00;
 uint8_t MSB = 0x00;
 float   Temperature;
 int test;
-    
+
 //#define BusLOW LATBbits.LATB0 = 1 //drain open
 //#define BusHIGH LATBbits.LATB0 = 0 //drain close
 
 #define OW_bus(state) LATBbits.LATB10 = state
 
-void	init_temp()
+void	init_tmp()
 {
- // set timer 1
-    T1CONbits.TCKPS = 0; // set prescale to 1
-    T1CONbits.ON = 1; // enable timer 1
+ // set timer 5
+    T5CONbits.TCKPS = 0; // set prescale to 1
+    T5CONbits.ON = 1; // enable timer 1
 //set port
     TRISBbits.TRISB10 = 0; // output
     OW_bus(1); //define OW high
+    display_write_str("T", 0, 13);
     ODCBbits.ODCB10 = 1; //enable open drain on RB0
+}
+
+void    delay_tmp(uint32_t us)
+{
+    TMR5 = 0;
+    while (TMR5 < us);
 }
 
 int	reset()
@@ -78,13 +90,11 @@ int	reset()
     Presence = 0;
     //drive bus low for 480us
     OW_bus(0); //OW low (open drain)
-   // LATBbits.LATB0 = 0; // drive bus low
-    TMR1 = 0; // reset timer 1
-    while (TMR1 < 4800) // 480us (reset pulse)
-    {}
-	//LATBbits.LATB0 = 1; // release bus
-	OW_bus(1); // release OW
-    while (TMR1 < 6000); //attendre 70us recommandé
+  //  TMR5 = 0; // reset timer 1
+    //while (TMR5 < 4800); // 480us (reset pulse)
+    delay_tmp(4800);
+    OW_bus(1); // release OW
+    delay_tmp(700); //attendre 70us recommandé
 //sample bus
     if (PORTBbits.RB10 == 0) //480 + 60us (presence pulse)
     {
@@ -94,7 +104,7 @@ int	reset()
     {
         Presence = 0;
     }
-    while (TMR1 < 9600); //attendre 410us recommandé
+    delay_tmp(4100); //attendre 410us recommandé
     return (Presence);
 }
 
@@ -104,21 +114,18 @@ void    WriteBit(uint8_t bit)
     if (bit == 1)
     {
         //write 1
-        TMR1 = 0;
+      //  TMR5 = 0;
         OW_bus(0); //drive OW low
-        while (TMR1 < 10)
-        {}
+        delay_tmp(10);
         OW_bus(1); //release OW
-        while (TMR1 < 600)
-        {}
+        delay_tmp(600);
     }
     else
     {
         //write 0
-        TMR1 = 0;
+       // TMR5 = 0;
         OW_bus(0); //drive OW low
-        while (TMR1 < 600)
-        {}   
+        delay_tmp(600);
         OW_bus(1); //release OW
     }
 }
@@ -127,7 +134,7 @@ void    WriteData(uint8_t data)
 {
     int i = 0;
     uint8_t  bitmask = 0x01;
-    
+
     while (i < 8)
     {
         if ((bitmask & data) > 0)
@@ -141,19 +148,19 @@ void    WriteData(uint8_t data)
         bitmask = bitmask << 1;
         i++;
     }
-    
+
 }
 
 uint8_t    Readbit()
 {
     uint8_t i;
-    
-    TMR1 = 0;
+
+   // TMR5 = 0;
     OW_bus(0); //drive OW low
-    while (TMR1 < 10);
+    delay_tmp(10);
     OW_bus(1);
     TRISBbits.TRISB10 = 1; //set input
-    while (TMR1 < 100)
+    delay_tmp(90);
     {}
     if (PORTBbits.RB10 == 0)
     {
@@ -163,8 +170,7 @@ uint8_t    Readbit()
     {
         i = 1;
     }
-    while (TMR1 < 600)
-    {}
+    delay_tmp(500);
     //OW_bus(1);
     TRISBbits.TRISB10 = 0; // pin output
     return i;
@@ -175,7 +181,7 @@ uint8_t ReadData()
     uint8_t i = 0;
     uint8_t data = 0x00;
     uint8_t bitmask = 0x01;
-    
+
     while (i < 8)
     {
         if (Readbit() == 1)
@@ -203,7 +209,7 @@ uint8_t    convertTmp()
     WriteData(0x44); //convert temperature (96ms))
     while (Readbit() == 0); // CF datasheet en mode normale, le capteur retourne 0 sur le OW si operation en cou, et 1 une foisla convertion fini
 }
-    
+
 void    SampleTmp()
 {
     while(reset() == 0);
@@ -211,14 +217,13 @@ void    SampleTmp()
     WriteData(0xBE); //read scratchpad command
     LSB = ReadData();
     MSB = ReadData();
-}
-
-void    readrom()
-{
-    while (reset() == 0);
-    WriteData(0x33);
-    LSB = ReadData();
-    MSB = ReadData();
+    T2 = ReadData();
+    T3 = ReadData();
+    T4 = ReadData();
+    T5 = ReadData();
+    T6 = ReadData();
+    T7 = ReadData();
+    CRC = ReadData();
 }
 
 void    read_power_supply()
@@ -251,7 +256,8 @@ void    write_scratchpad()
 void    check_temp()
 {
     uint8_t is_neg = 0b11111000;
-    
+
+    init_tmp();
     write_scratchpad(); //Define resolution
     convertTmp(); //save Temperature value
     SampleTmp(); // get Temperature value
@@ -260,11 +266,6 @@ void    check_temp()
     {
         Temperature = Temperature * -1;
     }
-    while (1)
-    {
-        convertTmp();
-    }
-    //putnbr((int)Temperature);
-    //putstr(".");
-    //putnbr((Temperature - (int)Temperature) * 10);
+    display_write_dec(Temperature, 0, 14);
+    display_update();
 }

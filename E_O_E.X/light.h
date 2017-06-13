@@ -8,6 +8,6 @@ void    	check_light();
 uint8_t		uchar_to_hex(uint8_t val);
 void      init_auto_adc(void);
 void      init_manual_adc(void);
-uint32_t	get_light_manual(void)
+uint32_t	get_light_manual(void);
 
 #endif

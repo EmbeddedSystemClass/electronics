@@ -120,6 +120,6 @@ void check_moisture()
     uint16_t ctmu_ret = get_moisture();
     
     humidity = 100 - ((ctmu_ret - min_ctmu) * 100 / max_ctmu) - min_ctmu;
-    display_write_str("    ", 0, 11);
+    display_write_str("  ", 0, 11);
     display_write_dec(humidity, 0, 11);
 }
