@@ -61,26 +61,12 @@ void    init_moisture()
 //CTMU 1
     CTMUCON = 0;                    // RESET all
     CTMUCONbits.IRNG = 0b11;        // Current source trim at 55uA (I)
-
-//ADC
-    AD1CON2 = 0;                    // [VCFG|OFFCAL|CSCNA|BUFS|SMPI|BUFM|ALTS]
-    AD1CON3 = 1;                    // ADCS = 4 . TPB  [ADRC|SAMC|ADCS]
-    AD1CSSL = 0;                    // No Chanel scan
-   // AD1CHSbits.CH0SA = 12;        // Select chanel AN12
-    ANSELA = 0x0000;                // No ADC pin
-    ANSELB = 1<<12;                 // RB12 connected to sensor
-    AD1CON1bits.ON = 1;             // Turn On ADC
     
 //TIMER
     T1CONbits.ON = 1;               // Enable Timer
     TMR1 = 0;                       // Set Start to 0
     T1CONbits.TCKPS = 0;            // Set Prescale to 1
     PR1 = 10000;                    // 1mSec
-    
-
-//INTERRUPT
-    //ADC
-    IEC0bits.AD1IE = 0;             // Disable ADC interrupt
     
     //Enable Multi-Vector and interruptions
     //INTCONbits.MVEC = 1;
@@ -92,7 +78,7 @@ uint16_t get_moisture()
 {
     uint16_t vctmu;
     uint16_t cap;
-    
+
     vctmu = 0;
     AD1CHSbits.CH0SA = 12;          // Select chanel AN12
     while (vctmu == 0)
@@ -117,6 +103,10 @@ uint16_t get_moisture()
 
 void check_moisture()
 {
+
+    init_manual_adc();
+    ANSELA = 0x0000;                // No ADC pin
+    ANSELB = 1<<12;                 // RB12 connected to sensor
     uint16_t ctmu_ret = get_moisture();
     
     humidity = 100 - ((ctmu_ret - min_ctmu) * 100 / max_ctmu) - min_ctmu;

@@ -11,12 +11,12 @@ void    init_pump()
 
 void    pump_on_off()
 {
-    init_pump();
-    
     if (humidity <= 25)
     {
         LATBbits.LATB0 = 1; //PUMP is ON
     }
     else
+    {
         LATBbits.LATB0 = 0;     //turn off PUMP
+    }
 }

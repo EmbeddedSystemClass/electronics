@@ -38,7 +38,7 @@ void            init_rtcc(void)
     RTCDATE = date;                 //Set date
 //  Rtcc Alarm
     RTCALRM = 0;                    //DISABLE RTCALRM FOR CONFIG
-    RTCALRMbits.AMASK = 0b10;       //Every 10 seconds || 0b0100 for 10mn
+    RTCALRMbits.AMASK = RTCC_MASK;       //Every 10 seconds || 0b0100 for 10mn
     RTCALRMbits.ARPT = 0x1;         //Repeat twice;
     ALRMTIME = 0x04154600;          //Random date
     ALRMDATE = 0x00002705;          //Random time + ~2 sec

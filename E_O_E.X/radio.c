@@ -36,7 +36,7 @@ void	radio_check_reg(void)
 	reg = radio_read_reg(FIFO_STATUS_REG);
 }
 
-void	init_radio(uint8_t reg_addr)
+void	init_radio()
 {	
 	radio_write_reg(CONFIG_REG,	0x0B);              //CRC, PWR UP, PRX
 	radio_write_reg(EN_RXADDR_REG,	0x03);          //Data pipe     1 and 0
@@ -183,7 +183,7 @@ void radio_ce_pulse(void)
 
 void	radio_send(int32_t payload, int8_t len)
 {
-    radio_tx_mode();
+        radio_tx_mode();
 	//payload in TX FIFO
 	radio_command(W_TX_PAYLOAD, payload, len);      //Write in TX_PAYLOAD
 	radio_ce_pulse();                               //Trigger CE for sending
@@ -218,9 +218,9 @@ void	spi_test(void)                              //Simple Test for SPI - Working
 
 void		radio_test(void)                        //Simple Test for TX/RX - [2/2]
 {
-    int32_t val;
-    
- 	radio_send(0x2aff, 2);                          //
+//      int32_t val = 0;
+
+ 	radio_send(0x2a2a, 2);                          //send 42 255 :D
 //	val = radio_receive();                          //
-//  	display_write_dec(val, 0, 0);                   //
+//	display_write_dec(val, 0, 0);                   //
 }

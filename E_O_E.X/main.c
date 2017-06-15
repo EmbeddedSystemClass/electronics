@@ -132,6 +132,7 @@
 /*Global settings*/
 
 uint16_t humidity = 0;
+uint16_t lum_p = 0;
 
 void init_gpio(void)
 {
@@ -242,7 +243,7 @@ void	main(void)
 {
 	__asm("di");
 	init_gpio();
-	init_interrupt();
+        init_interrupt();
 	init_timer();
 	init_delay();
 	init_led();
@@ -254,25 +255,30 @@ void	main(void)
 	init_lcd();
 	init_display();
 	init_light();
+        init_auto_adc();
         init_pump();
 	init_moisture();
-//	init_temp();
-//	init_spi();
-//	init_radio();
+	init_temp();
+        init_rtcc();
+        init_rtcc_interrupt();
+	init_spi();
+	init_radio();
 	init_watchdog();
 		
 	while(1)				//Main loop
 	{
 		if (I_can_check_sensors)		
 		{
-			check_light();
-			//check_temp();
-			check_level();
 			check_moisture();
+			check_temp();
+			check_level();
+                        check_light();
 
-
+                        radio_test();
 		//	spi_test();
-            pump_on_off();
+                       // #ifndef __DEBUG
+                        pump_on_off();
+                      //  # endif
 		//	ping_raspberry();
 			
 			display_update();

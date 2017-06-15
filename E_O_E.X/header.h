@@ -36,6 +36,8 @@ void init(void);
 #include    "display.h"
 #include    "light.h"
 #include    "radio.h"
+#include    "adc.h"
+#include    "rtcc.h"
 
 
 /*Moisture sensor*/

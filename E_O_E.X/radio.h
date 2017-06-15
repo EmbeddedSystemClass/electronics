@@ -55,7 +55,7 @@ typedef enum	e_radio_reg
 }               t_radio_reg;
 
 
-void	init_radio(uint8_t reg_addr);
+void	init_radio();
 int64_t	radio_command(int8_t command, int64_t data, int8_t data_len);
 int64_t	radio_read_reg(int8_t reg_addr);
 void	radio_write_reg(int8_t reg_addr, int64_t data);

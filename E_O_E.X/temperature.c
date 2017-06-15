@@ -60,14 +60,13 @@ uint8_t Presence = 0;
 uint8_t LSB = 0x00;
 uint8_t MSB = 0x00;
 float   Temperature;
-int test;
 
 //#define BusLOW LATBbits.LATB0 = 1 //drain open
 //#define BusHIGH LATBbits.LATB0 = 0 //drain close
 
 #define OW_bus(state) LATBbits.LATB10 = state
 
-void	init_tmp()
+void    init_temp()
 {
  // set timer 5
     T5CONbits.TCKPS = 0; // set prescale to 1
@@ -85,26 +84,29 @@ void    delay_tmp(uint32_t us)
     while (TMR5 < us);
 }
 
-int	reset()
+uint8_t reset()
 {
-    Presence = 0;
-    //drive bus low for 480us
-    OW_bus(0); //OW low (open drain)
-  //  TMR5 = 0; // reset timer 1
-    //while (TMR5 < 4800); // 480us (reset pulse)
-    delay_tmp(4800);
-    OW_bus(1); // release OW
-    delay_tmp(700); //attendre 70us recommandé
-//sample bus
-    if (PORTBbits.RB10 == 0) //480 + 60us (presence pulse)
+    uint8_t secure = 0;
+    uint8_t Presence = 0;
+
+    while (Presence == 0 && secure < 5)
     {
-        Presence = 1;
+        OW_bus(0); //OW low (open drain)
+        delay_tmp(4800);// 480us (reset pulse)
+        OW_bus(1); // release OW
+        delay_tmp(700); //attendre 70us recommandé
+        //sample bus
+        if (PORTBbits.RB10 == 0) //480 + 60us (presence pulse)
+        {
+            Presence = 1;
+        }
+        else
+        {
+            Presence = 0;
+        }
+        delay_tmp(4100); //attendre 410us recommandé
+        secure++;
     }
-    else
-    {
-        Presence = 0;
-    }
-    delay_tmp(4100); //attendre 410us recommandé
     return (Presence);
 }
 
@@ -114,7 +116,6 @@ void    WriteBit(uint8_t bit)
     if (bit == 1)
     {
         //write 1
-      //  TMR5 = 0;
         OW_bus(0); //drive OW low
         delay_tmp(10);
         OW_bus(1); //release OW
@@ -123,7 +124,6 @@ void    WriteBit(uint8_t bit)
     else
     {
         //write 0
-       // TMR5 = 0;
         OW_bus(0); //drive OW low
         delay_tmp(600);
         OW_bus(1); //release OW
@@ -155,13 +155,11 @@ uint8_t    Readbit()
 {
     uint8_t i;
 
-   // TMR5 = 0;
     OW_bus(0); //drive OW low
     delay_tmp(10);
     OW_bus(1);
     TRISBbits.TRISB10 = 1; //set input
     delay_tmp(90);
-    {}
     if (PORTBbits.RB10 == 0)
     {
         i = 0;
@@ -171,7 +169,6 @@ uint8_t    Readbit()
         i = 1;
     }
     delay_tmp(500);
-    //OW_bus(1);
     TRISBbits.TRISB10 = 0; // pin output
     return i;
 }
@@ -201,48 +198,83 @@ void    skipROM()
 
 uint8_t    convertTmp()
 {
+    uint16_t s = 0;
+
     if (reset() == 0)
     {
         return(0);
     }
     skipROM();
     WriteData(0x44); //convert temperature (96ms))
-    while (Readbit() == 0); // CF datasheet en mode normale, le capteur retourne 0 sur le OW si operation en cou, et 1 une foisla convertion fini
+    TMR5 = 0;
+    while (Readbit() == 0)// CF datasheet en mode normale, le capteur retourne 0 sur le OW si operation en cou, et 1 une foisla convertion fini
+    {
+        if (s == 1000)
+        {
+            return (0);
+        }
+        if (TMR5 == 10000)
+        {
+            TMR5 = 0;
+            s++;
+        }
+    }
+    return (1);
 }
 
-void    SampleTmp()
+uint8_t    *SampleTmp(uint8_t *tab)
 {
-    while(reset() == 0);
+    uint8_t i = 0;
+
+    if(reset() == 0)
+    {
+        return;
+    }
     skipROM();
     WriteData(0xBE); //read scratchpad command
-    LSB = ReadData();
-    MSB = ReadData();
-    T2 = ReadData();
-    T3 = ReadData();
-    T4 = ReadData();
-    T5 = ReadData();
-    T6 = ReadData();
-    T7 = ReadData();
-    CRC = ReadData();
+    while (i < 9)
+    {
+        tab[i] = ReadData();
+        i++;
+    }
+    LSB = tab[0];
+    MSB = tab[1];
+   // T2 = ReadData();
+   // T3 = ReadData();
+   // T4 = ReadData();
+   // T5 = ReadData();
+   // T6 = ReadData();
+   // T7 = ReadData();
+   // CRC = ReadData();
+    return (tab);
 }
 
 void    read_power_supply()
 {
-    while (reset() == 0);
+    if (reset() == 0)
+    {
+        return;
+    }
     skipROM();
     WriteData(0xB4);
 }
 
 void    copy_to_eeprom()
 {
-    while (reset() == 0);
+    if (reset() == 0)
+    {
+        return;
+    }
     skipROM();
     WriteData(48);
 }
 
-void    write_scratchpad()
+uint8_t    write_scratchpad()
 {
-    while (reset() == 0);
+    if (reset() == 0)
+    {
+        return (0);
+    }
     skipROM();
     WriteData(0x4E); //set config
     // Envois des 3 octets
@@ -251,21 +283,33 @@ void    write_scratchpad()
     WriteData(0b00011111); //Resolution 9bits
     // Copy Scratchpad to EEPROM
     copy_to_eeprom();
+    return (1);
 }
 
 void    check_temp()
 {
     uint8_t is_neg = 0b11111000;
+    uint8_t tab[9];
 
-    init_tmp();
-    write_scratchpad(); //Define resolution
-    convertTmp(); //save Temperature value
-    SampleTmp(); // get Temperature value
-    Temperature = (((MSB & 0b00000111) << 8) | LSB & 0b11111000) * 0.0625; //converstion en °c
-    if ((MSB & is_neg) == is_neg) //check negative value
+    T5CONbits.ON = 1; // enable timer 1
+    if (write_scratchpad() == 1) //Define resolution
     {
-        Temperature = Temperature * -1;
+        if (convertTmp() == 1) //save Temperature value
+        {
+            if (SampleTmp(tab) != NULL) // get Temperature value
+            {
+                Temperature = (((MSB & 0b00000111) << 8) | LSB & 0b11111000) * 0.0625; //converstion en °c
+                if ((MSB & is_neg) == is_neg) //check negative value
+                {
+                    Temperature = Temperature * -1;
+                }
+                display_write_dec(Temperature, 0, 14);
+                display_write_str("T", 0, 13);
+                T5CONbits.ON = 0;
+                return;
+            }
+        }
     }
-    display_write_dec(Temperature, 0, 14);
-    display_update();
+    T5CONbits.ON = 0;
+    display_write_str("----", 0, 14);
 }
