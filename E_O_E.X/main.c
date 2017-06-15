@@ -254,6 +254,7 @@ void	main(void)
 	init_lcd();
 	init_display();
 	init_light();
+        init_pump();
 	init_moisture();
 //	init_temp();
 //	init_spi();
@@ -265,7 +266,7 @@ void	main(void)
 		if (I_can_check_sensors)		
 		{
 			check_light();
-			check_temp();
+			//check_temp();
 			check_level();
 			check_moisture();
 

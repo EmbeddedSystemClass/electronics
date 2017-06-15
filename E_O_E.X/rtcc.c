@@ -10,12 +10,14 @@
  */
 
 #include <sys/attribs.h>
+#include <xc.h>
 #include "header.h"
 
-uint8_t		ten_x = 0;
+int             t = 0;
 
 void            init_rtcc(void)
 {
+    OSCCONbits.SOSCEN = 1;
     __asm("di");
     // /!\ Critical system
     SYSKEY = 0xaa996655;            // First key system
@@ -36,7 +38,7 @@ void            init_rtcc(void)
     RTCDATE = date;                 //Set date
 //  Rtcc Alarm
     RTCALRM = 0;                    //DISABLE RTCALRM FOR CONFIG
-    RTCALRMbits.AMASK = 0b10;       //Every 10 seconds
+    RTCALRMbits.AMASK = 0b10;       //Every 10 seconds || 0b0100 for 10mn
     RTCALRMbits.ARPT = 0x1;         //Repeat twice;
     ALRMTIME = 0x04154600;          //Random date
     ALRMDATE = 0x00002705;          //Random time + ~2 sec
@@ -44,7 +46,7 @@ void            init_rtcc(void)
     RTCCONbits.ON = 1;              //Enable RTCC to run !
     
     INTCON = 0x00001000;		//Set multi_vectors
-	__asm("ei");			//Enable CPU interrupts	
+    __asm("ei");			//Enable CPU interrupts
 }
 
 void            init_rtcc_interrupt()
@@ -58,11 +60,12 @@ void            init_rtcc_interrupt()
 
 void    __ISR(_RTCC_VECTOR, IPL2AUTO)           Rtcc_Interrupt(void)
 {
-	ten_x++;
-	if (ten_x == 3)
-	{
-		ten_x = 0;
-	}
+    t++;
+    if (t == 3)
+    {
+        //wake-up
+        t = 0;
+    }
     RTCALRMbits.ARPT = 1;           //re-repeat Twice
     IFS0bits.RTCCIF = 0;            //Clear flag
 }

@@ -183,7 +183,7 @@ void radio_ce_pulse(void)
 
 void	radio_send(int32_t payload, int8_t len)
 {
-    	radio_tx_mode();
+    radio_tx_mode();
 	//payload in TX FIFO
 	radio_command(W_TX_PAYLOAD, payload, len);      //Write in TX_PAYLOAD
 	radio_ce_pulse();                               //Trigger CE for sending
