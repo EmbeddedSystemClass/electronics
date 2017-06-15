@@ -261,10 +261,10 @@ void	main(void)
 	init_temp();
         init_rtcc();
         init_rtcc_interrupt();
-	init_spi();
-	init_radio();
+//	init_spi();
+//	init_radio();
 	init_watchdog();
-		
+
 	while(1)				//Main loop
 	{
 		if (I_can_check_sensors)		
@@ -274,14 +274,13 @@ void	main(void)
 			check_level();
                         check_light();
 
-                        radio_test();
+                        //radio_test();
 		//	spi_test();
                        // #ifndef __DEBUG
                         pump_on_off();
                       //  # endif
 		//	ping_raspberry();
-			
-			display_update();
+                        display_update();
 			I_can_check_sensors = 0;
 		}
 		WDTCONSET = 0x0001;	//reset watchdog

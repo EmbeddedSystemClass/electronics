@@ -9,10 +9,7 @@ void		init_light(void)
 	display_write_str("L", 0, 5);
 }
 
-void            foo()
-{
-    //Do Routine
-}
+
 
 //check light level and fill display_buffer with the measured value.
 void   		check_light(void)
