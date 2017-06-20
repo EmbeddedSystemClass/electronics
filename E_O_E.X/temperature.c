@@ -154,12 +154,12 @@ void    WriteData(uint8_t data)
 uint8_t    Readbit()
 {
     uint8_t i;
-
+    //see datasheet DS18B20 "READ TIME SLOTS"
     OW_bus(0); //drive OW low
-    delay_tmp(10);
+    delay_tmp(20); // wait > 1 us
     OW_bus(1);
     TRISBbits.TRISB10 = 1; //set input
-    delay_tmp(90);
+    delay_tmp(120); //read at < 15 us
     if (PORTBbits.RB10 == 0)
     {
         i = 0;
@@ -222,6 +222,39 @@ uint8_t    convertTmp()
     return (1);
 }
 
+uint8_t check_crc(uint8_t *tab)
+{
+    uint8_t	i;
+	uint8_t 	j;
+	uint8_t	crc;
+    uint8_t test;
+
+	i = 0;
+	j = 0;
+	crc = 0;
+	while (j < 8)
+	{
+		test = tab[j];
+		i = 0;
+		for (i = 0; i < 8; i++)
+		{
+			if ((crc ^ test) & 0x01)
+			{
+				crc = (crc >> 1) ^ 0b10001100;
+			}
+			else
+				crc >>= 1;
+			test >>= 1;
+		}
+		j++;
+	}
+    if (crc == tab[8])
+    {
+        return (1);
+    }
+	return (0);
+}
+
 uint8_t    *SampleTmp(uint8_t *tab)
 {
     uint8_t i = 0;
@@ -237,15 +270,19 @@ uint8_t    *SampleTmp(uint8_t *tab)
         tab[i] = ReadData();
         i++;
     }
-    LSB = tab[0];
-    MSB = tab[1];
-   // T2 = ReadData();
-   // T3 = ReadData();
-   // T4 = ReadData();
-   // T5 = ReadData();
-   // T6 = ReadData();
-   // T7 = ReadData();
-   // CRC = ReadData();
+//    LSB = tab[0];
+//    MSB = tab[1];
+//    T2 = tab[2];
+//    T3 = tab[3];
+//    T4 = tab[4];
+//    T5 = tab[5];
+//    T6 = tab[6];
+//    T7 = tab[7];
+//    CRC = tab[8];
+    if (check_crc(tab) == 0)
+    {
+        return (NULL);
+    }
     return (tab);
 }
 
@@ -290,22 +327,28 @@ void    check_temp()
 {
     uint8_t is_neg = 0b11111000;
     uint8_t tab[9];
+    uint8_t secure = 0;
 
     T5CONbits.ON = 1; // enable timer 1
     if (write_scratchpad() == 1) //Define resolution
     {
         if (convertTmp() == 1) //save Temperature value
         {
-            if (SampleTmp(tab) != NULL) // get Temperature value
+            while (SampleTmp(tab) == NULL && secure <= 3) // get Temperature value
             {
-                Temperature = (((MSB & 0b00000111) << 8) | LSB & 0b11111000) * 0.0625; //converstion en °c
-                if ((MSB & is_neg) == is_neg) //check negative value
+                secure++;
+            }
+            Temperature = (((tab[1] & 0b00000111) << 8) | tab[0] & 0b11111000) * 0.0625; //converstion en °c
+            if (secure == 3) 
+            {
+                if ((tab[1] & is_neg) == is_neg) //check negative value
                 {
                     Temperature = Temperature * -1;
                 }
                 display_write_dec(Temperature, 0, 14);
                 display_write_str("T", 0, 13);
                 T5CONbits.ON = 0;
+                display_update();
                 return;
             }
         }
