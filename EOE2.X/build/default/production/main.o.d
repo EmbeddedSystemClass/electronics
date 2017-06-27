@@ -12,4 +12,5 @@ display.h  \
 light.h  \
 radio.h  \
  adc.h  \
-rtcc.h 
+rtcc.h  \
+stock_value.h 

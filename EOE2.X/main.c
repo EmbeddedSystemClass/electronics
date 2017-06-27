@@ -25,7 +25,7 @@
  *              RB15:	SS1     	SPI         (yellow)
  *
  * SOFTWARE:
- *              TIMER1:		CTMU
+ *              TIMER1:		CTMU / 1_wire
  *              TIMER2:         interupt
  *              TIMER3:		Alert led blink
  *              TIMER4:		delay_micro_sec
@@ -78,13 +78,20 @@
 
 
 #include "header.h"
+#include "stock_value.h"
 
 /*Global variables*/
-uint16_t    lum_manual;             //luminosity value
-int16_t     lum_auto;               //luminosity value while sleeping (thresold wake up)
-uint8_t     I_can_check_sensors;    //hresold checking sensors
+uint8_t     I_can_check_sensors;    //lomg terme checking sensors
+uint8_t     I_can_display;          //pour afficher 10 sec
 uint8_t     g_mon_sleep;            //global monitor sleeping
-
+uint16_t    lum_manual;             //luminosity value
+float       Temperature;
+uint8_t     level = 0;
+int16_t     lum_auto;               //luminosity value while sleeping (thresold wake up)
+uint16_t    humidity;               //current hum val
+t_save      tab_data[336];
+uint16_t    nb_save = 0;
+void    save_data();
 
 void    init(void)
 {
@@ -105,27 +112,35 @@ void    init(void)
 
     init_manual_adc();
     init_light();
-
-//    init_pump();
+    init_moisture();
+    init_temp();
 
 //    init_auto_adc();
-//    init_moisture();
-//    init_temp();
+//    init_sleep();
+
+//    init_pump();
 
 //    init_spi();
 //    init_radio();
 
-//    init_sleep();
-
-   
     init_watchdog();
 }
 
-void        check_sensors()
+void    get_sensors()
 {
-//                      check_level();  //ca put du cul il ecrit nimp sur lecran grr   (commentaire epic!)
-//                      check_moisture();
-//			check_temp();
+                        check_level();  //ca put du cul il ecrit nimp sur lecran grr   (commentaire epic!)
+                        check_moisture();
+			check_temp();
+                        get_light_manual();
+                        save_data();
+                        //store value
+}
+
+void        display_sensors()
+{
+                        check_level();  //ca put du cul il ecrit nimp sur lecran grr   (commentaire epic!)
+                        check_moisture();
+			check_temp();
                         get_light_manual();
 
 //                      radio_test();
@@ -135,19 +150,24 @@ void        check_sensors()
 
 void    main(void)
 {
-
     init();
     I_can_check_sensors = 1;
     while(1)
     {
-        display_write_dec(RTCTIMEbits.SEC10 , 0, 0);
-        display_write_dec(RTCTIMEbits.SEC01 , 0, 1);
-        display_update();
+        while (I_can_display)
+        {
+            display_sensors();
+        }
         if (I_can_check_sensors)
         {
-            check_sensors();
+            get_sensors();
             I_can_check_sensors = 0;
         }
+        if(g_mon_sleep)
+        {
+           //__asm(wait);
+        }
+        display_update();
         WDTCONSET = 0x0001;	//reset watchdog
     }
 }

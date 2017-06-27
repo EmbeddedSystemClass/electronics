@@ -13,10 +13,7 @@
 #include <xc.h>
 #include "header.h"
 
-
 extern uint8_t     I_can_check_sensors;    //hresold checking sensors
-
-int             alarm_count = 0;    //count alarm thresolt (cf RTCC_MASK)
 
 void            init_rtcc(void)
 {
@@ -29,7 +26,7 @@ void            init_rtcc(void)
 
 //  Secondary oscillator
 //    OSCCONbits.SOSCEN = 1;          //Enable secondary Oscillator
-    while (!(OSCCONbits.SOSCRDY));  //Waiting for Sosc to run !
+//    while (!(OSCCONbits.SOSCRDY));  //Waiting for Sosc to run !               bi1 pense a remetre
 //  Rtcc
     uint32_t time = 0x00;          //Random time
     uint32_t date = 0x00;           //Random date
@@ -43,7 +40,7 @@ void            init_rtcc(void)
     RTCALRMbits.CHIME = 1;
     RTCALRMbits.AMASK = 0b10;     //Every 10 seconds || 0b0100 for 10mn
     RTCALRMbits.ARPT = 0xff;         //Repeat twice;
-    ALRMTIME = 0x800;              //10 sec mask
+    ALRMTIME = 0x1000;              //10 sec mask
     ALRMDATE = 0x00;                //Random date
     RTCALRMbits.ALRMEN = 1;         //Enable Alarm
     RTCCONbits.ON = 1;              //Enable RTCC to run !
@@ -56,18 +53,14 @@ void            init_rtcc(void)
     __asm("ei");
 }
 
-uint64_t     inside_rtcc = 0;
-
 void    __ISR(_RTCC_VECTOR, IPL2AUTO)           Rtcc_Interrupt(void)
 {
+    static int  alarm_count = 0;    //alarm time multiplier
     IFS0bits.RTCCIF = 0;            //Clear flag
     alarm_count++;
     if (alarm_count == 1)
     {
-        display_write_dec(inside_rtcc, 0, 0);
-        inside_rtcc++;
         I_can_check_sensors = 1;
         alarm_count = 0;
     }
-//    RTCALRMbits.ARPT = 1;           //re-repeat Twice
 }
