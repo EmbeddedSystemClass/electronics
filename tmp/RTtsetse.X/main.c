@@ -69,12 +69,8 @@ void        system_lock(void)
 
 void        init_rtcc(void)
 {
-    //SET GPIO
-    LATBbits.LATB4 = 1;             //hight
-    TRISAbits.TRISA4 = 1;           //Input
     //SET RTCC
     system_unlock();
-    __asm("di");
     RTCCONbits.RTCWREN = 1;         // WRTENable
     //Enable Secondary Oscillator
     OSCCONbits.SOSCEN = 1;          // Secondary Oscillator
@@ -101,9 +97,6 @@ void        init_rtcc(void)
     RTCALRMbits.ALRMEN = 1;         // Enable Alrm
     RTCCONbits.ON = 1;              // turn on the RTCC
     while(!(RTCCONbits.RTCCLKON));
-    //Enable Interrupt - multivector
-    INTCONbits.MVEC = 1;            // Multivector
-    __asm("ei");
     system_lock();
 }
 
@@ -147,6 +140,41 @@ void        init_sleep()
     system_lock();
 }
 
+void    init_sosco()
+{
+    //SET GPIO
+    LATBbits.LATB4 = 1;             //hight
+    TRISAbits.TRISA4 = 1;           //Input
+    system_unlock();
+    OSCCONbits.SOSCEN = 1;
+    while (!(OSCCONbits.SOSCRDY));
+    system_lock();
+}
+
+void    init_tmr1()
+{    
+    /*TIMER1*/
+    T1CON = 0;
+    T1CONbits.TCS = 1;      // External clock from TxCKI pin
+    T1CONbits.TCKPS = 0x0;  //1:8
+    T1CONbits.TSYNC = 0;
+    PR1 = 0xffff;           //
+    TMR1 = 0;
+    /*INTERRUPT*/
+    //T3 ? Timer3 14 12 IFS0<14> IEC0<14> IPC3<4:2> IPC3<1:0> No
+    IFS0bits.T1IF = 0;
+    IPC1bits.T1IP = 6;      //Priority = 2
+    IPC1bits.IC1IS = 0;     //Subpriority = 0
+    IEC0bits.T1IE = 1;        
+    T1CONbits.ON = 1;
+}
+
+void __attribute__ ((interrupt(IPL6AUTO), vector(4))) led_alert_interrupt(void)
+{
+	IFS0bits.T1IF = 0;
+    LATBINV = LED_BITS;
+}
+
 void        go_to_sleep()
 {
     system_unlock();
@@ -160,12 +188,31 @@ void        __ISR(_RTCC_VECTOR, IPL3AUTO)  RTCC_interrupt()
     LATBINV = LED_BITS;
 }
 
+void        enable_interrupt()
+{
+    system_unlock();
+    INTCONbits.MVEC = 1;            // Multivector
+    __asm("ei");
+    system_lock();
+}
+
+void        disable_interrupt()
+{
+    system_unlock();
+    __asm("di");
+    system_lock();
+}
+
 int         main(void)
 {
     init_gpio();
+    disable_interrupt();
+    init_sosco();
     init_sleep();
     init_led();
-    init_rtcc();
+    init_tmr1();
+    enable_interrupt();
+    //init_rtcc();
     init_watchdog();
 
     while (1)

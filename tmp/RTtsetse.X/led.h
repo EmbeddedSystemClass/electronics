@@ -7,8 +7,8 @@
 #define BLU_BIT  0x0020		//RB5
 #define LED_BITS 0x002c		//all colors bits
 
-#define LED_OFF 39062		//1sec @ 10MHz
-#define LED_ON  390     	//1:10 sec
+#define LED_OFF 1000		//1sec @ 10MHz
+#define LED_ON  100     	//1:10 sec
 
 void    init_led(void);
 
