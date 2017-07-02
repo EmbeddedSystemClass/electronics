@@ -106,7 +106,7 @@ void    init(void)
  
     init_bargraph();    //0k
 
-    init_I2C_soft();
+//    init_I2C_soft();
     init_gpio_exp();
 //    init_level();
     init_lcd();
@@ -166,8 +166,8 @@ void    main(void)
 //          check_moisture();
 //          check_temp();
 
-gpio_exp_write_byte_to_reg_soft(REG_OLATA, 0b10101010);
-ret = gpio_exp_read_byte_from_reg_soft(REG_OLATA);
+//gpio_exp_write_byte_to_reg_soft(REG_OLATA, 0b10101010);
+//ret = gpio_exp_read_byte_from_reg_soft(REG_OLATA);
 //ret = gpio_exp_read_byte_from_reg(REG_IOCONA);
 //ret = gpio_exp_read_byte_from_reg(REG_GPIOA);
 //ret = gpio_exp_read_byte_from_reg(REG_OLATA);
@@ -188,7 +188,7 @@ ret = gpio_exp_read_byte_from_reg_soft(REG_OLATA);
 //                sleep();
 //           __asm("wait");
 //        }
-        display_update();
+     //   display_update();
         WDTCONSET = 0x0001;	//reset watchdog
     }
 }
