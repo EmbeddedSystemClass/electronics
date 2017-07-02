@@ -109,10 +109,10 @@ uint8_t reset()
     return (Presence);
 }
 
-void    WriteBit(uint8_t bit)
+void    WriteBit(uint8_t bitz)
 {
     TRISBbits.TRISB10 = 0; //pin output
-    if (bit == 1)
+    if (bitz == 1)
     {
         //write 1
         OW_bus(0); //drive OW low

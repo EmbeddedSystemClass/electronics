@@ -52,6 +52,6 @@ uint8_t	gpio_exp_read_byte_from_reg_soft(uint8_t reg_addr)
 void    init_gpio_exp_soft(void)
 {
 /*EXP_GPIO*/
-	gpio_exp_write_byte_to_reg(REG_OLATA, 0x00);	//SET LATA LOW
-	gpio_exp_write_byte_to_reg(REG_OLATB, 0x00);	//SET LATB LOW
+	gpio_exp_write_byte_to_reg_soft(REG_OLATA, 0x00);	//SET LATA LOW
+	gpio_exp_write_byte_to_reg_soft(REG_OLATB, 0x00);	//SET LATB LOW
 }
