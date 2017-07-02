@@ -45,6 +45,11 @@ void init(void);
 #define max_ctmu 950
 #define min_ctmu 0
 
+void        disable_interrupt();
+void        enable_interrupt();
+void        system_lock(void);
+void        system_unlock(void);
+
 extern uint8_t	I_can_check_sensors;
 extern uint8_t  g_mon_sleep;
 

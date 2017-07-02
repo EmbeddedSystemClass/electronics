@@ -14,6 +14,7 @@
 #include "header.h"
 
 extern uint8_t     I_can_check_sensors;    //hresold checking sensors
+
 void        system_unlock(void)
 {
     SYSKEY = 0x0;
@@ -28,18 +29,15 @@ void        system_lock(void)
 
 void        init_rtcc(void)
 {
-    //SET GPIO
-    LATBbits.LATB4 = 1;             //hight
-    TRISAbits.TRISA4 = 1;           //Input
+    //SET RTCC
     system_unlock();
-    __asm("di");
     RTCCONbits.RTCWREN = 1;         // WRTENable
     //Enable Secondary Oscillator
     OSCCONbits.SOSCEN = 1;          // Secondary Oscillator
     while (!(OSCCONbits.SOSCRDY));  // Warm up
     IEC0bits.RTCCIE = 0;            // Clear RTCC Interrupt
     RTCCONbits.ON = 0;              // turn off the RTCC
-    RTCCONbits.CAL = 0x200;
+    RTCCONbits.CAL = 0x1ff;
     while(RTCCONbits.RTCCLKON);     // wait for clock to be turned off
     //Interrupt controller
     IFS0bits.RTCCIF = 0;            // clear RTCC existing event
@@ -54,21 +52,11 @@ void        init_rtcc(void)
     ALRMTIME = 0x1000;              // set alarm time to 0 hr, 0 min, 10 sec
     ALRMDATE = 0x0;                 // set alarm date to Friday 27 Oct 2006
     RTCALRMbits.CHIME = 1;          // Rollover
-    RTCALRMbits.AMASK = 0b1;        // Every 1sec
+    RTCALRMbits.AMASK = 0b10;        // Every 1sec
     //Enable All
     RTCALRMbits.ALRMEN = 1;         // Enable Alrm
     RTCCONbits.ON = 1;              // turn on the RTCC
     while(!(RTCCONbits.RTCCLKON));
-    //Enable Interrupt - multivector
-    INTCONbits.MVEC = 1;            // Multivector
-    __asm("ei");
-    system_lock();
-}
-
-void        go_to_sleep()
-{
-    system_unlock();
-    __asm volatile("wait");
     system_lock();
 }
 

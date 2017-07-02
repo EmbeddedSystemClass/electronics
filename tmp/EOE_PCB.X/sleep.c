@@ -10,6 +10,35 @@ extern int16_t      lum_sleep;                       //Global keeping luminosity
 extern uint16_t     lum_manual;     //luminosity value
 extern uint8_t      SLEEPON;
 
+void    init_tmr1()
+{
+    /*TIMER1*/
+    T1CON = 0;
+    T1CONbits.TCS = 1;      // External clock from TxCKI pin
+    T1CONbits.TCKPS = 0x0;  //1:8
+    T1CONbits.TSYNC = 0;
+    PR1 = 0xffff;           //
+    TMR1 = 0;
+    /*INTERRUPT*/
+    //T3 ? Timer3 14 12 IFS0<14> IEC0<14> IPC3<4:2> IPC3<1:0> No
+    IFS0bits.T1IF = 0;
+    IPC1bits.T1IP = 6;      //Priority = 2
+    IPC1bits.IC1IS = 0;     //Subpriority = 0
+    IEC0bits.T1IE = 1;
+    T1CONbits.ON = 1;
+}
+
+void    init_sosco()
+{
+    //SET GPIO
+    LATBbits.LATB4 = 1;             //hight
+    TRISAbits.TRISA4 = 1;           //Input
+    system_unlock();
+    OSCCONbits.SOSCEN = 1;
+    while (!(OSCCONbits.SOSCRDY));
+    system_lock();
+}
+
 void        init_sleep()
 {
     system_unlock();
@@ -61,20 +90,6 @@ void        init_sleep()
 	IEC0bits.T2IE = 1;		//Enable on
 }
 
-void    init_tmr1()
-{
-    T1CONbits.ON = 0;
-    PR1 = seeker;
-    TMR1 = 0;
-    
-    T1CONbits.TCS = 1; // External clock from TxCKI pin
-    T1CONbits.TSYNC = 0;
-    IFS0bits.T1IF = 0; // set flag to 0
-    IPC1bits.T1IP = 4; //set priority TMR1 to 5
-    IEC0bits.T1IE = 1; //enable interupt TMR1
-    T1CONbits.ON = 1;
-}
-
 void    wake()
 {
     SLEEPON = 0;
@@ -87,7 +102,7 @@ void    wake()
     PR1 = 10000;                    // 1mSec
 }
 
-void __attribute__ ((interrupt(IPL3AUTO), vector(8)))	go_to_sleep(void)
+void __attribute__ ((interrupt(IPL3AUTO), vector(8)))	shut_down_display(void)
 {
     static uint8_t  sec;
 
@@ -104,24 +119,9 @@ void __attribute__ ((interrupt(IPL3AUTO), vector(8)))	go_to_sleep(void)
     TMR2 = 0;
 }
 
-void    __attribute__ ((interrupt(IPL4AUTO), vector(4))) wake_me_up(void)
+void        go_to_sleep()
 {
-    int16_t     go_llum;
-
-    IFS0bits.T1IF = 0;                  //Clear Flags
-    get_light_manual();
-    go_llum = lum_manual;
-    display_write_dec(RTCTIMEbits.SEC01, 0, 3);
-    display_update();
-    if (lum_sleep - go_llum > lum_threshold)
-    {
-        wake();
-        lcd_backlight_inv();    //Light ON
-        TMR2 = 0;               //
-        T2CONbits.ON = 1;       //Enable TMR2
-        I_can_display = 1;      //Display ok
-        g_mon_sleep = 0;        //Sleep OFF
-    }
-    lum_sleep = go_llum;
+    system_unlock();
+    __asm volatile("wait");
+    system_lock();
 }
-
