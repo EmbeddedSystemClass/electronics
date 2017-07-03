@@ -10,7 +10,7 @@ extern int16_t      lum_sleep;                       //Global keeping luminosity
 extern uint16_t     lum_manual;     //luminosity value
 extern uint8_t      SLEEPON;
 
-void    init_tmr1()
+void        init_tmr1()
 {
     /*TIMER1*/
     T1CON = 0;
@@ -28,56 +28,8 @@ void    init_tmr1()
     T1CONbits.ON = 1;
 }
 
-void    init_sosco()
+void        init_tmr2()
 {
-    //SET GPIO
-    LATBbits.LATB4 = 1;             //hight
-    TRISAbits.TRISA4 = 1;           //Input
-    system_unlock();
-    OSCCONbits.SOSCEN = 1;
-    while (!(OSCCONbits.SOSCRDY));
-    system_lock();
-}
-
-void        init_sleep()
-{
-    system_unlock();
-    OSCCONbits.SLPEN = 1;           //Enable Sleep mode
-    CFGCONbits.PMDLOCK = 0;       //Unlock PMD
-    PMD1bits.AD1MD = 1;
-    PMD1bits.CTMUMD = 1;
-    PMD1bits.CVRMD = 1;
-    PMD2bits.CMP1MD = 1;
-    PMD2bits.CMP2MD = 1;
-    PMD2bits.CMP3MD = 1;
-    PMD3bits.IC1MD = 1;
-    PMD3bits.IC2MD = 1;
-    PMD3bits.IC3MD = 1;
-    PMD3bits.IC4MD = 1;
-    PMD3bits.IC5MD = 1;
-    PMD3bits.OC1MD = 1;
-    PMD3bits.OC2MD = 1;
-    PMD3bits.OC3MD = 1;
-    PMD3bits.OC4MD = 1;
-    PMD3bits.OC5MD = 1;
-    PMD4bits.T1MD = 0;
-    PMD4bits.T2MD = 1;
-    PMD4bits.T3MD = 1;
-    PMD4bits.T4MD = 1;
-    PMD4bits.T5MD = 1;
-    PMD5bits.I2C1MD = 1;
-    PMD5bits.I2C2MD = 1;
-    PMD5bits.SPI1MD = 1;
-    PMD5bits.SPI2MD = 1;
-    PMD5bits.U1MD = 1;
-    PMD5bits.U2MD = 1;
-    PMD6bits.PMPMD = 1;
-    PMD6bits.REFOMD = 1;
-    RTCCONbits.ON = 0;
-    PMD6bits.RTCCMD = 0;          //Enable Rtcc when sleep
-    CFGCONbits.PMDLOCK = 1;       //Lock PMD
-    system_lock();
-
 	/*TIMER 2*/
 	T2CONbits.TCKPS = 0x07;		//1:256 postscaler
 	PR2 = 39062;		//39062 for 1sec @ PBCLK = 10MHz
@@ -90,16 +42,9 @@ void        init_sleep()
 	IEC0bits.T2IE = 1;		//Enable on
 }
 
-void    wake()
+void __attribute__ ((interrupt(IPL6AUTO), vector(4)))   tmr1_interrupt(void)
 {
-    SLEEPON = 0;
-    IEC0bits.T1IE = 0; //enable interupt TMR1
-    //TIMER
-    T1CONbits.ON = 1;               // Enable Timer
-    TMR1 = 0;                       // Set Start to 0
-    T1CONbits.TCKPS = 0;            // Set Prescale to 1
 
-    PR1 = 10000;                    // 1mSec
 }
 
 void __attribute__ ((interrupt(IPL3AUTO), vector(8)))	shut_down_display(void)
@@ -117,11 +62,4 @@ void __attribute__ ((interrupt(IPL3AUTO), vector(8)))	shut_down_display(void)
     }
     sec++;
     TMR2 = 0;
-}
-
-void        go_to_sleep()
-{
-    system_unlock();
-    __asm volatile("wait");
-    system_lock();
 }

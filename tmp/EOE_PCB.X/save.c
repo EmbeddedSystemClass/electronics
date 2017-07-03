@@ -1,4 +1,3 @@
-
 #include "stock_value.h"
 #include "header.h"
 

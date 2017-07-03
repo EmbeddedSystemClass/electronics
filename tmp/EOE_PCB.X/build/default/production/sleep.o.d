@@ -13,4 +13,6 @@ light.h  \
  radio.h  \
 adc.h  \
 rtcc.h  \
-sleep.h 
+sleep.h  \
+system.h  \
+gpio_exp_soft.h 

@@ -10,7 +10,4 @@
 #define LED_OFF 39062		//1sec @ 10MHz
 #define LED_ON  390     	//1:10 sec
 
-void    led_alert(uint16_t color_bits);
-void    init_led(void);
-
 #endif

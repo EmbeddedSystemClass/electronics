@@ -14,4 +14,6 @@ light.h  \
 adc.h  \
 rtcc.h  \
 sleep.h  \
+system.h  \
+gpio_exp_soft.h  \
 stock_value.h 

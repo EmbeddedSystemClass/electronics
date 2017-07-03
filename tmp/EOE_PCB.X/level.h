@@ -10,7 +10,4 @@
 #define LEVEL_5_PIN	0x10
 #define LEVEL_ALL_PINS 0x1f
 
-uint8_t	get_level(void);
-void    init_level();
-
 #endif

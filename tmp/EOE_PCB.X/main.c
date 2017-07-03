@@ -92,20 +92,21 @@ uint16_t    humidity;               //current hum val
 t_save      tab_data[336];
 uint16_t    nb_save = 0;
 uint8_t     SLEEPON = 0;
-void    save_data();
+void        save_data();
 
 void    init(void)
 {
     disable_interrupt();       //disable interrupts while initialization
     init_gpio();        //0k
-
+    init_sosco();
+    init_tmr1();
+    init_tmr2();
     init_rtcc();
     init_led();         //0k
     init_delay();
     init_interrupt();
  
     init_bargraph();    //0k
-
 //    init_I2C_soft();
     init_gpio_exp();
 //    init_level();

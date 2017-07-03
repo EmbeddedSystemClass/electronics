@@ -34,16 +34,5 @@
 #define d_read_data                   //  1   1   1   D7  D6  D5  D4  D3  D2  D1  D0    43us
 
 //Functions
-void	lcd_backlight_inv(void);
-void	lcd_write(uint8_t data, uint8_t rs);
-void    init_lcd();
-void	lcd_clear();
-void	lcd_home(void);
-void	lcd_entry_mode(uint8_t id, uint8_t sh);
-void	lcd_display_control(uint8_t d, uint8_t c, uint8_t b);
-void	lcd_cursor_display_shift(uint8_t sc, uint8_t rl);
-void	lcd_function_set(uint8_t dl, uint8_t n, uint8_t f);
-void	lcd_set_CGRAM_addr(uint8_t data);
-void	lcd_set_CGRAM_addr(uint8_t data);
 
 #endif

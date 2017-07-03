@@ -1,12 +1,11 @@
 #include "header.h"
 
-/*Interrupt list
- RTCC:  p2 s1
-
-
+/*  Interrupt list
+ *  RTCC:  p2 s1
+ *  TMR2
+ *  TMR1
+ *  TMR4
  */
-
-
 
 //Global interrupt settings
 void init_interrupt(void)

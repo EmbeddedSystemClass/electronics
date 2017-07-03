@@ -15,26 +15,12 @@
 
 extern uint8_t     I_can_check_sensors;    //hresold checking sensors
 
-void        system_unlock(void)
-{
-    SYSKEY = 0x0;
-    SYSKEY = 0xaa996655;
-    SYSKEY = 0x556699aa;
-}
-
-void        system_lock(void)
-{
-    SYSKEY = 0x0;
-}
-
 void        init_rtcc(void)
 {
     //SET RTCC
     system_unlock();
     RTCCONbits.RTCWREN = 1;         // WRTENable
     //Enable Secondary Oscillator
-    OSCCONbits.SOSCEN = 1;          // Secondary Oscillator
-    while (!(OSCCONbits.SOSCRDY));  // Warm up
     IEC0bits.RTCCIE = 0;            // Clear RTCC Interrupt
     RTCCONbits.ON = 0;              // turn off the RTCC
     RTCCONbits.CAL = 0x1ff;
@@ -73,7 +59,6 @@ void    __ISR(_RTCC_VECTOR, IPL6AUTO)           Rtcc_Interrupt(void)
     alarm_count++;
     if (alarm_count == 1)
     {
-        wake();
         display_write_dec(RTCTIMEbits.SEC10, 0, 0);
         display_update();
         I_can_check_sensors = 1;

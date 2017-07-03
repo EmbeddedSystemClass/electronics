@@ -26,12 +26,4 @@
 #define REG_GPIOB       0x13
 #define REG_OLATB       0x15
 
-uint8_t	gpio_exp_write_byte(uint8_t data_byte);		//send a single byte to the slave
-uint8_t	gpio_exp_read_byte(void);                   //return the recieved byte
-void	gpio_exp_write_byte_to_reg(uint8_t register_addr, uint8_t data);
-uint8_t	gpio_exp_read_byte_from_reg(uint8_t reg_addr);
-void    init_gpio_exp(void);
-void    gpio_exp_is_iddle(void);
-void    gpio_exp_start();
-
 #endif

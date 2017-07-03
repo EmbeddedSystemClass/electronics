@@ -1,5 +1,5 @@
 /*
- *  Dispay water tank level
+ *  Display water tank level
  */
 
 #include "header.h"

@@ -1,5 +1,5 @@
-build/default/production/adc_auto.o:  \
-adc_auto.c  \
+build/default/production/system.o:  \
+system.c  \
 header.h  \
 bargraph.h  \
  gpio_exp.h  \
