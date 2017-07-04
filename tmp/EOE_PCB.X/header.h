@@ -69,10 +69,6 @@ void        init_gpio();
 void        gpio_exp_write_byte_to_reg(uint8_t register_addr, uint8_t data);
 uint8_t     gpio_exp_read_byte_from_reg(uint8_t reg_addr);
 void        init_gpio_exp(void);
-//_______GPIO_EXP_SOFT_C________
-void        gpio_exp_write_byte_to_reg_soft(uint8_t register_addr, uint8_t data);
-uint8_t     gpio_exp_read_byte_from_reg_soft(uint8_t reg_addr);
-void        init_gpio_exp_soft();
 //_______I2C_C__________________
 void        init_I2C(void);
 uint8_t     gpio_exp_write_byte(uint8_t data_byte);
@@ -83,16 +79,6 @@ void        gpio_exp_restart();
 void        gpio_exp_stop();
 void        gpio_exp_ack_master(uint8_t ack_data_bit);
 uint8_t     gpio_exp_ack_slave(void);
-//_______I2C_SOFT_C_____________
-void        init_I2C_soft(void);
-void        scl_pulse_high();
-void        scl_pulse_low();
-void        sda_pulse_hight();
-void        sda_pulse_low();
-void        gpio_exp_start_soft(void);
-void        gpio_exp_stop_soft(void);
-uint8_t     gpio_exp_write_byte_soft(uint8_t data_byte);
-uint8_t     gpio_exp_read_byte_soft(void);
 //_______INTERRUPT_C____________
 void        init_interrupt();
 void        disable_interrupt();

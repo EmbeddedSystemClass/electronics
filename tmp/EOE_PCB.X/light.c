@@ -11,9 +11,8 @@ void		init_light(void)
 	display_write_str("L", 0, 5);
 }
 
-void	get_light_manual(void)
+void     get_light_manual(void)
 {
-        //get value
 	AD1CHSbits.CH0SA = 0;       //Select channel 0
 	AD1CON1bits.SAMP = 1;       //START SAMPLING
 	delay_micro(100);           //WAIT FOR SAMPLING
@@ -21,10 +20,6 @@ void	get_light_manual(void)
 	while (!(AD1CON1bits.DONE));//WAIT FOR CONVERSION DONE
 	lum_manual = ADC1BUF0;
 
-        //display value
-//        if (I_can_display == 1)
-//        {
-            display_write_str("    ", 0, 6);
-            display_write_dec(lum_manual, 0, 6);
-//        }
+    display_write_str("    ", 0, 6);
+    display_write_dec(lum_manual, 0, 6);
 }

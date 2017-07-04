@@ -4,9 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>adc.h</itemPath>
-      <itemPath>bargraph.h</itemPath>
-      <itemPath>display.h</itemPath>
       <itemPath>gpio_exp.h</itemPath>
       <itemPath>header.h</itemPath>
       <itemPath>I2C.h</itemPath>
@@ -17,11 +14,9 @@
       <itemPath>light.h</itemPath>
       <itemPath>radio.h</itemPath>
       <itemPath>rtcc.h</itemPath>
-      <itemPath>sleep.h</itemPath>
       <itemPath>spi.h</itemPath>
       <itemPath>stock_value.h</itemPath>
-      <itemPath>I2C_soft.h</itemPath>
-      <itemPath>system.h</itemPath>
+      <itemPath>bargraph.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -50,8 +45,6 @@
       <itemPath>sleep.c</itemPath>
       <itemPath>temperature.c</itemPath>
       <itemPath>watchdog.c</itemPath>
-      <itemPath>IIC_soft.c</itemPath>
-      <itemPath>gpio_exp_soft.c</itemPath>
       <itemPath>system.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
