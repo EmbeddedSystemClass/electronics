@@ -99,19 +99,18 @@ void    init(void)
     disable_interrupt();       //disable interrupts while initialization
     init_gpio();        //0k
     init_sosco();
-    init_tmr1();
-    init_tmr2();
+//    init_tmr1();
+//    init_tmr2();
     init_rtcc();
-    init_led();         //0k
+    init_led();         // changer timer
     init_delay();
     init_interrupt();
  
     init_bargraph();    //0k
-//    init_I2C_soft();
     init_gpio_exp();
 //    init_level();
     init_lcd();
-//    init_display();
+    init_display();
 
     init_manual_adc();    //0k
     init_light();         //0k
@@ -132,7 +131,7 @@ void    init(void)
 void        get_sensors()
 {
                         //check_level();  //ca put du cul il ecrit nimp sur lecran grr   (commentaire epic!)
-                        //check_moisture();
+                        check_moisture();
 			//check_temp();
                         get_light_manual();
                         //save_data();
@@ -141,7 +140,7 @@ void        get_sensors()
 void        display_sensors()
 {
                         //check_level();  //ca put du cul il ecrit nimp sur lecran grr   (commentaire epic!)
-                        //check_moisture();
+                        check_moisture();
 			//check_temp();
                         get_light_manual();
 
@@ -155,7 +154,7 @@ void    main(void)
 {
     init();
 
-    led_alert(BLU_BIT | GRE_BIT | RED_BIT);
+ //   led_alert(BLU_BIT | GRE_BIT | RED_BIT);
     bargraph_write(0b01100000000000000011);
 
 //    I_can_check_sensors = 1;
@@ -163,33 +162,28 @@ void    main(void)
 //    lcd_backlight_inv();
     while(1)
     {
-//          get_light_manual();
-//          check_moisture();
+          get_light_manual();
+          check_moisture();
 //          check_temp();
 
-//gpio_exp_write_byte_to_reg_soft(REG_OLATA, 0b10101010);
-//ret = gpio_exp_read_byte_from_reg_soft(REG_OLATA);
-//ret = gpio_exp_read_byte_from_reg(REG_IOCONA);
-//ret = gpio_exp_read_byte_from_reg(REG_GPIOA);
-//ret = gpio_exp_read_byte_from_reg(REG_OLATA);
-//ret = gpio_exp_read_byte_from_reg(REG_IODIRA);
-//        display_sensors();
-//        while (I_can_display)
-//        {
-//            display_sensors();
-//        }
-//        if (I_can_check_sensors)
-//        {
-//            get_sensors();
-//            I_can_check_sensors = 0;
-//        }
+
+        display_sensors();
+        while (I_can_display)
+        {
+            display_sensors();
+        }
+        if (I_can_check_sensors)
+        {
+            get_sensors();
+            I_can_check_sensors = 0;
+        }
 //        if(g_mon_sleep)
 //        {
 //            if (!SLEEPON)
 //                sleep();
 //           __asm("wait");
 //        }
-     //   display_update();
+        display_update();
         WDTCONSET = 0x0001;	//reset watchdog
     }
 }

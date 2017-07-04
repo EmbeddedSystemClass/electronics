@@ -25,7 +25,7 @@ void        init_tmr1()
     IPC1bits.T1IP = 6;      //Priority = 2
     IPC1bits.IC1IS = 0;     //Subpriority = 0
     IEC0bits.T1IE = 1;
-    T1CONbits.ON = 1;
+    T1CONbits.ON = 0;
 }
 
 void        init_tmr2()
@@ -39,13 +39,13 @@ void        init_tmr2()
 	IPC2bits.T2IP = 3;		//Prio = 5
 	IPC2bits.T2IS = 0;		//Sub-prio = 0
 	IFS0bits.T2IF = 0;		//Flag down
-	IEC0bits.T2IE = 1;		//Enable on
+	IEC0bits.T2IE = 0;		//Enable on
 }
 
-void __attribute__ ((interrupt(IPL6AUTO), vector(4)))   tmr1_interrupt(void)
-{
-
-}
+//void __attribute__ ((interrupt(IPL6AUTO), vector(4)))   tmr1_interrupt(void)
+//{
+//
+//}
 
 void __attribute__ ((interrupt(IPL3AUTO), vector(8)))	shut_down_display(void)
 {

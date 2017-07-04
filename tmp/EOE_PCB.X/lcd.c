@@ -15,17 +15,17 @@ uint8_t	backlight = 1;	//Backlight status holder
 void	lcd_backlight_inv(void)
 {	
 	backlight ^= BL_PIN;
-	gpio_exp_write_byte_to_reg_soft(REG_OLATA, BL_PIN);	
+	gpio_exp_write_byte_to_reg(REG_OLATA, BL_PIN);	
 }
 
 //Send data to the lcd shield.
 void	lcd_write(uint8_t data, uint8_t rs)
 {
-	gpio_exp_write_byte_to_reg_soft(REG_OLATA, (0x80 * rs) | backlight);			//Set RS
-	gpio_exp_write_byte_to_reg_soft(REG_OLATB, data);					//Set DATA
-	gpio_exp_write_byte_to_reg_soft(REG_OLATA, (0b01000000 + 0x80 * rs) | backlight);	//EN pulse
+	gpio_exp_write_byte_to_reg(REG_OLATA, (0x80 * rs) | backlight);			//Set RS
+	gpio_exp_write_byte_to_reg(REG_OLATB, data);					//Set DATA
+	gpio_exp_write_byte_to_reg(REG_OLATA, (0b01000000 + 0x80 * rs) | backlight);	//EN pulse
 	delay_micro(1);									//450ns pulse
-	gpio_exp_write_byte_to_reg_soft(REG_OLATA, (0x00) | backlight);			//SET RS
+	gpio_exp_write_byte_to_reg(REG_OLATA, (0x00) | backlight);			//SET RS
 }
 
 //Initialise the gpio expander pins as requiered by the lcd shield.
@@ -33,8 +33,8 @@ void	lcd_write(uint8_t data, uint8_t rs)
 void    init_lcd()
 {
 	delay_micro(40000);				//wait lcd power up (40ms)
-	gpio_exp_write_byte_to_reg_soft(REG_IODIRB, 0x00);	//set port B as OUTPUT	(data bus)
-	gpio_exp_write_byte_to_reg_soft(REG_IODIRA, 0x1f);	//set port A pins 5-7 as OUTPUT	(RS, EN, BL pins)
+	gpio_exp_write_byte_to_reg(REG_IODIRB, 0x00);	//set port B as OUTPUT	(data bus)
+	gpio_exp_write_byte_to_reg(REG_IODIRA, 0x1f);	//set port A pins 5-7 as OUTPUT	(RS, EN, BL pins)
 	lcd_backlight_inv();				//Set backlight ON
 	lcd_function_set(1, 0, 0);			//8bits, 2lines, 5x7char
 	lcd_display_control(1, 0, 0);			//Display ON, cursor OFF, cursor blink OFF
