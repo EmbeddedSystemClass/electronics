@@ -12,7 +12,7 @@
 
 //Toggle lcd back light.
 uint8_t	backlight = 1;	//Backlight status holder
-void	lcd_backlight_inv(void)
+ void	lcd_backlight_inv(void)
 {	
 	backlight ^= BL_PIN;
 	gpio_exp_write_byte_to_reg(REG_OLATA, BL_PIN);	
@@ -33,13 +33,17 @@ void	lcd_write(uint8_t data, uint8_t rs)
 void    init_lcd()
 {
 	delay_micro(40000);				//wait lcd power up (40ms)
-	gpio_exp_write_byte_to_reg(REG_IODIRB, 0x00);	//set port B as OUTPUT	(data bus)
+        gpio_exp_write_byte_to_reg(REG_IODIRB, 0x00);	//set port B as OUTPUT	(data bus)
 	gpio_exp_write_byte_to_reg(REG_IODIRA, 0x1f);	//set port A pins 5-7 as OUTPUT	(RS, EN, BL pins)
 	lcd_backlight_inv();				//Set backlight ON
-	lcd_function_set(1, 0, 0);			//8bits, 2lines, 5x7char
-	lcd_display_control(1, 0, 0);			//Display ON, cursor OFF, cursor blink OFF
-	lcd_entry_mode(1, 0);
+        lcd_function_set(1, 1, 0);
+        delay_micro(4100);                              //wait 4.1ms
+	lcd_function_set(1, 1, 0);			//8bits, 2lines, 5x7char
+        delay_micro(100); //wait 4.1ms
+        lcd_function_set(1, 1, 0);
+	lcd_display_control(0, 0, 0);			//Display OFF, cursor OFF, cursor blink OFF
 	lcd_clear();
+        lcd_entry_mode(1, 0);
 }
 
 //Effacement
@@ -62,7 +66,7 @@ void	lcd_home(void)
 //	S  : 1 = Décale l' affichage; 0 = ne décale pas 
 void	lcd_entry_mode(uint8_t id, uint8_t sh)
 {
-	lcd_write(d_entry_mode_set + 0x02 * id + 0x01 * sh, 0);		
+	lcd_write(d_entry_mode_set + 0x02 * id + 0x01 * sh, 0);
 }
 
 //**Afficheur On/Off, curseur et clignotement**

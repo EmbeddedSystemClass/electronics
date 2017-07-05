@@ -63,11 +63,12 @@ void    init_moisture()
     CTMUCONbits.IRNG = 0b11;        // Current source trim at 55uA (I)
     
 //TIMER
-    T1CONbits.ON = 1;               // Enable Timer
-    TMR1 = 0;                       // Set Start to 0
-    T1CONbits.TCKPS = 0;            // Set Prescale to 1
-    PR1 = 10000;                    // 1mSec
-    
+
+
+    TMR3 = 0;                       // Set Start to 0
+    T3CONbits.TCKPS = 0;            // Set Prescale to 1
+    PR3 = 10000;                    // 1mSec
+    T3CONbits.ON = 1;               // Enable Timer
     //Enable Multi-Vector and interruptions
     //INTCONbits.MVEC = 1;
     //__asm("ei");
@@ -80,18 +81,18 @@ uint16_t get_moisture()
     uint16_t cap;
 
     vctmu = 0;
-    TMR1 = 0;
+    TMR3 = 0;
     AD1CHSbits.CH0SA = 12;          // Select chanel AN12
     while (vctmu == 0)
     {
         CTMUCONbits.ON = 1;         // Turn On CTMU
-        while (TMR1 < PR1);         // wait 1ms
+        while (TMR3 < 10000);         // wait 1ms
         AD1CON1bits.SAMP = 1;       // Begin manual sampling ADC
         CTMUCONbits.IDISSEN = 1;    // Discharge the connected circuit
-        while (TMR1 < PR1);         // wait 1ms
+        while (TMR3 < 10000);         // wait 1ms
         CTMUCONbits.IDISSEN = 0;    // Stop manual sampling
         CTMUCONbits.EDG1STAT = 1;   // Begin charging circuit
-        while (TMR1 < 10);          // wait 1us (66% max charge)
+        while (TMR3 < 10);          // wait 1us (66% max charge)
         AD1CON1bits.SAMP = 0;       // End Sampling begin conversion
         CTMUCONbits.EDG1STAT = 0;   // Stop charging circuit
         while(!AD1CON1bits.DONE);   // wait ADC is done

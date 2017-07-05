@@ -12,7 +12,7 @@ void	init_I2C(void)
 /*I2C*/
 	I2C1CON = 0;		//CLR conf reg
 	I2C1STAT = 0;		//CLR stat reg
-	I2C1BRG = 0x62;		//Baud rate generator @ 100kHz
+	I2C1BRG = 0x030;		//Baud rate generator @ 100kHz for 10Mhz
 	I2C1CONbits.SCLREL = 1;	//Release clock
 	I2C1CONbits.DISSLW = 1;	//DIsable slew mode (slew mode is used at 400KHz)
 	I2C1CONbits.ON = 1;	//Enable I2C

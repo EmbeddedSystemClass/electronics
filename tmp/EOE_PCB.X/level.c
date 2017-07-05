@@ -62,27 +62,32 @@ void check_level(void)
 	switch (level)
 	{
 		case 0:
-			bargraph_write(0x00000);
+			bargraph_write(0b00000000000000000001);
 			lcd_frimousse_0();
 			break;
 		case 1:
-			bargraph_write(0x00005);
+			//bargraph_write(0b01000000000000000011);
+                         bargraph_write(0b00100000000000000111);
 			lcd_frimousse_1();
 			break;
 		case 2:
-			bargraph_write(0x000ff);
+//			bargraph_write(0x000ff);
+                        bargraph_write(0b00110000000000001111);
 			lcd_frimousse_2();
 			break;
 		case 3:
-			bargraph_write(0x00aaa);
+//			bargraph_write(0x00aaa);
+                        bargraph_write(0b00111100000000001111);
 			lcd_frimousse_3();
 			break;
 		case 4:
-			bargraph_write(0x0aaaa);
+//			bargraph_write(0x0aaaa);
+                        bargraph_write(0b11111110000000000111);
 			lcd_frimousse_4();
 			break;
 		case 5:
-			bargraph_write(0xaaaaa);
+                        bargraph_write(0b11111111110000000000);
+//			bargraph_write(0xaaaaa);
 			lcd_frimousse_5();
 	}
 }

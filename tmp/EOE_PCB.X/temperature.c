@@ -79,8 +79,8 @@ void    init_temp()
 
 void    delay_tmp(uint32_t us)
 {
-    TMR1 = 0;
-    while (TMR1 < us);
+    TMR3 = 0;
+    while (TMR3 < us);
 }
 
 uint8_t reset()
@@ -212,9 +212,9 @@ uint8_t    convertTmp()
         {
             return (0);
         }
-        if (TMR1 == 10000)
+        if (TMR3 == 10000)
         {
-            TMR1 = 0;
+            TMR3 = 0;
             s++;
         }
     }
@@ -328,7 +328,7 @@ void    check_temp()
     uint8_t tab[9];
     uint8_t secure = 0;
 
-    T5CONbits.ON = 1; // enable timer 1
+ //   T5CONbits.ON = 1; // enable timer 1
     if (write_scratchpad() == 1) //Define resolution
     {
         if (convertTmp() == 1) //save Temperature value
@@ -346,11 +346,11 @@ void    check_temp()
                 }
                 display_write_dec(Temperature, 0, 14);
                 display_write_str("T", 0, 13);
-                T5CONbits.ON = 0;
+     //           T5CONbits.ON = 0;
                 return;
             }
         }
     }
-    T5CONbits.ON = 0;
+ //   T5CONbits.ON = 0;
    // display_write_str("--", 0, 14);
 }

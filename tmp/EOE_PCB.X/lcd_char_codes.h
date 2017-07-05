@@ -6,7 +6,7 @@
 #define CHAR_SPACE 0x20
 #define CHAR_EQUAL 0x3d
 
-#define CHAR_0 0x30
+#define CHAR_0 0x30 //48
 #define CHAR_1 0x31
 #define CHAR_2 0x32
 #define CHAR_3 0x33

@@ -301,7 +301,7 @@ void	main(void)
                 }
                 if (g_mon_sleep)
                 {
-                    __asm("wait");
+//                    __asm("wait");
                 }
 		WDTCONSET = 0x0001;	//reset watchdog
 	}

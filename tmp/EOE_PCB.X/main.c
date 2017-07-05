@@ -98,31 +98,33 @@ void    init(void)
 {
     disable_interrupt();       //disable interrupts while initialization
     init_gpio();        //0k
-    init_sosco();
-    init_sleep();
+//    init_sosco();
+//    init_sleep();
 //    init_tmr1();
 //    init_tmr2();
-    init_rtcc();
+//    init_rtcc();
     init_led();         // changer timer
     init_delay();
     init_interrupt();
- 
-    init_bargraph();    //0k
+
+    init_bargraph();    //0k !faux contacts
+
+    init_I2C();
     init_gpio_exp();
-//    init_level();
+    init_level();
     init_lcd();
     init_display();
 
     init_manual_adc();    //0k
     init_light();         //0k
     init_moisture();      //0k
-    init_temp();          //?? (Morgane doit verifier si la valeur de Temperature est valide)
-
-//    init_pump();
-
-//    init_spi();
-//    init_radio();
-
+    init_temp();          //0k
+//
+////    init_pump();
+//
+////    init_spi();
+////    init_radio();
+//
     init_watchdog();
 }
 
@@ -130,16 +132,16 @@ void        get_sensors()
 {
     //check_level();  //ca put du cul il ecrit nimp sur lecran grr   (commentaire epic!)
     check_moisture();
-    //check_temp();
-    get_light_manual();
+    check_temp();
+//    get_light_manual();
     //save_data();
 }
 
 void        display_sensors()
 {
-    //check_level();  //ca put du cul il ecrit nimp sur lecran grr   (commentaire epic!)
+    check_level();  //ca put du cul il ecrit nimp sur lecran grr   (commentaire epic!)
     check_moisture();
-    //check_temp();
+    check_temp();
     get_light_manual();
     //radio_test();
     //pump_on_off();
@@ -151,36 +153,34 @@ void    main(void)
 {
     init();
 
-    // led_alert(BLU_BIT | GRE_BIT | RED_BIT);
-    bargraph_write(0b01100000000000000011);
-
+//     led_alert(BLU_BIT | GRE_BIT | RED_BIT);
+   
     //    I_can_check_sensors = 1;
     //    I_can_display = 1;
-    //    lcd_backlight_inv();
     while(1)
     {
         get_light_manual();
         check_moisture();
-    //  check_temp();
+        check_temp();
+        check_level();
 
-
-        display_sensors();
-        while (I_can_display)
-        {
-            display_sensors();
-        }
-        if (I_can_check_sensors)
-        {
-            get_sensors();
-            I_can_check_sensors = 0;
-        }
-    //        if(g_mon_sleep)
-    //        {
-    //            if (!SLEEPON)
-    //                sleep();
-    //           __asm("wait");
-    //        }
-        display_update();
+//        display_sensors();
+//        while (I_can_display)
+//        {
+//            display_sensors();
+//        }
+//        if (I_can_check_sensors)
+//        {
+//            get_sensors();
+//            I_can_check_sensors = 0;
+//        }
+////    //        if(g_mon_sleep)
+////    //        {
+////    //            if (!SLEEPON)
+////    //                sleep();
+////    //           __asm("wait");
+////    //        }
+//        display_update();
         WDTCONSET = 0x0001;	//reset watchdog
     }
 }

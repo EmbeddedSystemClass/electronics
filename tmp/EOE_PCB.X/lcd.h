@@ -7,7 +7,7 @@
 //PORTA
 #define RS_PIN	0x80
 #define EN_PIN	0x40
-#define BL_PIN	0x20        //
+#define BL_PIN	0x20        
 
 //PORTB
 #define DB0_PIN	0x01
