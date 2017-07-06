@@ -21,29 +21,64 @@ uint8_t	backlight = 1;	//Backlight status holder
 //Send data to the lcd shield.
 void	lcd_write(uint8_t data, uint8_t rs)
 {
-	gpio_exp_write_byte_to_reg(REG_OLATA, (0x80 * rs) | backlight);			//Set RS
-	gpio_exp_write_byte_to_reg(REG_OLATB, data);					//Set DATA
-	gpio_exp_write_byte_to_reg(REG_OLATA, (0b01000000 + 0x80 * rs) | backlight);	//EN pulse
+	gpio_exp_write_byte_to_reg(REG_OLATA, (RS_PIN * rs) | backlight);			//Set RS
+//        TMR3 = 0;
+//        while(TMR3 < 1);
+//        gpio_exp_write_byte_to_reg(REG_OLATA, (EN_PIN * 0));
+//        TMR3 = 0;
+//        while (TMR3 < 5)
+//        {
+//            while (TMR3 < 3);
+        gpio_exp_write_byte_to_reg(REG_OLATB, data);					//Set DATA
+//        }
+//        gpio_exp_write_byte_to_reg(REG_OLATA, (EN_PIN * 0));
+	gpio_exp_write_byte_to_reg(REG_OLATA, (0b01000000 + RS_PIN * rs) | backlight);	//EN pulse
 	delay_micro(1);									//450ns pulse
+//        gpio_exp_write_byte_to_reg(REG_OLATB, 0x00);
 	gpio_exp_write_byte_to_reg(REG_OLATA, (0x00) | backlight);			//SET RS
+//        gpio_exp_write_byte_to_reg(REG_OLATA, (EN_PIN * 1));
+
+                      /*TEST 2*/
+//    TMR3 = 0;
+//    while (TMR3 <= 11) //tc +- tsp1
+//    {
+//        gpio_exp_write_byte_to_reg(REG_OLATA, (RS_PIN * rs) | backlight);
+//        while (TMR3 > 0 && TMR3 <= 5) //tpw
+//        {
+//            gpio_exp_write_byte_to_reg(REG_OLATA, (EN_PIN * 1));
+//            if (TMR3 > 2)
+//            {
+//                gpio_exp_write_byte_to_reg(REG_OLATB, data);
+//            }
+//        }
+//        gpio_exp_write_byte_to_reg(REG_OLATA, EN_PIN * 0);
+//        gpio_exp_write_byte_to_reg(REG_OLATA, (RS_PIN * rs) | backlight);
+//         gpio_exp_write_byte_to_reg(REG_OLATB, 0x00);
+//    }
+//    gpio_exp_write_byte_to_reg(REG_OLATA, (EN_PIN * 1));
 }
 
 //Initialise the gpio expander pins as requiered by the lcd shield.
 //Configure display.
 void    init_lcd()
 {
-	delay_micro(40000);				//wait lcd power up (40ms)
-        gpio_exp_write_byte_to_reg(REG_IODIRB, 0x00);	//set port B as OUTPUT	(data bus)
-	gpio_exp_write_byte_to_reg(REG_IODIRA, 0x1f);	//set port A pins 5-7 as OUTPUT	(RS, EN, BL pins)
-	lcd_backlight_inv();				//Set backlight ON
+            gpio_exp_write_byte_to_reg(REG_IODIRB, 0x00);
+        gpio_exp_write_byte_to_reg(REG_IODIRA, 0x1f);
+        delay_micro(40000);				//wait lcd power up (40ms)
+
+ 	lcd_backlight_inv();				//Set backlight ON
         lcd_function_set(1, 1, 0);
         delay_micro(4100);                              //wait 4.1ms
-	lcd_function_set(1, 1, 0);			//8bits, 2lines, 5x7char
+	lcd_function_set(1, 1, 0);			
         delay_micro(100); //wait 4.1ms
-        lcd_function_set(1, 1, 0);
-	lcd_display_control(0, 0, 0);			//Display OFF, cursor OFF, cursor blink OFF
-	lcd_clear();
-        lcd_entry_mode(1, 0);
+        lcd_function_set(1, 1, 0);                      //8bits, 2lines, 5x7char
+//	lcd_display_control(1, 0, 0);			//Display ON, cursor OFF, cursor blink OFF
+        lcd_display_control(0, 0, 0);			//Display ON, cursor OFF, cursor blink OFF
+
+//	lcd_entry_mode(1, 0);
+        lcd_clear();
+        	lcd_entry_mode(1, 0);
+
 }
 
 //Effacement

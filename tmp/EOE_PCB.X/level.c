@@ -17,7 +17,7 @@ uint8_t test_defval = 0;
 uint8_t	get_level(void)
 {
 	GPIO_EXP_PORTA = gpio_exp_read_byte_from_reg(REG_GPIOA);
-	gpio_exp_write_byte_to_reg(REG_DEFVALA, GPIO_EXP_PORTA);
+	gpio_exp_write_byte_to_reg(REG_DEFVALA, GPIO_EXP_PORTA);    //A verifier ? IRQ
 	test_defval = gpio_exp_read_byte_from_reg(REG_DEFVALA);
 	delay_micro(10000);
 	gpio_exp_read_byte_from_reg(REG_GPIOA);

@@ -81,60 +81,60 @@
 #include "stock_value.h"
 
 /*Global variables*/
-uint8_t     I_can_check_sensors;    //lomg terme checking sensors
-uint8_t     I_can_display;          //pour afficher 10 sec
+uint8_t     I_can_check_sensors;        //lomg terme checking sensors
+uint8_t     I_can_display;              //pour afficher 10 sec
 uint8_t     g_mon_sleep = 0;            //global monitor sleeping
-uint16_t    lum_manual;             //luminosity value
+uint16_t    lum_manual;                 //luminosity value
 float       Temperature;
 uint8_t     level = 0;
-int16_t     lum_sleep;               //luminosity value while sleeping (thresold wake up)
-uint16_t    humidity;               //current hum val
+int16_t     lum_sleep;                  //luminosity value while sleeping (thresold wake up)
+uint16_t    humidity;                   //current hum val
 t_save      tab_data[336];
 uint16_t    nb_save = 0;
 uint8_t     SLEEPON = 0;
-void        save_data();
+uint16_t    led_color =  0x0000;
+uint8_t     alert = 0;
 
 void    init(void)
 {
-    disable_interrupt();       //disable interrupts while initialization
-    init_gpio();        //0k
+    disable_interrupt();                //disable interrupts while initialization
+    init_gpio();                        //0k
 //    init_sosco();
 //    init_sleep();
 //    init_tmr1();
 //    init_tmr2();
 //    init_rtcc();
-    init_led();         // changer timer
+  //  init_led();                       // changer timer
     init_delay();
     init_interrupt();
+//    init_moisture();      //0k
 
-    init_bargraph();    //0k !faux contacts
-
+   // init_bargraph();                  //0k !faux contacts
     init_I2C();
     init_gpio_exp();
-    init_level();
+  //  init_level();
     init_lcd();
-    init_display();
+//    init_display();
 
-    init_manual_adc();    //0k
-    init_light();         //0k
-    init_moisture();      //0k
-    init_temp();          //0k
-//
-////    init_pump();
-//
-////    init_spi();
-////    init_radio();
+//    init_manual_adc();    //0k
+//    init_light();         //0k
+//    init_temp();          //0k
+
+//    init_pump();
+
+//    init_spi();
+//    init_radio();
 //
     init_watchdog();
 }
 
 void        get_sensors()
 {
-    //check_level();  //ca put du cul il ecrit nimp sur lecran grr   (commentaire epic!)
+    check_level();  
     check_moisture();
     check_temp();
-//    get_light_manual();
-    //save_data();
+    get_light_manual();
+    save_data();
 }
 
 void        display_sensors()
@@ -151,20 +151,28 @@ void        display_sensors()
 uint8_t ret = 0;
 void    main(void)
 {
+    uint8_t     tmp = 0;
+    uint16_t    i = 0;
     init();
 
-//     led_alert(BLU_BIT | GRE_BIT | RED_BIT);
+//    led_alert(BLU_BIT | GRE_BIT | RED_BIT);
    
-    //    I_can_check_sensors = 1;
-    //    I_can_display = 1;
-    while(1)
-    {
-        get_light_manual();
-        check_moisture();
-        check_temp();
-        check_level();
+  //  I_can_check_sensors = 1;
+  //  I_can_display = 1;
 
-//        display_sensors();
+//    while (i < 16)
+//    {
+//        tmp = gpio_exp_read_byte_from_reg(i);
+//        i++;
+//    }
+
+    while(1)
+    {        
+//        get_light_manual();
+//        check_moisture();
+//        check_temp();
+//        check_level();
+
 //        while (I_can_display)
 //        {
 //            display_sensors();
@@ -174,12 +182,14 @@ void    main(void)
 //            get_sensors();
 //            I_can_check_sensors = 0;
 //        }
-////    //        if(g_mon_sleep)
-////    //        {
-////    //            if (!SLEEPON)
-////    //                sleep();
-////    //           __asm("wait");
-////    //        }
+//        if(g_mon_sleep)
+//        {
+//                if (!SLEEPON)
+//                    sleep();
+//               __asm("wait");
+//        }
+//        lcd_backlight_inv();
+//        delay_micro(1000);
 //        display_update();
         WDTCONSET = 0x0001;	//reset watchdog
     }
