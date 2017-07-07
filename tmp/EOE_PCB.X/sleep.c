@@ -49,50 +49,6 @@ void        init_tmr2()
         T2CONbits.ON = 1;		//disable timer2
 }
 
-//!! call only while system is unlocked
-//void    enablePerif(void)
-//{
-//    CFGCONbits.PMDLOCK = 0;       //Unlock PMD
-//
-//    PMD1bits.CTMUMD = 0;
-//
-//    T2CONbits.ON = 1;		//disable timer2
-//    PMD4bits.T2MD = 0;
-//    T3CONbits.ON = 1;		//disable timer2
-//    PMD4bits.T3MD = 0;
-//    T5CONbits.ON = 1;		//disable timer2
-//    PMD4bits.T5MD = 0;
-//
-//    PMD5bits.I2C1MD = 0;
-//    PMD5bits.I2C2MD = 0;
-//    PMD5bits.SPI1MD = 0;
-//    PMD5bits.SPI2MD = 0;
-//
-//    CFGCONbits.PMDLOCK = 1;       //Lock PMD
-//}
-//
-////!! call only while system is unlocked
-//void    disablePerif(void)
-//{
-//    CFGCONbits.PMDLOCK = 0;       //Unlock PMD
-//
-//    PMD1bits.CTMUMD = 1;
-//
-//    PMD4bits.T2MD = 1;
-//
-//    PMD4bits.T3MD = 1;
-//
-//    PMD4bits.T5MD = 1;
-//
-//    PMD5bits.I2C1MD = 1;
-//
-//    PMD5bits.SPI1MD = 1;
-//
-//
-//    CFGCONbits.PMDLOCK = 1;       //Lock PMD
-//}
-
-
 /*REVEIL*/
 uint8_t     count = 5;
 void __attribute__ ((interrupt(IPL6AUTO), vector(4)))   tmr1_interrupt(void)

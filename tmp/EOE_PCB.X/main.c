@@ -121,7 +121,7 @@ void    init(void)
     init_moisture();      //0k
 
 
-//    init_pump();
+    init_pump();
 //    init_bat_lvl();
 
 //    init_spi();
@@ -129,7 +129,7 @@ void    init(void)
 //
     init_watchdog();
 }
-
+uint8_t day_time = 0;
 void        get_sensors()
 {
     check_level();  
@@ -137,6 +137,12 @@ void        get_sensors()
     check_temp();
     get_light_manual();
     save_data();
+    day_time++;
+    if (day_time == 48)
+    {
+        day_time = 0;
+        pump_on_off();
+    }
 }
 
 void        display_sensors()
@@ -146,7 +152,6 @@ void        display_sensors()
     check_temp();
     get_light_manual();
     //radio_test();
-    //pump_on_off();
     display_update();
 }
 
@@ -175,8 +180,9 @@ void    main(void)
         }
         if(g_mon_sleep)
         {
+            LATBbits.LATB0 = 0;     // PUMP is off
             bargraph_write(0x00);
-            //lcd_clear();
+            lcd_clear();
             go_to_sleep();
         }
         WDTCONSET = 0x0001;	//reset watchdog

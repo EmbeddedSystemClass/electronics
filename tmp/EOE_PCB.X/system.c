@@ -18,20 +18,6 @@ void        go_to_sleep()
     system_unlock();
     //disable modules
     CFGCONbits.PMDLOCK = 0;       //Unlock PMD
-
-    //PMD1bits.AD1MD = 0;
-//    PMD1bits.CTMUMD = 1;
-//    //PMD4bits.T1MD = 0;
-//    PMD4bits.T2MD = 1;
-//    PMD4bits.T3MD = 1;
-//    //PMD4bits.T4MD = 0;
-//    PMD4bits.T5MD = 1;
-//    PMD5bits.I2C1MD = 1;
-//    PMD5bits.I2C2MD = 1;
-//    PMD5bits.SPI1MD = 1;
-//    PMD5bits.SPI2MD = 1;
-    //PMD6bits.RTCCMD = 0;          //Enable Rtcc when sleep
-
     CFGCONbits.PMDLOCK = 1;       //Lock PMD
     __asm volatile("wait");
     system_lock();

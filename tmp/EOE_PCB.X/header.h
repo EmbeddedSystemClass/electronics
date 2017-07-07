@@ -137,6 +137,9 @@ uint8_t     write_scratchpad();
 void        check_temp();
 //________WATCHDOG_C___________
 void        init_watchdog();
+//________pump_c_______________
+void    pump_on_off();
+void    init_pump();
 
 extern uint8_t	I_can_check_sensors;
 extern uint8_t  g_mon_sleep;
