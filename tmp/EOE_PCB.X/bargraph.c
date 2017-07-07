@@ -1,5 +1,5 @@
 /*
- *  Display water tank level
+ *  Dispay water tank level
  */
 
 #include "header.h"
@@ -61,4 +61,3 @@ void bargraph_write(uint32_t value)
     }
     bargraph_rclk_pulse();
 }
-

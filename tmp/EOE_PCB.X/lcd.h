@@ -5,9 +5,9 @@
 
 /*LCD display*/
 //PORTA
-#define RS_PIN	0x80
-#define EN_PIN	0x40
-#define BL_PIN	0x20        
+#define RS_PIN	0x20    //GPA5
+#define EN_PIN	0x40    //GPA6
+#define BL_PIN	0x80    //GPA7
 
 //PORTB
 #define DB0_PIN	0x01

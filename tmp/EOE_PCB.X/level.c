@@ -17,8 +17,8 @@ uint8_t test_defval = 0;
 uint8_t	get_level(void)
 {
 	GPIO_EXP_PORTA = gpio_exp_read_byte_from_reg(REG_GPIOA);
-	gpio_exp_write_byte_to_reg(REG_DEFVALA, GPIO_EXP_PORTA);    //A verifier ? IRQ
-	test_defval = gpio_exp_read_byte_from_reg(REG_DEFVALA);
+//	gpio_exp_write_byte_to_reg(REG_DEFVALA, GPIO_EXP_PORTA);    //A verifier ? IRQ
+//	test_defval = gpio_exp_read_byte_from_reg(REG_DEFVALA);
 	delay_micro(10000);
 	gpio_exp_read_byte_from_reg(REG_GPIOA);
 		
@@ -53,11 +53,10 @@ void    init_level()
  * and show it on the lcd and bargraph.
  */
 extern uint8_t level;
-uint8_t prev_lvl = 0xff;
 void check_level(void)
 {
-	if ((level = get_level()) == prev_lvl){return;}
-	prev_lvl = level;
+        level = get_level();
+
 
 	switch (level)
 	{
@@ -66,28 +65,23 @@ void check_level(void)
 			lcd_frimousse_0();
 			break;
 		case 1:
-			//bargraph_write(0b01000000000000000011);
                          bargraph_write(0b00100000000000000111);
 			lcd_frimousse_1();
 			break;
 		case 2:
-//			bargraph_write(0x000ff);
                         bargraph_write(0b00110000000000001111);
 			lcd_frimousse_2();
 			break;
 		case 3:
-//			bargraph_write(0x00aaa);
                         bargraph_write(0b00111100000000001111);
 			lcd_frimousse_3();
 			break;
 		case 4:
-//			bargraph_write(0x0aaaa);
                         bargraph_write(0b11111110000000000111);
 			lcd_frimousse_4();
 			break;
 		case 5:
                         bargraph_write(0b11111111110000000000);
-//			bargraph_write(0xaaaaa);
 			lcd_frimousse_5();
 	}
 }

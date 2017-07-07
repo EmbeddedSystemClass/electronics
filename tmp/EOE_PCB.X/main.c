@@ -99,28 +99,30 @@ void    init(void)
 {
     disable_interrupt();                //disable interrupts while initialization
     init_gpio();                        //0k
-//    init_sosco();
-//    init_sleep();
-//    init_tmr1();
-//    init_tmr2();
-//    init_rtcc();
-  //  init_led();                       // changer timer
+    init_sosco();
+    init_sleep();
+    init_tmr1();
+    init_tmr2();
+    init_rtcc();
     init_delay();
     init_interrupt();
-//    init_moisture();      //0k
+    init_led();                        // changer timer
 
-   // init_bargraph();                  //0k !faux contacts
-    init_I2C();
-    init_gpio_exp();
-  //  init_level();
-    init_lcd();
-//    init_display();
+    init_bargraph();                  //0k !faux contacts
+    init_I2C();    //0k
+    init_gpio_exp();    //0k
+    init_level();    //0k
+    init_lcd();    //0k
+    init_display();    //0k
 
-//    init_manual_adc();    //0k
-//    init_light();         //0k
-//    init_temp();          //0k
+    init_manual_adc();    //0k
+    init_light();         //0k
+    init_temp();          //0k
+    init_moisture();      //0k
+
 
 //    init_pump();
+//    init_bat_lvl();
 
 //    init_spi();
 //    init_radio();
@@ -148,49 +150,38 @@ void        display_sensors()
     display_update();
 }
 
-uint8_t ret = 0;
 void    main(void)
 {
-    uint8_t     tmp = 0;
-    uint16_t    i = 0;
     init();
 
+    lcd_backlight_inv();        //SET backlight at startup
+
 //    led_alert(BLU_BIT | GRE_BIT | RED_BIT);
-   
-  //  I_can_check_sensors = 1;
-  //  I_can_display = 1;
+//    bargraph_write(0b01100000000000000011);
 
-//    while (i < 16)
-//    {
-//        tmp = gpio_exp_read_byte_from_reg(i);
-//        i++;
-//    }
-
+    I_can_check_sensors = 0;
+    I_can_display = 1;
     while(1)
-    {        
-//        get_light_manual();
-//        check_moisture();
-//        check_temp();
-//        check_level();
-
-//        while (I_can_display)
-//        {
-//            display_sensors();
-//        }
-//        if (I_can_check_sensors)
-//        {
-//            get_sensors();
-//            I_can_check_sensors = 0;
-//        }
-//        if(g_mon_sleep)
-//        {
-//                if (!SLEEPON)
-//                    sleep();
-//               __asm("wait");
-//        }
-//        lcd_backlight_inv();
-//        delay_micro(1000);
-//        display_update();
+    {
+        while (I_can_display)
+        {
+            display_sensors();
+            display_update();
+        }
+        if (I_can_check_sensors)
+        {
+            get_sensors();
+            I_can_check_sensors = 0;
+        }
+        if(g_mon_sleep)
+        {
+            bargraph_write(0x00);
+            //lcd_clear();
+            go_to_sleep();
+        }
         WDTCONSET = 0x0001;	//reset watchdog
+
+        /*TEST_ZONE*/
+        
     }
 }

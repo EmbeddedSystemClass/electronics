@@ -13,6 +13,8 @@ extern uint8_t      SLEEPON;
 extern uint16_t     led_color;
 extern uint8_t      alert;
 
+
+//Light
 void        init_tmr1()
 {
     /*TIMER1*/
@@ -28,23 +30,70 @@ void        init_tmr1()
     IPC1bits.T1IP = 6;      //Priority = 2
     IPC1bits.IC1IS = 0;     //Subpriority = 0
     IEC0bits.T1IE = 1;
-    T1CONbits.ON = 1;
+    T1CONbits.ON = 0;
 }
 
+//Count time before sleep
 void        init_tmr2()
 {
 	/*TIMER 2*/
+        T2CON = 0;
 	T2CONbits.TCKPS = 0x07;		//1:256 postscaler
 	PR2 = 39062;		//39062 for 1sec @ PBCLK = 10MHz
-	T2CONbits.ON = 1;		//disable timer2
 
 	/*TMR2 INTERUPTS*/
 	IPC2bits.T2IP = 3;		//Prio = 5
 	IPC2bits.T2IS = 0;		//Sub-prio = 0
 	IFS0bits.T2IF = 0;		//Flag down
-	IEC0bits.T2IE = 0;		//Enable on
+	IEC0bits.T2IE = 1;		//Enable on
+        T2CONbits.ON = 1;		//disable timer2
 }
 
+//!! call only while system is unlocked
+//void    enablePerif(void)
+//{
+//    CFGCONbits.PMDLOCK = 0;       //Unlock PMD
+//
+//    PMD1bits.CTMUMD = 0;
+//
+//    T2CONbits.ON = 1;		//disable timer2
+//    PMD4bits.T2MD = 0;
+//    T3CONbits.ON = 1;		//disable timer2
+//    PMD4bits.T3MD = 0;
+//    T5CONbits.ON = 1;		//disable timer2
+//    PMD4bits.T5MD = 0;
+//
+//    PMD5bits.I2C1MD = 0;
+//    PMD5bits.I2C2MD = 0;
+//    PMD5bits.SPI1MD = 0;
+//    PMD5bits.SPI2MD = 0;
+//
+//    CFGCONbits.PMDLOCK = 1;       //Lock PMD
+//}
+//
+////!! call only while system is unlocked
+//void    disablePerif(void)
+//{
+//    CFGCONbits.PMDLOCK = 0;       //Unlock PMD
+//
+//    PMD1bits.CTMUMD = 1;
+//
+//    PMD4bits.T2MD = 1;
+//
+//    PMD4bits.T3MD = 1;
+//
+//    PMD4bits.T5MD = 1;
+//
+//    PMD5bits.I2C1MD = 1;
+//
+//    PMD5bits.SPI1MD = 1;
+//
+//
+//    CFGCONbits.PMDLOCK = 1;       //Lock PMD
+//}
+
+
+/*REVEIL*/
 uint8_t     count = 5;
 void __attribute__ ((interrupt(IPL6AUTO), vector(4)))   tmr1_interrupt(void)
 {
@@ -53,11 +102,12 @@ void __attribute__ ((interrupt(IPL6AUTO), vector(4)))   tmr1_interrupt(void)
 
     get_light_manual();          //Get ADC1BUF0
     lum_t = lum_manual;
-    if (DELT((lum_sleep - lum_t)) > 70)            //Diff for Screen Activation
+    if(lum_sleep - lum_t > 70)            //Diff for Screen Activation
     {
         lcd_backlight_inv();
         TMR2 = 0;
         T2CONbits.ON = 1;
+        T1CONbits.ON = 0;
         I_can_display = 1;
         g_mon_sleep = 0;
     }
@@ -74,7 +124,7 @@ void __attribute__ ((interrupt(IPL6AUTO), vector(4)))   tmr1_interrupt(void)
     lum_sleep = lum_t;
     count--;
 }
-
+/*DODO*/
 void __attribute__ ((interrupt(IPL3AUTO), vector(8)))	shut_down_display(void)
 {
     static uint8_t  sec;
@@ -86,6 +136,7 @@ void __attribute__ ((interrupt(IPL3AUTO), vector(8)))	shut_down_display(void)
         lcd_backlight_inv();
         I_can_display = 0;
         g_mon_sleep = 1;
+        T1CONbits.ON = 1;
         sec = 0;
     }
     sec++;

@@ -4,6 +4,7 @@
 #define line_nb 2
 #define char_per_line 16
 #define	lcd_char_nb  line_nb * char_per_line
+#define second_line_ddram_addr
 
 /*
  *	Put your chars in the buffer at the desired place with display_write().
@@ -21,7 +22,13 @@ void	display_update()
 {
 	lcd_home();
 	int index = 0;
-	while (index < lcd_char_nb)
+	while (index < char_per_line)
+	{
+		lcd_write(display_buff[index], 1);
+		index++;
+	}
+        lcd_set_DDRAM_addr(40); //second line start addr
+	while (index < 2 * char_per_line)
 	{
 		lcd_write(display_buff[index], 1);
 		index++;
@@ -29,9 +36,13 @@ void	display_update()
 }
 
 //Write to the display buffer the charactere code at the desired line and position
-void	display_write(int charactere, int line, int index)
+void	display_write(int charactere, int line, int column)
 {
-	display_buff[index + 16 * line] = charactere;
+    uint8_t index = column + 16 * line;
+    if (index < lcd_char_nb)
+    {
+        display_buff[index] = charactere;
+    }
 }
 
 
@@ -45,11 +56,11 @@ uint8_t	display_write_dec(int32_t nb, uint8_t line,uint8_t index)
 		display_write(0x2d, line, index++);
 		nb = -nb;
 	}
-	
+
 	//More than 1 digit left
 	if (nb > 9)
 	{
-		index = display_write_dec(nb/10, 0, index);
+		index = display_write_dec(nb/10, line, index);
 		display_write(nb%10 + CHAR_0, line, index);
 		return(index + 1);
 	}
@@ -74,7 +85,7 @@ void	display_write_str(char	*str, uint8_t line,uint8_t index)
 void	init_display()
 {
 	lcd_clear();
-	
+
 	//CLear display buffer with spaces
 	uint8_t i;
 	for (i = 0; i <= lcd_char_nb; i++)
@@ -133,7 +144,7 @@ void	lcd_frimousse_4(void)
 }
 
 void	lcd_frimousse_5(void)
-{	
+{
 	//(^o^)
 	display_write(0x28, 0, 0);
 	display_write(0x5e, 0, 1);
@@ -145,14 +156,14 @@ void	lcd_frimousse_5(void)
 //Never call this hazardous func!
 void	unicorn()
 {
-	
+
 //	\
 //	 \ji
-//	 /.((( 
+//	 /.(((
 //	(,/"(((__,--.
-//	    \  ) _( /{ 
-//	    !|| " :||      
-//	    !||   :|| 
-//	    '''   ''' 
-	
+//	    \  ) _( /{
+//	    !|| " :||
+//	    !||   :||
+//	    '''   '''
+
 }

@@ -72,7 +72,7 @@ void    init_moisture()
     //Enable Multi-Vector and interruptions
     //INTCONbits.MVEC = 1;
     //__asm("ei");
-    display_write_str("H", 0, 10);
+    display_write_str("H=", 1, 6);
 }
 
 uint16_t get_moisture()
@@ -111,6 +111,6 @@ void check_moisture()
     uint16_t ctmu_ret = get_moisture();
     
     humidity = 100 - ((ctmu_ret - min_ctmu) * 100 / max_ctmu) - min_ctmu;
-    display_write_str("  ", 0, 11);
-    display_write_dec(humidity, 0, 11);
+    display_write_str("   ", 1, 8);
+    display_write_dec(humidity, 1, 8);
 }
