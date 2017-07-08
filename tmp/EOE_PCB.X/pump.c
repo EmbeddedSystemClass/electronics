@@ -2,7 +2,8 @@
 #include "header.h"
 
 extern uint8_t level;
-extern short humidity;
+extern uint16_t humidity;
+extern uint8_t pump_status;
 
 void    init_pump()
 {
@@ -10,10 +11,14 @@ void    init_pump()
     TRISBbits.TRISB0 = 0;   // RB0 is an output
 }
 
-void    pump_on_off()
+void    pump_on()
 {
-    if(level <= 1)          // check level eau suffisant
-        return;
+//    if(level <= 1)          // check level eau suffisant
+//        return;
+//
+//    LATBbits.LATB0 = 1; //PUMP is ON
+//    pump_status = ON;
+
     IEC0bits.RTCCIE = 0;    // desactive rtcc
     IEC0bits.T1IE = 0;      // desactive sleep mode
     while (humidity <= 25 && level > 0)
@@ -26,3 +31,9 @@ void    pump_on_off()
     IEC0bits.RTCCIE = 1;    // rtcc on
     IEC0bits.T1IE = 1;      // sleep mode on
 }
+
+//void    pump_off()
+//{
+//            pump_status = OFF;
+//            LATBbits.LATB0 = 0;     //turn off PUMP
+//}

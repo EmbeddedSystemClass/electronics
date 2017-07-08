@@ -141,9 +141,11 @@ void        get_sensors()
     day_time++;
     if (day_time == 8)
     {
+        LATBCLR = led_color;
         day_time = 0;
-        pump_on_off();
+        pump_on();
     }
+    check_alerts(); //check if a param is out of seuil
 }
 
 void        display_sensors()
@@ -175,6 +177,13 @@ void    main(void)
         }
         if (I_can_check_sensors)
         {
+            /*
+             * /!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\
+             *  ON NE PEUT PAS ETRE EN SLEEP ET APPELER get_sensor() AVEC LA REUTEUTEUCEU
+             *  en consequences j'ai un doute sur le fait que l'on soit vraiment en sleep mode.
+             * (Ou bien je n'ai pas tout compris au sleep mode.)
+             * /!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\
+             */
             get_sensors();
             I_can_check_sensors = 0;
         }

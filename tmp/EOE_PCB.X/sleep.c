@@ -51,16 +51,21 @@ void        init_tmr2()
 
 /*REVEIL*/
 #define led_on_time 5
-#define led_off_time 10
+#define led_off_time 2
 uint8_t     count = led_off_time;
+
+uint8_t pump_status = 0;
+
+//In sleep mode
 void __attribute__ ((interrupt(IPL6AUTO), vector(4)))   tmr1_interrupt(void)
 {
     IFS0bits.T1IF = 0;          //Clear flags
     int16_t         lum_t;
 
+    /*WAKING UP*/
     get_light_manual();          //Get ADC1BUF0
-    lum_t = lum_manual;
-    if(lum_sleep - lum_t > 70)            //Diff for Screen Activation
+//    lum_t = lum_manual;
+    if(lum_sleep - lum_manual > 70)            //Diff for Screen Activation
     {
         lcd_backlight_inv();
         TMR2 = 0;
@@ -70,21 +75,42 @@ void __attribute__ ((interrupt(IPL6AUTO), vector(4)))   tmr1_interrupt(void)
         I_can_display = 1;
         LATBCLR = led_color;
     }
+
+//    if(pump_status == ON)
+//    {
+//        check_moisture();   // check humidite
+//        get_level();
+//        if (level == 0 || humidity > 25)
+//        {
+//            pump_off();
+//        }
+//    }
+
+    /*LED BLINKING*/
     if(alert && !count)
     {
-        LATBINV = led_color;
-        count = (LATB & led_color) ? led_on_time : led_off_time;
+        if ((LATB & LED_BITS) != 0) //if led on
+        {
+            LATBCLR = LED_BITS;                    //led off
+            count = led_off_time;
+        }
+        else                        //else led off
+        {
+            LATBSET = led_color;
+            count = led_on_time;   //led on
+        }
     }
-    else if (!alert)
+    else if (!alert)        //maybe useless
     {
         LATBCLR = led_color;
         count = 5;
     }
-    lum_sleep = lum_t;
+
+    lum_sleep = lum_manual;
     count--;
 }
 
-/*DODO*/
+//In wake up mode
 void __attribute__ ((interrupt(IPL3AUTO), vector(8)))	shut_down_display(void)
 {
     static uint8_t  sec;

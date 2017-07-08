@@ -41,6 +41,22 @@ void init(void);
 #include "gpio_exp_soft.h"
 
 
+
+/*GLOBAL VARIABLES*/
+extern uint8_t     I_can_check_sensors;        //lomg terme checking sensors
+extern uint8_t     I_can_display;              //pour afficher 10 sec
+extern uint8_t     g_mon_sleep;            //global monitor sleeping
+extern uint16_t    lum_manual;                 //luminosity value
+extern float       Temperature;
+extern uint8_t     level;
+extern int16_t     lum_sleep;                  //luminosity value while sleeping (thresold wake up)
+extern uint16_t    humidity;                   //current hum val
+//extern t_save    tab_data[?];
+extern uint16_t    nb_save;
+extern uint8_t     SLEEPON;
+extern uint16_t    led_color;
+extern uint8_t     alert;
+
 /*Moisture sensor*/
 #define max_ctmu 950
 #define min_ctmu 0

@@ -14,6 +14,7 @@ extern uint16_t     led_color;
 extern uint8_t      alert;
 
 void    led_alert(uint16_t color_bits){
+    led_color = color_bits & LED_BITS;	//security mask
     if (color_bits == 0)
     {
         alert = 0;
@@ -24,7 +25,6 @@ void    led_alert(uint16_t color_bits){
         alert = 1;
 //        T1CONbits.ON = ON;
     }
-    led_color = color_bits &= LED_BITS;	//security mask
 }
 
 void    init_led(void)
