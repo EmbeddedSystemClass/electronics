@@ -177,13 +177,6 @@ void    main(void)
         }
         if (I_can_check_sensors)
         {
-            /*
-             * /!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\
-             *  ON NE PEUT PAS ETRE EN SLEEP ET APPELER get_sensor() AVEC LA REUTEUTEUCEU
-             *  en consequences j'ai un doute sur le fait que l'on soit vraiment en sleep mode.
-             * (Ou bien je n'ai pas tout compris au sleep mode.)
-             * /!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\
-             */
             get_sensors();
             I_can_check_sensors = 0;
         }

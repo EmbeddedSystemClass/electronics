@@ -76,15 +76,15 @@ void __attribute__ ((interrupt(IPL6AUTO), vector(4)))   tmr1_interrupt(void)
         LATBCLR = led_color;
     }
 
-//    if(pump_status == ON)
-//    {
-//        check_moisture();   // check humidite
-//        get_level();
-//        if (level == 0 || humidity > 25)
-//        {
-//            pump_off();
-//        }
-//    }
+    if(pump_status == ON)
+    {
+        check_moisture();   // check humidite
+        get_level();
+        if (level == 0 || humidity > 25)
+        {
+            pump_off();
+        }
+    }
 
     /*LED BLINKING*/
     if(alert && !count)
