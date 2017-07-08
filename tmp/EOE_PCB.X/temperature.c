@@ -344,9 +344,6 @@ void    check_temp()
                 {
                     Temperature = Temperature * -1;
                 }
-                display_write_str("T=", 1, 11);
-                display_write_str("  ", 1, 13);
-                display_write_dec(Temperature, 1, 13);
      //           T5CONbits.ON = 0;
                 return;
             }

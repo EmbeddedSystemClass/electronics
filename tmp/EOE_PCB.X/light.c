@@ -8,7 +8,6 @@ extern uint16_t lum_manual;     //luminosity value
 void		init_light(void)
 {
 	TRISAbits.TRISA0 = 1;           //RA0 Input
-	display_write_str("L=", 1, 0);
 }
 
 void     get_light_manual(void)
@@ -24,6 +23,5 @@ void     get_light_manual(void)
 //    IEC0bits.T1IE = 1;
 //    TMR1 = 0;
 
-        display_write_str("    ", 1, 2);
-        display_write_dec(lum_manual, 1, 2);
+
 }

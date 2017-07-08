@@ -13,21 +13,37 @@
 
 uint8_t GPIO_EXP_PORTA = 0;
 uint8_t test_defval = 0;
+extern uint8_t level;
 
-uint8_t	get_level(void)
+void	get_level(void)
 {
 	GPIO_EXP_PORTA = gpio_exp_read_byte_from_reg(REG_GPIOA);
-//	gpio_exp_write_byte_to_reg(REG_DEFVALA, GPIO_EXP_PORTA);    //A verifier ? IRQ
-//	test_defval = gpio_exp_read_byte_from_reg(REG_DEFVALA);
-	delay_micro(10000);
-	gpio_exp_read_byte_from_reg(REG_GPIOA);
-		
-	if(GPIO_EXP_PORTA & LEVEL_5_PIN){return(5);}	//FULL
-	if(GPIO_EXP_PORTA & LEVEL_4_PIN){return(4);}
-	if(GPIO_EXP_PORTA & LEVEL_3_PIN){return(3);}
-	if(GPIO_EXP_PORTA & LEVEL_2_PIN){return(2);}
-	if(GPIO_EXP_PORTA & LEVEL_1_PIN){return(1);}
-	return(0);					//EMPTY
+	if(GPIO_EXP_PORTA & LEVEL_5_PIN)
+        {
+            level = 5;
+            return;
+        }	//FULL
+	if(GPIO_EXP_PORTA & LEVEL_4_PIN)
+        {
+            level = 4;
+            return;
+        }
+	if(GPIO_EXP_PORTA & LEVEL_3_PIN)
+        {
+            level = 3;
+            return;
+        }
+	if(GPIO_EXP_PORTA & LEVEL_2_PIN)
+        {
+            level = 2;
+            return;
+        }
+	if(GPIO_EXP_PORTA & LEVEL_1_PIN)
+        {
+            level = 1;
+            return;
+        }
+	level = 0;					//EMPTY
 }
 
 void    init_level()
@@ -46,42 +62,4 @@ void    init_level()
 									//0x20 = 1 Address pointer++ disabled
 									//0x40 = 0 INTA, INTB disassociated
 									//0x80 = 0 Registers(A, B) in the same bank
-}
-
-/*
- * Check how much level probes are under water.
- * and show it on the lcd and bargraph.
- */
-extern uint8_t level;
-void check_level(void)
-{
-        level = get_level();
-
-
-	switch (level)
-	{
-		case 0:
-			bargraph_write(0b00000000000000000001);
-			lcd_frimousse_0();
-			break;
-		case 1:
-                         bargraph_write(0b00100000000000000111);
-			lcd_frimousse_1();
-			break;
-		case 2:
-                        bargraph_write(0b00110000000000001111);
-			lcd_frimousse_2();
-			break;
-		case 3:
-                        bargraph_write(0b00111100000000001111);
-			lcd_frimousse_3();
-			break;
-		case 4:
-                        bargraph_write(0b11111110000000000111);
-			lcd_frimousse_4();
-			break;
-		case 5:
-                        bargraph_write(0b11111111110000000000);
-			lcd_frimousse_5();
-	}
 }

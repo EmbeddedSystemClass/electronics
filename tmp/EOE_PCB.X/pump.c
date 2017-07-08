@@ -12,17 +12,17 @@ void    init_pump()
 
 void    pump_on_off()
 {
-    if(level <= 1)
+    if(level <= 1)          // check level eau suffisant
         return;
-    IEC0bits.RTCCIE = 0;
-    IEC0bits.T1IE = 0;
-    while (humidity <= 25)
+    IEC0bits.RTCCIE = 0;    // desactive rtcc
+    IEC0bits.T1IE = 0;      // desactive sleep mode
+    while (humidity <= 25 && level > 0)
     {
         LATBbits.LATB0 = 1; //PUMP is ON
-        check_moisture();
- //       check_level();
+        check_moisture();   // check humidite
+        get_level();
     }
     LATBbits.LATB0 = 0;     //turn off PUMP
-    IEC0bits.RTCCIE = 1;
-    IEC0bits.T1IE = 1;
+    IEC0bits.RTCCIE = 1;    // rtcc on
+    IEC0bits.T1IE = 1;      // sleep mode on
 }

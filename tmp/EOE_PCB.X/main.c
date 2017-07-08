@@ -25,9 +25,9 @@
  *              RB15:	SS1     	SPI         (yellow)
  *
  * SOFTWARE:
- *              TIMER1:		CTMU / 1_wire
+ *              TIMER1:		Alert led blink
  *              TIMER2:         interupt
- *              TIMER3:		Alert led blink
+ *              TIMER3:		CTMU / 1_wire
  *              TIMER4:		delay_micro_sec
  *              TIMER5:		General purpose timer
  */
@@ -108,12 +108,13 @@ void    init(void)
     init_interrupt();
     init_led();                        // changer timer
 
-    init_bargraph();                  //0k !faux contacts
-    init_I2C();    //0k
-    init_gpio_exp();    //0k
-    init_level();    //0k
-    init_lcd();    //0k
-    init_display();    //0k
+    init_bargraph();                   //0k
+    init_I2C();                        //0k
+    init_gpio_exp();                   //0k
+    init_level();                      //0k
+    init_lcd();                        //0k
+    init_display();                    //0k
+    init_affichage();
 
     init_manual_adc();    //0k
     init_light();         //0k
@@ -132,13 +133,13 @@ void    init(void)
 uint8_t day_time = 0;
 void        get_sensors()
 {
-    check_level();  
+    get_level();
     check_moisture();
     check_temp();
     get_light_manual();
     save_data();
     day_time++;
-    if (day_time == 48)
+    if (day_time == 8)
     {
         day_time = 0;
         pump_on_off();
@@ -147,11 +148,10 @@ void        get_sensors()
 
 void        display_sensors()
 {
-    check_level();  //ca put du cul il ecrit nimp sur lecran grr   (commentaire epic!)
+    get_level();  //ca put du cul il ecrit nimp sur lecran grr   (commentaire epic!)
     check_moisture();
     check_temp();
     get_light_manual();
-    //radio_test();
     display_update();
 }
 
@@ -160,17 +160,17 @@ void    main(void)
     init();
 
     lcd_backlight_inv();        //SET backlight at startup
+    led_alert(GRE_BIT + BLU_BIT);
 
-//    led_alert(BLU_BIT | GRE_BIT | RED_BIT);
-//    bargraph_write(0b01100000000000000011);
 
     I_can_check_sensors = 0;
     I_can_display = 1;
     while(1)
     {
-        while (I_can_display)
+        if (I_can_display)
         {
             display_sensors();
+            affichage();
             display_update();
         }
         if (I_can_check_sensors)
@@ -188,6 +188,8 @@ void    main(void)
         WDTCONSET = 0x0001;	//reset watchdog
 
         /*TEST_ZONE*/
-        
+//    led_alert(BLU_BIT | GRE_BIT | RED_BIT);
+//    bargraph_write(0b01100000000000000011);
+//    pump_on_off();
     }
 }

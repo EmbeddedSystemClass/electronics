@@ -98,7 +98,7 @@ void        lcd_set_DDRAM_addr(uint8_t data);
 void        led_alert(uint16_t color_bits);
 void        init_led(void);
 //______LEVEL_C__________________
-uint8_t     get_level(void);
+void     get_level(void);
 void        init_level();
 //______LIGHT_C__________________
 void    	check_light();

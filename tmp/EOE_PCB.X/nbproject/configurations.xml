@@ -47,6 +47,8 @@
       <itemPath>watchdog.c</itemPath>
       <itemPath>system.c</itemPath>
       <itemPath>pump.c</itemPath>
+      <itemPath>affichage.c</itemPath>
+      <itemPath>alert.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

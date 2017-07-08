@@ -32,7 +32,6 @@ void    init_led(void)
 /*GPIO*/
     TRISBCLR = LED_BITS;      //Output
     LATBCLR  = LED_BITS;      //Low
-//   ODCBSET  = LED_BITS;      //Open drain (not any more)
 }
 
 //T3 ? Timer3 14 12 IFS0<14> IEC0<14> IPC3<4:2> IPC3<1:0> No

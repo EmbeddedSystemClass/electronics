@@ -14,7 +14,7 @@ extern uint16_t     led_color;
 extern uint8_t      alert;
 
 
-//Light
+//Light & led alert
 void        init_tmr1()
 {
     /*TIMER1*/
@@ -50,7 +50,9 @@ void        init_tmr2()
 }
 
 /*REVEIL*/
-uint8_t     count = 5;
+#define led_on_time 5
+#define led_off_time 10
+uint8_t     count = led_off_time;
 void __attribute__ ((interrupt(IPL6AUTO), vector(4)))   tmr1_interrupt(void)
 {
     IFS0bits.T1IF = 0;          //Clear flags
@@ -64,13 +66,14 @@ void __attribute__ ((interrupt(IPL6AUTO), vector(4)))   tmr1_interrupt(void)
         TMR2 = 0;
         T2CONbits.ON = 1;
         T1CONbits.ON = 0;
-        I_can_display = 1;
         g_mon_sleep = 0;
+        I_can_display = 1;
+        LATBCLR = led_color;
     }
     if(alert && !count)
     {
         LATBINV = led_color;
-        count = (LATB & led_color) ? 2 : 5;
+        count = (LATB & led_color) ? led_on_time : led_off_time;
     }
     else if (!alert)
     {
@@ -80,6 +83,7 @@ void __attribute__ ((interrupt(IPL6AUTO), vector(4)))   tmr1_interrupt(void)
     lum_sleep = lum_t;
     count--;
 }
+
 /*DODO*/
 void __attribute__ ((interrupt(IPL3AUTO), vector(8)))	shut_down_display(void)
 {
@@ -92,6 +96,7 @@ void __attribute__ ((interrupt(IPL3AUTO), vector(8)))	shut_down_display(void)
         lcd_backlight_inv();
         I_can_display = 0;
         g_mon_sleep = 1;
+
         T1CONbits.ON = 1;
         sec = 0;
     }
