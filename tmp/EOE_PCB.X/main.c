@@ -94,18 +94,21 @@ uint16_t    nb_save = 0;
 uint8_t     SLEEPON = 0;
 uint16_t    led_color =  0x0000;
 uint8_t     alert = 0;
+uint16_t    lum_average = 880;
+uint16_t    temp_average = 25;
+int16_t day_time = 0;
 
 void    init(void)
 {
     disable_interrupt();                //disable interrupts while initialization
     init_gpio();                        //0k
-    init_sosco();
-    init_sleep();
-    init_tmr1();
-    init_tmr2();
-    init_rtcc();
-    init_delay();
-    init_interrupt();
+    init_sosco();                       //0k
+    init_sleep();                       //0k
+    init_tmr1();                        //0k
+    init_tmr2();                        //0k
+    init_rtcc();                        //0k
+    init_delay();                       //0k
+    init_interrupt();                   //0k
     init_led();                        // changer timer
 
     init_bargraph();                   //0k
@@ -127,25 +130,27 @@ void    init(void)
 
 //    init_spi();
 //    init_radio();
-//
     init_watchdog();
 }
-uint8_t day_time = 0;
+
 void        get_sensors()
 {
+    IEC0bits.T1IE = 0; //disable interrupt on TMR1
     get_level();
     check_moisture();
     check_temp();
     get_light_manual();
     save_data();
-    day_time++;
-    if (day_time == 8)
+    if (day_time == MESURES - 1)      // Valeur test a changer (8) -> (48)
     {
         LATBCLR = led_color;
-        day_time = 0;
+        calc_set_average();
+        day_time = - 1;
         pump_on();
     }
+    day_time++;
     check_alerts(); //check if a param is out of seuil
+    IEC0bits.T1IE = 1; //enable interrupt on TMR1
 }
 
 void        display_sensors()
@@ -162,8 +167,6 @@ void    main(void)
     init();
 
     lcd_backlight_inv();        //SET backlight at startup
-    led_alert(GRE_BIT + BLU_BIT);
-
 
     I_can_check_sensors = 0;
     I_can_display = 1;
@@ -173,7 +176,7 @@ void    main(void)
         {
             display_sensors();
             affichage();
-            display_update();
+            display_update(); //refresh lcd
         }
         if (I_can_check_sensors)
         {
@@ -182,7 +185,7 @@ void    main(void)
         }
         if(g_mon_sleep)
         {
-            LATBbits.LATB0 = 0;     // PUMP is off
+           // LATBbits.LATB0 = 0;     // PUMP is off
             bargraph_write(0x00);
             lcd_clear();
             go_to_sleep();

@@ -1,9 +1,6 @@
 
 #include "header.h"
 
-extern uint8_t level;
-extern uint16_t humidity;
-extern uint8_t pump_status;
 
 void    init_pump()
 {

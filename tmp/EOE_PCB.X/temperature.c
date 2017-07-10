@@ -59,7 +59,6 @@ uint8_t CRC = 0x00;
 uint8_t Presence = 0;
 uint8_t LSB = 0x00;
 uint8_t MSB = 0x00;
-extern float   Temperature;
 
 //#define BusLOW LATBbits.LATB0 = 1 //drain open
 //#define BusHIGH LATBbits.LATB0 = 0 //drain close

@@ -15,10 +15,11 @@ void        system_lock(void)
 
 void        go_to_sleep()
 {
+
     system_unlock();
     //disable modules
-    CFGCONbits.PMDLOCK = 0;       //Unlock PMD
-    CFGCONbits.PMDLOCK = 1;       //Lock PMD
+//    CFGCONbits.PMDLOCK = 0;       //Unlock PMD
+//    CFGCONbits.PMDLOCK = 1;       //Lock PMD
     __asm volatile("wait");
     system_lock();
 }

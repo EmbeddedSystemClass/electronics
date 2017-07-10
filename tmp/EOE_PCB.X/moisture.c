@@ -50,8 +50,6 @@
 
 #include "header.h"
 
-extern uint16_t humidity;
-
 void    init_moisture()
 {
 //OLD SOIL SENSOR GPIO 26 RB15 CDTED6 AN 9

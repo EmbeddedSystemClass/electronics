@@ -1,7 +1,5 @@
 #include "header.h"
 
-extern int16_t lum_p;
-
 void            init_manual_adc(void)
 {
 	//ADC

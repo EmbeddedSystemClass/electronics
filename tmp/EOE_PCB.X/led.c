@@ -10,13 +10,12 @@
  *	No color stop led blinking as well as TMR3.
  */
 
-extern uint16_t     led_color;
-extern uint8_t      alert;
-
 void    led_alert(uint16_t color_bits){
     led_color = color_bits & LED_BITS;	//security mask
+    //alert = color_bits == 0 ? 0 : 1;
     if (color_bits == 0)
     {
+        LATBCLR = LED_BITS;
         alert = 0;
 //        T1CONbits.ON = OFF;		//stop led timer if no color
     }

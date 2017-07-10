@@ -1,4 +1,3 @@
-
 #include "header.h"
 
 void	init_I2C(void)
@@ -16,7 +15,6 @@ void	init_I2C(void)
 	I2C1CONbits.SCLREL = 1;	//Release clock
 	I2C1CONbits.DISSLW = 1;	//DIsable slew mode (slew mode is used at 400KHz)
 	I2C1CONbits.ON = 1;	//Enable I2C
-
 }
 
 void    gpio_exp_is_iddle(void)	//Wait while I2C bus is busy

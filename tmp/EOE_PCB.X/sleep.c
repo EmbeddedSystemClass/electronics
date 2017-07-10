@@ -73,14 +73,14 @@ void __attribute__ ((interrupt(IPL6AUTO), vector(4)))   tmr1_interrupt(void)
         T1CONbits.ON = 0;
         g_mon_sleep = 0;
         I_can_display = 1;
-        LATBCLR = led_color;
+        LATBCLR = LED_BITS;
     }
-
+// PUMP_STATUS
     if(pump_status == ON)
     {
-        check_moisture();   // check humidite
+        check_moisture();   // check humidity
         get_level();
-        if (level == 0 || humidity > 25)
+        if (level == 0 || humidity > 40)        // Valeur test change 35 by something
         {
             pump_off();
         }

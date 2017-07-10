@@ -12,8 +12,6 @@
  */
 
 uint8_t GPIO_EXP_PORTA = 0;
-uint8_t test_defval = 0;
-extern uint8_t level;
 
 void	get_level(void)
 {

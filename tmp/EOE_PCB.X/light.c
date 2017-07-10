@@ -2,8 +2,6 @@
 #include <sys/attribs.h>
 
 //dependances: adc, display delay
-extern uint8_t I_can_display;
-extern uint16_t lum_manual;     //luminosity value
 
 void		init_light(void)
 {

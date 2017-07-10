@@ -1,4 +1,3 @@
-
 #include "header.h"
 
 #define line_nb 2

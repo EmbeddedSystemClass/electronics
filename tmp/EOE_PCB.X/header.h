@@ -56,13 +56,16 @@ extern uint16_t    nb_save;
 extern uint8_t     SLEEPON;
 extern uint16_t    led_color;
 extern uint8_t     alert;
+extern uint8_t     pump_status;
+extern uint16_t    lum_average;
+extern uint16_t    temp_average;
+extern int16_t     day_time;
 
 /*Moisture sensor*/
 #define max_ctmu 950
 #define min_ctmu 0
+#define MESURES  8  //nb mesures par jour
 
-//_______ADC_AUTO_C_____________
-//void        init_auto_adc(void); // + interrupt;
 //_______ADC_MANOUAL_C__________
 void        init_manoual_adc();
 //_______BARGRAPH_C_____________

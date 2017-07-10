@@ -12,6 +12,7 @@ void    init_affichage()
         display_write_str("T=", 1, 11);//temperature
         display_write_str("L=", 1, 0); //light
 }
+
 void    affichage()
 {
     //LIGHT
