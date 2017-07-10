@@ -50,8 +50,8 @@ void        init_tmr2()
 }
 
 /*REVEIL*/
-#define led_on_time 5
-#define led_off_time 2
+#define led_on_time 1
+#define led_off_time 6
 uint8_t     count = led_off_time;
 
 uint8_t pump_status = 0;

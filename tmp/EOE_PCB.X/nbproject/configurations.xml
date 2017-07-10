@@ -49,6 +49,7 @@
       <itemPath>affichage.c</itemPath>
       <itemPath>alert.c</itemPath>
       <itemPath>moyenne.c</itemPath>
+      <itemPath>battery.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

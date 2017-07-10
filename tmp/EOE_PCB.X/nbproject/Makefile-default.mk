@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=adc_manoual.c bargraph.c delay_micro.c display.c gpio.c gpio_exp.c I2C.c interrupt.c lcd.c led.c level.c light.c main.c moisture.c rtcc.c save.c sleep.c temperature.c watchdog.c system.c pump.c affichage.c alert.c moyenne.c
+SOURCEFILES_QUOTED_IF_SPACED=adc_manoual.c bargraph.c delay_micro.c display.c gpio.c gpio_exp.c I2C.c interrupt.c lcd.c led.c level.c light.c main.c moisture.c rtcc.c save.c sleep.c temperature.c watchdog.c system.c pump.c affichage.c alert.c moyenne.c battery.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/adc_manoual.o ${OBJECTDIR}/bargraph.o ${OBJECTDIR}/delay_micro.o ${OBJECTDIR}/display.o ${OBJECTDIR}/gpio.o ${OBJECTDIR}/gpio_exp.o ${OBJECTDIR}/I2C.o ${OBJECTDIR}/interrupt.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/led.o ${OBJECTDIR}/level.o ${OBJECTDIR}/light.o ${OBJECTDIR}/main.o ${OBJECTDIR}/moisture.o ${OBJECTDIR}/rtcc.o ${OBJECTDIR}/save.o ${OBJECTDIR}/sleep.o ${OBJECTDIR}/temperature.o ${OBJECTDIR}/watchdog.o ${OBJECTDIR}/system.o ${OBJECTDIR}/pump.o ${OBJECTDIR}/affichage.o ${OBJECTDIR}/alert.o ${OBJECTDIR}/moyenne.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/adc_manoual.o.d ${OBJECTDIR}/bargraph.o.d ${OBJECTDIR}/delay_micro.o.d ${OBJECTDIR}/display.o.d ${OBJECTDIR}/gpio.o.d ${OBJECTDIR}/gpio_exp.o.d ${OBJECTDIR}/I2C.o.d ${OBJECTDIR}/interrupt.o.d ${OBJECTDIR}/lcd.o.d ${OBJECTDIR}/led.o.d ${OBJECTDIR}/level.o.d ${OBJECTDIR}/light.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/moisture.o.d ${OBJECTDIR}/rtcc.o.d ${OBJECTDIR}/save.o.d ${OBJECTDIR}/sleep.o.d ${OBJECTDIR}/temperature.o.d ${OBJECTDIR}/watchdog.o.d ${OBJECTDIR}/system.o.d ${OBJECTDIR}/pump.o.d ${OBJECTDIR}/affichage.o.d ${OBJECTDIR}/alert.o.d ${OBJECTDIR}/moyenne.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/adc_manoual.o ${OBJECTDIR}/bargraph.o ${OBJECTDIR}/delay_micro.o ${OBJECTDIR}/display.o ${OBJECTDIR}/gpio.o ${OBJECTDIR}/gpio_exp.o ${OBJECTDIR}/I2C.o ${OBJECTDIR}/interrupt.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/led.o ${OBJECTDIR}/level.o ${OBJECTDIR}/light.o ${OBJECTDIR}/main.o ${OBJECTDIR}/moisture.o ${OBJECTDIR}/rtcc.o ${OBJECTDIR}/save.o ${OBJECTDIR}/sleep.o ${OBJECTDIR}/temperature.o ${OBJECTDIR}/watchdog.o ${OBJECTDIR}/system.o ${OBJECTDIR}/pump.o ${OBJECTDIR}/affichage.o ${OBJECTDIR}/alert.o ${OBJECTDIR}/moyenne.o ${OBJECTDIR}/battery.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/adc_manoual.o.d ${OBJECTDIR}/bargraph.o.d ${OBJECTDIR}/delay_micro.o.d ${OBJECTDIR}/display.o.d ${OBJECTDIR}/gpio.o.d ${OBJECTDIR}/gpio_exp.o.d ${OBJECTDIR}/I2C.o.d ${OBJECTDIR}/interrupt.o.d ${OBJECTDIR}/lcd.o.d ${OBJECTDIR}/led.o.d ${OBJECTDIR}/level.o.d ${OBJECTDIR}/light.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/moisture.o.d ${OBJECTDIR}/rtcc.o.d ${OBJECTDIR}/save.o.d ${OBJECTDIR}/sleep.o.d ${OBJECTDIR}/temperature.o.d ${OBJECTDIR}/watchdog.o.d ${OBJECTDIR}/system.o.d ${OBJECTDIR}/pump.o.d ${OBJECTDIR}/affichage.o.d ${OBJECTDIR}/alert.o.d ${OBJECTDIR}/moyenne.o.d ${OBJECTDIR}/battery.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/adc_manoual.o ${OBJECTDIR}/bargraph.o ${OBJECTDIR}/delay_micro.o ${OBJECTDIR}/display.o ${OBJECTDIR}/gpio.o ${OBJECTDIR}/gpio_exp.o ${OBJECTDIR}/I2C.o ${OBJECTDIR}/interrupt.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/led.o ${OBJECTDIR}/level.o ${OBJECTDIR}/light.o ${OBJECTDIR}/main.o ${OBJECTDIR}/moisture.o ${OBJECTDIR}/rtcc.o ${OBJECTDIR}/save.o ${OBJECTDIR}/sleep.o ${OBJECTDIR}/temperature.o ${OBJECTDIR}/watchdog.o ${OBJECTDIR}/system.o ${OBJECTDIR}/pump.o ${OBJECTDIR}/affichage.o ${OBJECTDIR}/alert.o ${OBJECTDIR}/moyenne.o
+OBJECTFILES=${OBJECTDIR}/adc_manoual.o ${OBJECTDIR}/bargraph.o ${OBJECTDIR}/delay_micro.o ${OBJECTDIR}/display.o ${OBJECTDIR}/gpio.o ${OBJECTDIR}/gpio_exp.o ${OBJECTDIR}/I2C.o ${OBJECTDIR}/interrupt.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/led.o ${OBJECTDIR}/level.o ${OBJECTDIR}/light.o ${OBJECTDIR}/main.o ${OBJECTDIR}/moisture.o ${OBJECTDIR}/rtcc.o ${OBJECTDIR}/save.o ${OBJECTDIR}/sleep.o ${OBJECTDIR}/temperature.o ${OBJECTDIR}/watchdog.o ${OBJECTDIR}/system.o ${OBJECTDIR}/pump.o ${OBJECTDIR}/affichage.o ${OBJECTDIR}/alert.o ${OBJECTDIR}/moyenne.o ${OBJECTDIR}/battery.o
 
 # Source Files
-SOURCEFILES=adc_manoual.c bargraph.c delay_micro.c display.c gpio.c gpio_exp.c I2C.c interrupt.c lcd.c led.c level.c light.c main.c moisture.c rtcc.c save.c sleep.c temperature.c watchdog.c system.c pump.c affichage.c alert.c moyenne.c
+SOURCEFILES=adc_manoual.c bargraph.c delay_micro.c display.c gpio.c gpio_exp.c I2C.c interrupt.c lcd.c led.c level.c light.c main.c moisture.c rtcc.c save.c sleep.c temperature.c watchdog.c system.c pump.c affichage.c alert.c moyenne.c battery.c
 
 
 CFLAGS=
@@ -238,6 +238,12 @@ ${OBJECTDIR}/moyenne.o: moyenne.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/moyenne.o 
 	@${FIXDEPS} "${OBJECTDIR}/moyenne.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/moyenne.o.d" -o ${OBJECTDIR}/moyenne.o moyenne.c   
 	
+${OBJECTDIR}/battery.o: battery.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/battery.o.d 
+	@${RM} ${OBJECTDIR}/battery.o 
+	@${FIXDEPS} "${OBJECTDIR}/battery.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/battery.o.d" -o ${OBJECTDIR}/battery.o battery.c   
+	
 else
 ${OBJECTDIR}/adc_manoual.o: adc_manoual.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -382,6 +388,12 @@ ${OBJECTDIR}/moyenne.o: moyenne.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/moyenne.o.d 
 	@${RM} ${OBJECTDIR}/moyenne.o 
 	@${FIXDEPS} "${OBJECTDIR}/moyenne.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/moyenne.o.d" -o ${OBJECTDIR}/moyenne.o moyenne.c   
+	
+${OBJECTDIR}/battery.o: battery.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/battery.o.d 
+	@${RM} ${OBJECTDIR}/battery.o 
+	@${FIXDEPS} "${OBJECTDIR}/battery.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/battery.o.d" -o ${OBJECTDIR}/battery.o battery.c   
 	
 endif
 

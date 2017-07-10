@@ -64,7 +64,7 @@ extern int16_t     day_time;
 /*Moisture sensor*/
 #define max_ctmu 950
 #define min_ctmu 0
-#define MESURES  8  //nb mesures par jour
+#define MESURES  10  //nb mesures par jour
 
 //_______ADC_MANOUAL_C__________
 void        init_manoual_adc();

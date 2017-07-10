@@ -96,7 +96,7 @@ uint16_t    led_color =  0x0000;
 uint8_t     alert = 0;
 uint16_t    lum_average = 880;
 uint16_t    temp_average = 25;
-int16_t day_time = 0;
+int16_t     day_time = 0;
 
 void    init(void)
 {
@@ -140,6 +140,7 @@ void        get_sensors()
     check_moisture();
     check_temp();
     get_light_manual();
+    get_battery();
     save_data();
     if (day_time == MESURES - 1)      // Valeur test a changer (8) -> (48)
     {
