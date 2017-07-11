@@ -83,11 +83,11 @@ void check_alerts(void)
         led_alert(GRE_BIT);
         i++;
     }
-        if (bat_level <= BAT_MIN)
-    {
-        led_alert(RED_BIT);
-        i++;
-    }
+//        if (bat_level <= BAT_MIN)
+//    {
+//        led_alert(RED_BIT);
+//        i++;
+//    }
     if (i >= 4)
         lcd_frimousse_0();
     if (i == 3)

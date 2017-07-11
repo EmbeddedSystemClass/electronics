@@ -206,61 +206,61 @@ void	init_display()
 void	lcd_frimousse_0(void)
 {
 	//(x_x)
-	display_write(0x28, 1, 0);
-	display_write(0x78, 1, 1);
-	display_write(0x5f, 1, 2);
-	display_write(0x78, 1, 3);
-	display_write(0x29, 1, 4);
+	display_write(0x28, 1, 11);
+	display_write(0x78, 1, 12);
+	display_write(0x5f, 1, 13);
+	display_write(0x78, 1, 14);
+	display_write(0x29, 1, 15);
 }
 
 void	lcd_frimousse_1(void)
 {
 	//(o_O)
-	display_write(0x28, 1, 0);
-	display_write(0x6f, 1, 1);
-	display_write(0x5f, 1, 2);
-	display_write(0x4f, 1, 3);
-	display_write(0x29, 1, 4);
+	display_write(0x28, 1, 11);
+	display_write(0x6f, 1, 12);
+	display_write(0x5f, 1, 13);
+	display_write(0x4f, 1, 14);
+	display_write(0x29, 1, 15);
 }
 
 void	lcd_frimousse_2(void)
 {
 	//(T_T)
-	display_write(0x28, 1, 0);
-	display_write(0x54, 1, 1);
-	display_write(0x5f, 1, 2);
-	display_write(0x54, 1, 3);
-	display_write(0x29, 1, 4);
+	display_write(0x28, 1, 11);
+	display_write(0x54, 1, 12);
+	display_write(0x5f, 1, 13);
+	display_write(0x54, 1, 14);
+	display_write(0x29, 1, 15);
 }
 
 void	lcd_frimousse_3(void)
 {
 	//(-_-)
-	display_write(0x28, 1, 0);
-	display_write(0x2d, 1, 1);
-	display_write(0x5f, 1, 2);
-	display_write(0x2d, 1, 3);
-	display_write(0x29, 1, 4);
+	display_write(0x28, 1, 11);
+	display_write(0x2d, 1, 12);
+	display_write(0x5f, 1, 13);
+	display_write(0x2d, 1, 14);
+	display_write(0x29, 1, 15);
 }
 
 void	lcd_frimousse_4(void)
 {
 	//(^_^)
-	display_write(0x28, 1, 0);
-	display_write(0x5e, 1, 1);
-	display_write(0x5f, 1, 2);
-	display_write(0x5e, 1, 3);
-	display_write(0x29, 1, 4);
+	display_write(0x28, 1, 11);
+	display_write(0x5e, 1, 12);
+	display_write(0x5f, 1, 13);
+	display_write(0x5e, 1, 14);
+	display_write(0x29, 1, 15);
 }
 
 void	lcd_frimousse_5(void)
 {
 	//(^o^)
-	display_write(0x28, 1, 0);
-	display_write(0x5e, 1, 1);
-	display_write(0x6f, 1, 2);
-	display_write(0x5e, 1, 3);
-	display_write(0x29, 1, 4);
+	display_write(0x28, 1, 11);
+	display_write(0x5e, 1, 12);
+	display_write(0x6f, 1, 13);
+	display_write(0x5e, 1, 14);
+	display_write(0x29, 1, 15);
 }
 
 //Never call this hazardous func!
