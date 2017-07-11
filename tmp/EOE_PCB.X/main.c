@@ -150,8 +150,9 @@ void        get_sensors()
         pump_on();
     }
     day_time++;
-    check_alerts(); //check if a param is out of seuil
-    IEC0bits.T1IE = 1; //enable interrupt on TMR1
+    check_alerts();                   //check if a param is out of seuil
+    TMR1 = 0;
+    IEC0bits.T1IE = 1;                //enable interrupt on TMR1
 }
 
 void        display_sensors()
