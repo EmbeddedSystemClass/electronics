@@ -16,4 +16,5 @@ rtcc.h  \
 sleep.h  \
 system.h  \
 gpio_exp_soft.h  \
+battery.h  \
  stock_value.h 

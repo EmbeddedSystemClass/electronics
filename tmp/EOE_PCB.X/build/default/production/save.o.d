@@ -16,4 +16,5 @@ adc.h  \
 rtcc.h  \
 sleep.h  \
 system.h  \
-gpio_exp_soft.h 
+gpio_exp_soft.h  \
+battery.h 

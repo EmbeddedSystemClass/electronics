@@ -89,67 +89,178 @@ void	init_display()
 	uint8_t i;
 	for (i = 0; i <= lcd_char_nb; i++)
 		display_buff[i] = CHAR_SPACE;
+        //Custom bat_char
+            //char 0/ [
+        lcd_set_DDRAM_addr(0);
+        lcd_set_CGRAM_addr(0x00);
+        lcd_write(0b11111, 1);
+                lcd_set_CGRAM_addr(0x01);
+        lcd_write(0b10000, 1);
+                lcd_set_CGRAM_addr(0x02);
+        lcd_write(0b10000, 1);
+                lcd_set_CGRAM_addr(0x03);
+        lcd_write(0b10000, 1);
+                lcd_set_CGRAM_addr(0x04);
+        lcd_write(0b10000, 1);
+                lcd_set_CGRAM_addr(0x05);
+        lcd_write(0b10000, 1);
+                lcd_set_CGRAM_addr(0x06);
+        lcd_write(0b11111, 1);
+                lcd_set_CGRAM_addr(0x07);
+        lcd_write(0b00000, 1);
+
+         //char 1/ [|
+        lcd_set_DDRAM_addr(0x01);
+        lcd_set_CGRAM_addr(0x08);
+        lcd_write(0x1f, 1);
+                lcd_set_CGRAM_addr(0x09);
+        lcd_write(0x10, 1);
+                lcd_set_CGRAM_addr(0x0a);
+        lcd_write(0x13, 1);
+                lcd_set_CGRAM_addr(0x0b);
+        lcd_write(0x13, 1);
+                lcd_set_CGRAM_addr(0x0c);
+        lcd_write(0x13, 1);
+                lcd_set_CGRAM_addr(0x0d);
+        lcd_write(0x10, 1);
+                lcd_set_CGRAM_addr(0x0e);
+        lcd_write(0x1f, 1);
+                lcd_set_CGRAM_addr(0x0f);
+        lcd_write(0x00, 1);
+        // char 2/ -
+        //         -
+        lcd_set_DDRAM_addr(0x02);
+        lcd_set_CGRAM_addr(0x10);
+        lcd_write(0x1f, 1);
+                lcd_set_CGRAM_addr(0x11);
+        lcd_write(0x00, 1);
+                lcd_set_CGRAM_addr(0x12);
+        lcd_write(0x00, 1);
+                lcd_set_CGRAM_addr(0x13);
+        lcd_write(0x00, 1);
+                lcd_set_CGRAM_addr(0x14);
+        lcd_write(0x00, 1);
+                lcd_set_CGRAM_addr(0x15);
+        lcd_write(0x00, 1);
+                lcd_set_CGRAM_addr(0x16);
+        lcd_write(0x1f, 1);
+                lcd_set_CGRAM_addr(0x17);
+        lcd_write(0x00, 1);
+        // char 3/ ||
+        lcd_set_DDRAM_addr(0x03);
+        lcd_set_CGRAM_addr(0x18);
+        lcd_write(0x1f, 1);
+                lcd_set_CGRAM_addr(0x19);
+        lcd_write(0x00, 1);
+                lcd_set_CGRAM_addr(0x1a);
+        lcd_write(0x13, 1);
+                lcd_set_CGRAM_addr(0x1b);
+        lcd_write(0x13, 1);
+                lcd_set_CGRAM_addr(0x1c);
+        lcd_write(0x13, 1);
+                lcd_set_CGRAM_addr(0x1d);
+        lcd_write(0x00, 1);
+                lcd_set_CGRAM_addr(0x1e);
+        lcd_write(0x1f, 1);
+                lcd_set_CGRAM_addr(0x1f);
+        lcd_write(0x00, 1);
+        // char 4/ || ||
+        lcd_set_DDRAM_addr(0x04);
+        lcd_set_CGRAM_addr(0x20);
+        lcd_write(0x1f, 1);
+                lcd_set_CGRAM_addr(0x21);
+        lcd_write(0x00, 1);
+                lcd_set_CGRAM_addr(0x22);
+        lcd_write(0x1b, 1);
+                lcd_set_CGRAM_addr(0x23);
+        lcd_write(0x1b, 1);
+                lcd_set_CGRAM_addr(0x24);
+        lcd_write(0x1b, 1);
+                lcd_set_CGRAM_addr(0x25);
+        lcd_write(0x00, 1);
+                lcd_set_CGRAM_addr(0x26);
+        lcd_write(0x1f, 1);
+                lcd_set_CGRAM_addr(0x27);
+        lcd_write(0x00, 1);
+                // char 5/ ]-
+        lcd_set_DDRAM_addr(0x05);
+        lcd_set_CGRAM_addr(0x28);
+        lcd_write(0x18, 1);
+                lcd_set_CGRAM_addr(0x29);
+        lcd_write(0x08, 1);
+                lcd_set_CGRAM_addr(0x2a);
+        lcd_write(0x0e, 1);
+                lcd_set_CGRAM_addr(0x2b);
+        lcd_write(0x0e, 1);
+                lcd_set_CGRAM_addr(0x2c);
+        lcd_write(0x0e, 1);
+                lcd_set_CGRAM_addr(0x2d);
+        lcd_write(0x08, 1);
+                lcd_set_CGRAM_addr(0x2e);
+        lcd_write(0x18, 1);
+                lcd_set_CGRAM_addr(0x2f);
+        lcd_write(0x00, 1);
 }
 
 //Plant status smileys
 void	lcd_frimousse_0(void)
 {
 	//(x_x)
-	display_write(0x28, 0, 0);
-	display_write(0x78, 0, 1);
-	display_write(0x5f, 0, 2);
-	display_write(0x78, 0, 3);
-	display_write(0x29, 0, 4);
+	display_write(0x28, 1, 0);
+	display_write(0x78, 1, 1);
+	display_write(0x5f, 1, 2);
+	display_write(0x78, 1, 3);
+	display_write(0x29, 1, 4);
 }
 
 void	lcd_frimousse_1(void)
 {
 	//(o_O)
-	display_write(0x28, 0, 0);
-	display_write(0x6f, 0, 1);
-	display_write(0x5f, 0, 2);
-	display_write(0x4f, 0, 3);
-	display_write(0x29, 0, 4);
+	display_write(0x28, 1, 0);
+	display_write(0x6f, 1, 1);
+	display_write(0x5f, 1, 2);
+	display_write(0x4f, 1, 3);
+	display_write(0x29, 1, 4);
 }
 
 void	lcd_frimousse_2(void)
 {
 	//(T_T)
-	display_write(0x28, 0, 0);
-	display_write(0x54, 0, 1);
-	display_write(0x5f, 0, 2);
-	display_write(0x54, 0, 3);
-	display_write(0x29, 0, 4);
+	display_write(0x28, 1, 0);
+	display_write(0x54, 1, 1);
+	display_write(0x5f, 1, 2);
+	display_write(0x54, 1, 3);
+	display_write(0x29, 1, 4);
 }
 
 void	lcd_frimousse_3(void)
 {
 	//(-_-)
-	display_write(0x28, 0, 0);
-	display_write(0x2d, 0, 1);
-	display_write(0x5f, 0, 2);
-	display_write(0x2d, 0, 3);
-	display_write(0x29, 0, 4);
+	display_write(0x28, 1, 0);
+	display_write(0x2d, 1, 1);
+	display_write(0x5f, 1, 2);
+	display_write(0x2d, 1, 3);
+	display_write(0x29, 1, 4);
 }
 
 void	lcd_frimousse_4(void)
 {
 	//(^_^)
-	display_write(0x28, 0, 0);
-	display_write(0x5e, 0, 1);
-	display_write(0x5f, 0, 2);
-	display_write(0x5e, 0, 3);
-	display_write(0x29, 0, 4);
+	display_write(0x28, 1, 0);
+	display_write(0x5e, 1, 1);
+	display_write(0x5f, 1, 2);
+	display_write(0x5e, 1, 3);
+	display_write(0x29, 1, 4);
 }
 
 void	lcd_frimousse_5(void)
 {
 	//(^o^)
-	display_write(0x28, 0, 0);
-	display_write(0x5e, 0, 1);
-	display_write(0x6f, 0, 2);
-	display_write(0x5e, 0, 3);
-	display_write(0x29, 0, 4);
+	display_write(0x28, 1, 0);
+	display_write(0x5e, 1, 1);
+	display_write(0x6f, 1, 2);
+	display_write(0x5e, 1, 3);
+	display_write(0x29, 1, 4);
 }
 
 //Never call this hazardous func!

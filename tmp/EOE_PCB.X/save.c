@@ -12,6 +12,7 @@ void    save_data()
     tab_data[nb_save].T_save = Temperature; //save temp
     tab_data[nb_save].Date = RTCDATE; //save date [A][M][J][0]
     tab_data[nb_save].Heure = RTCTIME; // save hour [H][Min][Sec][0]
+    tab_data[nb_save].Bat_save = bat_level;
     nb_save++;
     if (nb_save > 335)      // Stock sur 7 * 48
     {

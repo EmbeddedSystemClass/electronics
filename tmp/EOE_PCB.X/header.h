@@ -39,6 +39,7 @@ void init(void);
 #include    "sleep.h"
 #include    "system.h"
 #include "gpio_exp_soft.h"
+#include "battery.h"
 
 
 
@@ -60,6 +61,7 @@ extern uint8_t     pump_status;
 extern uint16_t    lum_average;
 extern uint16_t    temp_average;
 extern int16_t     day_time;
+extern uint32_t    bat_level;
 
 /*Moisture sensor*/
 #define max_ctmu 950
@@ -77,7 +79,7 @@ void        bargraph_write(uint32_t value);
 void        init_delay(); //+interrupt;
 void        delay_micro(uint32_t time_ms);
 //_______DISPLAY_C______________
-static void	display_write(int charactere, int line, int index);
+void	    display_write(int charactere, int line, int index);
 uint8_t     display_write_dec(int32_t nb, uint8_t line,uint8_t index);
 void        display_write_str(char	*str, uint8_t line,uint8_t index);
 void        display_update();

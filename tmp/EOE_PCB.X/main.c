@@ -97,6 +97,7 @@ uint8_t     alert = 0;
 uint16_t    lum_average = 880;
 uint16_t    temp_average = 25;
 int16_t     day_time = 0;
+uint32_t    bat_level = 0;
 
 void    init(void)
 {
@@ -126,7 +127,7 @@ void    init(void)
 
 
     init_pump();
-//    init_bat_lvl();
+    init_battery();
 
 //    init_spi();
 //    init_radio();
@@ -140,7 +141,7 @@ void        get_sensors()
     check_moisture();
     check_temp();
     get_light_manual();
-    get_battery();
+//    get_battery();
     save_data();
     if (day_time == MESURES - 1)      // Valeur test a changer (8) -> (48)
     {
@@ -159,6 +160,7 @@ void        display_sensors()
 {
     get_level();  //ca put du cul il ecrit nimp sur lecran grr   (commentaire epic!)
     check_moisture();
+//    get_battery();
     check_temp();
     get_light_manual();
     display_update();
@@ -167,13 +169,14 @@ void        display_sensors()
 void    main(void)
 {
     init();
-
+//
     lcd_backlight_inv();        //SET backlight at startup
-
-    I_can_check_sensors = 0;
-    I_can_display = 1;
+//
+//    I_can_check_sensors = 0;
+//    I_can_display = 1;
     while(1)
     {
+//        get_battery();
         if (I_can_display)
         {
             display_sensors();
