@@ -129,8 +129,8 @@ void    init(void)
     init_pump();
     init_battery();
 
-//    init_spi();
-//    init_radio();
+    init_spi();
+    init_radio();
     init_watchdog();
 }
 
@@ -160,7 +160,7 @@ void        display_sensors()
 {
     get_level();
     check_moisture();
-//    get_battery();
+    get_battery();
     check_temp();
     get_light_manual();
     display_update();
@@ -169,30 +169,33 @@ void        display_sensors()
 void    main(void)
 {
     init();
-    lcd_backlight_inv();                 //SET backlight at startup
-
-    I_can_check_sensors = 0;
-    I_can_display = 1;
+    
+//    lcd_backlight_inv();                 //SET backlight at startup
+//
+//    I_can_check_sensors = 0;
+//    I_can_display = 1;
     while(1)
     {
-        if (I_can_display)
-        {
-            display_sensors();
-            affichage();
-            display_update();           //refresh lcd
-        }
-        if (I_can_check_sensors)
-        {
-            get_sensors();
-            I_can_check_sensors = 0;
-        }
-        if(g_mon_sleep)
-        {
-           // LATBbits.LATB0 = 0;     // PUMP is off
-            bargraph_write(0x00);
-            lcd_clear();
-            go_to_sleep();
-        }
+       radio_test();
+       check_temp();
+//        if (I_can_display)
+//        {
+//            display_sensors();
+//            affichage();
+//            display_update();           //refresh lcd
+//        }
+//        if (I_can_check_sensors)
+//        {
+//            get_sensors();
+//            I_can_check_sensors = 0;
+//        }
+//        if(g_mon_sleep)
+//        {
+//           // LATBbits.LATB0 = 0;     // PUMP is off
+//            bargraph_write(0x00);
+//            lcd_clear();
+//            go_to_sleep();
+//        }
         WDTCONSET = 0x0001;	//reset watchdog
 
         /*TEST_ZONE*/

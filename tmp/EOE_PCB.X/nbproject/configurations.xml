@@ -51,6 +51,8 @@
       <itemPath>alert.c</itemPath>
       <itemPath>moyenne.c</itemPath>
       <itemPath>battery.c</itemPath>
+      <itemPath>spi.c</itemPath>
+      <itemPath>radio.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

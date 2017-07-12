@@ -26,7 +26,7 @@ void	display_update()
 		lcd_write(display_buff[index], 1);
 		index++;
 	}
-        lcd_set_DDRAM_addr(40); //second line start addr
+        lcd_set_DDRAM_addr(40);                     //second line start addr
 	while (index < 2 * char_per_line)
 	{
 		lcd_write(display_buff[index], 1);
@@ -35,7 +35,7 @@ void	display_update()
 }
 
 //Write to the display buffer the charactere code at the desired line and position
-void	display_write(int charactere, int line, int column)
+ void	display_write(int charactere, int line, int column)
 {
     uint8_t index = column + 16 * line;
     if (index < lcd_char_nb)

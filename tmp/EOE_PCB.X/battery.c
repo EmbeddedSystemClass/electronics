@@ -1,4 +1,6 @@
 #include "header.h"
+#define MIN_BAT 740 //+-10
+#define MAX_BAT 970//  (8.4V)
 
 //void init_battery(void)
 //{
@@ -42,4 +44,5 @@ void    get_battery(void)
         delay_micro(100);
     }
     bat_level /= 10;
+    bat_level = (bat_level - MIN_BAT) * 100 / (MAX_BAT - MIN_BAT);
 }

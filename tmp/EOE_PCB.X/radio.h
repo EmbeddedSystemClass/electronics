@@ -15,7 +15,7 @@
 #define FLUSH_RX                 0b11100010             //FLush RX      (0 byte)
 #define REUSE_TX_PL              0b11100011             //              (0 byte)
 #define ACTIVATE                 0b01010000             //              (1 byte)
-#define R_RX_PL_WID              0b01100000             //              
+#define R_RX_PL_WID              0b01100000             //
 #define W_ACK_PAYLOAD(pipe)     (0b10101000 | pipe)     //P = Pipe      (1 to 32, LSByte first)
 #define W_TX_PAYLOAD_NO_ACK      0b10110000             //              (1 to 32, LSByte first)
 #define NOP                      0b11111111             //NOP           (0 byte)
