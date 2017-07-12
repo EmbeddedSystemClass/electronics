@@ -81,7 +81,7 @@
 #include "stock_value.h"
 
 /*Global variables*/
-uint8_t     I_can_check_sensors;        //lomg terme checking sensors
+uint8_t     I_can_check_sensors;        //long terme checking sensors
 uint8_t     I_can_display;              //pour afficher 10 sec
 uint8_t     g_mon_sleep = 0;            //global monitor sleeping
 uint16_t    lum_manual;                 //luminosity value
@@ -110,20 +110,20 @@ void    init(void)
     init_rtcc();                        //0k
     init_delay();                       //0k
     init_interrupt();                   //0k
-    init_led();                        // changer timer
+    init_led();                         // changer timer
 
-    init_bargraph();                   //0k
-    init_I2C();                        //0k
-    init_gpio_exp();                   //0k
-    init_level();                      //0k
-    init_lcd();                        //0k
-    init_display();                    //0k
+    init_bargraph();                    //0k
+    init_I2C();                         //0k
+    init_gpio_exp();                    //0k
+    init_level();                       //0k
+    init_lcd();                         //0k
+    init_display();                     //0k
     init_affichage();
 
-    init_manual_adc();    //0k
-    init_light();         //0k
-    init_temp();          //0k
-    init_moisture();      //0k
+    init_manual_adc();                  //0k
+    init_light();                       //0k
+    init_temp();                        //0k
+    init_moisture();                    //0k
 
 
     init_pump();
@@ -136,14 +136,14 @@ void    init(void)
 
 void        get_sensors()
 {
-    IEC0bits.T1IE = 0; //disable interrupt on TMR1
+    IEC0bits.T1IE = 0;                  //disable interrupt on TMR1
     get_level();
     check_moisture();
     check_temp();
     get_light_manual();
 //    get_battery();
     save_data();
-    if (day_time == MESURES - 1)      // Valeur test a changer (8) -> (48)
+    if (day_time == MESURES - 1)        // Valeur test a changer (8) -> (48)
     {
         LATBCLR = led_color;
         calc_set_average();
@@ -151,14 +151,14 @@ void        get_sensors()
         pump_on();
     }
     day_time++;
-    check_alerts();                   //check if a param is out of seuil
+    check_alerts();                     //check if a param is out of seuil
     TMR1 = 0;
-    IEC0bits.T1IE = 1;                //enable interrupt on TMR1
+    IEC0bits.T1IE = 1;                  //enable interrupt on TMR1
 }
 
 void        display_sensors()
 {
-    get_level();  //ca put du cul il ecrit nimp sur lecran grr   (commentaire epic!)
+    get_level();
     check_moisture();
 //    get_battery();
     check_temp();
@@ -169,19 +169,17 @@ void        display_sensors()
 void    main(void)
 {
     init();
-//
-    lcd_backlight_inv();        //SET backlight at startup
-//
-//    I_can_check_sensors = 0;
-//    I_can_display = 1;
+    lcd_backlight_inv();                 //SET backlight at startup
+
+    I_can_check_sensors = 0;
+    I_can_display = 1;
     while(1)
     {
-//        get_battery();
         if (I_can_display)
         {
             display_sensors();
             affichage();
-            display_update(); //refresh lcd
+            display_update();           //refresh lcd
         }
         if (I_can_check_sensors)
         {

@@ -153,11 +153,11 @@ void	init_display()
                 lcd_set_CGRAM_addr(0x19);
         lcd_write(0x00, 1);
                 lcd_set_CGRAM_addr(0x1a);
-        lcd_write(0x13, 1);
+        lcd_write(0x18, 1);
                 lcd_set_CGRAM_addr(0x1b);
-        lcd_write(0x13, 1);
+        lcd_write(0x18, 1);
                 lcd_set_CGRAM_addr(0x1c);
-        lcd_write(0x13, 1);
+        lcd_write(0x18, 1);
                 lcd_set_CGRAM_addr(0x1d);
         lcd_write(0x00, 1);
                 lcd_set_CGRAM_addr(0x1e);
