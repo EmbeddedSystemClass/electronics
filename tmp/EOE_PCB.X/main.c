@@ -106,8 +106,8 @@ void    init(void)
     init_temp();                        //0k
     init_moisture();                    //0k
 
-    init_pump();
-    init_battery();
+//    init_pump();                      //better dont interferer with the debugger
+//    init_battery();
 
     init_spi();
     init_radio();

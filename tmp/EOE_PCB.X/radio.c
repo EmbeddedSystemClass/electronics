@@ -228,47 +228,38 @@ void		radio_send_values(void)                        //Simple Test for TX/RX - [
     IEC0bits.T1IE = 0; //disable TMR1 interrupt
     IEC0bits.T2IE = 0;	//disable TMR2 interrupt
     IEC0bits.RTCCIE = 0;  // disable RTCC interrupts
-
     
-//    val = radio_receive();
-//    if (val != 0x4321);
-//        return ;
-
-
-//        radio_send(0x1234, 32); //PING RPI
-//        if (PONG)
+//      radio_send(0x1234, 32);   //PING RPI
+//      val = radio_receive();      //get PONG
+//      if (val != 0x4321);
 //        {
 //            send_unsent_values();
 //        }
 
-
-
+/*send_unsent_values()*/
     while (i < save_tab_size)
     {
         if (tab_data[i].send == 0)      //if data unsent
         {
-        radio_send(PING, 32); //PING RPI
- 	radio_send((uint32_t)(tab_data[i].H_save) , 32);            //send 42 255
-        delay_micro(radio_delay);
-        radio_send((uint32_t)(tab_data[i].Lum_save) , 32);
-        delay_micro(radio_delay);
-        radio_send((uint32_t)(tab_data[i].T_save) , 32);
-        delay_micro(radio_delay);
-        radio_send((uint32_t)(tab_data[i].Lvl_save) , 32);
-        delay_micro(radio_delay);
-          //radio_send(12 , 32);
+            radio_send(PING, 32);       //PING RPI
+            radio_send((uint32_t)(tab_data[i].H_save) , 32);
+            delay_micro(radio_delay);
+            radio_send((uint32_t)(tab_data[i].Lum_save) , 32);
+            delay_micro(radio_delay);
+            radio_send((uint32_t)(tab_data[i].T_save) , 32);
+            delay_micro(radio_delay);
+            radio_send((uint32_t)(tab_data[i].Lvl_save) , 32);
+            delay_micro(radio_delay);
+            tab_data[i].send = 1;      //mark data as sent.
         }
         i++;
-        if (i > 335)
-        {
-            i = 0;
-        }
-////	val = radio_receive();                          //
-//	//display_write_dec(val, 0, 0);                   //
+/*send_unsent_values()*/
+
+//	val = radio_receive();                          //
+//	display_write_dec(val, 0, 0);                   //
     }
+
      IEC0bits.T1IE = 1; //enable TMR1 interrupt
      IEC0bits.T2IE = 1;	//enable TMR2 interrupt
      IEC0bits.RTCCIE = 1; // enable RTCC interrupts
 }
-
-// Ton font d'ecran il est nul :P - adjivas
