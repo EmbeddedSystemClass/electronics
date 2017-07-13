@@ -18,9 +18,12 @@ typedef struct s_save
     uint32_t    Date;
     uint32_t    Heure;
     uint32_t    Bat_save;
+    uint8_t     send;
 }               t_save;
 
 void    save_data();
+
+#define save_tab_size 336
 
 #endif	/* STOCK_VALUE_H */
 

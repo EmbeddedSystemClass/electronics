@@ -40,33 +40,35 @@ void init(void);
 #include    "system.h"
 #include "gpio_exp_soft.h"
 #include "battery.h"
+#include "stock_value.h"
 
 
 
 /*GLOBAL VARIABLES*/
-extern uint8_t     I_can_check_sensors;        //lomg terme checking sensors
-extern uint8_t     I_can_display;              //pour afficher 10 sec
-extern uint8_t     g_mon_sleep;            //global monitor sleeping
-extern uint16_t    lum_manual;                 //luminosity value
-extern float       Temperature;
-extern uint8_t     level;
-extern int16_t     lum_sleep;                  //luminosity value while sleeping (thresold wake up)
-extern uint16_t    humidity;                   //current hum val
-//extern t_save    tab_data[?];
-extern uint16_t    nb_save;
-extern uint8_t     SLEEPON;
-extern uint16_t    led_color;
-extern uint8_t     alert;
-extern uint8_t     pump_status;
-extern uint16_t    lum_average;
-extern uint16_t    temp_average;
-extern int16_t     day_time;
-extern uint32_t    bat_level;
+uint8_t     I_can_check_sensors;        //lomg terme checking sensors
+uint8_t     I_can_display;              //pour afficher 10 sec
+uint8_t     g_mon_sleep;            //global monitor sleeping
+uint16_t    lum_manual;                 //luminosity value
+float       Temperature;
+uint8_t     level;
+int16_t     lum_sleep;                  //luminosity value while sleeping (thresold wake up)
+uint16_t    humidity;                   //current hum val
+t_save    tab_data[336];
+uint16_t    nb_save;
+uint8_t     SLEEPON;
+uint16_t    led_color;
+uint8_t     alert;
+uint8_t     pump_status;
+uint16_t    lum_average;
+uint16_t    temp_average;
+int16_t     day_time;
+uint32_t    bat_level;
+
 
 /*Moisture sensor*/
 #define max_ctmu 950
 #define min_ctmu 0
-#define MESURES  10  //nb mesures par jour
+#define MESURES  48  //nb mesures par jour
 
 //_______ADC_MANOUAL_C__________
 void        init_manoual_adc();

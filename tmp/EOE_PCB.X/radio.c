@@ -195,8 +195,9 @@ int32_t	radio_receive(void)
 	int32_t	ret = 0;
 
 	radio_rx_mode();
-	LATBSET = CE_PIN;                               //CE HIGH - Enable reception
-	while((status & 0x40) == 0x00)                  //Wait for RX_PAYLOAD
+	LATBSET = CE_PIN;
+        //CE HIGH - Enable reception
+        while (((status & 0x40) == 0x00))                  //Wait for RX_PAYLOAD
 		radio_nop();
     	LATBCLR = CE_PIN;                               //CE LOW - Disable reception
 	ret = radio_command(R_RX_PAYLOAD, 0x00ll, 8);   //Get Data from RX_PAYLOAD
@@ -218,10 +219,56 @@ void	spi_test(void)                              //Simple Test for SPI - Working
 
  int32_t val = 0;
 
-void		radio_test(void)                        //Simple Test for TX/RX - [2/2]
+#define radio_delay 10000
+#define PING 0x1234
+void		radio_send_values(void)                        //Simple Test for TX/RX - [2/2]
 {
- 	radio_send((int)Temperature, 32);            //send 42 255
-//	val = radio_receive();                          //
-	//display_write_dec(val, 0, 0);                   //
+    int i = 0 ;
 
+    IEC0bits.T1IE = 0; //disable TMR1 interrupt
+    IEC0bits.T2IE = 0;	//disable TMR2 interrupt
+    IEC0bits.RTCCIE = 0;  // disable RTCC interrupts
+
+    
+//    val = radio_receive();
+//    if (val != 0x4321);
+//        return ;
+
+
+//        radio_send(0x1234, 32); //PING RPI
+//        if (PONG)
+//        {
+//            send_unsent_values();
+//        }
+
+
+
+    while (i < save_tab_size)
+    {
+        if (tab_data[i].send == 0)      //if data unsent
+        {
+        radio_send(PING, 32); //PING RPI
+ 	radio_send((uint32_t)(tab_data[i].H_save) , 32);            //send 42 255
+        delay_micro(radio_delay);
+        radio_send((uint32_t)(tab_data[i].Lum_save) , 32);
+        delay_micro(radio_delay);
+        radio_send((uint32_t)(tab_data[i].T_save) , 32);
+        delay_micro(radio_delay);
+        radio_send((uint32_t)(tab_data[i].Lvl_save) , 32);
+        delay_micro(radio_delay);
+          //radio_send(12 , 32);
+        }
+        i++;
+        if (i > 335)
+        {
+            i = 0;
+        }
+////	val = radio_receive();                          //
+//	//display_write_dec(val, 0, 0);                   //
+    }
+     IEC0bits.T1IE = 1; //enable TMR1 interrupt
+     IEC0bits.T2IE = 1;	//enable TMR2 interrupt
+     IEC0bits.RTCCIE = 1; // enable RTCC interrupts
 }
+
+// Ton font d'ecran il est nul :P - adjivas

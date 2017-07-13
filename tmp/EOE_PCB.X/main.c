@@ -80,25 +80,6 @@
 #include "header.h"
 #include "stock_value.h"
 
-/*Global variables*/
-uint8_t     I_can_check_sensors;        //long terme checking sensors
-uint8_t     I_can_display;              //pour afficher 10 sec
-uint8_t     g_mon_sleep = 0;            //global monitor sleeping
-uint16_t    lum_manual;                 //luminosity value
-float       Temperature;
-uint8_t     level = 0;
-int16_t     lum_sleep;                  //luminosity value while sleeping (thresold wake up)
-uint16_t    humidity;                   //current hum val
-t_save      tab_data[336];
-uint16_t    nb_save = 0;
-uint8_t     SLEEPON = 0;
-uint16_t    led_color =  0x0000;
-uint8_t     alert = 0;
-uint16_t    lum_average = 880;
-uint16_t    temp_average = 25;
-int16_t     day_time = 0;
-uint32_t    bat_level = 0;
-
 void    init(void)
 {
     disable_interrupt();                //disable interrupts while initialization
@@ -110,7 +91,7 @@ void    init(void)
     init_rtcc();                        //0k
     init_delay();                       //0k
     init_interrupt();                   //0k
-    init_led();                         // changer timer
+    init_led();                         //0k
 
     init_bargraph();                    //0k
     init_I2C();                         //0k
@@ -125,13 +106,14 @@ void    init(void)
     init_temp();                        //0k
     init_moisture();                    //0k
 
-
     init_pump();
     init_battery();
 
     init_spi();
     init_radio();
     init_watchdog();
+
+    init_save_tab();        // init all send values to 1
 }
 
 void        get_sensors()
@@ -169,33 +151,40 @@ void        display_sensors()
 void    main(void)
 {
     init();
+//    uint8_t test_save = 0;
     
-//    lcd_backlight_inv();                 //SET backlight at startup
-//
-//    I_can_check_sensors = 0;
-//    I_can_display = 1;
+    lcd_backlight_inv();                 //SET backlight at startup
+
+    I_can_check_sensors = 0;
+    I_can_display = 1;
     while(1)
     {
-       radio_test();
-       check_temp();
-//        if (I_can_display)
-//        {
-//            display_sensors();
-//            affichage();
-//            display_update();           //refresh lcd
-//        }
-//        if (I_can_check_sensors)
-//        {
-//            get_sensors();
-//            I_can_check_sensors = 0;
-//        }
-//        if(g_mon_sleep)
-//        {
-//           // LATBbits.LATB0 = 0;     // PUMP is off
-//            bargraph_write(0x00);
-//            lcd_clear();
-//            go_to_sleep();
-//        }
+//        test_save = 0;
+//        while (test_save < 48)
+//       {
+//        get_sensors();
+//        test_save++;
+//       }
+//       radio_test();
+//       delay_micro(1000);
+        if (I_can_display)
+        {
+            display_sensors();
+            affichage();
+            display_update();           //refresh lcd
+        }
+        if (I_can_check_sensors)
+        {
+            get_sensors();
+            I_can_check_sensors = 0;
+        }
+        if(g_mon_sleep)
+        {
+           // LATBbits.LATB0 = 0;     // PUMP is off
+            bargraph_write(0x00);
+            lcd_clear();
+            go_to_sleep();
+        }
         WDTCONSET = 0x0001;	//reset watchdog
 
         /*TEST_ZONE*/
