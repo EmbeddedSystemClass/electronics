@@ -65,6 +65,7 @@ int16_t     day_time;
 uint32_t    bat_level;
 
 
+
 /*Moisture sensor*/
 #define max_ctmu 950
 #define min_ctmu 0
@@ -163,6 +164,8 @@ void        init_watchdog();
 //________pump_c_______________
 void    pump_on_off();
 void    init_pump();
+//_________RADIO_C______________
+void    radio_reception();
 
 extern uint8_t	I_can_check_sensors;
 extern uint8_t  g_mon_sleep;

@@ -19,6 +19,7 @@ typedef struct s_save
     uint32_t    Heure;
     uint32_t    Bat_save;
     uint8_t     send;
+    uint16_t    position;
 }               t_save;
 
 void    save_data();

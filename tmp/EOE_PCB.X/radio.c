@@ -38,15 +38,16 @@ void	radio_check_reg(void)
 
 void	init_radio()
 {
-	radio_write_reg(CONFIG_REG,	0x0B);              //CRC, PWR UP, PRX
+	radio_write_reg(CONFIG_REG,	0x0B);          //CRC, PWR UP, PRX
+        radio_write_reg(EN_AA_REG,	0x3f);          //data pipe 1 to 5 en_aa
 	radio_write_reg(EN_RXADDR_REG,	0x03);          //Data pipe     1 and 0
 	radio_write_reg(SETUP_AW_REG,	0x03);          //Bytes         5
 	radio_write_reg(SETUP_RETR_REG,	0x03);          //Retransmit    3
-	radio_write_reg(RF_CH_REG,	0x01);              //Channel       0
-	radio_write_reg(RF_SETUP_REG,	0x0f);          //-18dBm, -1Mbps //ou 00
-//	radio_write_reg(STATUS_REG,	0x00);              //Status
+	radio_write_reg(RF_CH_REG,	0x01);          //Channel       0
+	radio_write_reg(RF_SETUP_REG,	0x07);          //-18dBm, -1Mbps //ou 00
+//	radio_write_reg(STATUS_REG,	0x00);          //Status
 //	radio_write_reg(OBSERVE_TX_REG,	0x00);          //Status
-//	radio_write_reg(CD_REG,		0x00);              //Status
+//	radio_write_reg(CD_REG,		0x00);          //Status
 	radio_write_reg(RX_ADDR_P0_REG, 0x3232323232);	//Equal to TX_ADDR for enabled auto-ACK
 	radio_write_reg(RX_ADDR_P1_REG, 0x3131313131);  //Receive address data pipe 1
 	radio_write_reg(RX_ADDR_P2_REG, 0xc3);          //
@@ -55,7 +56,7 @@ void	init_radio()
 	radio_write_reg(RX_ADDR_P5_REG, 0xc6);          //
 	radio_write_reg(TX_ADDR_REG,	0x3232323232);  //Transmit address
 	radio_write_reg(RX_PW_P0_REG,	0x20);          //Number of bytes   select 32 bits
-	radio_write_reg(RX_PW_P1_REG,	0x20);          //Number of bytes   2
+	radio_write_reg(RX_PW_P1_REG,	0x20);          //Number of bytes   32
 	radio_write_reg(RX_PW_P2_REG,	0x00);          //
 	radio_write_reg(RX_PW_P3_REG,	0x00);          //
 	radio_write_reg(RX_PW_P4_REG,	0x00);          //
@@ -173,7 +174,7 @@ void    radio_rx_mode()
     radio_write_reg(CONFIG_REG, 0x0b);  //PWR_UP = 1,   PRIM_RX = 1
 }
 
-void radio_ce_pulse(void)
+void    radio_ce_pulse(void)
 {
 	//CE_PIN HIGH (10us pulse)
 	LATBSET = CE_PIN;
@@ -197,6 +198,7 @@ int32_t	radio_receive(void)
 	radio_rx_mode();
 	LATBSET = CE_PIN;
         //CE HIGH - Enable reception
+        delay_micro(10);
         while (((status & 0x40) == 0x00))                  //Wait for RX_PAYLOAD
 		radio_nop();
     	LATBCLR = CE_PIN;                               //CE LOW - Disable reception
@@ -217,10 +219,10 @@ void	spi_test(void)                              //Simple Test for SPI - Working
 	val = radio_read_reg(reg);
 }
 
- int32_t val = 0;
 
 #define radio_delay 10000
 #define PING 0x1234
+
 void		radio_send_values(void)                        //Simple Test for TX/RX - [2/2]
 {
     int i = 0 ;
@@ -228,7 +230,7 @@ void		radio_send_values(void)                        //Simple Test for TX/RX - [
     IEC0bits.T1IE = 0; //disable TMR1 interrupt
     IEC0bits.T2IE = 0;	//disable TMR2 interrupt
     IEC0bits.RTCCIE = 0;  // disable RTCC interrupts
-    
+
 //      radio_send(0x1234, 32);   //PING RPI
 //      val = radio_receive();      //get PONG
 //      if (val != 0x4321);
@@ -242,6 +244,7 @@ void		radio_send_values(void)                        //Simple Test for TX/RX - [
         if (tab_data[i].send == 0)      //if data unsent
         {
             radio_send(PING, 32);       //PING RPI
+            delay_micro(radio_delay);
             radio_send((uint32_t)(tab_data[i].H_save) , 32);
             delay_micro(radio_delay);
             radio_send((uint32_t)(tab_data[i].Lum_save) , 32);
@@ -255,9 +258,27 @@ void		radio_send_values(void)                        //Simple Test for TX/RX - [
         i++;
 /*send_unsent_values()*/
 
-//	val = radio_receive();                          //
-//	display_write_dec(val, 0, 0);                   //
     }
+
+     IEC0bits.T1IE = 1; //enable TMR1 interrupt
+     IEC0bits.T2IE = 1;	//enable TMR2 interrupt
+     IEC0bits.RTCCIE = 1; // enable RTCC interrupts
+}
+
+ extern int32_t val;
+
+void    radio_reception()
+{
+
+    IEC0bits.T1IE = 0; //disable TMR1 interrupt
+    IEC0bits.T2IE = 0;	//disable TMR2 interrupt
+    IEC0bits.RTCCIE = 0;  // disable RTCC interrupts
+
+    val = radio_receive();
+    if (val == -1)
+        display_write_str("Err", 1, 0);
+    else
+        display_write_dec(val, 0, 0);
 
      IEC0bits.T1IE = 1; //enable TMR1 interrupt
      IEC0bits.T2IE = 1;	//enable TMR2 interrupt

@@ -69,10 +69,11 @@ void        init_spi()
 int        spi_transfer(int send)
 {
     SPI1BUF = send;                 // write to shift register to begin transmission
+    TMR3 = 0;
     while(SPI1STATbits.SPIBUSY) // wait for transfer to complete
     {
         T3CONbits.ON = 1;
-        TMR3 = 0;
+       
         if (TMR3 > 10000)
             break;
     }

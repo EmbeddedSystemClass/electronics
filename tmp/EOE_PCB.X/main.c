@@ -80,6 +80,8 @@
 #include "header.h"
 #include "stock_value.h"
 
+ int32_t val = 0;
+
 void    init(void)
 {
     disable_interrupt();                //disable interrupts while initialization
@@ -109,9 +111,9 @@ void    init(void)
 //    init_pump();                      //better dont interferer with the debugger
 //    init_battery();
 
-    init_spi();
+    init_spi();                         //0k
     init_radio();
-    init_watchdog();
+    init_watchdog();                    //0k
 
     init_save_tab();        // init all send values to 1
 }
@@ -157,16 +159,12 @@ void    main(void)
 
     I_can_check_sensors = 0;
     I_can_display = 1;
+    /*test*/
+
+
     while(1)
     {
-//        test_save = 0;
-//        while (test_save < 48)
-//       {
-//        get_sensors();
-//        test_save++;
-//       }
-//       radio_test();
-//       delay_micro(1000);
+
         if (I_can_display)
         {
             display_sensors();
@@ -180,7 +178,7 @@ void    main(void)
         }
         if(g_mon_sleep)
         {
-           // LATBbits.LATB0 = 0;     // PUMP is off
+            LATBbits.LATB0 = 0;     // PUMP is off
             bargraph_write(0x00);
             lcd_clear();
             go_to_sleep();
@@ -191,5 +189,10 @@ void    main(void)
 //    led_alert(BLU_BIT | GRE_BIT | RED_BIT);
 //    bargraph_write(0b01100000000000000011);
 //    pump_on_off();
+//        delay_micro(100000);
+//        display_write_str("                ", 0, 0);
+//        display_write_str("                ", 1, 0);
+//        radio_reception();
+//        display_update();
     }
 }
