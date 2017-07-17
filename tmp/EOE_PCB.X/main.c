@@ -108,8 +108,8 @@ void    init(void)
     init_temp();                        //0k
     init_moisture();                    //0k
 
-//    init_pump();                      //better dont interferer with the debugger
-//    init_battery();
+    init_pump();                      //better dont interferer with the debugger
+    init_battery();
 
     init_spi();                         //0k
     init_radio();                       //0k mais trop tot
@@ -126,7 +126,7 @@ void        get_sensors()
     check_moisture();
     check_temp();
     get_light_manual();
-//    get_battery();
+    get_battery();
     save_data();
     if (day_time == MESURES - 1)        // Valeur test a changer (8) -> (48)
     {
@@ -150,7 +150,7 @@ void        display_sensors()
     get_light_manual();
     display_update();
 }
-extern int64_t g_ret;
+
 void    main(void)
 {
     init();
@@ -164,24 +164,29 @@ void    main(void)
     while(1)
     {
 
-//        if (I_can_display)
-//        {
-//            display_sensors();
-//            affichage();
-//            display_update();           //refresh lcd
-//        }
-//        if (I_can_check_sensors)
-//        {
-//            get_sensors();
-//            I_can_check_sensors = 0;
-//        }
-//        if(g_mon_sleep)
-//        {
-//            LATBbits.LATB0 = 0;     // PUMP is off
-//            bargraph_write(0x00);
-//            lcd_clear();
-//            go_to_sleep();
-//        }
+        if (I_can_display)
+        {
+            display_sensors();
+            affichage();
+            display_update();           //refresh lcd
+        }
+        if (I_can_check_sensors)
+        {
+            get_sensors();
+            I_can_check_sensors = 0;
+        }
+        if (g_ret)
+        {
+            parameter_change();
+            g_ret = 0;
+        }
+        if(g_mon_sleep)
+        {
+            LATBbits.LATB0 = 0;     // PUMP is off
+            bargraph_write(0x00);
+            lcd_clear();
+            go_to_sleep();
+        }
         WDTCONSET = 0x0001;	//reset watchdog
 
 
@@ -200,7 +205,7 @@ void    main(void)
 //     IEC0bits.T1IE = 1; //enable TMR1 interrupt
 //     IEC0bits.T2IE = 1;	//enable TMR2 interrupt
 //     IEC0bits.RTCCIE = 1; // enable RTCC interrupts
-     display_write_dec(g_ret, 0, 0);
-     display_update();
+//     display_write_dec(g_ret, 0, 0);
+//     display_update();
     }
 }

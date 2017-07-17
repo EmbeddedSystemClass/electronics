@@ -63,8 +63,18 @@ uint16_t    lum_average;
 uint16_t    temp_average;
 int16_t     day_time;
 uint32_t    bat_level;
+int32_t     g_ret;
 
-
+extern uint8_t      bat_seuil;
+extern uint16_t     lum_seuil_bas;
+extern uint16_t     lum_seuil_haut;
+extern float        temp_seuil_bas;
+extern float        temp_seuil_haut;
+extern uint8_t      level_seuil;
+extern uint8_t      seuil_pump;
+extern uint8_t      min_bat;
+extern uint8_t       max_bat;
+extern uint8_t frequency;
 
 /*Moisture sensor*/
 #define max_ctmu 950

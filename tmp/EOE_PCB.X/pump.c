@@ -1,6 +1,7 @@
 
 #include "header.h"
 
+uint8_t seuil_pump = 25;
 
 void    init_pump()
 {
@@ -25,11 +26,11 @@ void    init_pump()
 
 void    pump_on()
 {
-//    if(level > 0 || humidity < 25)          // check level eau suffisant
-//    {
+    if(level > 0 || humidity < seuil_pump)          // check level eau suffisant
+    {
     LATBbits.LATB0 = 1; //PUMP is ON
     pump_status = ON;
-//    }
+    }
 }
 
 void    pump_off()

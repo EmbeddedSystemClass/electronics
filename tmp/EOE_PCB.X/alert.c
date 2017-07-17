@@ -7,6 +7,7 @@ uint16_t     lum_seuil_haut     = 950;
 float        temp_seuil_bas     = 20;
 float        temp_seuil_haut    = 29;
 uint8_t      level_seuil        = 1;
+
 /*
  * low bat = rouge
  * reservoir vide = vert
@@ -83,7 +84,7 @@ void check_alerts(void)
         led_alert(GRE_BIT);
         i++;
     }
-//        if (bat_level <= BAT_MIN)
+//        if (bat_level <= bat_seuil)
 //    {
 //        led_alert(RED_BIT);
 //        i++;

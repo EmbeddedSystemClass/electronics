@@ -81,19 +81,16 @@ void    init_radio_interupt()
     IPC0bits.INT0IS = 1;
     IEC0bits.INT0IE = 1;
 }
-int64_t g_ret = 0;
 
 void    __attribute__ ((interrupt(IPL1AUTO), vector(3)))    radio_interrupt(void)
 {
-    uint8_t view_status = 0;
-    uint8_t view_fifo = 0;
-
         LATBCLR = CE_PIN;
-        g_ret = radio_command(R_RX_PAYLOAD, 0x00ll, 2);
+        g_ret = radio_command(R_RX_PAYLOAD, 0x00ll, 4);
         radio_write_reg(STATUS_REG, 0x40);              //Clear Status
         LATBSET = CE_PIN;
         IFS0bits.INT0IF = 0; //clear flag
-        radio_flush_rx();
+        if ((radio_read_reg(FIFO_STATUS_REG) & 0x02))
+            radio_flush_rx();
 }
 
 int64_t	radio_command(int8_t command, int64_t data, int8_t data_len)
@@ -272,6 +269,7 @@ void		radio_send_values(void)                        //Simple Test for TX/RX - [
 {
     int i = 0 ;
 
+    IEC0bits.INT0IE = 0; //disable radio recive interrupt
     IEC0bits.T1IE = 0; //disable TMR1 interrupt
     IEC0bits.T2IE = 0;	//disable TMR2 interrupt
     IEC0bits.RTCCIE = 0;  // disable RTCC interrupts
@@ -290,8 +288,7 @@ void		radio_send_values(void)                        //Simple Test for TX/RX - [
         {
             radio_send(PING, 4);       //PING RPI
             delay_micro(radio_delay);
-            radio_nop();
-         
+            radio_nop();         
             if (status & 0x20)
             {
                 radio_send((uint32_t)(tab_data[i].H_save) , 4);
@@ -326,6 +323,7 @@ void		radio_send_values(void)                        //Simple Test for TX/RX - [
      IEC0bits.T1IE = 1; //enable TMR1 interrupt
      IEC0bits.T2IE = 1;	//enable TMR2 interrupt
      IEC0bits.RTCCIE = 1; // enable RTCC interrupts
+     IEC0bits.INT0IE = 1; //enable radio iterrupt
 }
 
 
@@ -341,4 +339,5 @@ void    radio_reception()
      IEC0bits.T1IE = 1; //enable TMR1 interrupt
      IEC0bits.T2IE = 1;	//enable TMR2 interrupt
      IEC0bits.RTCCIE = 1; // enable RTCC interrupts
+
 }

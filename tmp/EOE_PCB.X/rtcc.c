@@ -43,12 +43,14 @@ void        init_rtcc(void)
     system_lock();
 }
 
+uint8_t frequency = 1;
+
 void    __ISR(_RTCC_VECTOR, IPL6AUTO)           Rtcc_Interrupt(void)
 {
     IFS0bits.RTCCIF = 0;            //Clear flag
     static int  alarm_count = 0;    //alarm time multiplier
     alarm_count++;
-    if (alarm_count == 1)
+    if (alarm_count >= frequency)
     {
         I_can_check_sensors = 1;
         alarm_count = 0;

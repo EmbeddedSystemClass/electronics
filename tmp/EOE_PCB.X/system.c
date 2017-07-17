@@ -74,3 +74,75 @@ void        init_sleep()
     CFGCONbits.PMDLOCK = 1;       //Lock PMD
     system_lock();
 }
+//
+//rappel utilisation
+//
+//    uint8_t      bat_seuil          = 15;
+//    uint8_t      level_seuil        = 1;
+//    uint8_t      seuil_pump = 25;
+//    uint16_t     lum_seuil_bas      = 600;
+//    uint16_t     lum_seuil_haut     = 950;
+//    uint16_t     temp_seuil_bas     = 20;
+//    uint16_t     temp_seuil_haut    = 29;
+//    uint8_t       min_bat;
+//    uint8_t       max_bat;
+
+
+void    parameter_change()
+{
+    uint8_t commande = 0;
+    uint8_t variable = 0;
+
+    variable = (uint8_t)((g_ret >> 16) & 0x00ff);
+    if ((commande = (uint8_t)(g_ret >> 24 )) == 42) // alert config
+    {
+        if (variable == 0) // alerte bat_seuil
+        {
+            bat_seuil = (uint8_t)g_ret;
+        }
+         if (variable == 1) // alerte level_seuil
+        {
+            level_seuil = (uint8_t)g_ret;
+        }
+         if (variable == 2) // alerte seuil_pump
+        {
+            seuil_pump = (uint8_t)g_ret;
+        }
+         if (variable == 3) // alerte lum_seuil_bas
+        {
+            lum_seuil_bas = (uint16_t)g_ret;
+        }
+        if (variable == 4) // alerte lum_seuil_haut
+        {
+            lum_seuil_haut = (uint16_t)g_ret;
+        }
+        if (variable == 5) // alerte temp_seuil_bas
+        {
+            temp_seuil_bas = (uint16_t)g_ret;
+        }
+        if (variable == 6) // alerte temp_seuil_haut
+        {
+            temp_seuil_haut = (uint16_t)g_ret;
+        }
+        if (variable == 7) // alerte min_bat
+        {
+            min_bat = (uint8_t)g_ret;
+        }
+        if (variable == 8) // alerte max_bat
+        {
+            max_bat = (uint8_t)g_ret;
+        }
+    }
+    else if (commande == 69) // rtcc time config
+    {
+        if (variable == 1)
+            RTCALRMbits.AMASK = 0b01;        // Every 1sec // Valeur Test
+        if (variable == 2)
+            RTCALRMbits.AMASK = 0b10;        // Every 10min // Valeur Test
+        if (variable == 3)
+        {
+            if ((uint8_t)g_ret != 0)
+                frequency = (uint8_t)g_ret;      //frequence de meusure
+        }
+    }
+}
