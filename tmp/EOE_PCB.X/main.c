@@ -112,8 +112,8 @@ void    init(void)
 //    init_battery();
 
     init_spi();                         //0k
-    init_radio();
- //   init_radio_intterupt();
+    init_radio();                       //0k mais trop tot
+    init_radio_interupt();     
     init_watchdog();                    //0k
 
     init_save_tab();        // init all send values to 1
@@ -150,7 +150,7 @@ void        display_sensors()
     get_light_manual();
     display_update();
 }
-
+extern int64_t g_ret;
 void    main(void)
 {
     init();
@@ -164,25 +164,26 @@ void    main(void)
     while(1)
     {
 
-        if (I_can_display)
-        {
-            display_sensors();
-            affichage();
-            display_update();           //refresh lcd
-        }
-        if (I_can_check_sensors)
-        {
-            get_sensors();
-            I_can_check_sensors = 0;
-        }
-        if(g_mon_sleep)
-        {
-            LATBbits.LATB0 = 0;     // PUMP is off
-            bargraph_write(0x00);
-            lcd_clear();
-            go_to_sleep();
-        }
+//        if (I_can_display)
+//        {
+//            display_sensors();
+//            affichage();
+//            display_update();           //refresh lcd
+//        }
+//        if (I_can_check_sensors)
+//        {
+//            get_sensors();
+//            I_can_check_sensors = 0;
+//        }
+//        if(g_mon_sleep)
+//        {
+//            LATBbits.LATB0 = 0;     // PUMP is off
+//            bargraph_write(0x00);
+//            lcd_clear();
+//            go_to_sleep();
+//        }
         WDTCONSET = 0x0001;	//reset watchdog
+
 
         /*TEST_ZONE*/
 //    led_alert(BLU_BIT | GRE_BIT | RED_BIT);
@@ -199,7 +200,7 @@ void    main(void)
 //     IEC0bits.T1IE = 1; //enable TMR1 interrupt
 //     IEC0bits.T2IE = 1;	//enable TMR2 interrupt
 //     IEC0bits.RTCCIE = 1; // enable RTCC interrupts
-//     display_write_dec(val, 1, 2);
-//     display_update();
+     display_write_dec(g_ret, 0, 0);
+     display_update();
     }
 }

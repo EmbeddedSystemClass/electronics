@@ -39,7 +39,7 @@ void	radio_check_reg(void)
 
 void	init_radio()
 {
-	radio_write_reg(CONFIG_REG,	0x0B);          //CRC, PWR UP, PRX
+	radio_write_reg(CONFIG_REG,	0x3B);          //CRC, PWR UP, PRX
         radio_write_reg(EN_AA_REG,	0x3f);          //data pipe 1 to 5 en_aa
 	radio_write_reg(EN_RXADDR_REG,	0x03);          //Data pipe     1 and 0
 	radio_write_reg(SETUP_AW_REG,	0x03);          //Bytes         5
@@ -72,7 +72,7 @@ void	init_radio()
 //  radio_check_reg();                              //Verify all registers
 }
 
-void    init_radio_intterupt()
+void    init_radio_interupt()
 {
     TRISBbits.TRISB7 = 1;           //Set IRQ input
 
@@ -84,12 +84,16 @@ void    init_radio_intterupt()
 int64_t g_ret = 0;
 
 void    __attribute__ ((interrupt(IPL1AUTO), vector(3)))    radio_interrupt(void)
-{   
-        IFS0bits.INT0IF = 0; //clear flag
+{
+    uint8_t view_status = 0;
+    uint8_t view_fifo = 0;
+
         LATBCLR = CE_PIN;
         g_ret = radio_command(R_RX_PAYLOAD, 0x00ll, 2);
         radio_write_reg(STATUS_REG, 0x40);              //Clear Status
         LATBSET = CE_PIN;
+        IFS0bits.INT0IF = 0; //clear flag
+        radio_flush_rx();
 }
 
 int64_t	radio_command(int8_t command, int64_t data, int8_t data_len)
@@ -192,7 +196,7 @@ void    radio_tx_mode()
 
 void    radio_rx_mode()
 {
-        radio_write_reg(CONFIG_REG, 0x0b);      //PWR_UP = 1,   PRIM_RX = 1
+        radio_write_reg(CONFIG_REG, 0x3b);      //PWR_UP = 1,   PRIM_RX = 1
 }
 
 void    radio_ce_pulse(void)
@@ -277,6 +281,7 @@ void		radio_send_values(void)                        //Simple Test for TX/RX - [
 //        {
 //            send_unsent_values();
 //        }
+	LATBCLR = CE_PIN;                               //CE LOW - Disable reception
 
 /*send_unsent_values()*/
     while (i < save_tab_size)
@@ -289,8 +294,6 @@ void		radio_send_values(void)                        //Simple Test for TX/RX - [
          
             if (status & 0x20)
             {
-                
-                
                 radio_send((uint32_t)(tab_data[i].H_save) , 4);
                 delay_micro(radio_delay);
                 if (radio_ack() == -1)
@@ -318,6 +321,8 @@ void		radio_send_values(void)                        //Simple Test for TX/RX - [
 /*send_unsent_values()*/
 
     }
+	radio_rx_mode();
+	LATBSET = CE_PIN;        //CE HIGH - Enable reception
      IEC0bits.T1IE = 1; //enable TMR1 interrupt
      IEC0bits.T2IE = 1;	//enable TMR2 interrupt
      IEC0bits.RTCCIE = 1; // enable RTCC interrupts

@@ -62,7 +62,7 @@ void        init_spi()
     TRISBbits.TRISB6 = 0;       // Output   for RB6
 
     LATBbits.LATB15 = 1;        // CSN kept hight for active low || chip select enable
-    LATBbits.LATB6 = 0;         // CE Low
+    LATBbits.LATB6 = 1;         // CE Low
 
 }
 
