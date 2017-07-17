@@ -1,10 +1,12 @@
 #ifndef NRF24L01_H      /* Guard against multiple inclusion */
 #define NRF24L01_H
 
-#define CE_PIN		0x0040	//RB6
-#define IRQ_PIN		0x0002	//RB1
-
-#define CSN_PIN 0x8000
+#define CE_PIN		0x0040	//RB6 Chip Enable Activates RX or TX mode
+#define IRQ_PIN		0x0002	//RB1 Maskable interrupt pin. Active Low
+#define CSN_PIN     0x8000  //SPI Chip Select
+//SCK SPI Clock
+//MOSI SPI Slave Data Input
+//MISO SPI Slave Data Output with tri-state option
 
 /*              RADIO COMMANDS                */
 #define R_REGISTER(addr)        (0b00000000 | addr)     //0b000A AAAA (A = address) (1 to 5, LSByte first)
