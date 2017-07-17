@@ -61,14 +61,14 @@ void        init_spi()
     TRISBbits.TRISB15 = 0;      // Output   for RB15
     TRISBbits.TRISB6 = 0;       // Output   for RB6
 
-    LATBbits.LATB15 = 1;        // CSN kept hight for active low
+    LATBbits.LATB15 = 1;        // CSN kept hight for active low || chip select enable
     LATBbits.LATB6 = 0;         // CE Low
 
 }
 
 int        spi_transfer(int send)
 {
-    SPI1BUF = send;                 // write to shift register to begin transmission
+    SPI1BUF = send;                 // write to register to begin transmission
     TMR3 = 0;
     while(SPI1STATbits.SPIBUSY) // wait for transfer to complete
     {

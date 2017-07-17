@@ -113,6 +113,7 @@ void    init(void)
 
     init_spi();                         //0k
     init_radio();
+ //   init_radio_intterupt();
     init_watchdog();                    //0k
 
     init_save_tab();        // init all send values to 1
@@ -154,13 +155,11 @@ void    main(void)
 {
     init();
 //    uint8_t test_save = 0;
-    
+//
     lcd_backlight_inv();                 //SET backlight at startup
 
     I_can_check_sensors = 0;
     I_can_display = 1;
-    /*test*/
-
 
     while(1)
     {
@@ -191,8 +190,16 @@ void    main(void)
 //    pump_on_off();
 //        delay_micro(100000);
 //        display_write_str("                ", 0, 0);
-//        display_write_str("                ", 1, 0);
-//        radio_reception();
-//        display_update();
+////        display_write_str("                ", 1, 0);
+//    IEC0bits.T1IE = 0; //disable TMR1 interrupt
+//    IEC0bits.T2IE = 0;	//disable TMR2 interrupt
+//    IEC0bits.RTCCIE = 0;  // disable RTCC interrupts
+//
+//    val = radio_receive();
+//     IEC0bits.T1IE = 1; //enable TMR1 interrupt
+//     IEC0bits.T2IE = 1;	//enable TMR2 interrupt
+//     IEC0bits.RTCCIE = 1; // enable RTCC interrupts
+//     display_write_dec(val, 1, 2);
+//     display_update();
     }
 }

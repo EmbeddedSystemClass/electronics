@@ -3,8 +3,9 @@
 uint8_t	status = 0;     //hold last status register (updated each time sending command)
 int8_t rx_buffer[32];	//Buffer holding data to be send or get with a command
 int8_t tx_buffer[32];	//Buffer holding data to be send or get with a command
-
 int64_t test = 0;
+
+extern int32_t val;
 
 void	radio_check_reg(void)
 {
@@ -43,7 +44,7 @@ void	init_radio()
 	radio_write_reg(EN_RXADDR_REG,	0x03);          //Data pipe     1 and 0
 	radio_write_reg(SETUP_AW_REG,	0x03);          //Bytes         5
 	radio_write_reg(SETUP_RETR_REG,	0x03);          //Retransmit    3
-	radio_write_reg(RF_CH_REG,	0x01);          //Channel       0
+	radio_write_reg(RF_CH_REG,	0x01);          //Channel       1
 	radio_write_reg(RF_SETUP_REG,	0x07);          //-18dBm, -1Mbps //ou 00
 //	radio_write_reg(STATUS_REG,	0x00);          //Status
 //	radio_write_reg(OBSERVE_TX_REG,	0x00);          //Status
@@ -55,8 +56,8 @@ void	init_radio()
 	radio_write_reg(RX_ADDR_P4_REG, 0xc5);          //
 	radio_write_reg(RX_ADDR_P5_REG, 0xc6);          //
 	radio_write_reg(TX_ADDR_REG,	0x3232323232);  //Transmit address
-	radio_write_reg(RX_PW_P0_REG,	0x20);          //Number of bytes   select 32 bits
-	radio_write_reg(RX_PW_P1_REG,	0x20);          //Number of bytes   32
+	radio_write_reg(RX_PW_P0_REG,	0x4);          //Number of bytes   select 32 bits
+	radio_write_reg(RX_PW_P1_REG,	0x4);          //Number of bytes   2
 	radio_write_reg(RX_PW_P2_REG,	0x00);          //
 	radio_write_reg(RX_PW_P3_REG,	0x00);          //
 	radio_write_reg(RX_PW_P4_REG,	0x00);          //
@@ -69,6 +70,26 @@ void	init_radio()
 	radio_flush_rx();                               //Flush Rx pipe
 
 //  radio_check_reg();                              //Verify all registers
+}
+
+void    init_radio_intterupt()
+{
+    TRISBbits.TRISB7 = 1;           //Set IRQ input
+
+    IFS0bits.INT0IF = 0;
+    IPC0bits.INT0IP = 1;
+    IPC0bits.INT0IS = 1;
+    IEC0bits.INT0IE = 1;
+}
+int64_t g_ret = 0;
+
+void    __attribute__ ((interrupt(IPL1AUTO), vector(3)))    radio_interrupt(void)
+{   
+        IFS0bits.INT0IF = 0; //clear flag
+        LATBCLR = CE_PIN;
+        g_ret = radio_command(R_RX_PAYLOAD, 0x00ll, 2);
+        radio_write_reg(STATUS_REG, 0x40);              //Clear Status
+        LATBSET = CE_PIN;
 }
 
 int64_t	radio_command(int8_t command, int64_t data, int8_t data_len)
@@ -171,7 +192,7 @@ void    radio_tx_mode()
 
 void    radio_rx_mode()
 {
-    radio_write_reg(CONFIG_REG, 0x0b);  //PWR_UP = 1,   PRIM_RX = 1
+        radio_write_reg(CONFIG_REG, 0x0b);      //PWR_UP = 1,   PRIM_RX = 1
 }
 
 void    radio_ce_pulse(void)
@@ -196,13 +217,18 @@ int32_t	radio_receive(void)
 	int32_t	ret = 0;
 
 	radio_rx_mode();
-	LATBSET = CE_PIN;
-        //CE HIGH - Enable reception
+	LATBSET = CE_PIN;        //CE HIGH - Enable reception
         delay_micro(10);
-        while (((status & 0x40) == 0x00))                  //Wait for RX_PAYLOAD
-		radio_nop();
-    	LATBCLR = CE_PIN;                               //CE LOW - Disable reception
-	ret = radio_command(R_RX_PAYLOAD, 0x00ll, 8);   //Get Data from RX_PAYLOAD
+        TMR3 = 0;
+        T3CONbits.ON = 1;
+        while (((status & 0x40) == 0x00)) //Wait for RX_PAYLOAD
+        {
+            if (TMR3 > 1000)
+                break ;
+            radio_nop();
+        }
+	LATBCLR = CE_PIN;                               //CE LOW - Disable reception
+	ret = radio_command(R_RX_PAYLOAD, 0x00ll, 4);   //Get Data from RX_PAYLOAD
 	radio_write_reg(STATUS_REG, 0x40);              //Clear Status
 	return(ret);
 }
@@ -222,6 +248,21 @@ void	spi_test(void)                              //Simple Test for SPI - Working
 
 #define radio_delay 10000
 #define PING 0x1234
+#define PONG 0x4321
+
+int8_t radio_ack()
+{
+    TMR3 = 0;
+    T3CONbits.ON = 1;
+    while ((status & 0x20) == 0 && TMR3 < 1000);
+        radio_nop();
+    if ((status & 0x20) != 0)
+    {
+        radio_write_reg(STATUS_REG, 0x20);      //Clear TX_DS
+        return (0);
+    }
+    return (-1);
+}
 
 void		radio_send_values(void)                        //Simple Test for TX/RX - [2/2]
 {
@@ -230,7 +271,6 @@ void		radio_send_values(void)                        //Simple Test for TX/RX - [
     IEC0bits.T1IE = 0; //disable TMR1 interrupt
     IEC0bits.T2IE = 0;	//disable TMR2 interrupt
     IEC0bits.RTCCIE = 0;  // disable RTCC interrupts
-
 //      radio_send(0x1234, 32);   //PING RPI
 //      val = radio_receive();      //get PONG
 //      if (val != 0x4321);
@@ -243,42 +283,55 @@ void		radio_send_values(void)                        //Simple Test for TX/RX - [
     {
         if (tab_data[i].send == 0)      //if data unsent
         {
-            radio_send(PING, 32);       //PING RPI
+            radio_send(PING, 4);       //PING RPI
             delay_micro(radio_delay);
-            radio_send((uint32_t)(tab_data[i].H_save) , 32);
-            delay_micro(radio_delay);
-            radio_send((uint32_t)(tab_data[i].Lum_save) , 32);
-            delay_micro(radio_delay);
-            radio_send((uint32_t)(tab_data[i].T_save) , 32);
-            delay_micro(radio_delay);
-            radio_send((uint32_t)(tab_data[i].Lvl_save) , 32);
-            delay_micro(radio_delay);
-            tab_data[i].send = 1;      //mark data as sent.
+            radio_nop();
+         
+            if (status & 0x20)
+            {
+                
+                
+                radio_send((uint32_t)(tab_data[i].H_save) , 4);
+                delay_micro(radio_delay);
+                if (radio_ack() == -1)
+                    break;
+                
+                radio_send((uint32_t)(tab_data[i].Lum_save) , 4);
+                delay_micro(radio_delay);
+                if (radio_ack() == -1)
+                    break;
+                
+                radio_send((uint32_t)(tab_data[i].T_save) , 4);
+                delay_micro(radio_delay);
+                if (radio_ack() == -1)
+                    break;
+                
+                radio_send((uint32_t)(tab_data[i].Lvl_save) , 4);
+                delay_micro(radio_delay);
+                if (radio_ack() == -1)
+                    break;
+                tab_data[i].send = 1;      //mark data as sent.
+                radio_write_reg(STATUS_REG, 0x20);      //Clear TX_DS
+            }
         }
         i++;
 /*send_unsent_values()*/
 
     }
-
      IEC0bits.T1IE = 1; //enable TMR1 interrupt
      IEC0bits.T2IE = 1;	//enable TMR2 interrupt
      IEC0bits.RTCCIE = 1; // enable RTCC interrupts
 }
 
- extern int32_t val;
+
 
 void    radio_reception()
 {
-
     IEC0bits.T1IE = 0; //disable TMR1 interrupt
     IEC0bits.T2IE = 0;	//disable TMR2 interrupt
     IEC0bits.RTCCIE = 0;  // disable RTCC interrupts
 
     val = radio_receive();
-    if (val == -1)
-        display_write_str("Err", 1, 0);
-    else
-        display_write_dec(val, 0, 0);
 
      IEC0bits.T1IE = 1; //enable TMR1 interrupt
      IEC0bits.T2IE = 1;	//enable TMR2 interrupt
