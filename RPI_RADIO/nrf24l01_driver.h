@@ -69,15 +69,18 @@ typedef enum e_radio_reg
 }t_radio_reg;
 
 /***FUNCTHIONS***/
-void    clr_buffer(void);
-void    radio_ce_pulse();
-void    radio_tx_mode();
-void    radio_rx_mode();
-void	radio_nop();
+void		clr_buffer(void);
+void		radio_ce_pulse();
+void		radio_tx_mode();
+void		radio_rx_mode();
+void		radio_nop();
 
-unsigned char   *radio_read_reg(unsigned char reg, unsigned int size);
-void    radio_write_reg(unsigned char reg, unsigned long long data, unsigned int size);
-void    radio_send(unsigned char *payload, unsigned int size);
-unsigned char   *radio_recieve(unsigned int size);
+void		radio_init(void);
+void		radio_purge(void);
+void		print_registers(void);
+unsigned char	*radio_read_reg(unsigned char reg, unsigned int size);
+void		radio_write_reg(unsigned char reg, unsigned long long data, unsigned int size);
+void		radio_send(unsigned char *payload, unsigned int size);
+unsigned char	*radio_recieve(unsigned int size);
 
 #endif

@@ -12,6 +12,11 @@ unsigned char buffer[32] = {0,0,0,0,0,0,0,0,\
 			    0,0,0,0,0,0,0,0,\
 			    0,0,0,0,0,0,0,0};
 
+unsigned char rx_buffer[32] = {0,0,0,0,0,0,0,0,\
+			    0,0,0,0,0,0,0,0,\
+			    0,0,0,0,0,0,0,0,\
+			    0,0,0,0,0,0,0,0};
+
 void	clr_buffer(void)
 {
 	memset(buffer, '\0', 32);
@@ -91,7 +96,7 @@ void	radio_ce_pulse()
 
 void	radio_tx_mode()
 {
-	radio_write_reg(CONFIG_REG, 0x0c, 1);
+	radio_write_reg(CONFIG_REG, 0x0a, 1);
 }
 
 void	radio_rx_mode()
@@ -101,37 +106,79 @@ void	radio_rx_mode()
 
 void	radio_send(unsigned char *payload, unsigned int size)
 {
-	unsigned char	tmp_reg[1];
+	unsigned char	command[1];
 
-	*tmp_reg = (unsigned char)W_TX_PAYLOAD;
-	//memcpy(tmp_reg, &W_TX_PAYLOAD, 1);	//cpy data in buffer
+	*command = (unsigned char)W_TX_PAYLOAD;
+
+	printf("TX mode\n");
 	radio_tx_mode();
-	//ra
-	SpiWriteAndRead(0, tmp_reg, 1);		//send write payload command
-	SpiWriteAndRead(0, buffer, size);	//write payload in pipe
+
+	printf("CLR CSN\n");
+	gpio_write(csn_gpio, D_LOW);	//slave listening
+
+	printf("SPI send command = %02x\n", *command);
+	SpiWriteAndRead(0, command, 1);		//send write payload command
+	printf("SPI send data = %02x\n", *payload);
+	SpiWriteAndRead(0, payload, size);	//write payload in pipe
+
+	printf("SET CSN\n");
+	gpio_write(csn_gpio, D_HIGH);	//slave listening
+
+	printf("CE pulse\n");
 	radio_ce_pulse();			//send payload
+
+	printf("CLR STATUS\n");
 	radio_write_reg(STATUS_REG, 0x70, 1);	//clear status
 }
 
-//la flemme, a finir.
 unsigned char	*radio_recieve(unsigned int size)
 {
-	char	status[1] = {0};
+	unsigned char	*status;
+	unsigned char	command[1] = {0};
 
-	clr_buffer();
+	status = buffer;
+	
+//	printf("RX mode.\n");
 	radio_rx_mode();
+
+	//Command flush rx
+	*command = (unsigned char)FLUSH_RX;
+	gpio_write(csn_gpio, D_LOW);
+//	printf("FLush RX FIFO\n");
+	SpiWriteAndRead(0, command, 1);
+	gpio_write(csn_gpio, D_HIGH);
+
+//	printf("SET CE\n");
 	gpio_write(ce_gpio, D_HIGH);
+
+//	printf("10 us sleep\n");
 	usleep(10);
-	do while ((status & 0x40) == 0)
+
+	do	//wait for data in rx buffer
 	{
-		status = radio_read_reg(STATUS_REG, 1);
+		clr_buffer();
+//		printf("STATUS = 0x%02x\n", *radio_read_reg(STATUS_REG, 1));
+		radio_read_reg(STATUS_REG, 1);
+		usleep(10);
 	}
+	while ((status[0] & (0x40)) == 0);
 
-
+//	printf("Got data!\n");
+//	printf("CLR CE\n");
 	gpio_write(ce_gpio, D_LOW);
 
-
-	return(buffer);
+	//Command read payload
+	*command = (unsigned char)R_RX_PAYLOAD;
+	gpio_write(csn_gpio, D_LOW);
+//	printf("SPI send command = %02x\n", *command);
+	SpiWriteAndRead(0, command, 1);		//send write payload command
+//	printf("SPI send data = %02x\n", *rx_buffer);
+	SpiWriteAndRead(0, rx_buffer, size);	//write payload in pipe
+	gpio_write(csn_gpio, D_HIGH);
+	
+//	printf("CLR STATUS\n");
+	radio_write_reg(STATUS_REG, 0x70, 1);	//clear status
+	return(rx_buffer);
 }
 
 void	print_registers(void)
@@ -146,7 +193,13 @@ void	print_registers(void)
 	printf("STATUS		= 0x%02x\n", *radio_read_reg(STATUS_REG, 1));
 	printf("OBSERVE_TX	= 0x%02x\n", *radio_read_reg(OBSERVE_TX_REG, 1));
 	printf("CD		= 0x%02x\n", *radio_read_reg(CD_REG, 1));
-	printf("RX_ADDR_P0	= 0x%02x\n", *radio_read_reg(RX_ADDR_P0_REG, 1));
+
+	printf("RX_ADDR_P0	= 0x%02x", *radio_read_reg(RX_ADDR_P0_REG, 5));
+	printf("%02x", *(radio_read_reg(RX_ADDR_P0_REG, 5) + 1));
+	printf("%02x", *(radio_read_reg(RX_ADDR_P0_REG, 5) + 2));
+	printf("%02x", *(radio_read_reg(RX_ADDR_P0_REG, 5) + 3));
+	printf("%02x\n", *(radio_read_reg(RX_ADDR_P0_REG, 5) + 4));
+
 	printf("RX_ADDR_P1	= 0x%02x\n", *radio_read_reg(RX_ADDR_P1_REG, 1));
 	printf("RX_ADDR_P2	= 0x%02x\n", *radio_read_reg(RX_ADDR_P2_REG, 1));
 	printf("RX_ADDR_P3	= 0x%02x\n", *radio_read_reg(RX_ADDR_P3_REG, 1));
@@ -164,56 +217,3 @@ void	print_registers(void)
 	printf("FEATURE		= 0x%02x\n", *radio_read_reg(FEATURE_REG, 1));
 }
 
-int main(void)
-{
-
-	radio_init();
-	print_registers();
-	radio_write_reg(EN_AA_REG, 0x3f, 1);
-	printf("~~~~~~~~~~~~~~~~~\n");
-	print_registers();
-	radio_purge();
-
-
-	/*
-	int status = 0;
-
-	unsigned char config[1] = {R_REGISTER(CONFIG_REG)};
-	gpio_write(csn_gpio, D_LOW);
-	status = SpiWriteAndRead(0, config, 1);		//command
-	status = SpiWriteAndRead(0, config, 1);		//command
-	gpio_write(csn_gpio, D_HIGH);
-	printf("status = %d\n", status);
-	printf("reg = 0x%x\n", *config);
-
-	unsigned char en_aa[1] = {R_REGISTER(EN_AA_REG)};
-	gpio_write(csn_gpio, D_LOW);
-	status = SpiWriteAndRead(0, en_aa, 1);		//command
-	status = SpiWriteAndRead(0, en_aa, 1);		//command
-	gpio_write(csn_gpio, D_HIGH);
-	printf("status = %d\n", status);
-	printf("reg = 0x%x\n", *en_aa);
-
-	unsigned char rf_setup[1] = {R_REGISTER(EN_RXADDR_REG)};
-	gpio_write(csn_gpio, D_LOW);
-	status = SpiWriteAndRead(0, rf_setup, 1);		//command
-	status = SpiWriteAndRead(0, rf_setup, 1);		//command
-	gpio_write(csn_gpio, D_HIGH);
-	printf("status = %d\n", status);
-	printf("reg = 0x%x\n", *rf_setup);
-	*/
-
-	/*
-	printf("CONFIG = %d\n", radio_read_reg(CONFIG_REG));
-	printf("EN_AA  = %d\n", radio_read_reg(EN_AA_REG));
-	*/
-
-	return(0);
-}
-
-
-unsigned long long fillon(void)
-{
-	unsigned long long the_million = 0xffffffffffffffff;
-	return(the_million);
-}
