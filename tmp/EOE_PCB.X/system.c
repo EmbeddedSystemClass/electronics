@@ -126,11 +126,11 @@ void    parameter_change()
         }
         if (variable == 7) // alerte min_bat
         {
-            min_bat = (uint8_t)g_ret;
+            min_bat = (uint16_t)g_ret;
         }
         if (variable == 8) // alerte max_bat
         {
-            max_bat = (uint8_t)g_ret;
+            max_bat = (uint16_t)g_ret;
         }
     }
     else if (commande == 69) // rtcc time config
@@ -145,4 +145,55 @@ void    parameter_change()
                 frequency = (uint8_t)g_ret;      //frequence de meusure
         }
     }
+//    else if (commande == 100) //cheack alert config //no ack recieve
+//    {
+//        IEC0bits.INT0IE = 0; //disable radio recive interrupt
+//        IEC0bits.T1IE = 0; //disable TMR1 interrupt
+//        IEC0bits.T2IE = 0;	//disable TMR2 interrupt
+//        IEC0bits.RTCCIE = 0;  // disable RTCC interrupts
+//        LATBCLR = CE_PIN;                               //CE LOW - Disable reception
+//        radio_nop();
+//        radio_send((bat_seuil) , 4);
+//        delay_micro(radio_delay);
+//        if (radio_ack() == -1)
+//            return;
+//        radio_send((level_seuil) , 4);
+//        delay_micro(radio_delay);
+//        if (radio_ack() == -1)
+//            return;
+//        radio_send((seuil_pump) , 4);
+//        delay_micro(radio_delay);
+//        if (radio_ack() == -1)
+//            return;
+//        radio_send((lum_seuil_bas) , 4);
+//        delay_micro(radio_delay);
+//        if (radio_ack() == -1)
+//            return;
+//        radio_send(lum_seuil_haut , 4);
+//        delay_micro(radio_delay);
+//        if (radio_ack() == -1)
+//            return;
+//        radio_send(temp_seuil_bas , 4);
+//        delay_micro(radio_delay);
+//        if (radio_ack() == -1)
+//            return;
+//        radio_send(temp_seuil_haut , 4);
+//        delay_micro(radio_delay);
+//        if (radio_ack() == -1)
+//            return;
+//        radio_send(min_bat , 4);
+//        delay_micro(radio_delay);
+//        if (radio_ack() == -1)
+//            return;
+//        radio_send(max_bat, 4);
+//        delay_micro(radio_delay);
+//        if (radio_ack() == -1)
+//            return;
+//        radio_rx_mode();
+//        LATBSET = CE_PIN;        //CE HIGH - Enable reception
+//        IEC0bits.T1IE = 1; //enable TMR1 interrupt
+//        IEC0bits.T2IE = 1;	//enable TMR2 interrupt
+//        IEC0bits.RTCCIE = 1; // enable RTCC interrupts
+//        IEC0bits.INT0IE = 1; //enable radio iterrupt
+//    }
 }

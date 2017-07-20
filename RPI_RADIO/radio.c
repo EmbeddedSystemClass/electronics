@@ -3,6 +3,8 @@
 #include "spi_driver.h"
 #include "nrf24l01_driver.h"
 
+#define payload_size 24
+
 /*	REGISTERS CONFIG
 config		0x3b
 en_aa		0x3f
@@ -31,6 +33,7 @@ fifo_status	0x11
 dynpd		0x00
 feature		0x00
 */
+
 void	radio_config(void)
 {
         radio_write_reg(CONFIG_REG,	0x0b, 1);
@@ -39,7 +42,7 @@ void	radio_config(void)
         radio_write_reg(SETUP_AW_REG,	0x03, 1);
         radio_write_reg(SETUP_RETR_REG,	0x03, 1);
         radio_write_reg(RF_CH_REG,	0x01, 1);
-        radio_write_reg(RF_SETUP_REG,	0x07, 1);
+        radio_write_reg(RF_SETUP_REG,	0x0f, 1);
         radio_write_reg(STATUS_REG,	0x70, 1);
         radio_write_reg(OBSERVE_TX_REG,	0x00, 1);
         radio_write_reg(CD_REG,		0x00, 1);
@@ -50,8 +53,8 @@ void	radio_config(void)
         radio_write_reg(RX_ADDR_P4_REG,	0xc5, 1);
         radio_write_reg(RX_ADDR_P5_REG,	0xc6, 1);
         radio_write_reg(TX_ADDR_REG,	0x3131313131, 5);
-        radio_write_reg(RX_PW_P0_REG,	0x04, 1);
-        radio_write_reg(RX_PW_P1_REG,	0x04, 1);
+        radio_write_reg(RX_PW_P0_REG,	payload_size, 1);
+        radio_write_reg(RX_PW_P1_REG,	payload_size, 1);
         radio_write_reg(RX_PW_P2_REG,	0x00, 1);
         radio_write_reg(RX_PW_P3_REG,	0x00, 1);
         radio_write_reg(RX_PW_P4_REG,	0x00, 1);
@@ -63,25 +66,22 @@ void	radio_config(void)
 
 int main(void)
 {
-	unsigned char	buff[4] = {66,67,68,69};
+	unsigned char	pong[4] = {0x41,0x43,0,0};
 	unsigned char	*rx_buff;
-	unsigned int	val = 0;
+	unsigned int	time = 0;
 
         radio_init();		//initialize gpio & spi
 	radio_config();		//configure registers
-        printf("~~~~~~~~~~~~~~~~~\n");
         print_registers();	//print config
+        printf("~~~~~~~~~~~~~~~~~\n");
 
 /*	RECEPTION	*/
 	
 	while (1)
 	{
-		rx_buff = radio_recieve(4);
-		val = *(rx_buff + 0) + (*(rx_buff + 1) << 8);
-		if (val == 4660)
-			write(1, "\n", 1);
-		printf("recieved value = %d\n", val);
-		usleep(1000);
+		rx_buff = radio_recieve(payload_size);
+		time = *(rx_buff + 0) + (*(rx_buff + 1) << 8) + (*(rx_buff + 2) << 16) + (*(rx_buff + 3) << 24);
+	printf("time = %u\n", time);
 	}
 
 

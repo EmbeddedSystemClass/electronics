@@ -27,7 +27,6 @@ void init(void);
 
 #include    "bargraph.h"
 #include    "gpio_exp.h"
-#include    "I2C_soft.h"
 #include    "lcd.h"
 #include    "led.h"
 #include    "level.h"
@@ -38,7 +37,6 @@ void init(void);
 #include    "rtcc.h"
 #include    "sleep.h"
 #include    "system.h"
-#include "gpio_exp_soft.h"
 #include "battery.h"
 #include "stock_value.h"
 
@@ -72,14 +70,15 @@ extern float        temp_seuil_bas;
 extern float        temp_seuil_haut;
 extern uint8_t      level_seuil;
 extern uint8_t      seuil_pump;
-extern uint8_t      min_bat;
-extern uint8_t       max_bat;
+extern uint16_t      min_bat;
+extern uint16_t       max_bat;
 extern uint8_t frequency;
 
 /*Moisture sensor*/
 #define max_ctmu 950
 #define min_ctmu 0
 #define MESURES  48  //nb mesures par jour
+#define radio_delay 100000
 
 //_______ADC_MANOUAL_C__________
 void        init_manoual_adc();

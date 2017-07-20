@@ -5,8 +5,8 @@
 //    TRISBbits.TRISB1 = 1;       //Set b1 to 1
 //}
 
-uint8_t min_bat = 740; // +-10
-uint8_t max_bat = 970; // pour 8.4V
+uint16_t min_bat = 740; // +-10
+uint16_t max_bat = 970; // pour 8.4V
 
 void init_battery(void)
 {

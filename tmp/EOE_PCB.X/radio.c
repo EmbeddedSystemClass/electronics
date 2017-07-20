@@ -45,7 +45,7 @@ void	init_radio()
 	radio_write_reg(SETUP_AW_REG,	0x03);          //Bytes         5
 	radio_write_reg(SETUP_RETR_REG,	0x03);          //Retransmit    3
 	radio_write_reg(RF_CH_REG,	0x01);          //Channel       1
-	radio_write_reg(RF_SETUP_REG,	0x07);          //-18dBm, -1Mbps //ou 00
+	radio_write_reg(RF_SETUP_REG,	0x0f);          //-18dBm, -1Mbps
 //	radio_write_reg(STATUS_REG,	0x00);          //Status
 //	radio_write_reg(OBSERVE_TX_REG,	0x00);          //Status
 //	radio_write_reg(CD_REG,		0x00);          //Status
@@ -106,6 +106,22 @@ int64_t	radio_command(int8_t command, int64_t data, int8_t data_len)
 	}
 	LATBSET = CSN_PIN;                              //CSN HIGH - End of transaction
 	return(ret);
+}
+
+void	radio_command_t_save(int8_t command, t_save data, int8_t data_len)
+{
+	int32_t		count;
+        unsigned char   *buff = 0;
+
+        buff = (unsigned char*)&data;
+
+	LATBCLR = CSN_PIN;                              //CSN Active LOW - nrf listen
+	status = spi_transfer(command);					//Send command && Get Status
+	for(count = 0; count < data_len * 8; count += 8)//LSB to MSB
+	{
+		(int64_t)spi_transfer(*buff++);	//Send or Get Data by triggering the SCK
+	}
+	LATBSET = CSN_PIN;                              //CSN HIGH - End of transaction
 }
 
 /** COMMANDS **/
@@ -204,35 +220,35 @@ void    radio_ce_pulse(void)
 	LATBCLR = CE_PIN;
 }
 
-void	radio_send(int32_t payload, int8_t len)
+void	radio_send(t_save payload, int8_t len)
 {
         radio_tx_mode();
 	//payload in TX FIFO
-	radio_command(W_TX_PAYLOAD, payload, len);      //Write in TX_PAYLOAD
+	radio_command_t_save(W_TX_PAYLOAD, payload, len);      //Write in TX_PAYLOAD
 	radio_ce_pulse();                               //Trigger CE for sending
 	radio_write_reg(STATUS_REG, 0x70);              //Clear Status
 }
 
-int32_t	radio_receive(void)
-{
-	int32_t	ret = 0;
-
-	radio_rx_mode();
-	LATBSET = CE_PIN;        //CE HIGH - Enable reception
-        delay_micro(10);
-        TMR3 = 0;
-        T3CONbits.ON = 1;
-        while (((status & 0x40) == 0x00)) //Wait for RX_PAYLOAD
-        {
-            if (TMR3 > 1000)
-                break ;
-            radio_nop();
-        }
-	LATBCLR = CE_PIN;                               //CE LOW - Disable reception
-	ret = radio_command(R_RX_PAYLOAD, 0x00ll, 4);   //Get Data from RX_PAYLOAD
-	radio_write_reg(STATUS_REG, 0x40);              //Clear Status
-	return(ret);
-}
+//int32_t	radio_receive(void)
+//{
+//	int32_t	ret = 0;
+//
+//	radio_rx_mode();
+//	LATBSET = CE_PIN;        //CE HIGH - Enable reception
+//        delay_micro(10);
+//        TMR3 = 0;
+//        T3CONbits.ON = 1;
+//        while (((status & 0x40) == 0x00)) //Wait for RX_PAYLOAD
+//        {
+//            if (TMR3 > 1000)
+//                break ;
+//            radio_nop();
+//        }
+//	LATBCLR = CE_PIN;                               //CE LOW - Disable reception
+//	ret = radio_command(R_RX_PAYLOAD, 0x00ll, 4);   //Get Data from RX_PAYLOAD
+//	radio_write_reg(STATUS_REG, 0x40);              //Clear Status
+//	return(ret);
+//}
 
 /** TESTS **/
 
@@ -246,8 +262,6 @@ void	spi_test(void)                              //Simple Test for SPI - Working
 	val = radio_read_reg(reg);
 }
 
-
-#define radio_delay 10000
 #define PING 0x1234
 #define PONG 0x4321
 
@@ -255,7 +269,7 @@ int8_t radio_ack()
 {
     TMR3 = 0;
     T3CONbits.ON = 1;
-    while ((status & 0x20) == 0 && TMR3 < 1000);
+    while ((status & 0x20) == 0 && TMR3 < 10000);
         radio_nop();
     if ((status & 0x20) != 0)
     {
@@ -265,79 +279,63 @@ int8_t radio_ack()
     return (-1);
 }
 
+#define max_send 3
 void		radio_send_values(void)                        //Simple Test for TX/RX - [2/2]
 {
     int i = 0 ;
+    int send_count;
 
     IEC0bits.INT0IE = 0; //disable radio recive interrupt
     IEC0bits.T1IE = 0; //disable TMR1 interrupt
     IEC0bits.T2IE = 0;	//disable TMR2 interrupt
     IEC0bits.RTCCIE = 0;  // disable RTCC interrupts
-//      radio_send(0x1234, 32);   //PING RPI
-//      val = radio_receive();      //get PONG
-//      if (val != 0x4321);
-//        {
-//            send_unsent_values();
-//        }
-	LATBCLR = CE_PIN;                               //CE LOW - Disable reception
+    LATBCLR = CE_PIN;                               //CE LOW - Disable reception
 
 /*send_unsent_values()*/
     while (i < save_tab_size)
     {
         if (tab_data[i].send == 0)      //if data unsent
         {
-            radio_send(PING, 4);       //PING RPI
-            delay_micro(radio_delay);
-            radio_nop();         
-            if (status & 0x20)
+            //Try to send data to RPI
+            send_count = 0;
+            do
             {
-                radio_send((uint32_t)(tab_data[i].H_save) , 4);
-                delay_micro(radio_delay);
-                if (radio_ack() == -1)
-                    break;
-                
-                radio_send((uint32_t)(tab_data[i].Lum_save) , 4);
-                delay_micro(radio_delay);
-                if (radio_ack() == -1)
-                    break;
-                
-                radio_send((uint32_t)(tab_data[i].T_save) , 4);
-                delay_micro(radio_delay);
-                if (radio_ack() == -1)
-                    break;
-                
-                radio_send((uint32_t)(tab_data[i].Lvl_save) , 4);
-                delay_micro(radio_delay);
-                if (radio_ack() == -1)
-                    break;
+//                radio_send(tab_data[i], sizeof(tab_data[i]));
+                radio_send(tab_data[i], 24);
+                send_count++;
+            }while(radio_ack() == -1 && send_count < max_send);
+
+            if (send_count <  max_send) //send success
+            {
                 tab_data[i].send = 1;      //mark data as sent.
-                radio_write_reg(STATUS_REG, 0x20);      //Clear TX_DS
+            }
+            else    //send fail
+            {
+                return;
             }
         }
         i++;
-/*send_unsent_values()*/
-
     }
-	radio_rx_mode();
-	LATBSET = CE_PIN;        //CE HIGH - Enable reception
+     radio_rx_mode();
+     LATBSET = CE_PIN;        //CE HIGH - Enable reception
      IEC0bits.T1IE = 1; //enable TMR1 interrupt
      IEC0bits.T2IE = 1;	//enable TMR2 interrupt
      IEC0bits.RTCCIE = 1; // enable RTCC interrupts
      IEC0bits.INT0IE = 1; //enable radio iterrupt
 }
 
-
-
-void    radio_reception()
-{
-    IEC0bits.T1IE = 0; //disable TMR1 interrupt
-    IEC0bits.T2IE = 0;	//disable TMR2 interrupt
-    IEC0bits.RTCCIE = 0;  // disable RTCC interrupts
-
-    val = radio_receive();
-
-     IEC0bits.T1IE = 1; //enable TMR1 interrupt
-     IEC0bits.T2IE = 1;	//enable TMR2 interrupt
-     IEC0bits.RTCCIE = 1; // enable RTCC interrupts
-
-}
+//
+//
+//void    radio_reception()
+//{
+//    IEC0bits.T1IE = 0; //disable TMR1 interrupt
+//    IEC0bits.T2IE = 0;	//disable TMR2 interrupt
+//    IEC0bits.RTCCIE = 0;  // disable RTCC interrupts
+//
+//    val = radio_receive();
+//
+//     IEC0bits.T1IE = 1; //enable TMR1 interrupt
+//     IEC0bits.T2IE = 1;	//enable TMR2 interrupt
+//     IEC0bits.RTCCIE = 1; // enable RTCC interrupts
+//
+//}

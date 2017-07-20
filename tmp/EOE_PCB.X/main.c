@@ -154,8 +154,8 @@ void        display_sensors()
 void    main(void)
 {
     init();
-//    uint8_t test_save = 0;
-//
+    g_ret = 0;                              //init g_ret
+
     lcd_backlight_inv();                 //SET backlight at startup
 
     I_can_check_sensors = 0;
@@ -178,7 +178,7 @@ void    main(void)
         if (g_ret)
         {
             parameter_change();
-            g_ret = 0;
+       //     g_ret = 0;
         }
         if(g_mon_sleep)
         {

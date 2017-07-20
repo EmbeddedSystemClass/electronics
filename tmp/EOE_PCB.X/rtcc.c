@@ -35,7 +35,7 @@ void        init_rtcc(void)
     ALRMTIME = 0x1000;              // set alarm time to 0 hr, 0 min, 10 sec
     ALRMDATE = 0x0;                 // set alarm date to Friday 27 Oct 2006
     RTCALRMbits.CHIME = 1;          // Rollover
-    RTCALRMbits.AMASK = 0b01;        // Every 1sec // Valeur Test
+    RTCALRMbits.AMASK = 0b10;        // Every 1sec // Valeur Test
     //Enable All
     RTCALRMbits.ALRMEN = 1;         // Enable Alrm
     RTCCONbits.ON = 1;              // turn on the RTCC

@@ -27,6 +27,8 @@ void    save_data()
     nb_save++;
 //    if (nb_save % 8 == 0)
 
+//    int tab_size = sizeof(tab_data[0]);
+
     radio_send_values();
 
     if (nb_save >= save_tab_size)      // Stock sur 7 * 48

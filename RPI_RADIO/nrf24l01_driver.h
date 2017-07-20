@@ -74,6 +74,7 @@ void		radio_ce_pulse();
 void		radio_tx_mode();
 void		radio_rx_mode();
 void		radio_nop();
+void		command_flush_rx(void);
 
 void		radio_init(void);
 void		radio_purge(void);
