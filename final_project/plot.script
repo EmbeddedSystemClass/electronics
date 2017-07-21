@@ -1,0 +1,36 @@
+#script
+set title "E.O.E data"
+set terminal jpeg giant size 2400, 1400
+set output '~/Desktop/graph.jpeg'
+set multiplot
+set key outside Left
+set yrange [-20:100]
+set y2range [-200:1000]
+set xrange ["20/07":"21/07"]
+set format x ""
+set ytics (100, 80, 60, 40, 20, 0)
+set y2tics (1000, 800, 600, 400, 200, 0)
+set ylabel " °C / %"
+set y2label 'lux'
+set grid
+set size 1.0, 0.5
+set origin 0.0, 0.4
+set bmargin 1
+plot '~/Desktop/data.dat' u 1:3 title 'temperature (°C)' w l lt 4 axes x1y1, '~/Desktop/data.dat' u 1:4 title 'moisture (%)' w l lt 1 axes x1y1, '~/Desktop/data.dat' u 1:5 title 'luminosity (lux)' w l lt 2 axes x1y2
+unset title
+unset y2range
+unset y2label
+set bmargin 0
+set timefmt "%d/%m %H:%M"
+set xdata time
+set xrange ["20/07":"21/07"]
+set format x "%d/%m\n%H:%M"
+set size 1.0, 0.3
+set origin 0.0, 0.1
+set tmargin 0
+set autoscale y
+set format "%1.0f"
+set ytics (100, 75, 50, 25, 0)
+set ylabel '%'
+plot '~/Desktop/data.dat' u 1:6 title 'water level (%)' w i lt 3, '~/Desktop/data.dat' u 1:7 title 'battery level (%)' w l lt 5
+unset multiplot
