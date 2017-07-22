@@ -4,4 +4,4 @@ load '~/Desktop/plot.script'
 load '~/Desktop/plot.script'
 quit
 EOF
-eog 'Desktop/graph.jpeg'
+eog 'Desktop/plot.jpg'
