@@ -46,4 +46,5 @@ void    get_battery(void)
     }
     bat_level /= 10;
     bat_level = (bat_level - min_bat) * 100 / (max_bat - min_bat);
+    bat_level = bat_level > 100 ? 100 : bat_level;
 }
