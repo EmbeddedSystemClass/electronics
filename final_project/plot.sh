@@ -1,4 +1,6 @@
 #!/bin/bash
+#DA=`cut -f1 -d'  ' data.dat | head -1`
+#TE=`cut -f1 -d'  ' data.dat | tail -1`
 DA=`cut -c1-14 data.dat | head -1`
 TE=`cut -c1-14 data.dat | tail -1`
 echo "Graph From..."
