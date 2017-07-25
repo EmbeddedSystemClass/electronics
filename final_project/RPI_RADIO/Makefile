@@ -10,7 +10,7 @@ SOURCES = gpio_driver.c\
 all: $(NAME)
 
 $(NAME):
-		g++ $(SOURCES) -o $(NAME)
+		g++ $(SOURCES) -o $(NAME) -g
 
 clean:
 	rm $(NAME)
