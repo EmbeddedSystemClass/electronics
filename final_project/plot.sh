@@ -1,17 +1,18 @@
 #!/bin/bash
-#DA=`cut -f1 -d'  ' data.dat | head -1`
-#TE=`cut -f1 -d'  ' data.dat | tail -1`
-DA=`cut -c1-14 data.dat | head -1`
-TE=`cut -c1-14 data.dat | tail -1`
-echo "Graph From..."
+DA=`cut -f1 -d'	' data.dat | head -1`
+TE=`cut -f1 -d'	' data.dat | tail -1`
+INDEX=`cat index`
+echo "Graph From... "
 echo ${DA}
-echo "to..."
+echo "to.. "
 echo ${TE}
+echo "in file... "
+echo "plot${INDEX}"
 gnuplot -p <<EOF
 #script
 set title "E.O.E data ${DA} - ${TE}"
 set terminal jpeg giant size 2400, 1400
-set output './eoe-plot/plot.jpg'
+set output './eoe-plot/plot${INDEX}.jpg'
 set multiplot
 set key outside Left
 set style line 1 linetype 1 linecolor rgb "#4169e1" linewidth 5
@@ -52,3 +53,7 @@ plot '~/data.dat' u 1:7 title 'water level (%)' w i lt 3, '~/data.dat' u 1:3 tit
 unset multiplot
 quit
 EOF
+NEWINDEX=`awk -F, '{printf("%03d\n", $1 + 1)}' index`
+echo "${NEWINDEX}" > index
+touch 'test'
+echo "Done !"
