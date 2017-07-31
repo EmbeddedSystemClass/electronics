@@ -1,7 +1,7 @@
 
 #include "header.h"
 
-uint8_t seuil_pump = 25;
+uint8_t seuil_pump = 50;
 
 void    init_pump()
 {

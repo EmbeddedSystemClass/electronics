@@ -132,7 +132,7 @@ void        get_sensors()
     {
         LATBCLR = led_color;
         calc_set_average();
-        day_time = - 1;
+        day_time = -1;
         pump_on();
     }
     day_time++;
@@ -182,7 +182,6 @@ void    main(void)
         }
         if(g_mon_sleep)
         {
-            LATBbits.LATB0 = 0;     // PUMP is off
             bargraph_write(0x00);
             lcd_clear();
             go_to_sleep();

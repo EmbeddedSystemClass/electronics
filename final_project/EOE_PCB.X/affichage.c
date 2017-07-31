@@ -32,35 +32,47 @@ void    affichage()
         display_write_str("   ", 0, 2);
         display_write_dec(humidity, 0, 2);
     //BATTERY
-        if (bat_level < 80 && bat_level >= 60)
+
+        // pour le debug
+//        display_write_str("    ", 1, 7);
+//        display_write_dec(day_time, 1, 7);
+
+        if (bat_level >= 80)
+        {
+            display_write(0x01,0 , 12);
+            display_write(0x04,0 , 13);
+            display_write(0x04,0 , 14);
+            display_write(0x05,0 , 15);
+        }
+        else if (bat_level < 80 && bat_level >= 60)
         {
             display_write(0x01,0 , 12);
             display_write(0x04,0 , 13);
             display_write(0x03,0 , 14);
             display_write(0x05,0 , 15);
         }
-        if (bat_level < 60 && bat_level >= 40)
+        else if (bat_level < 60 && bat_level >= 40)
         {
             display_write(0x01,0 , 12);
             display_write(0x04,0 , 13);
             display_write(0x02,0 , 14);
             display_write(0x05,0 , 15);
         }
-        if (bat_level < 40 && bat_level >= 20)
+        else if (bat_level < 40 && bat_level >= 20)
         {
             display_write(0x01,0 , 12);
             display_write(0x03,0 , 13);
             display_write(0x02,0 , 14);
             display_write(0x05,0 , 15);
         }
-        if (bat_level < 20 && bat_level >= 10)
+        else if (bat_level < 20 && bat_level >= 10)
         {
             display_write(0x01,0 , 12);
             display_write(0x02,0 , 13);
             display_write(0x02,0 , 14);
             display_write(0x05,0 , 15);
         }
-        if (bat_level < 10)
+        else
         {
             display_write(0x00,0 , 12);
             display_write(0x02,0 , 13);

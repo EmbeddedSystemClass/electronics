@@ -282,8 +282,7 @@ int8_t radio_ack()
 #define max_send 3
 void		radio_send_values(void)                        //Simple Test for TX/RX - [2/2]
 {
-    int i = 0 ;
-    int send_count;
+    int i = 0;
 
     IEC0bits.INT0IE = 0; //disable radio recive interrupt
     IEC0bits.T1IE = 0; //disable TMR1 interrupt
@@ -297,39 +296,32 @@ void		radio_send_values(void)                        //Simple Test for TX/RX - [
         if (tab_data[i].send == 0)      //if data unsent
         {
             //Try to send data to RPI
-            send_count = 0;
-            do
+            radio_send(tab_data[i], 24);
+            if (radio_ack() != 0) //send success
             {
-//                radio_send(tab_data[i], sizeof(tab_data[i]));
-                radio_send(tab_data[i], 24);
-                send_count++;
-            }while(radio_ack() == -1 && send_count < max_send);
-
-            if (send_count <  max_send) //send success
-            {
-                tab_data[i].send = 1;      //mark data as sent.
+                break;
             }
             else    //send fail
             {
-                return;
+                tab_data[i].send = 1;      //mark data as sent.
             }
         }
         i++;
     }
-     radio_rx_mode();
-     LATBSET = CE_PIN;        //CE HIGH - Enable reception
-     IEC0bits.T1IE = 1; //enable TMR1 interrupt
-     IEC0bits.T2IE = 1;	//enable TMR2 interrupt
-     IEC0bits.RTCCIE = 1; // enable RTCC interrupts
-     IEC0bits.INT0IE = 1; //enable radio iterrupt
+    radio_rx_mode();
+    LATBSET = CE_PIN;       //CE HIGH - Enable reception
+    IEC0bits.T1IE = 1;      //enable TMR1 interrupt
+    IEC0bits.T2IE = 1;      //enable TMR2 interrupt
+    IEC0bits.RTCCIE = 1;    //enable RTCC interrupts
+    IEC0bits.INT0IE = 1;    //enable radio iterrupt
 }
 
 //
 //
 //void    radio_reception()
 //{
-//    IEC0bits.T1IE = 0; //disable TMR1 interrupt
-//    IEC0bits.T2IE = 0;	//disable TMR2 interrupt
+//    IEC0bits.T1IE = 0;    //disable TMR1 interrupt
+//    IEC0bits.T2IE = 0;    //disable TMR2 interrupt
 //    IEC0bits.RTCCIE = 0;  // disable RTCC interrupts
 //
 //    val = radio_receive();

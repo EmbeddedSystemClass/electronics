@@ -89,7 +89,7 @@ uint16_t get_moisture()
         while (TMR3 < 10000);         // wait 1ms
         CTMUCONbits.IDISSEN = 0;    // Stop manual sampling
         CTMUCONbits.EDG1STAT = 1;   // Begin charging circuit
-        while (TMR3 < 10);          // wait 1us (66% max charge)
+        while (TMR3 < 11);          // wait 1us (66% max charge)
         AD1CON1bits.SAMP = 0;       // End Sampling begin conversion
         CTMUCONbits.EDG1STAT = 0;   // Stop charging circuit
         while(!AD1CON1bits.DONE);   // wait ADC is done
@@ -106,6 +106,7 @@ void check_moisture()
     ANSELA = 0x0000;                // No ADC pin
     ANSELB = 1<<12;                 // RB12 connected to sensor
     uint16_t ctmu_ret = get_moisture();
-    
+    ctmu_ret < min_ctmu ? ctmu_ret = min_ctmu: 0;
+    ctmu_ret > max_ctmu ? ctmu_ret = max_ctmu: 0;
     humidity = 100 - ((ctmu_ret - min_ctmu) * 100 / max_ctmu) - min_ctmu;
 }

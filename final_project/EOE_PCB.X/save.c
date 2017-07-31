@@ -19,7 +19,7 @@ void    save_data()
     tab_data[nb_save].H_save = humidity; //save humidity
     tab_data[nb_save].Lum_save = lum_manual; //save lum
     tab_data[nb_save].Lvl_save = level; //save lvl
-    tab_data[nb_save].T_save = Temperature; //save temp
+    tab_data[nb_save].T_save = Temperature * 10; //save temp
     tab_data[nb_save].Date = RTCDATE; //save date [A][M][J][0]
     tab_data[nb_save].Heure = RTCTIME; // save hour [H][Min][Sec][0]
     tab_data[nb_save].Bat_save = bat_level;

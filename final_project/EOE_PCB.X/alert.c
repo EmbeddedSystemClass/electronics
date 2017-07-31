@@ -2,10 +2,10 @@
 #include "header.h"
 
 uint8_t      bat_seuil          = 15;
-uint16_t     lum_seuil_bas      = 600;
-uint16_t     lum_seuil_haut     = 950;
-float        temp_seuil_bas     = 20;
-float        temp_seuil_haut    = 29;
+uint16_t     lum_seuil_bas      = 500;
+uint16_t     lum_seuil_haut     = 1000;
+int16_t      temp_seuil_bas     = 5 * 10;
+int16_t      temp_seuil_haut    = 35 * 10;
 uint8_t      level_seuil        = 1;
 
 /*

@@ -80,7 +80,7 @@ void __attribute__ ((interrupt(IPL6AUTO), vector(4)))   tmr1_interrupt(void)
     {
         check_moisture();   // check humidity
         get_level();
-        if (level == 0 || humidity > 40)        // Valeur test change 35 by something
+        if (level == 0 || humidity > seuil_pump)        // Valeur test change 35 by something
         {
             pump_off();
         }
