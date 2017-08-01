@@ -17,15 +17,15 @@ void    get_battery(void)
 {
     char    i = 0;
 
-    AD1CHSbits.CH0SA = 3;      //AN3   Channel
+    AD1CHSbits.CH0SA = 3;               //AN3   Channel
 
     bat_level = 0;
     while (i < 10)
     {
-        AD1CON1bits.SAMP = 1;//START SAMPLING
-        delay_micro(100);//WAIT FOR SAMPLING
-        AD1CON1bits.SAMP = 0;//STOP SAMPLING/START CONVERSION
-        while (AD1CON1bits.DONE != 1);//WAIT FOR CONVERSION DONE
+        AD1CON1bits.SAMP = 1;           //START SAMPLING
+        delay_micro(100);               //WAIT FOR SAMPLING
+        AD1CON1bits.SAMP = 0;           //STOP SAMPLING/START CONVERSION
+        while (AD1CON1bits.DONE != 1);  //WAIT FOR CONVERSION DONE
             bat_level += (ADC1BUF0);
         i++;
         delay_micro(100);
