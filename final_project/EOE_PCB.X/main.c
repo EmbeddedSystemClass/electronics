@@ -178,7 +178,7 @@ void    main(void)
         if (g_ret)
         {
             parameter_change();
-       //     g_ret = 0;
+            g_ret = 0;
         }
         if(g_mon_sleep)
         {

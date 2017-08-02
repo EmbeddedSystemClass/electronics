@@ -24,7 +24,6 @@ void        go_to_sleep()
     system_lock();
 }
 
-
 void        init_sosco()
 {
     //SET GPIO
@@ -92,58 +91,83 @@ void    parameter_change()
 {
     uint8_t commande = 0;
     uint8_t variable = 0;
+    uint16_t tmp;
 
     variable = (uint8_t)((g_ret >> 16) & 0x00ff);
     if ((commande = (uint8_t)(g_ret >> 24 )) == 42) // alert config
     {
         if (variable == 0) // alerte bat_seuil
         {
-            bat_seuil = (uint8_t)g_ret;
+            tmp = (uint8_t)g_ret;
+            tmp = tmp > 100 ? 100 : tmp;
+            bat_seuil = tmp;
         }
          if (variable == 1) // alerte level_seuil
         {
-            level_seuil = (uint8_t)g_ret;
+             tmp = (uint8_t)g_ret;
+             tmp = tmp > 5 ? 5 : tmp;
+             tmp = tmp < 1 ? 1 : tmp;
+            level_seuil = tmp;
         }
          if (variable == 2) // alerte seuil_pump
         {
-            seuil_pump = (uint8_t)g_ret;
+             tmp = (uint8_t)g_ret;
+             tmp = tmp > 100 ? 100 : tmp;
+            seuil_pump = tmp;
         }
          if (variable == 3) // alerte lum_seuil_bas
         {
-            lum_seuil_bas = (uint16_t)g_ret;
+             tmp = (uint16_t)g_ret;
+             tmp = tmp < 10 ? 10 : tmp;
+             tmp = tmp > 1028 ? 1028 : tmp;
+            lum_seuil_bas = tmp;
         }
         if (variable == 4) // alerte lum_seuil_haut
         {
-            lum_seuil_haut = (uint16_t)g_ret;
+             tmp = (uint16_t)g_ret;
+             tmp = tmp < 10 ? 10 : tmp;
+             tmp = tmp > 1028 ? 1028 : tmp;
+            lum_seuil_haut = tmp;
         }
         if (variable == 5) // alerte temp_seuil_bas
         {
-            temp_seuil_bas = (uint16_t)g_ret;
+            tmp = (uint16_t)g_ret;
+            tmp = tmp < 1 ? 1 : tmp;
+            tmp = tmp > 50 ? 50 : tmp;
+            temp_seuil_bas = tmp;
         }
         if (variable == 6) // alerte temp_seuil_haut
         {
-            temp_seuil_haut = (uint16_t)g_ret;
+            tmp = (uint16_t)g_ret;
+            tmp = tmp < 1 ? 1 : tmp;
+            tmp = tmp > 50 ? 50 : tmp;
+            temp_seuil_haut = tmp;
         }
         if (variable == 7) // alerte min_bat
         {
-            min_bat = (uint16_t)g_ret;
+            tmp = (uint16_t)g_ret;
+            tmp = tmp > 1028 ? 1028 : tmp;
+            tmp = tmp < 10 ? 10 : tmp;
+            min_bat = tmp;
         }
         if (variable == 8) // alerte max_bat
         {
-            max_bat = (uint16_t)g_ret;
+            tmp = (uint16_t)g_ret;
+            tmp = tmp > 1028 ? 1028 : tmp;
+            tmp = tmp < 10 ? 10 : tmp;
+            max_bat = tmp;
         }
-    }
-    else if (commande == 69) // rtcc time config
-    {
-        if (variable == 1)
-            RTCALRMbits.AMASK = 0b01;        // Every 1sec // Valeur Test
-        if (variable == 2)
-            RTCALRMbits.AMASK = 0b10;        // Every 10min // Valeur Test
-        if (variable == 3)
+        if (variable == 9)
         {
-            if ((uint8_t)g_ret != 0)
-                frequency = (uint8_t)g_ret;      //frequence de meusure
+            RTCALRMbits.AMASK = RTCALRMbits.AMASK == 0b01 ? 0b100 : 0b01;        // Every 1sec // Valeur Test
         }
+        if (variable == 10)
+        {
+            tmp = (uint8_t)g_ret;
+            if (tmp != 0 && tmp <= 200)
+                frequency = tmp;      //frequence de meusure
+        }
+        radio_flush_rx();
     }
 //    else if (commande == 100) //cheack alert config //no ack recieve
 //    {

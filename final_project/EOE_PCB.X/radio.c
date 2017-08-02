@@ -204,7 +204,7 @@ void	radio_nop()
 
 void    radio_tx_mode()
 {
-	radio_write_reg(CONFIG_REG, 0x0a);	//PWR_UP = 1, PRIM_RX = 0
+	radio_write_reg(CONFIG_REG, 0x3a);	//PWR_UP = 1, PRIM_RX = 0
 }
 
 void    radio_rx_mode()
