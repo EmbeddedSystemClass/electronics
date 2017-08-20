@@ -49,13 +49,13 @@
 
 #include "header.h"
 
-uint8_t T2 = 0x00;
-uint8_t T3 = 0x00;
-uint8_t T4 = 0x00;
-uint8_t T5 = 0x00;
-uint8_t T6 = 0x00;
-uint8_t T7 = 0x00;
-uint8_t CRC = 0x00;
+//int8_t T2 = 0x00;
+//uint8_t T3 = 0x00;
+//uint8_t T4 = 0x00;
+//uint8_t T5 = 0x00;
+//uint8_t T6 = 0x00;
+//uint8_t T7 = 0x00;
+//uint8_t CRC = 0x00;
 uint8_t Presence = 0;
 uint8_t LSB = 0x00;
 uint8_t MSB = 0x00;
@@ -92,7 +92,7 @@ uint8_t reset()
         OW_bus(0); //OW low (open drain)
         delay_tmp(4800);// 480us (reset pulse)
         OW_bus(1); // release OW
-        delay_tmp(700); //attendre 70us recommandé
+        delay_tmp(700); //attendre 70us recommandÃ©
         //sample bus
         if (PORTBbits.RB10 == 0) //480 + 60us (presence pulse)
         {
@@ -102,7 +102,7 @@ uint8_t reset()
         {
             Presence = 0;
         }
-        delay_tmp(4100); //attendre 410us recommandé
+        delay_tmp(4100); //attendre 410us recommandÃ©
         secure++;
     }
     return (Presence);
@@ -336,7 +336,7 @@ void    check_temp()
             {
                 secure++;
             }
-            Temperature = (((tab[1] & 0b00000111) << 8) | tab[0] & 0b11111000) * 0.0625; //converstion en °c
+            Temperature = (((tab[1] & 0b00000111) << 8) | tab[0] & 0b11111000) * 0.0625; //converstion en Â°c
             if (secure != 3)
             {
                 if ((tab[1] & is_neg) == is_neg) //check negative value
