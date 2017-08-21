@@ -296,6 +296,8 @@ void		radio_send_values(void)                        //Simple Test for TX/RX - [
         if (tab_data[i].send == 0)      //if data unsent
         {
             //Try to send data to RPI
+            tab_data[i].time = RTCTIME; //save hour of send
+            tab_data[i].date = RTCDATE;
             radio_send(tab_data[i], 24);
             if (radio_ack() != 0) //send success
             {

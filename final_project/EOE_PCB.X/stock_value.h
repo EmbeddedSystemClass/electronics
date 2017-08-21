@@ -19,6 +19,8 @@ typedef struct s_save
     int16_t     T_save;
     uint8_t     Lvl_save;
     uint8_t     send;
+    uint32_t    time;
+    uint32_t    date;
 }               t_save;
 
 void    save_data();

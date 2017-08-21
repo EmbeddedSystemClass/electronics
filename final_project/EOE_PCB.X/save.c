@@ -24,6 +24,8 @@ void    save_data()
     tab_data[nb_save].Heure = RTCTIME; // save hour [H][Min][Sec][0]
     tab_data[nb_save].Bat_save = bat_level;
     tab_data[nb_save].send = 0;
+    tab_data[nb_save].time = 0;
+    tab_data[nb_save].date = 0;
     nb_save++;
 //    if (nb_save % 8 == 0)
 
