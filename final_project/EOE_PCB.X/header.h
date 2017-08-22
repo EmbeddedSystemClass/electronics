@@ -60,8 +60,9 @@ uint8_t     pump_status;
 uint16_t    lum_average;
 uint16_t    temp_average;
 int16_t     day_time;
-int32_t    bat_level;
-int32_t     g_ret;
+int32_t     bat_level;
+int64_t      g_ret;
+uint8_t      g_reception[22];
 
 extern uint8_t      bat_seuil;
 extern uint16_t     lum_seuil_bas;
@@ -70,8 +71,8 @@ extern int16_t        temp_seuil_bas;
 extern int16_t        temp_seuil_haut;
 extern uint8_t      level_seuil;
 extern uint8_t      seuil_pump;
-extern int32_t      min_bat;
-extern int32_t       max_bat;
+extern int16_t      min_bat;
+extern int16_t       max_bat;
 extern uint8_t frequency;
 
 /*Moisture sensor*/

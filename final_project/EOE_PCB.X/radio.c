@@ -56,8 +56,8 @@ void	init_radio()
 	radio_write_reg(RX_ADDR_P4_REG, 0xc5);          //
 	radio_write_reg(RX_ADDR_P5_REG, 0xc6);          //
 	radio_write_reg(TX_ADDR_REG,	0x3232323232);  //Transmit address
-	radio_write_reg(RX_PW_P0_REG,	0x4);          //Number of bytes   select 32 bits
-	radio_write_reg(RX_PW_P1_REG,	0x4);          //Number of bytes   2
+	radio_write_reg(RX_PW_P0_REG,	0x16);          //Number of bytes
+	radio_write_reg(RX_PW_P1_REG,	0x16);          //Number of bytes   22
 	radio_write_reg(RX_PW_P2_REG,	0x00);          //
 	radio_write_reg(RX_PW_P3_REG,	0x00);          //
 	radio_write_reg(RX_PW_P4_REG,	0x00);          //
@@ -81,16 +81,33 @@ void    init_radio_interupt()
     IPC0bits.INT0IS = 1;
     IEC0bits.INT0IE = 1;
 }
+void    radio_command_reception(int8_t command, uint8_t buff[], int8_t data_len);
 
 void    __attribute__ ((interrupt(IPL1AUTO), vector(3)))    radio_interrupt(void)
 {
         LATBCLR = CE_PIN;
-        g_ret = radio_command(R_RX_PAYLOAD, 0x00ll, 4);
+        g_ret = 1;
+        radio_command_reception(R_RX_PAYLOAD, g_reception, 22);
         radio_write_reg(STATUS_REG, 0x40);              //Clear Status
         LATBSET = CE_PIN;
         IFS0bits.INT0IF = 0; //clear flag
         if ((radio_read_reg(FIFO_STATUS_REG) & 0x02))
             radio_flush_rx();
+}
+
+void    radio_command_reception(int8_t command, uint8_t buff[], int8_t data_len)
+{
+	int32_t		count;
+        uint8_t         tmp = 0;
+
+	LATBCLR = CSN_PIN;                              //CSN Active LOW - nrf listen
+	status = spi_transfer(command);					//Send command && Get Status
+	for(count = 0; count < data_len; count++)//LSB to MSB
+	{
+		tmp = (uint8_t)spi_transfer(0x00);	//Send or Get Data by triggering the SCK
+                buff[count] = tmp;
+	}
+	LATBSET = CSN_PIN;                              //CSN HIGH - End of transaction
 }
 
 int64_t	radio_command(int8_t command, int64_t data, int8_t data_len)

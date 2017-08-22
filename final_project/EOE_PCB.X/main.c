@@ -82,6 +82,12 @@
 
  int32_t val = 0;
 
+void    init_globals(void)
+{
+    lum_average = 800;
+    temp_average = 25;
+}
+
 void    init(void)
 {
     disable_interrupt();                //disable interrupts while initialization
@@ -117,6 +123,7 @@ void    init(void)
     init_watchdog();                    //0k
 
     init_save_tab();        // init all send values to 1
+    init_globals();
 }
 
 void        get_sensors()
@@ -177,7 +184,7 @@ void    main(void)
         }
         if (g_ret)
         {
-            parameter_change();
+            parameter_change_all();
             g_ret = 0;
         }
         if(g_mon_sleep)

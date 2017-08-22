@@ -86,7 +86,53 @@ void        init_sleep()
 //    uint8_t       min_bat;
 //    uint8_t       max_bat;
 
+void    parameter_change_all()
+{
+    int16_t    tmp = 0;
 
+    tmp = (g_reception[0] + (g_reception[1] << 8));
+    tmp = tmp > 100 ? 100 : tmp;
+    bat_seuil = (int8_t)tmp;
+    tmp = (g_reception[2] + (g_reception[3] << 8));
+    tmp = tmp > 5 ? 5 : tmp;
+    tmp = tmp < 1 ? 1 : tmp;
+    level_seuil = (int8_t)tmp;
+    tmp = (g_reception[4] + (g_reception[5] << 8));
+    tmp = tmp > 100 ? 100 : tmp;
+    seuil_pump = (int8_t)tmp;
+    tmp = (g_reception[6] + (g_reception[7] << 8));
+    tmp = tmp < 10 ? 10 : tmp;
+    tmp = tmp > 1028 ? 1028 : tmp;
+    lum_seuil_bas = tmp;
+    tmp = (g_reception[8] + (g_reception[9] << 8));
+    tmp = tmp < 10 ? 10 : tmp;
+    tmp = tmp > 1028 ? 1028 : tmp;
+    lum_seuil_haut = tmp;
+    tmp = (g_reception[10] + (g_reception[11] << 8));
+    tmp = tmp < 1 ? 1 : tmp;
+    tmp = tmp > 50 ? 50 : tmp;
+    temp_seuil_bas = tmp * 10;
+    tmp = (g_reception[12] + (g_reception[13] << 8));
+    tmp = tmp < 1 ? 1 : tmp;
+    tmp = tmp > 50 ? 50 : tmp;
+    temp_seuil_haut = tmp * 10;
+    tmp = (g_reception[14] | (g_reception[15] << 8));
+    tmp = tmp > 1028 ? 1028 : tmp;
+    tmp = tmp < 10 ? 10 : tmp;
+    min_bat = tmp;
+    tmp = (g_reception[16] + (g_reception[17] << 8));
+    tmp = tmp > 1028 ? 1028 : tmp;
+    tmp = tmp < 10 ? 10 : tmp;
+    max_bat = tmp;
+    tmp = (g_reception[18] + (g_reception[19] << 8));
+    if (tmp != 0 && tmp <= 200)
+    frequency = (int8_t)tmp;      //frequence de meusure
+    tmp = (g_reception[20] + (g_reception[21] << 8));
+    tmp = tmp > 9 ? 9 : tmp;
+    tmp = tmp < 0 ? 0 : tmp;
+    RTCALRMbits.AMASK = tmp;        // Every 1sec // Valeur Test
+    radio_flush_rx();
+}
 void    parameter_change()
 {
     uint8_t commande = 0;
