@@ -85,7 +85,7 @@
 void    init_globals(void)
 {
     lum_average = 800;
-    temp_average = 25;
+    temp_average = 250;
 }
 
 void    init(void)
