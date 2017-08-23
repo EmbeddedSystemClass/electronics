@@ -21,7 +21,7 @@
 | Regulateur 3.3V | **LM1117T-3.3/NOPB** | TO-220-3 | [Farnell](http://fr.farnell.com/texas-instruments/lm1117t-3-3-nopb/regulateur-lineaire-3-3v/dp/1469056) | [Datasheet](http://www.ti.com/lit/ds/symlink/lm1117.pdf) | N/A | 0 | see dropout |0.82|
 //old|Support Batteries|**KEYSTONE  1047**|N/A|[Farnell](http://fr.farnell.com/keystone/1047/battery-holder-18650-li-ion-2cell/dp/2501206)|[Datasheet](http://www.farnell.com/datasheets/1926460.pdf)|N/A|N/A|||
 |Batteries|Fenix|18650 (x2) | [Fenix](https://www.lampe-torche-fenix.fr/pile-rechargeable-fenix-arb-l18-18650-3500-mah-pour-tous-les-lampes-fenix-utilisants-des-18650.html)|nop|N/A|N/A|N/A|2x|
-| PushButton Switche |**EOZ** |[Farnell](http://fr.farnell.com/eoz/09-03201-02/commutateur-spst-co-0-5a-12v-pcb/dp/1608080) | [Datasheet](http://www.farnell.com/datasheets/2010029.pdf)|
+| PushButton Switche |**EOZ** | | [Farnell](http://fr.farnell.com/eoz/09-03201-02/commutateur-spst-co-0-5a-12v-pcb/dp/1608080) | [Datasheet](http://www.farnell.com/datasheets/2010029.pdf)|
 | Button Reset | **ALCOSWITCH 1437566-3** | CMS | [Farnell](http://fr.farnell.com/alcoswitch-te-connectivity/1437566-3/bouton-poussoir-spst-0-05a-24v/dp/2468741)| [Datasheet](http://www.farnell.com/cad/1885096.pdf) |
 |||||||**TOTAL**| 152.5mA |
 |	Quartz		|	**ABRACON  AB38T-32.768KHZ**		| AB38T |	[Farnell](http://fr.farnell.com/abracon/ab38t-32-768khz/crystal-32-768k-12-5pf-cl-watch/dp/1611828)| [Datasheet](http://www.farnell.com/datasheets/1883667.pdf?_ga=2.40960107.890087731.1495798896-304989867.1493929463)	| -- | 2 | -- | 0.18 |
