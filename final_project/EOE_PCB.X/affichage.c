@@ -2,9 +2,12 @@
 
 void    init_affichage()
 {
+    uint8_t  degre = 0b11011111;
+    
         display_write_str("%H", 0, 3); //humidity
-        display_write_str("\0xdfC", 1, 4);//temperature
-        display_write_str("L=", 1, 6); //light
+        display_write_str(&degre, 1, 4); //degre temp
+        display_write_str("C", 1, 5);//temperature
+        display_write_str("L=", 1, 7); //light
         display_write(0x01,0 , 12);
         display_write(0x04,0 , 13);
         display_write(0x04,0 , 14);
@@ -15,8 +18,8 @@ void    affichage()
 {
     int16_t float_temp = 0;
     //LIGHT
-        display_write_str("    ", 1, 8);
-        display_write_dec(lum_manual, 1, 8);
+        display_write_str("    ", 1, 9);
+        display_write_dec(lum_manual, 1, 9);
     //TEMP
         display_write_str("  ", 1, 0);
         display_write_dec(Temperature, 1, 0);
