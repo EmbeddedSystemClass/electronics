@@ -12,6 +12,7 @@ void    init_affichage()
         display_write(0x04,0 , 13);
         display_write(0x04,0 , 14);
         display_write(0x05,0 , 15);
+    //    lcd_frimousse_5();
 }
 
 void    affichage()

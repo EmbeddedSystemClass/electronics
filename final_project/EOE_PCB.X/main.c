@@ -156,6 +156,7 @@ void        display_sensors()
     check_temp();
     get_light_manual();
     display_update();
+    check_alerts();
 }
 
 void    main(void)
