@@ -1257,7 +1257,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000    0x104e6
+.debug_info     0x00000000    0x104d8
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0xd7f build/default/production/adc_manoual.o
  .debug_info    0x00000d7f      0x613 build/default/production/bargraph.o
@@ -1276,23 +1276,23 @@ END GROUP
  .debug_info    0x000071cd      0xe12 build/default/production/rtcc.o
  .debug_info    0x00007fdf      0x4ea build/default/production/save.o
  .debug_info    0x000084c9     0x1090 build/default/production/sleep.o
- .debug_info    0x00009559      0xe9e build/default/production/temperature.o
- .debug_info    0x0000a3f7      0x492 build/default/production/watchdog.o
- .debug_info    0x0000a889     0x115e build/default/production/system.o
- .debug_info    0x0000b9e7      0x841 build/default/production/pump.o
- .debug_info    0x0000c228      0x4c4 build/default/production/affichage.o
- .debug_info    0x0000c6ec      0x5cf build/default/production/alert.o
- .debug_info    0x0000ccbb      0x4ce build/default/production/moyenne.o
- .debug_info    0x0000d189      0x9ee build/default/production/battery.o
- .debug_info    0x0000db77      0xee4 build/default/production/spi.o
- .debug_info    0x0000ea5b     0x1619 build/default/production/radio.o
- .debug_info    0x00010074       0xf5 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(default-bootstrap-exception-handler.o)
- .debug_info    0x00010169       0xce /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(default-on-reset.o)
- .debug_info    0x00010237       0xd6 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(default-on-bootstrap.o)
- .debug_info    0x0001030d       0xf1 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(default-general-exception-handler.o)
- .debug_info    0x000103fe       0xe8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(defaultinterrupt.o)
+ .debug_info    0x00009559      0xe90 build/default/production/temperature.o
+ .debug_info    0x0000a3e9      0x492 build/default/production/watchdog.o
+ .debug_info    0x0000a87b     0x115e build/default/production/system.o
+ .debug_info    0x0000b9d9      0x841 build/default/production/pump.o
+ .debug_info    0x0000c21a      0x4c4 build/default/production/affichage.o
+ .debug_info    0x0000c6de      0x5cf build/default/production/alert.o
+ .debug_info    0x0000ccad      0x4ce build/default/production/moyenne.o
+ .debug_info    0x0000d17b      0x9ee build/default/production/battery.o
+ .debug_info    0x0000db69      0xee4 build/default/production/spi.o
+ .debug_info    0x0000ea4d     0x1619 build/default/production/radio.o
+ .debug_info    0x00010066       0xf5 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_info    0x0001015b       0xce /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(default-on-reset.o)
+ .debug_info    0x00010229       0xd6 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(default-on-bootstrap.o)
+ .debug_info    0x000102ff       0xf1 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(default-general-exception-handler.o)
+ .debug_info    0x000103f0       0xe8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(defaultinterrupt.o)
 
-.debug_abbrev   0x00000000     0x1ffb
+.debug_abbrev   0x00000000     0x1fea
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0xfd build/default/production/adc_manoual.o
  .debug_abbrev  0x000000fd      0x133 build/default/production/bargraph.o
@@ -1311,21 +1311,21 @@ END GROUP
  .debug_abbrev  0x00000f04      0x169 build/default/production/rtcc.o
  .debug_abbrev  0x0000106d       0xe5 build/default/production/save.o
  .debug_abbrev  0x00001152      0x1ba build/default/production/sleep.o
- .debug_abbrev  0x0000130c      0x253 build/default/production/temperature.o
- .debug_abbrev  0x0000155f       0xa4 build/default/production/watchdog.o
- .debug_abbrev  0x00001603      0x18e build/default/production/system.o
- .debug_abbrev  0x00001791      0x100 build/default/production/pump.o
- .debug_abbrev  0x00001891       0x9d build/default/production/affichage.o
- .debug_abbrev  0x0000192e       0xd1 build/default/production/alert.o
- .debug_abbrev  0x000019ff       0x9d build/default/production/moyenne.o
- .debug_abbrev  0x00001a9c      0x126 build/default/production/battery.o
- .debug_abbrev  0x00001bc2      0x15c build/default/production/spi.o
- .debug_abbrev  0x00001d1e      0x215 build/default/production/radio.o
- .debug_abbrev  0x00001f33       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(default-bootstrap-exception-handler.o)
- .debug_abbrev  0x00001f5b       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(default-on-reset.o)
- .debug_abbrev  0x00001f83       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(default-on-bootstrap.o)
- .debug_abbrev  0x00001fab       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(default-general-exception-handler.o)
- .debug_abbrev  0x00001fd3       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(defaultinterrupt.o)
+ .debug_abbrev  0x0000130c      0x242 build/default/production/temperature.o
+ .debug_abbrev  0x0000154e       0xa4 build/default/production/watchdog.o
+ .debug_abbrev  0x000015f2      0x18e build/default/production/system.o
+ .debug_abbrev  0x00001780      0x100 build/default/production/pump.o
+ .debug_abbrev  0x00001880       0x9d build/default/production/affichage.o
+ .debug_abbrev  0x0000191d       0xd1 build/default/production/alert.o
+ .debug_abbrev  0x000019ee       0x9d build/default/production/moyenne.o
+ .debug_abbrev  0x00001a8b      0x126 build/default/production/battery.o
+ .debug_abbrev  0x00001bb1      0x15c build/default/production/spi.o
+ .debug_abbrev  0x00001d0d      0x215 build/default/production/radio.o
+ .debug_abbrev  0x00001f22       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_abbrev  0x00001f4a       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(default-on-reset.o)
+ .debug_abbrev  0x00001f72       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(default-on-bootstrap.o)
+ .debug_abbrev  0x00001f9a       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(default-general-exception-handler.o)
+ .debug_abbrev  0x00001fc2       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/libpic32.a(defaultinterrupt.o)
 
 .debug_line     0x00000000     0x1f04
  *(.debug_line)

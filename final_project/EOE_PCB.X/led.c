@@ -10,7 +10,8 @@
  *	No color stop led blinking as well as TMR3.
  */
 
-void    led_alert(uint16_t color_bits){
+void    led_alert(uint16_t color_bits)
+{
     led_color = color_bits & LED_BITS;	//security mask
     //alert = color_bits == 0 ? 0 : 1;
     if (color_bits == 0)

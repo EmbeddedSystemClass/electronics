@@ -3,7 +3,7 @@
 void            init_manual_adc(void)
 {
 	//ADC
-        AD1CON1 = 0;                //[ON|FRZ|SIDL|FORM|SSRC|CLRASAM|ASAM|SAMP|DONE]
+    AD1CON1 = 0;                //[ON|FRZ|SIDL|FORM|SSRC|CLRASAM|ASAM|SAMP|DONE]
 	AD1CON2 = 0;                //[VCFG|OFFCAL|CSCNA|BUFS|SMPI|BUFM|ALTS]
 	AD1CON3 = 1;                //[ADRC|SAMC|ADCS = 0b10]
 	AD1CSSL = 0;                //SKIP ANx input scan

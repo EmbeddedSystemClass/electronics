@@ -204,7 +204,7 @@ uint8_t    convertTmp()
     }
     skipROM();
     WriteData(0x44); //convert temperature (96ms))
-    TMR1 = 0;
+    TMR3 = 0;
     while (Readbit() == 0)// CF datasheet en mode normale, le capteur retourne 0 sur le OW si operation en cou, et 1 une foisla convertion fini
     {
         if (s == 1000)
