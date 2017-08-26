@@ -288,7 +288,7 @@ int8_t radio_ack()
     T3CONbits.ON = 1;
     while ((status & 0x20) == 0 && TMR3 < 10000);
         radio_nop();
-    if ((status & 0x20) != 0)
+    if ((status & 0x20) != 0)   //if ack recieved
     {
         radio_write_reg(STATUS_REG, 0x20);      //Clear TX_DS
         return (0);
@@ -313,10 +313,16 @@ void		radio_send_values(void)                        //Simple Test for TX/RX - [
         if (tab_data[i].send == 0)      //if data unsent
         {
             //Try to send data to RPI
+            tab_data[i].time = 0x00;
+            tab_data[i].date = 0x00;
             tab_data[i].time = RTCTIME; //save hour of send
             tab_data[i].date = RTCDATE;
-            radio_send(tab_data[i], 24);
-            if (radio_ack() != 0) //send success
+
+            radio_flush_tx();
+            radio_write_reg(STATUS_REG, 0x20);      //Clear TX_DS
+
+            radio_send(tab_data[i], 28);
+            if (radio_ack() != 0) //send failed
             {
                 break;
             }

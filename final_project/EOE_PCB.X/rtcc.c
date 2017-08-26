@@ -35,7 +35,7 @@ void        init_rtcc(void)
     ALRMTIME = 0x1000;              // set alarm time to 0 hr, 0 min, 10 sec
     ALRMDATE = 0x0;                 // set alarm date to Friday 27 Oct 2006
     RTCALRMbits.CHIME = 1;          // Rollover
-    RTCALRMbits.AMASK = 0b10;        // Every 1sec // Valeur Test
+    RTCALRMbits.AMASK = 0b1000;        // Every 10 min // Valeur Test
     //Enable All
     RTCALRMbits.ALRMEN = 1;         // Enable Alrm
     RTCCONbits.ON = 1;              // turn on the RTCC
@@ -43,7 +43,7 @@ void        init_rtcc(void)
     system_lock();
 }
 
-uint8_t frequency = 1;
+uint8_t frequency = 3;  //multiply amask by 3 ->> 30 min
 
 void    __ISR(_RTCC_VECTOR, IPL6AUTO)           Rtcc_Interrupt(void)
 {

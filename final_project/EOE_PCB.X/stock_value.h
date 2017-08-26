@@ -13,14 +13,14 @@ typedef struct s_save
 {
     uint32_t    Heure;
     uint32_t    Date;
+    uint32_t    time;
+    uint32_t    date;
     uint32_t    Bat_save;
     uint16_t    Lum_save;               //luminosity value while sleeping (thresold wake up)
     uint16_t    H_save;
     int16_t     T_save;
     uint8_t     Lvl_save;
     uint8_t     send;
-    uint32_t    time;
-    uint32_t    date;
 }               t_save;
 
 void    save_data();

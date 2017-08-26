@@ -51,7 +51,7 @@ float       Temperature;
 uint8_t     level;
 int16_t     lum_sleep;                  //luminosity value while sleeping (thresold wake up)
 uint16_t    humidity;                   //current hum val
-t_save    tab_data[336];
+t_save      tab_data[336];
 uint16_t    nb_save;
 uint8_t     SLEEPON;
 uint16_t    led_color;
